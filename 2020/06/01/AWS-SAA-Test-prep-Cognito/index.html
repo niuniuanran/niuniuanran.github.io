@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS SAA Test prep Cognito - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-Identity-Federation-and-IpD"><span class="toc-text">Web Identity Federation and IpD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-Identity-Federation"><span class="toc-text">Web Identity Federation:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Identity-Provider-IdP"><span class="toc-text">Identity Provider (IdP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Types-of-Identity-Providers"><span class="toc-text">Types of Identity Providers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cognito-User-Pools"><span class="toc-text">Cognito User Pools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cognito-Identity-Pools"><span class="toc-text">Cognito Identity Pools</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep Cognito
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-01 10:06:17</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Decentralised managed authentication.</p>
+<img src="cognito.png" alt="" width="700px"/>
+
+<p>Amazon Cognito provides multiple services, and we’ll look at three of them:</p>
+<ul>
+<li>Cognito User Pools</li>
+<li>Cognito Identity Pools</li>
+<li>Cognito Sync</li>
+</ul>
+<h2 id="Web-Identity-Federation-and-IpD"><a href="#Web-Identity-Federation-and-IpD" class="headerlink" title="Web Identity Federation and IpD"></a>Web Identity Federation and IpD</h2><h3 id="Web-Identity-Federation"><a href="#Web-Identity-Federation" class="headerlink" title="Web Identity Federation:"></a>Web Identity Federation:</h3><p>To exchange identity and security information between an identity provider (IdP) and an application.</p>
+<blockquote>
+<p>OpenID Connect (OIDC) is an authentication protocol, based on the OAuth 2.0 family of specifications. It is an authentication layer on top of OAuth 2.0, an authorization framework.</p>
+</blockquote>
+<h3 id="Identity-Provider-IdP"><a href="#Identity-Provider-IdP" class="headerlink" title="Identity Provider (IdP)"></a>Identity Provider (IdP)</h3><p>a trusted provider of your user identity that lets you use authentication to access other services. e.g. Facebook, Amazon</p>
+<h3 id="Types-of-Identity-Providers"><a href="#Types-of-Identity-Providers" class="headerlink" title="Types of Identity Providers"></a>Types of Identity Providers</h3><p>The technology behind the Identity Providers</p>
+<blockquote>
+<p>Security Assertion Markup Language (SAML) is an XML-based framework for authentication and authorization between two entities: a Service Provider and an Identity Provider. The Service Provider agrees to trust the Identity Provider to authenticate users. In return, the Identity provider generates an authentication assertion, which indicates that a user has been authenticated.</p>
+</blockquote>
+<h2 id="Cognito-User-Pools"><a href="#Cognito-User-Pools" class="headerlink" title="Cognito User Pools"></a>Cognito User Pools</h2><p>User Pools are user directories used to manage the actions for web and mobile apps such as:</p>
+<ul>
+<li>Sign-up</li>
+<li>Sign-in</li>
+<li>Account recovery</li>
+<li>Account confirmation</li>
+</ul>
+<p>Allows users to sign-in directly to the User Pool, or using Web Identity Federation.<br>Uses <strong>AWS Cognito as the identity broker</strong> between AWS and the identity provider.<br>Successful user authentication generates a JSON Web Token (JWTs).<br>User Pools can be thought of as the account used to access the system (i.e. email address and password)</p>
+<img src="user-pool.png" alt="" width="900px"/>
+
+
+<h2 id="Cognito-Identity-Pools"><a href="#Cognito-Identity-Pools" class="headerlink" title="Cognito Identity Pools"></a>Cognito Identity Pools</h2><p>provide temporary AWS credentials to access AWS services, e.g. S3, DynamoDB<br>Identity Pools can be thought of as the actual mechanism authorizing access to the AWS resource.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

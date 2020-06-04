@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS SAA Test prep EC2 - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EC2-instance-Types"><span class="toc-text">EC2 instance Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Instance-Profile"><span class="toc-text">Instance Profile</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Placement-Groups"><span class="toc-text">Placement Groups</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cluster"><span class="toc-text">Cluster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Partition"><span class="toc-text">Partition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spread"><span class="toc-text">Spread</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#User-Data"><span class="toc-text">User Data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Meta-Data"><span class="toc-text">Meta Data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AMI"><span class="toc-text">AMI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-Cases"><span class="toc-text">User Cases</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AMI-Marketplace"><span class="toc-text">AMI Marketplace</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Choosing-an-AMI"><span class="toc-text">Choosing an AMI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Copying-an-AMI"><span class="toc-text">Copying an AMI.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EC2-Auto-Scaling-Groups"><span class="toc-text">EC2 Auto Scaling Groups</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Capacity-Settings"><span class="toc-text">Capacity Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Health-Check-Replacements"><span class="toc-text">Health Check Replacements</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EC2-Health-Check-Type"><span class="toc-text">EC2 Health Check Type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ELB-Health-Check-Type"><span class="toc-text">ELB Health Check Type</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaling-Policies"><span class="toc-text">Scaling Policies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Target-Tracking-Scaling-Policy"><span class="toc-text">Target Tracking Scaling Policy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Scaling-Policy"><span class="toc-text">Simple Scaling Policy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scaling-Policies-with-steps"><span class="toc-text">Scaling Policies with steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ASG-ELB-Integration"><span class="toc-text">ASG-ELB Integration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Launch-Configuration"><span class="toc-text">Launch Configuration</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep EC2
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-01 23:30:36</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Highly configurable server.<br>It takes minutes to launch new instances.<br>Anything and everything on AWS uses EC2 instance underneath.</p>
+<h1 id="EC2-instance-Types"><a href="#EC2-instance-Types" class="headerlink" title="EC2 instance Types"></a>EC2 instance Types</h1><img src="types.png" width="800px" alt=""/>
+
+<p>Instance Sizes generally double in price and key attributes</p>
+<img src="double.png" width="800px" alt=""/>
+
+<h1 id="Instance-Profile"><a href="#Instance-Profile" class="headerlink" title="Instance Profile"></a>Instance Profile</h1><p>You can attach a role to an instance via an <strong>Instance Profile</strong><br>You want to always avoid embedding your AWS credentials when possible.</p>
+<p>An Instance Profile holds a reference to a role.<br>When you select an IAM role when launching an EC2 instance, AWS will <strong>automatically create the Instance Profile</strong> for you.<br>Profiles are not easily viewed via the AWS Console.</p>
+<h1 id="Placement-Groups"><a href="#Placement-Groups" class="headerlink" title="Placement Groups"></a>Placement Groups</h1><p>Placement Groups let you choose the logical placement of your instances to optimize for communication, performance or durability.<br><strong>Free</strong>.</p>
+<h2 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h2><p>Packs instances close together inside one <strong>AZ</strong></p>
+<h2 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h2><p>Spreads instances across logical partition.<br>Each partition do not share the underlying hardware (rack per partition)<br>Well suited for <strong>High Performance Computing</strong> (HPC) applications.</p>
+<h2 id="Spread"><a href="#Spread" class="headerlink" title="Spread"></a>Spread</h2><p>Each instance is placed on a different rack.<br>When critical instances should be kept away from each other.<br>Can be multi-AZ.<br>You can spread up to 7 instances.</p>
+<h1 id="User-Data"><a href="#User-Data" class="headerlink" title="User Data"></a>User Data</h1><p>Script that will automatically run when launching the instance.<br>From within the EC2 instance, if you were to SSH in and CURL this special URL you can see the UserData script:<br><a href="http://169.254.169.254/latest/user-data" target="_blank" rel="noopener">http://169.254.169.254/latest/user-data</a></p>
+<h1 id="Meta-Data"><a href="#Meta-Data" class="headerlink" title="Meta Data"></a>Meta Data</h1><p>From your EC2 instance you can access information about the EC2 via a special url endpoint at<br>169.254.169.254</p>
+<p>curl <a href="http://169.254.169.254/latest/meta-data/public-hostname" target="_blank" rel="noopener">http://169.254.169.254/latest/meta-data/public-hostname</a><br>curl <a href="http://169.254.169.254/latest/meta-data/ami-id" target="_blank" rel="noopener">http://169.254.169.254/latest/meta-data/ami-id</a><br>curl <a href="http://169.254.169.254/latest/meta-data/instance-type" target="_blank" rel="noopener">http://169.254.169.254/latest/meta-data/instance-type</a></p>
+<h1 id="AMI"><a href="#AMI" class="headerlink" title="AMI"></a>AMI</h1><p>EC2 instances &lt;-&gt; AMIs</p>
+<p>AMI holds:</p>
+<ul>
+<li>launch permissions: which AWS accounts can use the AMI to launch instances</li>
+<li>template for root volume of the instance (EBS snapshot/Instance Store template)</li>
+<li>A <strong>block device mapping</strong>, specifying the volumes to attach the the instance when it’s launched.</li>
+</ul>
+<h2 id="User-Cases"><a href="#User-Cases" class="headerlink" title="User Cases"></a>User Cases</h2><p>Using <strong>Systems Manager Automation</strong> you can routinely patch your AMIs with security updates and bake those AMIs.</p>
+<p>AMIs are used with <strong>LaunchConfigurations</strong>. When you want to roll out updates to multiple instances you make a copy of your LaunchConfiguration with new AMI.</p>
+<blockquote>
+<p>When you create a launch configuration, you must specify information about the EC2 instances to launch. A launch configuration is an instance configuration template that an Auto Scaling group uses to launch EC2 instances. </p>
+</blockquote>
+<blockquote>
+<p><strong>AWS Systems Manager Automation</strong> simplifies common maintenance and deployment tasks of EC2 instances and other AWS resources. </p>
+</blockquote>
+<p>You can create an AMI from an existing EC2 instances that is either <strong>running</strong> or <strong>stopped</strong>.</p>
+<h1 id="AMI-Marketplace"><a href="#AMI-Marketplace" class="headerlink" title="AMI Marketplace"></a>AMI Marketplace</h1><p>You can purchase subscriptions to <strong>vendor maintained</strong> AMIs.</p>
+<h1 id="Choosing-an-AMI"><a href="#Choosing-an-AMI" class="headerlink" title="Choosing an AMI"></a>Choosing an AMI</h1><p>AMIs are <strong>region specific</strong>. AMIs have an AMI ID, same configurations in different regions will have different AMI ID.</p>
+<p>AMI can be selected based on:</p>
+<ul>
+<li>Region</li>
+<li>OS</li>
+<li>Architecture</li>
+<li>Launch Permissions</li>
+<li>Root Device Volume<ul>
+<li>Instance Store(Ephemeral Storage)</li>
+<li>EBS backed volumes</li>
+</ul>
+</li>
+</ul>
+<p>AMIs are categorised as either backed by Amazon EBS, or backed by Instance Store.</p>
+<h1 id="Copying-an-AMI"><a href="#Copying-an-AMI" class="headerlink" title="Copying an AMI."></a>Copying an AMI.</h1><p>The only way you can move an AMI from one region to another is through a <strong>COPY</strong> command.<br>Copy AMI lets you choose a <strong>destination region</strong>.</p>
+<h1 id="EC2-Auto-Scaling-Groups"><a href="#EC2-Auto-Scaling-Groups" class="headerlink" title="EC2 Auto Scaling Groups"></a>EC2 Auto Scaling Groups</h1><p>ASG contains a collection of EC2 instances that are treated as a group.</p>
+<p>Automatic Scaling can happen via:</p>
+<ul>
+<li>Capacity Settings</li>
+<li>Health Check Replacement</li>
+<li>Scaling Policies</li>
+</ul>
+<h2 id="Capacity-Settings"><a href="#Capacity-Settings" class="headerlink" title="Capacity Settings"></a>Capacity Settings</h2><p>Based on:</p>
+<ul>
+<li>Min</li>
+<li>Max</li>
+<li>Desired Capacity<br>ASG will always launch instances to meet <strong>minimum</strong> capacity.</li>
+</ul>
+<h2 id="Health-Check-Replacements"><a href="#Health-Check-Replacements" class="headerlink" title="Health Check Replacements"></a>Health Check Replacements</h2><h3 id="EC2-Health-Check-Type"><a href="#EC2-Health-Check-Type" class="headerlink" title="EC2 Health Check Type"></a>EC2 Health Check Type</h3><p>ASG will perform a health check on EC2 instances to identify software OR hardware issue.<br>Based on <strong>EC2 Status Check</strong><br>If an instance is considered unhealthy, ASG will terminate and launch a new instance.</p>
+<h3 id="ELB-Health-Check-Type"><a href="#ELB-Health-Check-Type" class="headerlink" title="ELB Health Check Type"></a>ELB Health Check Type</h3><p>ASG will perform a health check based on the ELB health check.<br>ELB can perform health checks by **pinging an HTTP(S) endpoint with an expected response.</p>
+<h2 id="Scaling-Policies"><a href="#Scaling-Policies" class="headerlink" title="Scaling Policies"></a>Scaling Policies</h2><p>Three types of Scaling Policies:</p>
+<h3 id="Target-Tracking-Scaling-Policy"><a href="#Target-Tracking-Scaling-Policy" class="headerlink" title="Target Tracking Scaling Policy"></a>Target Tracking Scaling Policy</h3><p>Maintains a specific <strong>metric</strong> at a target value:</p>
+<ul>
+<li>Application Load Balancer Request Count per target</li>
+<li>Average CPU Utilization</li>
+<li>Average Network in</li>
+<li>Average Network out</li>
+</ul>
+<h3 id="Simple-Scaling-Policy"><a href="#Simple-Scaling-Policy" class="headerlink" title="Simple Scaling Policy"></a>Simple Scaling Policy</h3><p>Scales when an alarm is breached. For example, “Add foo(a fixed number) instances when <strong>bar alarm</strong>“<br>No longer recommended, because <strong>it’s a legacy policy, not as robust as scaling policies with steps</strong>.</p>
+<h3 id="Scaling-Policies-with-steps"><a href="#Scaling-Policies-with-steps" class="headerlink" title="Scaling Policies with steps"></a>Scaling Policies with steps</h3><p>Scales when an alarm is breached, can escalates based on alarm value changing.</p>
+<p>e.g. If foo &lt; 2 then add 1 instance, if foo &lt; 3 and foo &gt;=2 then add 3 instances.</p>
+<h2 id="ASG-ELB-Integration"><a href="#ASG-ELB-Integration" class="headerlink" title="ASG-ELB Integration"></a>ASG-ELB Integration</h2><p>When ASG is associated with ELB, richer health checks can be set.<br><strong>Classic Load Balancers</strong> are associated directly to the ASG.<br><strong>ALB and NLB</strong> are associated indirectly via their <strong>Target Groups</strong></p>
+<img width="900px" src="asg.png" alt=""/>
+
+<h2 id="Launch-Configuration"><a href="#Launch-Configuration" class="headerlink" title="Launch Configuration"></a>Launch Configuration</h2><p>A launch configuration is set in a way much like when you launch an instance.</p>
+<img width="900px" src="lc.png" alt=""/>
+
+<p>AMI, type, IAM roles, SG, storage.<br>An AMI only saves what the storage/applications look like, but launch configuration takes care of all the settings when an auto scaling group launches an instance.</p>
+<p>Launch Configurations <strong>cannot be edited</strong>. When you need to update your Launch Configuration, you create a new one or clone the existing configuration and then manually associate that new Launch Configuration.</p>
+<p><strong>Scaling in/out/up</strong>:</p>
+<ul>
+<li>Scaling Up is when you increase the size of an instance. eg: updating Launch Configuration with larger size. </li>
+<li>Scaling In is when you add servers</li>
+<li>Scaling Out is when you remove servers.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

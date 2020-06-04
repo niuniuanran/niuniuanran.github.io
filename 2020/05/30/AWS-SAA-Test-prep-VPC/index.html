@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS SAA Test prep VPC - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-components"><span class="toc-text">Core components</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Key-Features"><span class="toc-text">Key Features</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Default-VPC"><span class="toc-text">Default VPC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC-Peering"><span class="toc-text">VPC Peering</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Internet-Gateway"><span class="toc-text">Internet Gateway</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bastion-Jumpbox"><span class="toc-text">Bastion&#x2F;Jumpbox</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Direct-Connect"><span class="toc-text">Direct Connect</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC-Endpoints"><span class="toc-text">VPC Endpoints</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Endpoints"><span class="toc-text">Interface Endpoints</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gateway-Endpoints"><span class="toc-text">Gateway Endpoints</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPC-Endpoint-Summary"><span class="toc-text">VPC Endpoint Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC-Flow-Logs"><span class="toc-text">VPC Flow Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stateful-and-Stateless-filtering"><span class="toc-text">Stateful and Stateless filtering</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NAT"><span class="toc-text">NAT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-instance"><span class="toc-text">NAT instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-gateway"><span class="toc-text">NAT gateway</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep VPC
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-05-30 09:48:20</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Provision a logically isolated section of AWS Cloud where you can launch AWS resources in a virtual network that you define.</p>
+<h1 id="Core-components"><a href="#Core-components" class="headerlink" title="Core components"></a>Core components</h1><p>Think of a AWS VPC as your own personal data centre.<br>Gives you complete control over you virtual networking environment.</p>
+<ul>
+<li>Internet Gateway</li>
+<li>Virtual Private Gateway</li>
+<li>Route tables: each subnet can only associated with one RT. The default RT can be deleted once it is not used by any RT.</li>
+<li>VPC Peering</li>
+<li>VPC Endpoints</li>
+<li>Customer Gateway<h1 id="Key-Features"><a href="#Key-Features" class="headerlink" title="Key Features"></a>Key Features</h1></li>
+<li>VPCs are <strong>region</strong> specific</li>
+<li>5 VPC per region per account</li>
+<li>200 subnets per VPC</li>
+<li>each account each region comes with a default VPC</li>
+<li>You can use IPv4 CIDR block and in addition IPv6 CIDR blocks</li>
+<li>Many services cost nothing: VPC, Route Table, NACL, <strong>Internet Gateway</strong>, Security Groups, Subnets, <strong>VPC peering</strong>, Gateway Endpoint</li>
+<li>Some services cost money: NAT gateway, VPC Endpoints, VPN Gateway, Customer Gateway, Interface Endpoint.</li>
+<li>DNS hostnames: when you create a VPC, it doesn’t have a DNS hostnames turned on by default. When you launch EC2 instances inside the VPC, if the DNS hostnames are turned on for the VPC, the EC2 will get a Public DNS. </li>
+</ul>
+<h1 id="Default-VPC"><a href="#Default-VPC" class="headerlink" title="Default VPC"></a>Default VPC</h1><ul>
+<li>A VPC with a size /16 (172.31.0.0/16)</li>
+<li>Create a size /20 default subnet in <strong>each Availability Zone</strong></li>
+<li>Create an <strong>Internet Gateway</strong> and connect it to the default VPC</li>
+<li>Create a <strong>default SG</strong> and associate with the default VPC</li>
+<li>Create a <strong>default NACL</strong> and associate with your default VPC</li>
+<li>Associate the default <strong>DHCP</strong> options set for your AWS account with the default VPC</li>
+<li>Automatically has a main route table.</li>
+</ul>
+<blockquote>
+<p>The <strong>Dynamic Host Configuration Protocol (DHCP)</strong> is a network management protocol used on Internet Protocol networks whereby a DHCP server dynamically assigns an IP address and other network configuration parameters to each device on a network so they can communicate with other IP networks.</p>
+</blockquote>
+<h1 id="VPC-Peering"><a href="#VPC-Peering" class="headerlink" title="VPC Peering"></a>VPC Peering</h1><p>allows you to connect one VPC with another over a <strong>direct network route</strong> using <strong>private IP addresses</strong>.</p>
+<ul>
+<li>Instances in peered VPCs behave just like they are on the same network.</li>
+<li>Connect VPCs across same/different AWS accounts and <strong>regions</strong>: Let VPCs in different regions talk to each other through VPC Peering Connection.</li>
+<li>Peering uses a <strong>Star Configuration</strong>: 1 Central VPC, 4 other VPCs</li>
+<li>No transitive peering: one to one connect, peering must take place directly between VPCs</li>
+<li>No overlapping CIDR blocks.</li>
+</ul>
+<h1 id="Internet-Gateway"><a href="#Internet-Gateway" class="headerlink" title="Internet Gateway"></a>Internet Gateway</h1><p>IGW does two things:</p>
+<ul>
+<li>Provide a target in your VPC route tables for internet-routable traffic</li>
+<li>Perform network address translation (NAT) for instances that have been assigned public IPv4 addresses.</li>
+</ul>
+<h1 id="Bastion-Jumpbox"><a href="#Bastion-Jumpbox" class="headerlink" title="Bastion/Jumpbox"></a>Bastion/Jumpbox</h1><p>Bastions are EC2 instances that are security harden. They are designed to help you gain access to your EC2 instances in your private subnets via SSH or RCP.<br>NAT gateway/instances are only intended for EC2 instances to gain <strong>outbound</strong> access to the internet for things like security updates. NATs cannot/should not be used as Bastions.</p>
+<blockquote>
+<p>System Manager’s <strong>Session Manager</strong> replaces the need for Bastions.</p>
+</blockquote>
+<h1 id="Direct-Connect"><a href="#Direct-Connect" class="headerlink" title="Direct Connect"></a>Direct Connect</h1><p>AWS Direct Connect is AWS solution for establishing <strong>dedicated network connections from on-premises locations to AWS</strong>.<br>Helps reduce network costs and increase bandwidth throughput.<br>Provides a <strong>more consistent network experience</strong> than a typical internet-based connection.</p>
+<h1 id="VPC-Endpoints"><a href="#VPC-Endpoints" class="headerlink" title="VPC Endpoints"></a>VPC Endpoints</h1><p>VPC Endpoints allow you to <strong>privately</strong> connect your VPC to other AWS services.</p>
+<img src="VPC-endpoint.png" alt=""/>
+
+<ul>
+<li>Instances in the VPC do not need a <strong>public IP address</strong> to communicate with service resources.</li>
+<li>Traffic between your VPC and other services <strong>do not leave the AWS network</strong> - no need to go through the Internet.</li>
+<li>VPC Endpoints are <strong>horizontally scaled, redundant and highly available</strong> VPC component.</li>
+<li>Allows secure communication <strong>between instances and services</strong>: without adding availability risks or bandwidth constraints on your traffic.<br>There are two types of VPC endpoints: Interface Endpoints and Gateway endpoints.<h2 id="Interface-Endpoints"><a href="#Interface-Endpoints" class="headerlink" title="Interface Endpoints"></a>Interface Endpoints</h2>Interface Endpoints are <strong>Elastic Network Interfaces (ENI)</strong> with a private IP address. They serve as an entry point for traffic going to a supported service.<br>Interface Endpoints are powered by <strong>AWS PrivateLink</strong> (access services hosted on AWS to keep your network traffic within the AWS network).<br>Interface Endpoints support the following AWS services:</li>
+<li>API Gateway</li>
+<li>CloudFormation</li>
+<li>CloudWatch</li>
+<li>Kinesis</li>
+<li>SageMaker</li>
+<li>Codebuild</li>
+<li>AWS Config</li>
+<li>EC2 API</li>
+<li>ELB API</li>
+<li>AWS KMS</li>
+<li>Secrets Manager</li>
+<li>Security Token Service</li>
+<li>Service Catalog</li>
+<li>SNS</li>
+<li>SQS</li>
+<li>Systems Manager</li>
+<li>Marketplace Partner Services</li>
+<li>Endpoint Services in other AWS accounts<h2 id="Gateway-Endpoints"><a href="#Gateway-Endpoints" class="headerlink" title="Gateway Endpoints"></a>Gateway Endpoints</h2>AWS Gateway Endpoint currently only supports two services:</li>
+<li>Amazon S3</li>
+<li>DynamoDB<br>A Gateway Endpoint is a gateway that is <strong>a target for a specific route</strong> in your route table, used for <strong>traffic destined for a supported AWS service</strong>.</li>
+</ul>
+<h2 id="VPC-Endpoint-Summary"><a href="#VPC-Endpoint-Summary" class="headerlink" title="VPC Endpoint Summary"></a>VPC Endpoint Summary</h2><p>Interface Endpoints <strong>cost money</strong>, Gateway Endpoints are <strong>free</strong>.<br>Interface Endpoints uses and Elastic Network Interface (ENI) with a Private IP (powered by AWS PrivateLink)</p>
+<h1 id="VPC-Flow-Logs"><a href="#VPC-Flow-Logs" class="headerlink" title="VPC Flow Logs"></a>VPC Flow Logs</h1><p>VPC Flow Logs allow you to capture <strong>IP traffic information</strong> in -and-out of <strong>Network Interfaces</strong> within your VPC.<br>All log data is stored using Amazon <strong>CloudWatch Logs</strong>/<strong>S3 bucket</strong><br>After a Flow Log is created it can be viewed in detail with CloudWatch Logs.</p>
+<p>Flow Logs can be created for:</p>
+<ul>
+<li>VPC</li>
+<li>Subnets</li>
+<li>Network Interface</li>
+</ul>
+<p>Flow log contains source IPv4/IPv6 address and destination IPv4/IPv6 address. </p>
+<p>You <strong>cannot enable</strong> Flow Logs for VPCs peered with you VPC unless its in the same account.<br>VPC Flow Logs <strong>cannot be tagged</strong> like other AWS resources.<br>You <strong>cannot change the configuration</strong> of the Flow Log once it is created. You can only delete it.</p>
+<p>Some instance traffic is <strong>not monitored</strong>:</p>
+<ul>
+<li>Windows license activation traffic from instances</li>
+<li>Instance traffic generated by contacting the AWS DNS servers</li>
+<li>Traffic to and from the instance metadata address (169.254.169.254)</li>
+<li>DHCP Traffic - DHCP server assigning IP addresses and other parameters to the device</li>
+<li>Any traffic to the reserved IP address of the default VPC router.</li>
+</ul>
+<h2 id="Stateful-and-Stateless-filtering"><a href="#Stateful-and-Stateless-filtering" class="headerlink" title="Stateful and Stateless filtering"></a>Stateful and Stateless filtering</h2><p>Stateful filtering <strong>tracks the origin of a request</strong> and can automatically allow the reply to the request to be returned to the originating computer. For example, a stateful filter that allows inbound traffic to tcp port 80 on a webserver will allow the return traffic, usually on a high numbered port (e.g. destination tcp port 63,912) to pass through the stateful filter between the client and the webserver. <strong>The filtering device maintains a state table that tracks the origin and destination port numbers and IP addresses.</strong> <strong>Only one rule is required on the filtering device: allow traffic inbound to the web server on tcp port 80)</strong>.</p>
+<p>Stateless filtering, on the other hand, <strong>only examines the source or destination IP address and the destination port</strong>, ignoring whether the traffic is a new request or a reply to a request. In the above example, two rules would need to be implemented on the filtering device: one rule to allow traffic inbound to the web server on tcp port 80, and another rule to allow outbound traffic from the webserver (tcp port range 49,152 through 65,535).</p>
+<p>If you want to deny a certain IP address block, use NACL. Security Group only has ALLOW rules.</p>
+<h1 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h1><p>NAT is the method of re-mapping one IP address space into another.<br>In the case of VPC, it is used to remap the private IP addresses of instances in a private subnet so that it will have outbound access to the Internet.</p>
+<h2 id="NAT-instance"><a href="#NAT-instance" class="headerlink" title="NAT instance"></a>NAT instance</h2><p>When creating a NAT instance you must disable source and destination checks on the instance.<br>Size of the instance determines how much traffic can be handled.<br>You must have a route out of the private subnet to the NAT instance.<br><strong>High Availability</strong> of a NAT instance can be achieved using <strong>Autoscaling Groups</strong>, multiple <strong>subnets in different AZs</strong>, and <strong>automatic failover between them using a script</strong>.</p>
+<h2 id="NAT-gateway"><a href="#NAT-gateway" class="headerlink" title="NAT gateway"></a>NAT gateway</h2><p>managed by AWS<br>automatically assigned a public IP address<br>You can only have 1 NAT Gateway inside 1 AZ. (Cannot span AZs)<br>Start at 5 Gbps and scales up to 45 Gbps.<br>Charged by hour + data processing</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

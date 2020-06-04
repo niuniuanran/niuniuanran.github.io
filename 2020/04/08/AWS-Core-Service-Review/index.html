@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS Core Service Review - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC"><span class="toc-text">VPC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NAT-Instance-and-NAT-Gateway"><span class="toc-text">NAT Instance and NAT Gateway</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-Instance"><span class="toc-text">NAT Instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-Gateway"><span class="toc-text">NAT Gateway</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Internet-Gateway"><span class="toc-text">Internet Gateway</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch"><span class="toc-text">CloudWatch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail"><span class="toc-text">CloudTrail</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EC2"><span class="toc-text">EC2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda"><span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Elastic-Beanstalk"><span class="toc-text">Elastic Beanstalk</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fargate"><span class="toc-text">Fargate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECS"><span class="toc-text">ECS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EKS"><span class="toc-text">EKS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECR"><span class="toc-text">ECR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#S3"><span class="toc-text">S3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EBS"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EFS"><span class="toc-text">EFS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-S3-Glacier"><span class="toc-text">Amazon S3 Glacier</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront"><span class="toc-text">CloudFront</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS"><span class="toc-text">RDS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DynamoDB"><span class="toc-text">DynamoDB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redshift"><span class="toc-text">Redshift</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora"><span class="toc-text">Aurora</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Elastic-Load-Balancing-ELB"><span class="toc-text">Elastic Load Balancing(ELB)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Auto-Scaling"><span class="toc-text">Auto Scaling</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Core Service Review
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-08 10:27:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS CP Test" title="AWS CP Test">AWS CP Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Here’s a white paper for <a href="https://d1.awsstatic.com/whitepapers/aws-overview.pdf" target="_blank" rel="noopener">AWS Services Overview</a><br>Content up to update and confirmation</p>
+<h1 id="VPC"><a href="#VPC" class="headerlink" title="VPC"></a>VPC</h1><ul>
+<li>Description: <strong>Create a virtual network</strong></li>
+<li>What sort of service does it provide: <strong>Networking</strong></li>
+<li>Non-cloud equivalent: <strong>local network</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply: <strong>IaaS/Does not apply</strong></li>
+<li>AWS Managed?  <strong>Yes. You have to configure some parts, but AWS manages the virtual border of your network.</strong></li>
+<li>Related Services <strong>NAT Gateway, Internet Gateway, EC2, EBS, etc.</strong></li>
+</ul>
+<h1 id="NAT-Instance-and-NAT-Gateway"><a href="#NAT-Instance-and-NAT-Gateway" class="headerlink" title="NAT Instance and NAT Gateway"></a>NAT Instance and NAT Gateway</h1><p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html" target="_blank" rel="noopener">AWS’s comparison of NAT instance vs NAT Gateway</a></p>
+<h2 id="NAT-Instance"><a href="#NAT-Instance" class="headerlink" title="NAT Instance"></a>NAT Instance</h2>
+<ul>
+<li>Description: <strong>An EC2 instance that does network address translation. It lies in a public subnet in your VPC, to enable instances in the private subnet to initiate outbound IPv4 traffic to the Internet or other AWS services</strong><blockquote>
+<p>Might not always be available because of your instance shutdown, but NAT Gateway is always available; The bandwidth of NAT gateway depends on your instance bandwidth, and NAT Gateway can scale up to 45 Gbps<br>Could be cheaper than NAT gateway</p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Networking, address translation</strong></li>
+<li>Non-cloud equivalent: <strong>Physical NAT service</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>IaaS</strong></li>
+<li>AWS Managed? <strong>No, user managed. You are using an EC2 and configuring your service</strong></li>
+<li>Related Services <strong>EC2, RDS, DynamoDB</strong></li>
+</ul>
+<h2 id="NAT-Gateway"><a href="#NAT-Gateway" class="headerlink" title="NAT Gateway"></a>NAT Gateway</h2>
+<ul>
+<li>Description: <strong>Functions similarly as NAT instance. Network address translation (NAT) gateway to enable instances in a private subnet to connect to the internet or other AWS services, but prevent the internet from initiating a connection with those instances. Provides more availability and bandwidth</strong></li>
+<li>What sort of service does it provide: <strong>Networking, address translation</strong></li>
+<li>Non-cloud equivalent: <strong>Physical NAT service</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>SaaS. You are consuming it like a software</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>EC2, RDS, DynamoDB</strong></li>
+</ul>
+<h1 id="Internet-Gateway"><a href="#Internet-Gateway" class="headerlink" title="Internet Gateway"></a>Internet Gateway</h1><ul>
+<li>Description: <strong>An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet.</strong><br>It therefore imposes no availability risks or bandwidth constraints on your network traffic.<ul>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html" target="_blank" rel="noopener">Enabling Internet Access to/from instances in a VPC subnet</a>:<ul>
+<li>Attach an Internet Gateway, </li>
+<li>Add a route to direct Internet-bound traffic to the Internet Gateway;  </li>
+<li>Ensure instances have a unique public IP (public IPv4, Elastic IP, IPv6 address) </li>
+<li>Ensure the network access control lists (NACL) and security group rules allow the relevant </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What sort of service does it provide: <strong>Networking</strong></li>
+<li>Non-cloud equivalent: <strong>Router</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>IaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>VPC, EC2</strong></li>
+</ul>
+<h1 id="CloudWatch"><a href="#CloudWatch" class="headerlink" title="CloudWatch"></a>CloudWatch</h1><ul>
+<li>Description: <strong>CloudWatch collects <u>monitoring</u> and <u>operational</u> data in the form of logs, metrics, and events</strong><blockquote>
+<p>Overall system performance measures: number of requests, traffic load, I/O stuff. Like from outside looking in: how does the system behave, CPU usage, etc.</p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Security</strong></li>
+<li>Non-cloud equivalent: <strong>log</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>SaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>Lambda, EC2, EBS, S3, EFS</strong></li>
+</ul>
+<h1 id="CloudTrail"><a href="#CloudTrail" class="headerlink" title="CloudTrail"></a>CloudTrail</h1><ul>
+<li>Description: <strong>With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure.</strong><blockquote>
+<p>Records accounts’ behaviours, access to resources. Allows you to go into more details, like who made what API calls and did what. Records the user that makes API calls. </p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Security</strong></li>
+<li>Non-cloud equivalent: <strong>log</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>SaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>IAM, AWS Organizations</strong></li>
+</ul>
+<h1 id="EC2"><a href="#EC2" class="headerlink" title="EC2"></a>EC2</h1><ul>
+<li>Description: <strong>Virtual machine for multiple purposes of computing service</strong></li>
+<li>What sort of service does it provide: <strong>Computing</strong></li>
+<li>Non-cloud equivalent: <strong>Computer</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>IaaS</strong></li>
+<li>AWS Managed? <strong>No</strong></li>
+<li>Related Services <strong>EBS, VPC, S3, RDS, CloudWatch</strong></li>
+</ul>
+<h1 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h1><ul>
+<li>Description: <strong>It lets you run code as driven by pre-defined events, like a function without the need to configure a server</strong></li>
+<li>What sort of service does it provide: <strong>Computing</strong></li>
+<li>Non-cloud equivalent: <strong>Computer</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>EC2, CloudWatch, IAM</strong></li>
+</ul>
+<h1 id="Elastic-Beanstalk"><a href="#Elastic-Beanstalk" class="headerlink" title="Elastic Beanstalk"></a>Elastic Beanstalk</h1><ul>
+<li>Description: <strong>AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services</strong><br>You can simply upload your code, and AWS Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, and auto scaling to application health monitoring. At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time.</li>
+<li>What sort of service does it provide: <strong>Compute</strong></li>
+<li>Non-cloud equivalent: <strong>Web server hosts like Xampp , Lampp</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Partially</strong></li>
+<li>Related Services <strong>EC2, VPC</strong></li>
+</ul>
+<h1 id="Fargate"><a href="#Fargate" class="headerlink" title="Fargate"></a>Fargate</h1><ul>
+<li>Description: <strong>AWS Fargate is a compute engine for Amazon ECS that allows you to run containers without having to manage servers or clusters.</strong><blockquote>
+<p>Amazon ECS has two modes: Fargate launch type and EC2 launch type. With Fargate launch type, all you have to do is package your application in containers, specify the CPU and memory requirements, define networking and IAM policies, and launch the application. EC2 launch type allows you to have server-level, more granular control over the infrastructure that runs your container applications.</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>Kubernetes: Manage a cluster of Linux containers as a single system to accelerate Dev and simplify Ops</p>
+</blockquote>
+<ul>
+<li>What sort of service does it provide: <strong>Compute, container service launching</strong></li>
+<li>Non-cloud equivalent: <strong>Your own container orchestration software</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>Containers as a Service</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>ECS, EC2</strong></li>
+</ul>
+<h1 id="ECS"><a href="#ECS" class="headerlink" title="ECS"></a>ECS</h1><ul>
+<li>Description: <strong>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-performance container orchestration service that supports Docker containers and allows you to easily run and scale containerized applications on AWS.</strong></li>
+<li>What sort of service does it provide: <strong>Computing</strong></li>
+<li>Non-cloud equivalent: <strong>Your own container orchestration software</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>Container as a Service</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>Fargate, EC2</strong></li>
+</ul>
+<h1 id="EKS"><a href="#EKS" class="headerlink" title="EKS"></a>EKS</h1><ul>
+<li>Description: <strong>Amazon Elastic Container Service for Kubernetes (Amazon EKS) makes it easy to deploy, manage, and scale containerized applications using <a href="https://aws.amazon.com/kubernetes/" target="_blank" rel="noopener">Kubernetes</a> on AWS.</strong><blockquote>
+<p>Amazon EKS runs the Kubernetes management infrastructure for you across multiple AWS availability zones to eliminate a single point of failure. Amazon EKS is certified Kubernetes conformant so you can use existing tooling and plugins from partners and the Kubernetes community. Applications running on any standard Kubernetes environment are fully compatible and can be easily migrated to Amazon EKS.</p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Compute</strong></li>
+<li>Non-cloud equivalent: ****</li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>Container as a service</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services ****</li>
+</ul>
+<h1 id="ECR"><a href="#ECR" class="headerlink" title="ECR"></a>ECR</h1><ul>
+<li>Description: <strong>Amazon Elastic Container Registry (Amazon ECR) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.</strong><blockquote>
+<p>Amazon ECR is integrated with Amazon Elastic Container Service (Amazon ECS), simplifying your development to production workflow. Amazon ECR eliminates the need to operate your own container repositories or worry about scaling the underlying infrastructure.</p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Computing</strong></li>
+<li>Non-cloud equivalent: ****</li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>ECS</strong></li>
+</ul>
+<h1 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h1><ul>
+<li>Description: <strong>Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.</strong></li>
+<li>What sort of service does it provide: <strong>Storage</strong></li>
+<li>Non-cloud equivalent: <strong>Hard drive</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong><ul>
+<li>It’s not IaaS it’s a ready to go service, you can run it as is without the need of “configuring/building/installing” anything.</li>
+<li>its more of a PaaS than SAAS because you can build so many things on top of S3 using APIs, for example the integration of cloudfront, encryption, static websites, lifecycle management etc. </li>
+</ul>
+</li>
+<li>AWS Managed? <strong>No</strong></li>
+<li>Related Services <strong>EC2</strong></li>
+</ul>
+<h1 id="EBS"><a href="#EBS" class="headerlink" title="EBS"></a>EBS</h1><ul>
+<li>Description: <strong>Amazon Elastic Block Store (Amazon EBS) provides persistent block storage volumes for use with Amazon EC2 instances in the AWS Cloud.</strong><blockquote>
+<p> Amazon EBS volumes offer the consistent and low-latency performance needed to run your workloads. With Amazon EBS, you can scale your usage up or down within minutes—all while paying a low price for only what you provision.</p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Storage</strong></li>
+<li>Non-cloud equivalent: <strong>Hard drive</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>IaaS</strong></li>
+<li>AWS Managed? <strong>No</strong></li>
+<li>Related Services <strong>EC2</strong><blockquote>
+<p>EBS is a virtual hard disk in the cloud and serves as block storage</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="EFS"><a href="#EFS" class="headerlink" title="EFS"></a>EFS</h1><ul>
+<li>Description: <strong>Amazon Elastic File System (Amazon EFS) provides a simple, scalable, elastic file system for Linux-based workloads for use with AWS Cloud services and onpremises resources.</strong></li>
+<li>What sort of service does it provide: <strong>Storage</strong></li>
+<li>Non-cloud equivalent: <strong>Hard drive</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong><blockquote>
+<p>Amazon EFS is a fully managed service that requires no changes to your existing applications and tools, providing access through a standard file system interface for seamless integration.<br>Amazon EFS is a regional service storing data within and across multiple Availability Zones (AZs) for high availability and durability. </p>
+</blockquote>
+</li>
+<li>Related Services <strong>EC2</strong></li>
+</ul>
+<h1 id="Amazon-S3-Glacier"><a href="#Amazon-S3-Glacier" class="headerlink" title="Amazon S3 Glacier"></a>Amazon S3 Glacier</h1><ul>
+<li>Description: <strong>Amazon S3 Glacier is a secure, durable, and extremely low-cost storage service for data archiving and long-term backup.</strong><blockquote>
+<p>It is designed to deliver 99.999999999% durability, and provides comprehensive security and compliance capabilities that can help meet even the most stringent regulatory requirements.</p>
+</blockquote>
+<ul>
+<li>The Amazon S3 Glacier storage class provides three retrieval options to fit your use case. <ul>
+<li>Expedited retrievals typically return data in 1-5 minutes, and are great for Active Archive use cases.</li>
+<li>Standard retrievals typically complete between 3-5 hours, and work well for less time-sensitive needs like backup data, media editing, or long-term analytics. </li>
+<li>Bulk retrievals are the lowest-cost retrieval option, returning large amounts of data within 5-12 hours.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What sort of service does it provide: <strong>Storage</strong></li>
+<li>Non-cloud equivalent: ****</li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>S3</strong></li>
+</ul>
+<h1 id="CloudFront"><a href="#CloudFront" class="headerlink" title="CloudFront"></a>CloudFront</h1><ul>
+<li>Description: <strong>Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment.</strong><blockquote>
+<p>CloudFront is integrated with AWS – both physical locations that are directly connected to the AWS global infrastructure, as well as other AWS services. CloudFront works seamlessly with services including AWS Shield for DDoS mitigation, Amazon S3, Elastic Load Balancing or Amazon EC2 as origins for your applications, and Lambda@Edge to run custom code closer to customers’ users and to customize the user experience.</p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Content Delivery (Network)</strong></li>
+<li>Non-cloud equivalent: </li>
+<li>IaaS/PaaS/SaaS/ does not apply ****</li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>AWS Shield, EC2, S3, Elastic Load Balancing, Lambda@Edge</strong><blockquote>
+<p>CloudFront is highly effective when delivering both static and dynamic content to users located in different areas. With the help of edge locations, content is made available with low latency and customers gain improved performance. Accessing content via a VPN connection does not lend itself well to CloudFront as users appear to be in the same location.</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="RDS"><a href="#RDS" class="headerlink" title="RDS"></a>RDS</h1><ul>
+<li>Description: <strong>Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud.</strong><blockquote>
+<p>It provides cost-efficient and resizable capacity while automating time-consuming administration tasks such as hardware provisioning, database setup, patching and backups.</p>
+</blockquote>
+</li>
+<li>What sort of service does it provide: <strong>Database</strong></li>
+<li>Non-cloud equivalent: ****</li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes</strong></li>
+<li>Related Services <strong>EC2</strong></li>
+</ul>
+<p><strong>Amazon RDS has 6 engines. These are • MySQL • Aurora • MS SQL • Oracle • ProgreSQL • MariaDB</strong></p>
+<h1 id="DynamoDB"><a href="#DynamoDB" class="headerlink" title="DynamoDB"></a>DynamoDB</h1><ul>
+<li>Description: <strong>Amazon DynamoDB is a <u>key-value and document database</u> that delivers single digit millisecond performance at any scale. It’s a fully managed, multi-region, multi-master database with built-in security, backup and restore, and in-memory caching for internet-scale applications.</strong></li>
+<li>What sort of service does it provide: <strong>key-value and document Database</strong></li>
+<li>Non-cloud equivalent: <strong>on-premises key-value and document database</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes, fully managed</strong></li>
+<li>Related Services <strong>EC2</strong></li>
+</ul>
+<h1 id="Redshift"><a href="#Redshift" class="headerlink" title="Redshift"></a>Redshift</h1><ul>
+<li>Description: <strong>Amazon Redshift is a fast, scalable DATA WAREHOUSE that makes it simple and cost-effective to analyze all your data across your data warehouse and data lake.</strong></li>
+<li>What sort of service does it provide: <strong>Database</strong></li>
+<li>Non-cloud equivalent: <strong>on-premises data warehouse</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes, fully managed</strong></li>
+<li>Related Services <strong>S3, EC2</strong><blockquote>
+<p>Redshift is ideal for data warehousing, performing back office analysis and aggregation of data from multiple sources.</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="Aurora"><a href="#Aurora" class="headerlink" title="Aurora"></a>Aurora</h1><ul>
+<li>Description: <strong>Amazon Aurora is a MySQL and PostgreSQL compatible relational database ENGINE that combines the speed and availability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases.</strong></li>
+<li>What sort of service does it provide: <strong>database</strong></li>
+<li>Non-cloud equivalent: <strong>on-premise database engine</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply <strong>PaaS</strong></li>
+<li>AWS Managed? <strong>Yes. Amazon Aurora is fully managed by Amazon Relational Database Service (RDS), which automates time-consuming administration tasks like hardware provisioning, database setup, patching, and backups.</strong></li>
+<li>Related Services <strong>EC2</strong><blockquote>
+<p>Aurora can read MySQL/PostgreSQL databases and is a natural upgrade point for MySQL/PostgreSQL that offers high availability and scalability</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="Elastic-Load-Balancing-ELB"><a href="#Elastic-Load-Balancing-ELB" class="headerlink" title="Elastic Load Balancing(ELB)"></a>Elastic Load Balancing(ELB)</h1><ul>
+<li>Description: <strong>Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses.</strong><ul>
+<li>Elastic Load Balancing offers three types of load balancers: <ul>
+<li>Application Load Balancer is best suited for load balancing of HTTP and HTTPS traffic; </li>
+<li>Network Load Balancer is best suited for load balancing of Transmission Control Protocol (TCP), User Datagram Protocol (UDP) and Transport Layer Security (TLS) traffic where extreme performance is required.</li>
+<li>Classic Load Balancer provides basic load balancing across multiple Amazon EC2 instances and operates at both the request level and connection level. <blockquote>
+<p>Elastic Load Balancing offers ability to load balance across AWS and on-premises resources using the same load balancer. This makes it easy for you to migrate, burst, or failover on-premises applications to the cloud.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What sort of service does it provide: <strong>Networking</strong></li>
+<li>Non-cloud equivalent: <strong>on-premise load balancer</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply: <strong>SaaS</strong></li>
+<li>AWS Managed?  <strong>Yes</strong></li>
+<li>Related Services <strong>EC2, ECS</strong> </li>
+</ul>
+<h1 id="Auto-Scaling"><a href="#Auto-Scaling" class="headerlink" title="Auto Scaling"></a>Auto Scaling</h1><ul>
+<li>Description: <strong>Amazon EC2 Auto Scaling helps you maintain application availability and allows you to automatically add or remove EC2 instances according to conditions you define.</strong></li>
+<li>What sort of service does it provide: <strong>Compute</strong></li>
+<li>Non-cloud equivalent: <strong>No</strong></li>
+<li>IaaS/PaaS/SaaS/ does not apply: <strong>SaaS</strong></li>
+<li>AWS Managed?  <strong>Yes</strong></li>
+<li>Related Services <strong>EC2</strong></li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
