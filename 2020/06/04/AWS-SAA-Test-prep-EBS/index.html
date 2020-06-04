@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Types"><span class="toc-text">Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Purpose-SSD-gp2"><span class="toc-text">General Purpose (SSD) (gp2)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Provisioned-IOPS-SSD-SSD-io1"><span class="toc-text">Provisioned IOPS SSD (SSD) (io1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Throughput-Optimized-HDD-st1"><span class="toc-text">Throughput Optimized HDD(st1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cold-HDD-sc1"><span class="toc-text">Cold HDD (sc1)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Storage-Volumes"><span class="toc-text">Storage Volumes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hard-Disk-Drive-HDD"><span class="toc-text">Hard Disk Drive (HDD)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solid-State-Drive-SSD"><span class="toc-text">Solid State Drive (SSD)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Magnetic-Tape"><span class="toc-text">Magnetic Tape</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Moving-Volumes"><span class="toc-text">Moving Volumes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-AZ-gt-another-AZ"><span class="toc-text">One AZ-&gt;another AZ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One-Region-gt-another"><span class="toc-text">One Region -&gt; another</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Encrypted-Root-Volumes"><span class="toc-text">Encrypted Root Volumes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EBS-vs-Instance-Store-Volumes-Ephemeral"><span class="toc-text">EBS vs Instance Store Volumes (Ephemeral)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Instance-Store-Volumes"><span class="toc-text">Instance Store Volumes</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Types"><span class="toc-text">Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Purpose-SSD-gp2"><span class="toc-text">General Purpose (SSD) (gp2)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Provisioned-IOPS-SSD-SSD-io1"><span class="toc-text">Provisioned IOPS SSD (SSD) (io1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Throughput-Optimized-HDD-st1"><span class="toc-text">Throughput Optimized HDD(st1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cold-HDD-sc1"><span class="toc-text">Cold HDD (sc1)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Storage-Volumes"><span class="toc-text">Storage Volumes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hard-Disk-Drive-HDD"><span class="toc-text">Hard Disk Drive (HDD)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solid-State-Drive-SSD"><span class="toc-text">Solid State Drive (SSD)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Magnetic-Tape"><span class="toc-text">Magnetic Tape</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Moving-Volumes"><span class="toc-text">Moving Volumes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-AZ-gt-another-AZ"><span class="toc-text">One AZ-&gt;another AZ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One-Region-gt-another"><span class="toc-text">One Region -&gt; another</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Encrypted-Root-Volumes"><span class="toc-text">Encrypted Root Volumes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Instance-Store-Volumes-Ephemeral"><span class="toc-text">Instance Store Volumes (Ephemeral)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Modify-EBS-volume-on-the-fly"><span class="toc-text">Modify EBS volume on the fly</span></a></li></ol>
 </div>
     
 </div>
@@ -164,11 +164,13 @@
 <li>Durable for decades</li>
 <li>Cheap to produce</li>
 </ul>
-<h1 id="Moving-Volumes"><a href="#Moving-Volumes" class="headerlink" title="Moving Volumes"></a>Moving Volumes</h1><p>an EBS volume belongs to one AZ. It is automatically duplicated within the AZ. When you create a volume from a snapshot, you can select which AZ you want to create the volume.<br>an EBS snapshot belongs to one Region. When you copy a snapshot, you can select which region you want to copy it to.</p>
+<h1 id="Moving-Volumes"><a href="#Moving-Volumes" class="headerlink" title="Moving Volumes"></a>Moving Volumes</h1><p>An EBS volume belongs to one AZ. It is automatically duplicated within the AZ. When you create a volume from a snapshot, you can select which AZ you want to create the volume.<br>Volumes always exist in the same AZ as the EC2 instance.<br>An EBS snapshot belongs to one Region. When you copy a snapshot, you can select which region you want to copy it to. <strong>Snapshot exist on S3</strong></p>
 <h2 id="One-AZ-gt-another-AZ"><a href="#One-AZ-gt-another-AZ" class="headerlink" title="One AZ-&gt;another AZ"></a>One AZ-&gt;another AZ</h2><ul>
 <li>take a Snapshot of the volume</li>
 <li>create an AMI from the Snapshot</li>
-<li>launch new EC2 instance in desired AZ<br>Or: Create Volume from the snapshot in desired AZ<h2 id="One-Region-gt-another"><a href="#One-Region-gt-another" class="headerlink" title="One Region -&gt; another"></a>One Region -&gt; another</h2></li>
+<li>launch new EC2 instance in desired AZ<br>Or: Create Volume from the snapshot in desired AZ</li>
+</ul>
+<h2 id="One-Region-gt-another"><a href="#One-Region-gt-another" class="headerlink" title="One Region -&gt; another"></a>One Region -&gt; another</h2><ul>
 <li>Take a Snapshot</li>
 <li>create an AMI from the snapshot</li>
 <li>copy the AMI to another region</li>
@@ -181,7 +183,7 @@
 <li>create a new AMI from the encrypted snapshot</li>
 <li>launch a new EC2 instance from the created AMI.</li>
 </ul>
-<h1 id="EBS-vs-Instance-Store-Volumes-Ephemeral"><a href="#EBS-vs-Instance-Store-Volumes-Ephemeral" class="headerlink" title="EBS vs Instance Store Volumes (Ephemeral)"></a>EBS vs Instance Store Volumes (Ephemeral)</h1><h2 id="Instance-Store-Volumes"><a href="#Instance-Store-Volumes" class="headerlink" title="Instance Store Volumes"></a>Instance Store Volumes</h2><p>Located on disks that are physically attached to a host machine.<br>An instance Store Volume is created from a <strong>template stored in S3</strong>.</p>
+<h1 id="Instance-Store-Volumes-Ephemeral"><a href="#Instance-Store-Volumes-Ephemeral" class="headerlink" title="Instance Store Volumes (Ephemeral)"></a>Instance Store Volumes (Ephemeral)</h1><p>Located on disks that are physically attached to a host machine.<br>An instance Store Volume is created from a <strong>template stored in S3</strong>.</p>
 <p>The data in an instance store persists <strong>only during the lifetime of its associated instance</strong>. If an instance reboots (intentionally or unintentionally), data in the instance store persists. However, data in the instance store is lost under any of the following circumstances:</p>
 <ul>
 <li>The underlying disk drive fails</li>
@@ -194,6 +196,14 @@
 <li>temporary backup</li>
 <li>storing an application’s cache, logs, or other random data.</li>
 </ul>
+<h1 id="Modify-EBS-volume-on-the-fly"><a href="#Modify-EBS-volume-on-the-fly" class="headerlink" title="Modify EBS volume on the fly"></a>Modify EBS volume on the fly</h1><img src="modify.png" alt="" width="800px"/>
+
+
+
+
+
+
+
 
         
         <br />
