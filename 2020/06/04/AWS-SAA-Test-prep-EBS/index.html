@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Types"><span class="toc-text">Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Purpose-SSD-gp2"><span class="toc-text">General Purpose (SSD) (gp2)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Provisioned-IOPS-SSD-SSD-io1"><span class="toc-text">Provisioned IOPS SSD (SSD) (io1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Throughput-Optimized-HDD-st1"><span class="toc-text">Throughput Optimized HDD(st1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cold-HDD-sc1"><span class="toc-text">Cold HDD (sc1)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Storage-Volumes"><span class="toc-text">Storage Volumes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDD"><span class="toc-text">HDD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Types"><span class="toc-text">Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Purpose-SSD-gp2"><span class="toc-text">General Purpose (SSD) (gp2)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Provisioned-IOPS-SSD-SSD-io1"><span class="toc-text">Provisioned IOPS SSD (SSD) (io1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Throughput-Optimized-HDD-st1"><span class="toc-text">Throughput Optimized HDD(st1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cold-HDD-sc1"><span class="toc-text">Cold HDD (sc1)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Storage-Volumes"><span class="toc-text">Storage Volumes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hard-Disk-Drive-HDD"><span class="toc-text">Hard Disk Drive (HDD)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solid-State-Drive-SSD"><span class="toc-text">Solid State Drive (SSD)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Magnetic-Tape"><span class="toc-text">Magnetic Tape</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Moving-Volumes"><span class="toc-text">Moving Volumes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-AZ-gt-another-AZ"><span class="toc-text">One AZ-&gt;another AZ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One-Region-gt-another"><span class="toc-text">One Region -&gt; another</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Encrypted-Root-Volumes"><span class="toc-text">Encrypted Root Volumes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EBS-vs-Instance-Store-Volumes-Ephemeral"><span class="toc-text">EBS vs Instance Store Volumes (Ephemeral)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Instance-Store-Volumes"><span class="toc-text">Instance Store Volumes</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -155,10 +155,44 @@
 <h2 id="Throughput-Optimized-HDD-st1"><a href="#Throughput-Optimized-HDD-st1" class="headerlink" title="Throughput Optimized HDD(st1)"></a>Throughput Optimized HDD(st1)</h2><p>Low-cost. Designed for frequently accessed, throughput intensive workloads.<br>Use Cases: Data Warehouses, Big Data, Log Processing<br>Volume Size: 500GB-16TB</p>
 <p>Max IOPS per Volume: 500<br>max throughput per volume: 500MB/s<br>Dominant Performance Attribute: MB/s</p>
 <h2 id="Cold-HDD-sc1"><a href="#Cold-HDD-sc1" class="headerlink" title="Cold HDD (sc1)"></a>Cold HDD (sc1)</h2><p>Lowest cost HDD volume designed for less frequently accessed workloads.<br>Use cases: Colder data requiring fewer scans per day<br>Volume Size: 500GB-16TB<br>Max IOPS per Volume: 250<br>max throughput per volume: 250MB/s<br>Dominant Performance Attribute: MB/s</p>
-<h1 id="Storage-Volumes"><a href="#Storage-Volumes" class="headerlink" title="Storage Volumes"></a>Storage Volumes</h1><h2 id="HDD"><a href="#HDD" class="headerlink" title="HDD"></a>HDD</h2><p>magnetic storage, uses rotating platters. an actuator arm and a magnetic head.<br>Very good at writing a continuous amount of data.<br>not great for many small reads and write (think of the arm having to lift up and down and move around)</p>
+<h1 id="Storage-Volumes"><a href="#Storage-Volumes" class="headerlink" title="Storage Volumes"></a>Storage Volumes</h1><h2 id="Hard-Disk-Drive-HDD"><a href="#Hard-Disk-Drive-HDD" class="headerlink" title="Hard Disk Drive (HDD)"></a>Hard Disk Drive (HDD)</h2><p>magnetic storage, uses rotating platters. an actuator arm and a magnetic head.<br>Very good at writing a continuous amount of data.<br>not great for many small reads and write (think of the arm having to lift up and down and move around)</p>
 <ul>
 <li>Better for Throughput</li>
-<li>Physical moving part<h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+<li>Physical moving part<h2 id="Solid-State-Drive-SSD"><a href="#Solid-State-Drive-SSD" class="headerlink" title="Solid State Drive (SSD)"></a>Solid State Drive (SSD)</h2>Uses integrated circuit assemblies as memory to store data persistently. Typically using flash memory.<br>Typically more resistant to physical shock, run quietly, have quicker access time and low latency.</li>
+<li>Very good for frequent, small reads and writes (IOPS,  Input/Output Operations Per Second)</li>
+<li>No physical moving parts.<h2 id="Magnetic-Tape"><a href="#Magnetic-Tape" class="headerlink" title="Magnetic Tape"></a>Magnetic Tape</h2>highly durable, cheap to reduce.<br>A large reel of magnetic tape.<br>A tape driver is used to write data to the tape.<br>Medium and large-sized data centres deplyed with both tape and disk formats.<br>They normally come in the form of cassettes.</li>
+<li>Durable for decades</li>
+<li>Cheap to produce</li>
+</ul>
+<h1 id="Moving-Volumes"><a href="#Moving-Volumes" class="headerlink" title="Moving Volumes"></a>Moving Volumes</h1><p>an EBS volume belongs to one AZ. It is automatically duplicated within the AZ. When you create a volume from a snapshot, you can select which AZ you want to create the volume.<br>an EBS snapshot belongs to one Region. When you copy a snapshot, you can select which region you want to copy it to.</p>
+<h2 id="One-AZ-gt-another-AZ"><a href="#One-AZ-gt-another-AZ" class="headerlink" title="One AZ-&gt;another AZ"></a>One AZ-&gt;another AZ</h2><ul>
+<li>take a Snapshot of the volume</li>
+<li>create an AMI from the Snapshot</li>
+<li>launch new EC2 instance in desired AZ<br>Or: Create Volume from the snapshot in desired AZ<h2 id="One-Region-gt-another"><a href="#One-Region-gt-another" class="headerlink" title="One Region -&gt; another"></a>One Region -&gt; another</h2></li>
+<li>Take a Snapshot</li>
+<li>create an AMI from the snapshot</li>
+<li>copy the AMI to another region</li>
+<li>launch a new EC2 instance from the copied AMI<br>Or: When copying a snapshot, select a new Region.</li>
+</ul>
+<h1 id="Encrypted-Root-Volumes"><a href="#Encrypted-Root-Volumes" class="headerlink" title="Encrypted Root Volumes"></a>Encrypted Root Volumes</h1><p>If you want to encrypt an existing volume:</p>
+<ul>
+<li>Take a snapshot</li>
+<li>make a copy of that snapshot, and select encryption</li>
+<li>create a new AMI from the encrypted snapshot</li>
+<li>launch a new EC2 instance from the created AMI.</li>
+</ul>
+<h1 id="EBS-vs-Instance-Store-Volumes-Ephemeral"><a href="#EBS-vs-Instance-Store-Volumes-Ephemeral" class="headerlink" title="EBS vs Instance Store Volumes (Ephemeral)"></a>EBS vs Instance Store Volumes (Ephemeral)</h1><h2 id="Instance-Store-Volumes"><a href="#Instance-Store-Volumes" class="headerlink" title="Instance Store Volumes"></a>Instance Store Volumes</h2><p>Located on disks that are physically attached to a host machine.<br>An instance Store Volume is created from a <strong>template stored in S3</strong>.</p>
+<p>The data in an instance store persists <strong>only during the lifetime of its associated instance</strong>. If an instance reboots (intentionally or unintentionally), data in the instance store persists. However, data in the instance store is lost under any of the following circumstances:</p>
+<ul>
+<li>The underlying disk drive fails</li>
+<li>The instance stops</li>
+<li>The instance terminates</li>
+</ul>
+<p>When you stop or terminate an instance, every block of storage in the instance store is reset. </p>
+<p>Ideal for:</p>
+<ul>
+<li>temporary backup</li>
+<li>storing an application’s cache, logs, or other random data.</li>
 </ul>
 
         
