@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS SAA Test prep CloudFront - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront-Components"><span class="toc-text">CloudFront Components</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Origin"><span class="toc-text">Origin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Edge-Location"><span class="toc-text">Edge Location</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distribution"><span class="toc-text">Distribution</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront-Distribution"><span class="toc-text">CloudFront Distribution</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Behaviours"><span class="toc-text">Behaviours</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Invalidations"><span class="toc-text">Invalidations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Pages"><span class="toc-text">Error Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Restrictions"><span class="toc-text">Restrictions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda-Edge"><span class="toc-text">Lambda@Edge</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront-Protection"><span class="toc-text">CloudFront Protection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Original-Identity-Access-OAI"><span class="toc-text">Original Identity Access (OAI)</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep CloudFront
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-05 22:06:44</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Deliver web pages/content to users based on their geographical location, the origin of the webpage, and the content delivery server.<br>Can be used to deliver an entire website including static, dynamic and streaming.<br>Requests for content are served from the nearest Edge Location for the best possible performance.</p>
+<h1 id="CloudFront-Components"><a href="#CloudFront-Components" class="headerlink" title="CloudFront Components"></a>CloudFront Components</h1><h2 id="Origin"><a href="#Origin" class="headerlink" title="Origin"></a>Origin</h2><p>Location of original files, can be S3 Bucket, EC2 instance, ELB, or Route53.</p>
+<h2 id="Edge-Location"><a href="#Edge-Location" class="headerlink" title="Edge Location"></a>Edge Location</h2><p>Position of the cache.</p>
+<h2 id="Distribution"><a href="#Distribution" class="headerlink" title="Distribution"></a>Distribution</h2><p>A collection of Edge locations which defines how cached content should behave.</p>
+<h1 id="CloudFront-Distribution"><a href="#CloudFront-Distribution" class="headerlink" title="CloudFront Distribution"></a>CloudFront Distribution</h1><p>A Distribution is a collection of Edge Locations.<br>To set up your distribution:</p>
+<ul>
+<li>Specify the origin</li>
+<li>Select your Price Class (how many edge locations you’ll use)</li>
+<li>There are two types of distributions:<ul>
+<li>Web (for websites)</li>
+<li>RTMP (for steaming media)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Behaviours"><a href="#Behaviours" class="headerlink" title="Behaviours"></a>Behaviours</h2><p>Redirect to HTTPs, restrict HTTP methods, Restrict View Access, set TTLs (time to live. Content expires and refreshes after TTL)</p>
+<h2 id="Invalidations"><a href="#Invalidations" class="headerlink" title="Invalidations"></a>Invalidations</h2><p>Manually invalidate cache on specific files. Useful when you update your origin and want your updates immediately take effect for users.</p>
+<h2 id="Error-Pages"><a href="#Error-Pages" class="headerlink" title="Error Pages"></a>Error Pages</h2><p>Serve up custom error pages, e.g. 404</p>
+<h2 id="Restrictions"><a href="#Restrictions" class="headerlink" title="Restrictions"></a>Restrictions</h2><p>You can use Geo Restriction to blacklist or whitelist specific countries</p>
+<h1 id="Lambda-Edge"><a href="#Lambda-Edge" class="headerlink" title="Lambda@Edge"></a>Lambda@Edge</h1><p>We use Lambda@Edge functions to <strong>override the behaviour of request and requests</strong>.<br>There are four available Lambda@Edge functions:</p>
+<ul>
+<li>Viewer request: when CloudFront receives a request from a viewer</li>
+<li>Origin request: before CloudFront forwards a request to the origin</li>
+<li>Origin response: when CloudFront receives a response from the origin</li>
+<li>Viewer response: before CloudFront returns the response to the viewer</li>
+</ul>
+<p>Example user case: </p>
+<ul>
+<li>use Cognito to control access to protected content</li>
+</ul>
+<h1 id="CloudFront-Protection"><a href="#CloudFront-Protection" class="headerlink" title="CloudFront Protection"></a>CloudFront Protection</h1><p>By default a Distribution allows everyone to have access.</p>
+<h2 id="Original-Identity-Access-OAI"><a href="#Original-Identity-Access-OAI" class="headerlink" title="Original Identity Access (OAI)"></a>Original Identity Access (OAI)</h2><p>A virtual user identity that </p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
