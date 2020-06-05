@@ -11,7 +11,7 @@
 
     <title>
         
-        Code on Anran!
+        AWS SAA Test prep RDS - Code on Anran!
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Encryption"><span class="toc-text">RDS Encryption</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Backups"><span class="toc-text">RDS Backups</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Automated-Backups"><span class="toc-text">Automated Backups</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manual-Snapshots"><span class="toc-text">Manual Snapshots</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,69 +123,58 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/What-is-RESTful-API/">
-                <h3>
-                    What is RESTful API
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep RDS
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-06 11:52:40</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/6/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <p>A managed relational database service.<br>Support multiple SQL engines, easy to scale, backup and secure.</p>
+<p>6 relational database options:</p>
+<ul>
+<li>Oracle</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>MariaDB</li>
+<li>Amazon Aurora</li>
+<li>Microsoft SQL Server</li>
 </ul>
+<h1 id="RDS-Encryption"><a href="#RDS-Encryption" class="headerlink" title="RDS Encryption"></a>RDS Encryption</h1><p>You can turn on encryption at-rest for all RDS engines.<br>Encryption is handled using the AWS KMS.</p>
+<h1 id="RDS-Backups"><a href="#RDS-Backups" class="headerlink" title="RDS Backups"></a>RDS Backups</h1><p>Two backup solutions available for RDS:</p>
+<h2 id="Automated-Backups"><a href="#Automated-Backups" class="headerlink" title="Automated Backups"></a>Automated Backups</h2><p>Choose a retention period between 1 and 35 days<br>Stores transaction logs throughout the day<br>Automated backups are enabled by default<br>All data is stored inside S3<br>No additional charge for backup storage<br>You define you backup window<br>Storage I/O may be suspended during backup (not if you enable multi-AZ)</p>
+<h2 id="Manual-Snapshots"><a href="#Manual-Snapshots" class="headerlink" title="Manual Snapshots"></a>Manual Snapshots</h2><p>Taken manually by the user<br>Backups persist even if you delete the original RDS instance.</p>
+<p><strong>No additional charges for all these backups</strong></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -232,7 +225,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
