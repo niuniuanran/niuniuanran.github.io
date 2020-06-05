@@ -178,7 +178,8 @@
 <li>use Cognito to control access to protected content</li>
 </ul>
 <h1 id="CloudFront-Protection"><a href="#CloudFront-Protection" class="headerlink" title="CloudFront Protection"></a>CloudFront Protection</h1><p>By default a Distribution allows everyone to have access.</p>
-<h2 id="Original-Identity-Access-OAI"><a href="#Original-Identity-Access-OAI" class="headerlink" title="Original Identity Access (OAI)"></a>Original Identity Access (OAI)</h2><p>A virtual user identity that </p>
+<h2 id="Original-Identity-Access-OAI"><a href="#Original-Identity-Access-OAI" class="headerlink" title="Original Identity Access (OAI)"></a>Original Identity Access (OAI)</h2><p>A virtual user identity that will be used to give your CloudFront Distribution permission to fetch private object.</p>
+<p>In order to use Signed URLs or Signed Cookies, you need to have an OAI.<br><strong>Signed URL</strong>: A url which provides temporary access to cached objects.<br><strong>Signed Cookies</strong> A cookie which is passed along with the request to CloudFront. The advantage of using a Cookie is you want to provide access to multiple restricted files, e.g. Video Streaming.</p>
 
         
         <br />
