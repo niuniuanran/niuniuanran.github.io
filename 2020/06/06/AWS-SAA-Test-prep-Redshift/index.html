@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-Data-Warehouse"><span class="toc-text">What is a Data Warehouse?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro-to-Redshift"><span class="toc-text">Intro to Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Columnar-Storage"><span class="toc-text">Columnar Storage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cluster-Types"><span class="toc-text">Cluster Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Node"><span class="toc-text">Single Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-Node"><span class="toc-text">Multi-Node</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-Types"><span class="toc-text">Node Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Compression"><span class="toc-text">Compression</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-Data-Warehouse"><span class="toc-text">What is a Data Warehouse?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro-to-Redshift"><span class="toc-text">Intro to Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Columnar-Storage"><span class="toc-text">Columnar Storage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cluster-Types"><span class="toc-text">Cluster Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Node"><span class="toc-text">Single Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-Node"><span class="toc-text">Multi-Node</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-Types"><span class="toc-text">Node Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Compression"><span class="toc-text">Compression</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Processing"><span class="toc-text">Processing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Backup"><span class="toc-text">Backup</span></a></li></ol>
 </div>
     
 </div>
@@ -180,6 +180,16 @@
 <p>Similar data is stored sequentially on disk.</p>
 <p>Does not required indexes or materialized views, which saves a lot of space <strong>compared to traditional systems</strong>.</p>
 <p>When loading data to an <strong>empty table</strong>, data is <strong>sampled</strong> and most appropriate compression <strong>scheme is selected automatically</strong>.</p>
+<h1 id="Processing"><a href="#Processing" class="headerlink" title="Processing"></a>Processing</h1><p>Redshift uses <strong>Massively Parallel Processing (MPP)</strong><br>Automatically distributes data and query loads across all nodes.</p>
+<p>Lets you easily add new nodes to your data warehouse while still maintaining fast query performance.</p>
+<h1 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h1><p>Backups are enabled by default with a 1 day retention period.<br>Retention period can be modified up to 35 days.</p>
+<p>Redshift always attempts to maintain at least 3 copies of your data:</p>
+<ul>
+<li>The original copy</li>
+<li>Replica on the compute nodes</li>
+<li>Backup copy in S3</li>
+</ul>
+<p>Can asynchronously replicate your snapshots to S3 <strong>in a different region</strong></p>
 
         
         <br />
