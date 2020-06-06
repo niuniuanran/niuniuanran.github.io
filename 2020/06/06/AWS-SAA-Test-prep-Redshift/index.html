@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-Data-Warehouse"><span class="toc-text">What is a Data Warehouse?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro-to-Redshift"><span class="toc-text">Intro to Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Columnar-Storage"><span class="toc-text">Columnar Storage</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-Data-Warehouse"><span class="toc-text">What is a Data Warehouse?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro-to-Redshift"><span class="toc-text">Intro to Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Columnar-Storage"><span class="toc-text">Columnar Storage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cluster-Types"><span class="toc-text">Cluster Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Node"><span class="toc-text">Single Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-Node"><span class="toc-text">Multi-Node</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-Types"><span class="toc-text">Node Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Compression"><span class="toc-text">Compression</span></a></li></ol>
 </div>
     
 </div>
@@ -161,16 +161,25 @@
 </blockquote>
 <h1 id="Intro-to-Redshift"><a href="#Intro-to-Redshift" class="headerlink" title="Intro to Redshift"></a>Intro to Redshift</h1><p>$1000 per terabyte per year - less than 1/10 cost of most similar services.</p>
 <p>Redshift is used for Business Intelligence<br>Redshift uses OLAP (Online Analytics Processing System)<br>Redshift is <strong>Columnar Storage</strong> Database</p>
-<h2 id="Columnar-Storage"><a href="#Columnar-Storage" class="headerlink" title="Columnar Storage"></a>Columnar Storage</h2><p>Columnar Storage for database tables is an important factor in optimizing analytic query performance because it drastically reduces the overall disk I/O requirements and reduces the amount of data you need to load from disk.</p>
 <img src="user-case.png" width="800px" alt=""/>
 
-
-
-
-
-
-
-
+<h2 id="Columnar-Storage"><a href="#Columnar-Storage" class="headerlink" title="Columnar Storage"></a>Columnar Storage</h2><p>Columnar Storage for database tables is an important factor in optimizing analytic query performance because it drastically reduces the overall disk I/O requirements and reduces the amount of data you need to load from disk.</p>
+<p>Columnar Storage stores data together as <strong>columns</strong> instead of rows.<br>OLAP applications looks at multiple records at the same time.<br>You save memory because you fetch just the columns of data you need instead of whole rows.</p>
+<p>Since data is stored via column, that means all data is of the same data type, allowing for easy compression.</p>
+<h1 id="Cluster-Types"><a href="#Cluster-Types" class="headerlink" title="Cluster Types"></a>Cluster Types</h1><h2 id="Single-Node"><a href="#Single-Node" class="headerlink" title="Single Node"></a>Single Node</h2><p>Nodes come in size of 160GB.<br>You can launch a single node to get started with Redshift.</p>
+<h2 id="Multi-Node"><a href="#Multi-Node" class="headerlink" title="Multi-Node"></a>Multi-Node</h2><p>You can launch a cluster of nodes with Multi Node mode.</p>
+<ul>
+<li>Leader Node: manage client connections and receiving queries</li>
+<li>Compute Node: Stores data and performs queries up to 128 compute nodes (original maximum is 32)</li>
+</ul>
+<h1 id="Node-Types"><a href="#Node-Types" class="headerlink" title="Node Types"></a>Node Types</h1><ul>
+<li>Dense Compute (dc): Best for high performance, but they have less storage</li>
+<li>Dense Storage (ds): clusters in which you have a lot of data</li>
+</ul>
+<h1 id="Compression"><a href="#Compression" class="headerlink" title="Compression"></a>Compression</h1><p>Redshift uses multiple compression techniques to achieve significant compression relative to traditional relational data stores.</p>
+<p>Similar data is stored sequentially on disk.</p>
+<p>Does not required indexes or materialized views, which saves a lot of space <strong>compared to traditional systems</strong>.</p>
+<p>When loading data to an <strong>empty table</strong>, data is <strong>sampled</strong> and most appropriate compression <strong>scheme is selected automatically</strong>.</p>
 
         
         <br />
