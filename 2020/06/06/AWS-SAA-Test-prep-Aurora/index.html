@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS SAA Test prep Aurora - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction-to-Aurora"><span class="toc-text">Introduction to Aurora</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scaling-with-Aurora"><span class="toc-text">Scaling with Aurora</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Availability-with-Aurora"><span class="toc-text">Availability with Aurora</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fault-Tolerance-and-Durability"><span class="toc-text">Fault Tolerance and Durability</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora-Replicas"><span class="toc-text">Aurora - Replicas</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Aurora-Replicas"><span class="toc-text">Amazon Aurora Replicas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-Read-Replicas"><span class="toc-text">MySQL Read Replicas</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep Aurora
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-06 12:49:02</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Fully Managed Postgres or MySQL compatible database, designed by default to scale and fine-tuned to be really fast.</p>
+<h1 id="Introduction-to-Aurora"><a href="#Introduction-to-Aurora" class="headerlink" title="Introduction to Aurora"></a>Introduction to Aurora</h1><p>Combines the speed and availability of <strong>high-end databases</strong> with the simplicity and cost-effectiveness of <strong>open-source databases</strong><br>Aurora can run either MySQL or Postgres compatible engines.</p>
+<p>Aurora MySQL: 5* better performance than traditional MySQL<br>Aurora Postgres is 3* better performance than traditional Postgres.</p>
+<p>1/10th the costs of other solutions offering similar performance and availability.</p>
+<h1 id="Scaling-with-Aurora"><a href="#Scaling-with-Aurora" class="headerlink" title="Scaling with Aurora"></a>Scaling with Aurora</h1><p>Storage: autoscaling, Start with 10GB. Scale up in 10GB increments up to 64TB.<br>Computing: can scale all the way up to 32vCPUs and 244 GB of memory.</p>
+<h1 id="Availability-with-Aurora"><a href="#Availability-with-Aurora" class="headerlink" title="Availability with Aurora"></a>Availability with Aurora</h1><p>A minimum of 3 AZs, each containing 2 copies of your data <strong>at all times</strong>: 6 copies<br>Lose up to 2 copies of your data without affecting <strong>write</strong> availability<br>Lose up to 3 without losing **read availability</p>
+<h1 id="Fault-Tolerance-and-Durability"><a href="#Fault-Tolerance-and-Durability" class="headerlink" title="Fault Tolerance and Durability"></a>Fault Tolerance and Durability</h1><p>Aurora backup and failover is handled automatically.<br>Snapshots of data can be shared with other AWS accounts.<br>Storage is <strong>self-healing</strong>, in that data blocks and disks are continuously scanned for errors and repaired automatically.</p>
+<h1 id="Aurora-Replicas"><a href="#Aurora-Replicas" class="headerlink" title="Aurora - Replicas"></a>Aurora - Replicas</h1><p>Two types of replicas available:</p>
+<h2 id="Amazon-Aurora-Replicas"><a href="#Amazon-Aurora-Replicas" class="headerlink" title="Amazon Aurora Replicas"></a>Amazon Aurora Replicas</h2><p>Up to 15 replicas.<br>Asychronous replica in milliseconds<br>Performance impact on primary: Low<br>AUtomated failover: Yes<br>Act as failover target: Yes, no data loss</p>
+<p>Support for user-defined replication delay: No<br>Support for different data/schema as primary: No</p>
+<h2 id="MySQL-Read-Replicas"><a href="#MySQL-Read-Replicas" class="headerlink" title="MySQL Read Replicas"></a>MySQL Read Replicas</h2><p>Up to 5 replicas - same as other RDS read replicas<br>Asychronous replica in seconds<br>Performance impact on primary: High<br>Automated failover: no<br>Act as failover target: Yes, potentially minutes of data loss</p>
+<p>Support for user-defined replication delay: Yes<br>Support for different data/schema as primary: Yes</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
