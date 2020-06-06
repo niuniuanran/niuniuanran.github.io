@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-Data-Warehouse"><span class="toc-text">What is a Data Warehouse?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro-to-Redshift"><span class="toc-text">Intro to Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Columnar-Storage"><span class="toc-text">Columnar Storage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cluster-Types"><span class="toc-text">Cluster Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Node"><span class="toc-text">Single Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-Node"><span class="toc-text">Multi-Node</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-Types"><span class="toc-text">Node Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Compression"><span class="toc-text">Compression</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Processing"><span class="toc-text">Processing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Backup"><span class="toc-text">Backup</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-Data-Warehouse"><span class="toc-text">What is a Data Warehouse?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro-to-Redshift"><span class="toc-text">Intro to Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Columnar-Storage"><span class="toc-text">Columnar Storage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cluster-Types"><span class="toc-text">Cluster Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Node"><span class="toc-text">Single Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-Node"><span class="toc-text">Multi-Node</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-Types"><span class="toc-text">Node Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Compression"><span class="toc-text">Compression</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Processing"><span class="toc-text">Processing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Backup"><span class="toc-text">Backup</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Billing"><span class="toc-text">Billing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Compute-Node-Hours"><span class="toc-text">Compute Node Hours</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-1"><span class="toc-text">Backup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Transfer"><span class="toc-text">Data Transfer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-text">Security</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Availability"><span class="toc-text">Availability</span></a></li></ol>
 </div>
     
 </div>
@@ -190,7 +190,23 @@
 <li>Backup copy in S3</li>
 </ul>
 <p>Can asynchronously replicate your snapshots to S3 <strong>in a different region</strong></p>
-
+<h1 id="Billing"><a href="#Billing" class="headerlink" title="Billing"></a>Billing</h1><h2 id="Compute-Node-Hours"><a href="#Compute-Node-Hours" class="headerlink" title="Compute Node Hours"></a>Compute Node Hours</h2><ul>
+<li>The total number of hours ran across all nodes in the billing period.</li>
+<li>Billed for <strong>1 unit per node, per hour</strong>.</li>
+<li><strong>Not charged for leader node hours</strong>, only compute nodes incur charges.</li>
+</ul>
+<h2 id="Backup-1"><a href="#Backup-1" class="headerlink" title="Backup"></a>Backup</h2><p>Backups are stored on S3 and you are billed the S3 storage fees</p>
+<h2 id="Data-Transfer"><a href="#Data-Transfer" class="headerlink" title="Data Transfer"></a>Data Transfer</h2><p>There is no charge for data transferred between Amazon Redshift and Amazon S3 within the same AWS Region for backup, restore, load, and unload operations.<br>For all other data transfers into and out of Amazon Redshift, you will be billed at standard AWS data transfer rates.<br>In particular, <strong>if you run your Amazon Redshift cluster in Amazon VPC, you will see standard AWS data transfer charges for data transfers over JDBC/ODBC to your Amazon Redshift cluster endpoint</strong>.<br>In addition, when you use Enhanced VPC Routing and unload data to Amazon S3 in a different region, you will incur standard AWS data transfer charges. </p>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><p>Data-in-transit: Encrypted using SSL<br>Data-at-rest: Encrypted using AES-256 encryption</p>
+<p>Data Encryption can be applied using:</p>
+<ul>
+<li>KMS multi-tenant HSM</li>
+<li>CloudHSM single tenant HSM (hardware security module)</li>
+</ul>
+<h1 id="Availability"><a href="#Availability" class="headerlink" title="Availability"></a>Availability</h1><p><strong>Single AZ</strong></p>
+<p>To run in multi-AZ you have to run multiple Redshift clusters in different AZs with same inputs manually.</p>
+<p>Snapshots can be restored to a different AZ in the event an outrage occurs.</p>
+<img width="900px" src="cheatsheet.png" alt=""/>
         
         <br />
         <div id="comment-container">
