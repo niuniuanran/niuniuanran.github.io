@@ -162,9 +162,9 @@
 <h1 id="RDS-Backups"><a href="#RDS-Backups" class="headerlink" title="RDS Backups"></a>RDS Backups</h1><p>Two backup solutions available for RDS:</p>
 <h2 id="Automated-Backups"><a href="#Automated-Backups" class="headerlink" title="Automated Backups"></a>Automated Backups</h2><p>Choose a retention period between 0 and 35 days<br>(For Aurora, 1 - 35 days. You cannot have backup turned off for Aurora)</p>
 <p><strong>0 days means the automated backups option is disabled</strong></p>
-<p>Stores transaction logs throughout the day<br>Automated backups are enabled by default<br>All data is stored inside S3<br>No additional charge for backup storage<br>You define you backup window<br>Storage I/O may be suspended during backup (not if you enable multi-AZ)</p>
+<p>Stores transaction logs throughout the day<br>Automated backups are enabled by default<br>All data is stored inside S3<br>You define you backup window<br>Storage I/O may be suspended during backup (not if you enable multi-AZ)</p>
 <h2 id="Manual-Snapshots"><a href="#Manual-Snapshots" class="headerlink" title="Manual Snapshots"></a>Manual Snapshots</h2><p>You can manually create a snapshot of your database.<br>Backups persist even if you delete the original RDS instance.</p>
-<p><strong>No additional charges for all these backups</strong></p>
+<p>No restore charge, warm storage of snapshots incurs charge.</p>
 <h1 id="Restoring-Backups"><a href="#Restoring-Backups" class="headerlink" title="Restoring Backups"></a>Restoring Backups</h1><p>When recovering from backup, AWS will take the most recent daily backup, apply transaction log data relevant to that day.<br>This allows <strong>point-in-time recovery</strong> down to a second inside the retention period.<br>Backup data is never restored overtop of an existing instance: A new instance is created for the restored database.</p>
 <p>Restored RDS instances will have a new DNS endpoint: you can then use the new DNS endpoint for your application.</p>
 <h1 id="Multi-AZ"><a href="#Multi-AZ" class="headerlink" title="Multi-AZ"></a>Multi-AZ</h1><p>Ensures database remains available if another AZ becomes unavailable.</p>

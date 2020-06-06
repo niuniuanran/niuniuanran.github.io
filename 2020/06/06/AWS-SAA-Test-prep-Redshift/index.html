@@ -189,7 +189,11 @@
 <li>Replica on the compute nodes</li>
 <li>Backup copy in S3</li>
 </ul>
-<p>Can asynchronously replicate your snapshots to S3 <strong>in a different region</strong></p>
+<p>Can asynchronously replicate your snapshots to S3 <strong>in a different region</strong> for disaster recovery</p>
+<p>Free backup storage is limited to the total size of storage on the nodes in the data warehouse cluster and only applies to active data warehouse clusters. For example, if you have total data warehouse storage of 8TB, we will provide at most 8TB of backup storage at no additional charge.<br>If you would like to extend your backup retention period beyond one day, you can do so using the AWS Management Console or the Amazon Redshift APIs.</p>
+<p>When you need to restore a backup, you have access to <strong>all the automated backups within your backup retention window</strong>.  Once you choose a backup from which to restore, we will provision <strong>a new data warehouse cluster</strong> and restore your data to it. (RDS restoring will also create a new instance and restore the data to it)</p>
+<p>When you delete a data warehouse cluster you have the ability to specify whether a final snapshot is created upon deletion. This enables a restore of the deleted data warehouse cluster at a later date. </p>
+<p>All previously created <strong>manual snapshots</strong> of your data warehouse cluster will be retained and billed at standard Amazon S3 rates, unless you choose to delete them.</p>
 <h1 id="Billing"><a href="#Billing" class="headerlink" title="Billing"></a>Billing</h1><h2 id="Compute-Node-Hours"><a href="#Compute-Node-Hours" class="headerlink" title="Compute Node Hours"></a>Compute Node Hours</h2><ul>
 <li>The total number of hours ran across all nodes in the billing period.</li>
 <li>Billed for <strong>1 unit per node, per hour</strong>.</li>
