@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Encryption"><span class="toc-text">RDS Encryption</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Backups"><span class="toc-text">RDS Backups</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Automated-Backups"><span class="toc-text">Automated Backups</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manual-Snapshots"><span class="toc-text">Manual Snapshots</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Restoring-Backups"><span class="toc-text">Restoring Backups</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multi-AZ"><span class="toc-text">Multi-AZ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Automatic-Failover-Protection"><span class="toc-text">Automatic Failover Protection</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Read-Replicas"><span class="toc-text">Read Replicas</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multi-AZ-vs-Read-Replications"><span class="toc-text">Multi-AZ vs Read Replications</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Migrate-Snapshot"><span class="toc-text">Migrate Snapshot</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora-Serverless"><span class="toc-text">Aurora Serverless</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Encryption"><span class="toc-text">RDS Encryption</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Backups"><span class="toc-text">RDS Backups</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Automated-Backups"><span class="toc-text">Automated Backups</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manual-Snapshots"><span class="toc-text">Manual Snapshots</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Restoring-Backups"><span class="toc-text">Restoring Backups</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multi-AZ"><span class="toc-text">Multi-AZ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Automatic-Failover-Protection"><span class="toc-text">Automatic Failover Protection</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Read-Replicas"><span class="toc-text">Read Replicas</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multi-AZ-vs-Read-Replications"><span class="toc-text">Multi-AZ vs Read Replications</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Migrate-Snapshot"><span class="toc-text">Migrate Snapshot</span></a></li></ol>
 </div>
     
 </div>
@@ -178,13 +178,6 @@
 <h1 id="Multi-AZ-vs-Read-Replications"><a href="#Multi-AZ-vs-Read-Replications" class="headerlink" title="Multi-AZ vs Read Replications"></a>Multi-AZ vs Read Replications</h1><img width="900px" src="multiaz-replica.png" alt=""/>
 
 <h1 id="Migrate-Snapshot"><a href="#Migrate-Snapshot" class="headerlink" title="Migrate Snapshot"></a>Migrate Snapshot</h1><p>You can migrate to Amazon Aurora through the option “migrate snapshot”. This creates a new Aurora instance from your RDS snapshot.</p>
-<h1 id="Aurora-Serverless"><a href="#Aurora-Serverless" class="headerlink" title="Aurora Serverless"></a>Aurora Serverless</h1><p>You have two options of setting up your Aurora:</p>
-<ul>
-<li>One writer and multiple readers: general purpose option for most workloads</li>
-<li>Serverless: when you have intermittent or unpredictable workloads</li>
-</ul>
-<p>You can’t give an Aurora Serverless DB cluster a public IP address.<br>You can access an Aurora Serverless DB cluster only <strong>from within a virtual private cloud (VPC)</strong> based on the Amazon VPC service.</p>
-<p>Each Aurora Serverless DB cluster requires <strong>two AWS PrivateLink endpoints</strong>.</p>
 
         
         <br />

@@ -11,7 +11,7 @@
 
     <title>
         
-        Code on Anran!
+        AWS SAA Test prep Redshift - Code on Anran!
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-Data-Warehouse"><span class="toc-text">What is a Data Warehouse?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro-to-Redshift"><span class="toc-text">Intro to Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Columnar-Storage"><span class="toc-text">Columnar Storage</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,115 +123,66 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-08</div>
-        <div class="post-info">
-            <a href="/2020/04/08/AWS-Cloud-Computing-Notes/">
-                <h3>
-                    AWS Cloud Computing Notes
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#AWS CP Test" title="AWS CP Test">AWS CP Test</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep Redshift
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/Version-Control-Through-and-Through/">
-                <h3>
-                    Version Control Through and Through
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#git" title="git">git</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#basic concepts" title="basic concepts">basic concepts</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-06 13:43:10</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/What-is-RESTful-API/">
-                <h3>
-                    What is RESTful API
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <p>Fully managed Petabyte-size Data Warehouse. Columnar Store Database.</p>
+<p><strong>Analyze (Run complex SQL queries)</strong> on massive amounts of data.</p>
+<h1 id="What-is-a-Data-Warehouse"><a href="#What-is-a-Data-Warehouse" class="headerlink" title="What is a Data Warehouse?"></a>What is a Data Warehouse?</h1><p>A transaction symbolizes a unit of work performed within a database management system, eg. reads and writes</p>
+<h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><p>Online <strong>Transaction</strong> Processing(OLTP)<br>A database was built to store current transactions and enable fast access to specific transactions for ongoing business processes.<br>Once Source</p>
+<blockquote>
+<p>Short transactions (small and simple queries) with an emphasis on writes</p>
+</blockquote>
+<h2 id="Data-Warehouse"><a href="#Data-Warehouse" class="headerlink" title="Data Warehouse"></a>Data Warehouse</h2><p>Online <strong>Analytical</strong> Processing (OLAP)<br>A data warehouse is built to store large quantities of historical data and enable fast, complex queries across all the data.<br>Multiple Sources</p>
+<blockquote>
+<p>Long transactions (long and complex queries) with an emphasis on reads</p>
+</blockquote>
+<h1 id="Intro-to-Redshift"><a href="#Intro-to-Redshift" class="headerlink" title="Intro to Redshift"></a>Intro to Redshift</h1><p>$1000 per terabyte per year - less than 1/10 cost of most similar services.</p>
+<p>Redshift is used for Business Intelligence<br>Redshift uses OLAP (Online Analytics Processing System)<br>Redshift is <strong>Columnar Storage</strong> Database</p>
+<h2 id="Columnar-Storage"><a href="#Columnar-Storage" class="headerlink" title="Columnar Storage"></a>Columnar Storage</h2><p>Columnar Storage for database tables is an important factor in optimizing analytic query performance because it drastically reduces the overall disk I/O requirements and reduces the amount of data you need to load from disk.</p>
+<img src="user-case.png" width="800px" alt=""/>
+
+
+
+
+
+
+
+
+
+        
+        <br />
+        <div id="comment-container">
         </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
         </div>
+
     </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/6/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -278,7 +233,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
