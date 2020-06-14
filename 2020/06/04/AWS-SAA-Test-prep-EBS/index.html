@@ -148,7 +148,10 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>Highly available and durable solution for attaching persistent block storage volumes to an EC2 instance.<br>Volumes are automatically replicated <strong>within their AZ</strong> to protect from component failure.</p>
+        <blockquote>
+<p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
+</blockquote>
+<p>Highly available and durable solution for attaching persistent block storage volumes to an EC2 instance.<br>Volumes are automatically replicated <strong>within their AZ</strong> to protect from component failure.</p>
 <h1 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h1><p>See a clear form for EBS types <a href="https://aws.amazon.com/ebs/features/" target="_blank" rel="noopener">here</a><br>There are four types of EBS in the current generation.</p>
 <h2 id="General-Purpose-SSD-gp2"><a href="#General-Purpose-SSD-gp2" class="headerlink" title="General Purpose (SSD) (gp2)"></a>General Purpose (SSD) (gp2)</h2><p>Balances price and performance.<br>Use Cases: most workloads, general usage without specific requirements. Boot volumes, low-latency interactive apps, dev &amp; test.<br>Volume Size: 1GB-16TB<br>Max IOPS per Volume: 16,000<br>max throughput per volume: 250MB/s<br>Dominant Performance Attribute: IOPS</p>
 <h2 id="Provisioned-IOPS-SSD-SSD-io1"><a href="#Provisioned-IOPS-SSD-SSD-io1" class="headerlink" title="Provisioned IOPS SSD (SSD) (io1)"></a>Provisioned IOPS SSD (SSD) (io1)</h2><p>Highest SSD performance for <strong>Mission-critical low latency or high throughput</strong>.<br>Use Cases: I/O-intensive NoSQL and relational databases<br>Volume Size: 4GB - 16TB<br>Max IOPS per Volume: 64,000<br>max throughput per volume: 1000MB/s<br>Dominant Performance Attribute: IOPS</p>

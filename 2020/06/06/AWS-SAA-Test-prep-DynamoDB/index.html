@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Features"><span class="toc-text">Features</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Table-structure"><span class="toc-text">Table structure</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Consistent-Reads"><span class="toc-text">Consistent Reads</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Eventual-Consistent-Reads-Default"><span class="toc-text">Eventual Consistent Reads (Default)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strongly-Consistent-Reads"><span class="toc-text">Strongly Consistent Reads</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -148,7 +148,33 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>DynamoDB is a NoSQL key/value </p>
+        <blockquote>
+<p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
+</blockquote>
+<p>DynamoDB is a NoSQL key/value and document database for internet-scale applications.</p>
+<h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><p>DynamoDB is:</p>
+<ul>
+<li>Fully managed</li>
+<li>multi-region</li>
+<li>multi-master</li>
+<li>durable database</li>
+<li>built-in security</li>
+<li>backup and restore</li>
+<li>in-memory caching</li>
+</ul>
+<p>Provides:</p>
+<ul>
+<li>Eventual consistent reads(default)</li>
+<li>Strongly consistent reads</li>
+</ul>
+<p>All data is stored on <strong>SSD storage</strong>, and is spread across <strong>3 different regions</strong>.</p>
+<p><strong>Specify whatever Read Capacity Units and Write Capacity Units you need, and you just get it without you tweaking anything.</strong></p>
+<h1 id="Table-structure"><a href="#Table-structure" class="headerlink" title="Table structure"></a>Table structure</h1><img alt="" src="table.png" width="800px"/>
+
+<p>item<br>attribute<br>primary key is made up with partition key and sort key.</p>
+<h1 id="Consistent-Reads"><a href="#Consistent-Reads" class="headerlink" title="Consistent Reads"></a>Consistent Reads</h1><p>When data gets written to DynamoDB, it takes time to update the copies across multiple regions. It is possible to have inconsistent data. You can choose the read consistency:</p>
+<h2 id="Eventual-Consistent-Reads-Default"><a href="#Eventual-Consistent-Reads-Default" class="headerlink" title="Eventual Consistent Reads (Default)"></a>Eventual Consistent Reads (Default)</h2><p>Reads are fast but not guaranteed to be consistent.<br>All copies of data eventually consistent within a second.</p>
+<h2 id="Strongly-Consistent-Reads"><a href="#Strongly-Consistent-Reads" class="headerlink" title="Strongly Consistent Reads"></a>Strongly Consistent Reads</h2><p>Guarantee of consistency, but higher latency (of within a second): have to wait until all results are consistent before result is returned.</p>
 
         
         <br />
