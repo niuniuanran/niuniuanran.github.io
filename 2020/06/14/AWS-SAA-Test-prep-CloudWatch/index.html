@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Logs"><span class="toc-text">CloudWatch Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Group"><span class="toc-text">Log Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Stream"><span class="toc-text">Log Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-lifecycle"><span class="toc-text">Log lifecycle</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Metrics"><span class="toc-text">CloudWatch Metrics</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Logs"><span class="toc-text">CloudWatch Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Group"><span class="toc-text">Log Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Stream"><span class="toc-text">Log Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-lifecycle"><span class="toc-text">Log lifecycle</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Metrics"><span class="toc-text">CloudWatch Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Events"><span class="toc-text">CloudWatch Events</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Source"><span class="toc-text">Event Source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Targets"><span class="toc-text">Targets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Custom-Metrics-and-High-Resolution-Metrics"><span class="toc-text">CloudWatch Custom Metrics and High Resolution Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Alarms"><span class="toc-text">CloudWatch Alarms</span></a></li></ol>
 </div>
     
 </div>
@@ -177,6 +177,18 @@
 <li>NetworkPacketsIn</li>
 <li>NetworkPacketsOut</li>
 </ul>
+<h1 id="CloudWatch-Events"><a href="#CloudWatch-Events" class="headerlink" title="CloudWatch Events"></a>CloudWatch Events</h1><p>Triggers an event based on a condition or on schedule.<br>Event Source(how to trigger the event) -&gt; Targets(what to trigger)</p>
+<h2 id="Event-Source"><a href="#Event-Source" class="headerlink" title="Event Source"></a>Event Source</h2><p>It could either be an <strong>Event Pattern</strong> or a <strong>schedule</strong></p>
+<h2 id="Targets"><a href="#Targets" class="headerlink" title="Targets"></a>Targets</h2><p>You can select Target to invoke when an event matches your Event Pattern or when schedule is triggered.<br>The Target options are a long list. For example, Lambda function, SNS topic, SQS queue, Kinesis stream, Firehose delivery stream.</p>
+<h1 id="CloudWatch-Custom-Metrics-and-High-Resolution-Metrics"><a href="#CloudWatch-Custom-Metrics-and-High-Resolution-Metrics" class="headerlink" title="CloudWatch Custom Metrics and High Resolution Metrics"></a>CloudWatch Custom Metrics and High Resolution Metrics</h1><p>Using AWS CLI or SDK you can create and publish your own custom metrics.<br>When publishing a custom metrics, you can define it as either standard resolution or high resolution.<br>High Resolution Metrics:<br>Only available for custom metrics. You can track every:</p>
+<ul>
+<li>1s</li>
+<li>5s </li>
+<li>10s</li>
+<li>30s</li>
+<li>60s * n<br>Higher the frequency, higher the cost.</li>
+</ul>
+<h1 id="CloudWatch-Alarms"><a href="#CloudWatch-Alarms" class="headerlink" title="CloudWatch Alarms"></a>CloudWatch Alarms</h1><p>Triggers a notification based on <strong>metrics</strong> which breach a defined threshold.</p>
 
         
         <br />
