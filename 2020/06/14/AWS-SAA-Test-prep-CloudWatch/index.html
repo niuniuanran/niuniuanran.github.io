@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Logs"><span class="toc-text">CloudWatch Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Group"><span class="toc-text">Log Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Stream"><span class="toc-text">Log Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-lifecycle"><span class="toc-text">Log lifecycle</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Metrics"><span class="toc-text">CloudWatch Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Events"><span class="toc-text">CloudWatch Events</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Source"><span class="toc-text">Event Source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Targets"><span class="toc-text">Targets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Custom-Metrics-and-High-Resolution-Metrics"><span class="toc-text">CloudWatch Custom Metrics and High Resolution Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Alarms"><span class="toc-text">CloudWatch Alarms</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Logs"><span class="toc-text">CloudWatch Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Group"><span class="toc-text">Log Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Stream"><span class="toc-text">Log Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-lifecycle"><span class="toc-text">Log lifecycle</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Metrics"><span class="toc-text">CloudWatch Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Events"><span class="toc-text">CloudWatch Events</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Source"><span class="toc-text">Event Source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Targets"><span class="toc-text">Targets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Custom-Metrics-and-High-Resolution-Metrics"><span class="toc-text">CloudWatch Custom Metrics and High Resolution Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Alarms"><span class="toc-text">CloudWatch Alarms</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Dashboards"><span class="toc-text">CloudWatch Dashboards</span></a></li></ol>
 </div>
     
 </div>
@@ -188,7 +188,17 @@
 <li>30s</li>
 <li>60s * n<br>Higher the frequency, higher the cost.</li>
 </ul>
-<h1 id="CloudWatch-Alarms"><a href="#CloudWatch-Alarms" class="headerlink" title="CloudWatch Alarms"></a>CloudWatch Alarms</h1><p>Triggers a notification based on <strong>metrics</strong> which breach a defined threshold.</p>
+<h1 id="CloudWatch-Alarms"><a href="#CloudWatch-Alarms" class="headerlink" title="CloudWatch Alarms"></a>CloudWatch Alarms</h1><p>Triggers a notification based on <strong>metrics</strong> which breach a defined threshold.<br>You define:</p>
+<ul>
+<li>The type<ul>
+<li>Static: value as threshold</li>
+<li>Anomaly detection: band as threshold</li>
+</ul>
+</li>
+<li>The Condition: &gt;, &gt;=, &lt;, &lt;=</li>
+<li>The Threshold</li>
+</ul>
+<h1 id="CloudWatch-Dashboards"><a href="#CloudWatch-Dashboards" class="headerlink" title="CloudWatch Dashboards"></a>CloudWatch Dashboards</h1><p>Create custom dashboards from CloudWatch Metrics</p>
 
         
         <br />
