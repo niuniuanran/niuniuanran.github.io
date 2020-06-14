@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Logs"><span class="toc-text">CloudWatch Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Group"><span class="toc-text">Log Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Stream"><span class="toc-text">Log Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-lifecycle"><span class="toc-text">Log lifecycle</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -160,7 +160,12 @@
 <li>CloudWatch Alarms: triggers notification based on metrics which breach a defined threshold</li>
 <li>CloudWatch Dashboards: create visualization based on metrics</li>
 </ul>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+<h1 id="CloudWatch-Logs"><a href="#CloudWatch-Logs" class="headerlink" title="CloudWatch Logs"></a>CloudWatch Logs</h1><p>Core service of CloudWatch: all other CloudWatch services are built on CloudWatch Logs.<br>Used to monitor, store and access log files. </p>
+<h2 id="Log-Group"><a href="#Log-Group" class="headerlink" title="Log Group"></a>Log Group</h2><p>A collection of logs. Log files must belong to a log group</p>
+<h2 id="Log-Stream"><a href="#Log-Stream" class="headerlink" title="Log Stream"></a>Log Stream</h2><p>A log in a log group</p>
+<h2 id="Log-lifecycle"><a href="#Log-lifecycle" class="headerlink" title="Log lifecycle"></a>Log lifecycle</h2><p>By default, logs are kept indefinitely and never expire.</p>
+<p>Most AWS services are integrated with CloudWatch Logs. Logging of services sometimes need to be turned on, or requires the IAM Permission to write into CloudWatch Logs.</p>
+
         
         <br />
         <div id="comment-container">
