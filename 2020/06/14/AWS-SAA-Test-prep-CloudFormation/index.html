@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Infrastructure-as-code"><span class="toc-text">Infrastructure as code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-Case"><span class="toc-text">Use Case</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Infrastructure-as-code"><span class="toc-text">Infrastructure as code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-Case"><span class="toc-text">Use Case</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Template-Anatomy"><span class="toc-text">Template Anatomy</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Quick-Starts"><span class="toc-text">AWS Quick Starts</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ROLLBACK-IN-PROGRESS"><span class="toc-text">ROLLBACK_IN_PROGRESS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Size-limit"><span class="toc-text">Size limit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NestedStacks"><span class="toc-text">NestedStacks</span></a></li></ol>
 </div>
     
 </div>
@@ -148,9 +148,28 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>AWS CloudFormation: a templating language that defines AWS resources to be provisioned.<br>Automating the creation of resources via code. </p>
+        <blockquote>
+<p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
+</blockquote>
+<p>AWS CloudFormation: a templating language that defines AWS resources to be provisioned.<br>Automating the creation of resources via code. </p>
 <h1 id="Infrastructure-as-code"><a href="#Infrastructure-as-code" class="headerlink" title="Infrastructure as code"></a>Infrastructure as code</h1><p>The process of managing and provisioning computer data centres (eg AWS) through machine-readable definition files rather than physical hardware configuration of interactive configuration tools (stop doing manual configuration)</p>
 <h2 id="Use-Case"><a href="#Use-Case" class="headerlink" title="Use Case"></a>Use Case</h2><p>People pay a monthly subscription and we run a Minecraft server. They choose where they want and what size of server they want to run.<br>We can use their inputs and use an Lambda to create a new CloudFormation stack. We have a lambda to send them the email of their new Minecraft Server IP address and details.</p>
+<h1 id="Template-Anatomy"><a href="#Template-Anatomy" class="headerlink" title="Template Anatomy"></a>Template Anatomy</h1><p>Template Sections:</p>
+<ul>
+<li>MetaData: Additional information about the template</li>
+<li>Description: What the template does</li>
+<li>Parameters: what inputs are allowed to pass to the template at runtime</li>
+<li>Mappings: a lookup table. for example, mapping region ids to image ids in that region</li>
+<li>Conditions: whether resources are created or properties are assigned</li>
+<li>Transform: applies macros (like applying a mod which changes the anatomy to the custom)</li>
+<li><strong>Resources</strong>: resources to be created</li>
+<li>Outputs: return value, e.g. the IP address of the new server created. </li>
+</ul>
+<p>Only <strong>Resources</strong> are mandatory. CloudFormation Templates requires you to list at least one resource.</p>
+<h1 id="AWS-Quick-Starts"><a href="#AWS-Quick-Starts" class="headerlink" title="AWS Quick Starts"></a>AWS Quick Starts</h1><p>AWS Quick Starts are a collection of pre-built CloudFormation templates.</p>
+<h1 id="ROLLBACK-IN-PROGRESS"><a href="#ROLLBACK-IN-PROGRESS" class="headerlink" title="ROLLBACK_IN_PROGRESS"></a>ROLLBACK_IN_PROGRESS</h1><p>When CloudFormation encounters an error, it will roll back with ROLLBACK_IN_PROGRESS</p>
+<h1 id="Size-limit"><a href="#Size-limit" class="headerlink" title="Size limit"></a>Size limit</h1><p>CloudFormation templates larger than 51,200 bytes (0.05MB) are too large to upload directly, and must be imported into CloudFormation via an <strong>S3 bucket</strong></p>
+<h1 id="NestedStacks"><a href="#NestedStacks" class="headerlink" title="NestedStacks"></a>NestedStacks</h1><p>helps you break up CloudFormation template into smaller reusable templates that can be composed into larger templates.</p>
 
         
         <br />
