@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Logs"><span class="toc-text">CloudWatch Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Group"><span class="toc-text">Log Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Stream"><span class="toc-text">Log Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-lifecycle"><span class="toc-text">Log lifecycle</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Metrics"><span class="toc-text">CloudWatch Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Events"><span class="toc-text">CloudWatch Events</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Source"><span class="toc-text">Event Source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Targets"><span class="toc-text">Targets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Custom-Metrics-and-High-Resolution-Metrics"><span class="toc-text">CloudWatch Custom Metrics and High Resolution Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Alarms"><span class="toc-text">CloudWatch Alarms</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Dashboards"><span class="toc-text">CloudWatch Dashboards</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Availability-of-Data"><span class="toc-text">CloudWatch - Availability of Data</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Logs"><span class="toc-text">CloudWatch Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Group"><span class="toc-text">Log Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-Stream"><span class="toc-text">Log Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-lifecycle"><span class="toc-text">Log lifecycle</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Metrics"><span class="toc-text">CloudWatch Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Events"><span class="toc-text">CloudWatch Events</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Source"><span class="toc-text">Event Source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Targets"><span class="toc-text">Targets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Custom-Metrics-and-High-Resolution-Metrics"><span class="toc-text">CloudWatch Custom Metrics and High Resolution Metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Alarms"><span class="toc-text">CloudWatch Alarms</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Dashboards"><span class="toc-text">CloudWatch Dashboards</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Availability-of-Data"><span class="toc-text">CloudWatch - Availability of Data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudWatch-Agent-and-Host-Level-Metrics"><span class="toc-text">CloudWatch Agent and Host Level Metrics</span></a></li></ol>
 </div>
     
 </div>
@@ -202,12 +202,15 @@
 <h1 id="CloudWatch-Availability-of-Data"><a href="#CloudWatch-Availability-of-Data" class="headerlink" title="CloudWatch - Availability of Data"></a>CloudWatch - Availability of Data</h1><p>How often CloudWatch will collect and make available data.</p>
 <img width="800px" src="EC2-monitoring.png"/>
 
-
-
-
-
-
-
+<h1 id="CloudWatch-Agent-and-Host-Level-Metrics"><a href="#CloudWatch-Agent-and-Host-Level-Metrics" class="headerlink" title="CloudWatch Agent and Host Level Metrics"></a>CloudWatch Agent and Host Level Metrics</h1><p>Some metrics you might think are tracked by default for EC2 instances are not, including:</p>
+<ul>
+<li>Memory utilization</li>
+<li>Disk swap utilization</li>
+<li>Disk space utilization</li>
+<li>Page file utilization</li>
+<li>Log collection</li>
+</ul>
+<p>To track these metrics, you need to install the <strong>CloudWatch Agent</strong>.</p>
 
         
         <br />
