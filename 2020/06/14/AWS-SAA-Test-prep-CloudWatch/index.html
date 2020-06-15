@@ -202,6 +202,7 @@
 <h1 id="CloudWatch-Availability-of-Data"><a href="#CloudWatch-Availability-of-Data" class="headerlink" title="CloudWatch - Availability of Data"></a>CloudWatch - Availability of Data</h1><p>How often CloudWatch will collect and make available data.</p>
 <img width="800px" src="EC2-monitoring.png"/>
 
+<p>Extra charge applies for detailed monitoring.</p>
 <h1 id="CloudWatch-Agent-and-Host-Level-Metrics"><a href="#CloudWatch-Agent-and-Host-Level-Metrics" class="headerlink" title="CloudWatch Agent and Host Level Metrics"></a>CloudWatch Agent and Host Level Metrics</h1><p>Some metrics you might think are tracked by default for EC2 instances are not, including:</p>
 <ul>
 <li>Memory utilization</li>
@@ -210,7 +211,18 @@
 <li>Page file utilization</li>
 <li>Log collection</li>
 </ul>
-<p>To track these metrics, you need to install the <strong>CloudWatch Agent</strong>.</p>
+<p>To track these metrics, you need to install the <strong>CloudWatch Agent</strong>.<br>The CloudWatch Agent is a script which can be installed via <strong>Systems Manager</strong> Run Command onto the target instance.</p>
+<p>CloudWatch track the following metrics at <strong>Host Level</strong> by default:</p>
+<ul>
+<li>CPU usage</li>
+<li>Network usage</li>
+<li>Disk usage</li>
+<li>Status Checks<ul>
+<li>Underlying Hypervisor status</li>
+<li>Underlying EC2 instance status</li>
+</ul>
+</li>
+</ul>
 
         
         <br />
