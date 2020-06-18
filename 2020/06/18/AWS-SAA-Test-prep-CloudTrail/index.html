@@ -162,15 +162,15 @@
 <li>What: Region, Resource, Action</li>
 </ul>
 <h1 id="CloudTrail-Event-history"><a href="#CloudTrail-Event-history" class="headerlink" title="CloudTrail - Event history"></a>CloudTrail - Event history</h1><p>By default already logging and will collect logs for <strong>90 days</strong> via <strong>Event History</strong>.</p>
-<p>If you need more than 90 days, create a <strong>Trail</strong>.<br>Trails are output to S3 and to not have GUI like Event History. To analyze a Trail you have to use <strong>Amazon Athena</strong>.</p>
+<p>If you need more than 90 days, create a <strong>Trail</strong>.<br>Trails are output to <strong>S3</strong> and to not have GUI like Event History. To analyze a Trail you have to use <strong>Amazon Athena</strong>.</p>
 <h1 id="Trail-Options-Important"><a href="#Trail-Options-Important" class="headerlink" title="Trail Options - Important!"></a>Trail Options - Important!</h1><ul>
 <li>A Trail can be set to log to all regions</li>
 <li>A Trail can be set to apply to <strong>all accounts in an Organization</strong></li>
 <li>You can Encrypt your Log file using Server side encryption via KMS (SSE-KMS)</li>
 <li>We can ensure the integrity of the logs to see if they have been tampered by turning on <strong>Log File Validation</strong></li>
 </ul>
-<h1 id="CloudTrail-gt-CloudWatch"><a href="#CloudTrail-gt-CloudWatch" class="headerlink" title="CloudTrail -&gt; CloudWatch"></a>CloudTrail -&gt; CloudWatch</h1><p>You can send CloudTrail event to CloudWatch logs, but not the other way around.</p>
-<h1 id="Management-Events-and-Data-Events"><a href="#Management-Events-and-Data-Events" class="headerlink" title="Management Events and Data Events"></a>Management Events and Data Events</h1><h2 id="Data-Events"><a href="#Data-Events" class="headerlink" title="Data Events"></a>Data Events</h2><p>Data Events are for two services currently: S3 and Lambda. You can track actions such as: GetObject, DeleteObject, PutObject. <strong>Turned off by default</strong></p>
+<h1 id="CloudTrail-gt-CloudWatch"><a href="#CloudTrail-gt-CloudWatch" class="headerlink" title="CloudTrail -&gt; CloudWatch"></a>CloudTrail -&gt; CloudWatch</h1><p>You can send CloudTrail event to CloudWatch logs, so that you can receive SNS notification from CloudWatch when specific API activity occurs.<br>Not the other way around.</p>
+<h1 id="Management-Events-and-Data-Events"><a href="#Management-Events-and-Data-Events" class="headerlink" title="Management Events and Data Events"></a>Management Events and Data Events</h1><h2 id="Data-Events"><a href="#Data-Events" class="headerlink" title="Data Events"></a>Data Events</h2><p>Data Events are for two services currently: S3 and Lambda. You can track actions such as: GetObject, DeleteObject, PutObject. <strong>Turned off by default</strong>: high-volume logging</p>
 <h2 id="Management-Events"><a href="#Management-Events" class="headerlink" title="Management Events"></a>Management Events</h2><p>Tracks management operations. <strong>Turned on by default. CAN’T be turned off</strong></p>
 
         
