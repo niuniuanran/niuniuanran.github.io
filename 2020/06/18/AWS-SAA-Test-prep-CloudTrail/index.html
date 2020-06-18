@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Introduction"><span class="toc-text">CloudTrail Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Event-history"><span class="toc-text">CloudTrail - Event history</span></a></li></ol>
 </div>
     
 </div>
@@ -151,6 +151,18 @@
         <blockquote>
 <p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
 </blockquote>
+<p>CloudTrail: Logs API calls and actions on AWS services.<br>When you need to know who to blame.</p>
+<h1 id="CloudTrail-Introduction"><a href="#CloudTrail-Introduction" class="headerlink" title="CloudTrail Introduction"></a>CloudTrail Introduction</h1><p>CloudTrail enables governance, compliance, operational auditing and risk auditing of your AWS account.</p>
+<p>AWS CloudTrail is used to monitor API calls and Actions made on an AWS account.</p>
+<p>Easily identify:</p>
+<ul>
+<li>Where: Source IP address</li>
+<li>When: Event Time</li>
+<li>Who: User Identity, UserAgent</li>
+<li>What: Region, Resource, Action</li>
+</ul>
+<h1 id="CloudTrail-Event-history"><a href="#CloudTrail-Event-history" class="headerlink" title="CloudTrail - Event history"></a>CloudTrail - Event history</h1><p>By default already logging and will collect logs for <strong>90 days</strong> via <strong>Event History</strong>.</p>
+<p>If you need more than 90 days, create a <strong>Trail</strong>.<br>Trails are output to S3 and to not have GUI like Event History. To analyze a Trail you have to use <strong>Amazon Athena</strong>.</p>
 
         
         <br />
