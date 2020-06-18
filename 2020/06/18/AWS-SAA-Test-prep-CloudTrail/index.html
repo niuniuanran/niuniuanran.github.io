@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Introduction"><span class="toc-text">CloudTrail Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Event-history"><span class="toc-text">CloudTrail - Event history</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Trail-Options-Important"><span class="toc-text">Trail Options - Important!</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Introduction"><span class="toc-text">CloudTrail Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Event-history"><span class="toc-text">CloudTrail - Event history</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Trail-Options-Important"><span class="toc-text">Trail Options - Important!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-gt-CloudWatch"><span class="toc-text">CloudTrail -&gt; CloudWatch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Management-Events-and-Data-Events"><span class="toc-text">Management Events and Data Events</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Events"><span class="toc-text">Data Events</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Management-Events"><span class="toc-text">Management Events</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -169,6 +169,9 @@
 <li>You can Encrypt your Log file using Server side encryption via KMS (SSE-KMS)</li>
 <li>We can ensure the integrity of the logs to see if they have been tampered by turning on <strong>Log File Validation</strong></li>
 </ul>
+<h1 id="CloudTrail-gt-CloudWatch"><a href="#CloudTrail-gt-CloudWatch" class="headerlink" title="CloudTrail -&gt; CloudWatch"></a>CloudTrail -&gt; CloudWatch</h1><p>You can send CloudTrail event to CloudWatch logs, but not the other way around.</p>
+<h1 id="Management-Events-and-Data-Events"><a href="#Management-Events-and-Data-Events" class="headerlink" title="Management Events and Data Events"></a>Management Events and Data Events</h1><h2 id="Data-Events"><a href="#Data-Events" class="headerlink" title="Data Events"></a>Data Events</h2><p>Data Events are for two services currently: S3 and Lambda. You can track actions such as: GetObject, DeleteObject, PutObject. <strong>Turned off by default</strong></p>
+<h2 id="Management-Events"><a href="#Management-Events" class="headerlink" title="Management Events"></a>Management Events</h2><p>Tracks management operations. <strong>Turned on by default. CAN’T be turned off</strong></p>
 
         
         <br />
