@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Introduction"><span class="toc-text">CloudTrail Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Event-history"><span class="toc-text">CloudTrail - Event history</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Introduction"><span class="toc-text">CloudTrail Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudTrail-Event-history"><span class="toc-text">CloudTrail - Event history</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Trail-Options-Important"><span class="toc-text">Trail Options - Important!</span></a></li></ol>
 </div>
     
 </div>
@@ -163,6 +163,12 @@
 </ul>
 <h1 id="CloudTrail-Event-history"><a href="#CloudTrail-Event-history" class="headerlink" title="CloudTrail - Event history"></a>CloudTrail - Event history</h1><p>By default already logging and will collect logs for <strong>90 days</strong> via <strong>Event History</strong>.</p>
 <p>If you need more than 90 days, create a <strong>Trail</strong>.<br>Trails are output to S3 and to not have GUI like Event History. To analyze a Trail you have to use <strong>Amazon Athena</strong>.</p>
+<h1 id="Trail-Options-Important"><a href="#Trail-Options-Important" class="headerlink" title="Trail Options - Important!"></a>Trail Options - Important!</h1><ul>
+<li>A Trail can be set to log to all regions</li>
+<li>A Trail can be set to apply to <strong>all accounts in an Organization</strong></li>
+<li>You can Encrypt your Log file using Server side encryption via KMS (SSE-KMS)</li>
+<li>We can ensure the integrity of the logs to see if they have been tampered by turning on <strong>Log File Validation</strong></li>
+</ul>
 
         
         <br />
