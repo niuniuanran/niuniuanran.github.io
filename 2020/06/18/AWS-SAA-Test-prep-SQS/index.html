@@ -11,7 +11,7 @@
 
     <title>
         
-        AWS SAA Test prep Lambda - Code on Anran!
+        AWS SAA Test prep SQS - Code on Anran!
         
     </title>
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-user-cases"><span class="toc-text">Typical user cases</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Triggers"><span class="toc-text">Triggers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Pricing"><span class="toc-text">Pricing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda-Defaults-and-Limits"><span class="toc-text">Lambda Defaults and Limits</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VPC"><span class="toc-text">VPC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cold-Starts"><span class="toc-text">Cold Starts</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Use-Case"><span class="toc-text">SQS Use Case</span></a></li></ol>
 </div>
     
 </div>
@@ -127,11 +127,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        AWS SAA Test prep Lambda
+        AWS SAA Test prep SQS
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-06-18 21:27:59</span></span>
+        <span class="attr">Post：<span>2020-06-18 23:01:03</span></span>
         
         <span class="attr">Tags：/
         
@@ -151,71 +151,10 @@
         <blockquote>
 <p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
 </blockquote>
-<p>Run code <strong>without provisioning or managing servers</strong>. Servers automatically start/stop when needed. Serverless Functions. Pay per invocation.</p>
-<p>Supports 7 runtime languages natively:</p>
-<ul>
-<li>Ruby</li>
-<li>Python</li>
-<li>Java</li>
-<li>C#</li>
-<li>Go</li>
-<li>Node.js</li>
-<li>Powershell</li>
-</ul>
-<p>You can also <strong>Create your own custom runtime environments</strong></p>
-<blockquote>
-<p>If you need long running tasks (&gt;15 mins) and a custom OS environment, consider using <a href="https://aws.amazon.com/fargate/" target="_blank" rel="noopener">Fargate</a>.</p>
-</blockquote>
-<h1 id="Typical-user-cases"><a href="#Typical-user-cases" class="headerlink" title="Typical user cases"></a>Typical user cases</h1><img src="user-case.png" width="900px" alt=""/>
+<img src="queue-streaming.png" alt="" width="900px"/>
 
-<h1 id="Triggers"><a href="#Triggers" class="headerlink" title="Triggers"></a>Triggers</h1><p>To invoke a lambda: use AWS SDK, or trigger from other AWS Services. e.g:</p>
-<ul>
-<li>API gateway</li>
-<li>AWS IoT</li>
-<li>Alexa Skills Kit</li>
-<li>Alexa Smart Home</li>
-<li>Application Load Balancer</li>
-<li>CloudFront</li>
-<li>CloudWatch Events</li>
-<li>CloudWatch Logs</li>
-<li>CodeCommit</li>
-<li>Cognito Sync Trigger</li>
-<li>DynamoDB</li>
-<li>Kinesis</li>
-<li>S3</li>
-<li>SNS</li>
-<li>SQS</li>
-</ul>
-<p>Partner event sources (powered by Amazon EventBridge):</p>
-<ul>
-<li>Datadog</li>
-<li>OneLogin</li>
-<li>PageDuty</li>
-<li>Savlynt</li>
-<li>Segment</li>
-<li>SignalFx</li>
-<li>SugarCRM</li>
-<li>Whispir</li>
-<li>Zendesk</li>
-</ul>
-<h1 id="Pricing"><a href="#Pricing" class="headerlink" title="Pricing"></a>Pricing</h1><p>You are charged based on the <strong>number of requests</strong> for your functions and the <strong>duration</strong>, the time it takes for your code to execute.</p>
-<p>Lambda counts a request each time it starts executing in response to an event notification or invoke call, including test invokes from the console.</p>
-<p>Duration is calculated from the time your code begins executing until it returns or otherwise terminates, <strong>rounded up to the nearest 100ms</strong>. The price depends on the amount of <strong>memory</strong> you allocate to your function. In the <strong>AWS Lambda resource model</strong>, you <strong>choose the amount of memory</strong> you want for your function, and are allocated <strong>proportional CPU power</strong> and other resources. An increase in memory size triggers an equivalent increase in CPU available to your function. </p>
-<p>The AWS Lambda free usage tier includes <strong>1M free requests per month</strong> and <strong>400,000 GB-seconds of compute time</strong> per month.</p>
-<h1 id="Lambda-Defaults-and-Limits"><a href="#Lambda-Defaults-and-Limits" class="headerlink" title="Lambda Defaults and Limits"></a>Lambda Defaults and Limits</h1><ul>
-<li>1000 running concurrently</li>
-<li><code>/tmp</code> directory can contain up to 500MB</li>
-<li>Maximum timeout: 15min</li>
-<li>You can allocate any amount of memory to your function <strong>between 128MB and 3008MB</strong>, in 64MB increments.</li>
-</ul>
-<h2 id="VPC"><a href="#VPC" class="headerlink" title="VPC"></a>VPC</h2><p>By default running in <strong>No VPC</strong>.<br>To interact with some services you need to have your Lambda in the same VPC, e.g.RDS<br>You can set them to run in your own VPC, but your lambda will lose Internet access.</p>
-<p>To access private Amazon VPC resources, such as a Relational Database Service (Amazon RDS) DB instance or Amazon Elastic Compute Cloud (Amazon EC2) instance, associate your Lambda function in an Amazon VPC with one or more private subnets.</p>
-<p>To grant internet access to your function, its associated VPC must have a NAT gateway (or NAT instance) in a public subnet.</p>
-<h2 id="Cold-Starts"><a href="#Cold-Starts" class="headerlink" title="Cold Starts"></a>Cold Starts</h2><p>Serverless functions <strong>Cold Starts</strong> can cause delays in the user experiences. If your web-application relies on being very responsive, you want to re-consider Serverless functions.</p>
-<img src="cold-start.png" alt="" width="700px"/>
-
-<p>There are strategies around ColdStarts such as <strong>Pre Warming</strong> which keep servers continuously running.<br>Cloud Providers are always looking for ways to reduce cold starts.</p>
-
+<p>SQS is <strong>PULL based</strong><br>A solution for the distributed queuing of messages generated by your application.<br>A queue is a temporary repository for messages that are awaiting processing.</p>
+<h1 id="SQS-Use-Case"><a href="#SQS-Use-Case" class="headerlink" title="SQS Use Case"></a>SQS Use Case</h1>
         
         <br />
         <div id="comment-container">
