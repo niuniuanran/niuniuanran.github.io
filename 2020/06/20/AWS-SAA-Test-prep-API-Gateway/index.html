@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Key-features"><span class="toc-text">Key features</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API-Gateway-Configuration"><span class="toc-text">API Gateway - Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Resources"><span class="toc-text">Resources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-text">Methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stages"><span class="toc-text">Stages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Invoke-URL"><span class="toc-text">Invoke URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploy-API"><span class="toc-text">Deploy API</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -151,6 +151,28 @@
         <blockquote>
 <p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
 </blockquote>
+<img width="900px" alt="API gateway diagram" src="API-gateway.png"/>
+
+<p>API Gateway is a solution for creating secure APIs in your cloud environment at any scale.<br>Front door for applications to access data, business logic, or functionality from back-end services.</p>
+<h1 id="Key-features"><a href="#Key-features" class="headerlink" title="Key features"></a>Key features</h1><p>Handles up to hundreds of thousands of concurrent API calls.</p>
+<ul>
+<li>Automatically highly available</li>
+<li>Maintains multiple versions of your API</li>
+<li>Allows you to track and control usage of your API. <strong>Throttle</strong> requests to help prevent attacks</li>
+<li>Expose HTTPS endpoints to define a RESTful API</li>
+<li>Send each API endpoint to a different target.</li>
+</ul>
+<blockquote>
+<p>To prevent your API from being overwhelmed by too many requests, Amazon API Gateway throttles requests to your API using the token bucket algorithm  where a token counts for a request.</p>
+</blockquote>
+<blockquote>
+<p>When request submissions exceed the steady-state request rate and burst limits, API Gateway fails the limit-exceeding requests and returns 429 Too Many Requests error responses to the client.</p>
+</blockquote>
+<h1 id="API-Gateway-Configuration"><a href="#API-Gateway-Configuration" class="headerlink" title="API Gateway - Configuration"></a>API Gateway - Configuration</h1><h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><p>When you create an API you need to also create multiple <strong>Resources</strong><br>Resources are the <strong>URLs</strong> you define.<br>Resources can have child resources.</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p>You need to define <strong>Methods</strong> on Resources.<br>You can define multiple methods on a resource.<br>Methods allow you to make API calls that resource url with that protocol. </p>
+<h2 id="Stages"><a href="#Stages" class="headerlink" title="Stages"></a>Stages</h2><p>In order to use your API you need to Deploy it to <strong>Stages</strong>.<br>Stages are versions of your API.</p>
+<h2 id="Invoke-URL"><a href="#Invoke-URL" class="headerlink" title="Invoke URL"></a>Invoke URL</h2><p>For each stage, AWS provides you an <strong>Invoke URL</strong><br>This is where you’ll make your API calls.<br>It is possible to use a <strong>custom domain</strong> for your invoke url.</p>
+<h2 id="Deploy-API"><a href="#Deploy-API" class="headerlink" title="Deploy API"></a>Deploy API</h2><p>Every time you make a change to your API you need to Deploy it via the <strong>Deploy API</strong> action. When you deploy, you choose the Stage.</p>
 
         
         <br />
