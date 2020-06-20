@@ -11,7 +11,7 @@
 
     <title>
         
-        AWS SAA Test prep cheatsheets - Code on Anran!
+        AWS SAA Test prep Kinesis - Code on Anran!
         
     </title>
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Elastic-Beanstalk"><span class="toc-text">Elastic Beanstalk</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS"><span class="toc-text">SNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS"><span class="toc-text">SQS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API-Gateway"><span class="toc-text">API Gateway</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kinesis"><span class="toc-text">Kinesis</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kinesis-Data-Streams"><span class="toc-text">Kinesis Data Streams</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kineses-Firehose-Delivery-Streams"><span class="toc-text">Kineses Firehose Delivery Streams</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kinesis-Video-Streams"><span class="toc-text">Kinesis Video Streams</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kinesis-Data-Analytics"><span class="toc-text">Kinesis Data Analytics</span></a></li></ol>
 </div>
     
 </div>
@@ -127,11 +127,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        AWS SAA Test prep cheatsheets
+        AWS SAA Test prep Kinesis
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-06-20 16:13:58</span></span>
+        <span class="attr">Post：<span>2020-06-20 19:14:45</span></span>
         
         <span class="attr">Tags：/
         
@@ -151,15 +151,64 @@
         <blockquote>
 <p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
 </blockquote>
-<h1 id="Elastic-Beanstalk"><a href="#Elastic-Beanstalk" class="headerlink" title="Elastic Beanstalk"></a>Elastic Beanstalk</h1><img src="elastic-beanstalk.png" width="900px" alt="elastic-beanstalk"/>
+<p>When you need real-time, think Kinesis.<br>Amazon Kinesis is the AWS <strong>fully managed</strong> solution for <strong>collecting, processing and analysing streaming data</strong> in the cloud.</p>
+<blockquote>
+<p>Amazon Kinesis enables you to process and analyze data as it arrives and respond instantly instead of having to wait until all your data is collected before the processing can begin.</p>
+</blockquote>
+<p>Streaming data examples:</p>
+<ul>
+<li><p>Stock prices</p>
+</li>
+<li><p>Game data</p>
+</li>
+<li><p>GeoSpatial data</p>
+</li>
+<li><p>Click Stream Data</p>
+</li>
+<li><p>Social Network Data</p>
+<p>Kinesis Capabilities:</p>
+</li>
+<li><p>Kinesis Data Streams</p>
+</li>
+<li><p>Kinesis Firehose Delivery Streams</p>
+</li>
+<li><p>Kinesis Data Analytics</p>
+</li>
+<li><p>Kinesis Video Analytics</p>
+</li>
+</ul>
+<h1 id="Kinesis-Data-Streams"><a href="#Kinesis-Data-Streams" class="headerlink" title="Kinesis Data Streams"></a>Kinesis Data Streams</h1><p>You have data Producers and Consumers. </p>
+<ul>
+<li>You pay for each running shard. </li>
+<li>Incoming data is distributed among shards.</li>
+<li>You can have multiple consumers. You must manually configure your consumers.</li>
+<li>Data can persist from <strong>24 hours (default)</strong> to <strong>168 hours</strong> before it disappears from the stream.</li>
+</ul>
+<img width="800px" alt="kinesis data stream" src="Kinesis-Data-Stream.png"/>
 
-<h1 id="SNS"><a href="#SNS" class="headerlink" title="SNS"></a>SNS</h1><img src="sns-cheatsheet.png" width="900px" alt="sns"/>
+<h1 id="Kineses-Firehose-Delivery-Streams"><a href="#Kineses-Firehose-Delivery-Streams" class="headerlink" title="Kineses Firehose Delivery Streams"></a>Kineses Firehose Delivery Streams</h1><ul>
+<li>You choose one consumer from a predefined list:<ul>
+<li>S3</li>
+<li>Redshift</li>
+<li>Elastisearch</li>
+<li>Splunk</li>
+</ul>
+</li>
+<li>Data immediately disappears once its consumed.</li>
+<li>You can Transform, Compress and Secure data.</li>
+<li>You pay only for data that is consumed: cheaper</li>
+</ul>
+<p>If you don’t need data retention, very good choice.<br><img width="800px" src="firehose.png" alt="kinesis firehose"/></p>
+<h1 id="Kinesis-Video-Streams"><a href="#Kinesis-Video-Streams" class="headerlink" title="Kinesis Video Streams"></a><a href="https://aws.amazon.com/kinesis/video-streams/" target="_blank" rel="noopener">Kinesis Video Streams</a></h1><p>For ingesting video/audio encoded data.<br>Stream video data for ML, analytics and other processing.</p>
+<img src="video-stream.png" alt="" width="800px"/>
 
-<h1 id="SQS"><a href="#SQS" class="headerlink" title="SQS"></a>SQS</h1><img src="sqs-cheat-sheet.png" width="900px" alt="sqs"/>
 
-<h1 id="API-Gateway"><a href="#API-Gateway" class="headerlink" title="API Gateway"></a>API Gateway</h1><img width="900px" src="API-cheatsheet.png" alt="API-cheatsheet"/>
+<h1 id="Kinesis-Data-Analytics"><a href="#Kinesis-Data-Analytics" class="headerlink" title="Kinesis Data Analytics"></a><a href="https://aws.amazon.com/kinesis/data-analytics/" target="_blank" rel="noopener">Kinesis Data Analytics</a></h1><p>You can specific Firehose or Data Stream as input/output stream. Data that pass through Data Analysis run through <strong>custom SQL</strong> you provide, get the result and then output.<br>This allows for real-time analytics of your data.</p>
+<img src="data-analysis.png" width="700px" alt="Data Analysis"/>
 
-<h1 id="Kinesis"><a href="#Kinesis" class="headerlink" title="Kinesis"></a>Kinesis</h1><img width="900px" src="Kinesis-cheatsheet.png" alt="Kinesis-cheatsheet"/>
+<p>Can get a bit expensive because you need <strong>Two Streams</strong> for input and output.</p>
+<img width="900px" src="Kinesis-cheatsheet.png" alt="Kinesis-cheatsheet"/>
+
 
         
         <br />
