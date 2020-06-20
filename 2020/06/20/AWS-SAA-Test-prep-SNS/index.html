@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Pub-Sub"><span class="toc-text">What is Pub&#x2F;Sub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS"><span class="toc-text">SNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Topics"><span class="toc-text">SNS Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Pub-Sub"><span class="toc-text">What is Pub&#x2F;Sub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS"><span class="toc-text">SNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Topics"><span class="toc-text">SNS Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Subscriptions"><span class="toc-text">SNS Subscriptions</span></a></li></ol>
 </div>
     
 </div>
@@ -171,6 +171,16 @@
 <li>The message is decrypted immediately prior to delivery.</li>
 </ul>
 <p>When topics deliver messages to subscribers, it will <strong>automatically format your message according to the subscriber’s chosen protocol</strong>.</p>
+<h1 id="SNS-Subscriptions"><a href="#SNS-Subscriptions" class="headerlink" title="SNS Subscriptions"></a>SNS Subscriptions</h1><p>To receive messages from a topic you need to create a subscription.<br>One subscription can only subscribe to <strong>one protocol</strong> and <strong>one topic</strong>.<br>For protocols you have:</p>
+<ul>
+<li>HTTP and HTTPs: create webhooks into your web application</li>
+<li>Email: good for internal email notifications (only support plain text)</li>
+<li>Email-JSON: sends you json via email</li>
+<li>Amazon SQS: place SNS message into SQS queue for other application to pull</li>
+<li>AWS Lambda: triggers a lambda function</li>
+<li>SMS: send a text message</li>
+<li>Platform application endpoint: mobile push</li>
+</ul>
 
         
         <br />
