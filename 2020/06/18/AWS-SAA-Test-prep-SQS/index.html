@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Use-Case"><span class="toc-text">SQS Use Case</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Limits-Message-size"><span class="toc-text">SQS Limits - Message size</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Use-Case"><span class="toc-text">SQS Use Case</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Limits-Message-size"><span class="toc-text">SQS Limits - Message size</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Message-Retention"><span class="toc-text">Message Retention</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Queue-Types"><span class="toc-text">SQS Queue Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Standard-Queues"><span class="toc-text">Standard Queues</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FIFO-Queues"><span class="toc-text">FIFO Queues</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Visibility-Timeout"><span class="toc-text">Visibility Timeout</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol>
 </div>
     
 </div>
@@ -164,7 +164,13 @@
 
 <h1 id="SQS-Limits-Message-size"><a href="#SQS-Limits-Message-size" class="headerlink" title="SQS Limits - Message size"></a>SQS Limits - Message size</h1><p>The size of a message can be between 1byte and 256 KB</p>
 <p><strong>Amazon SQS Extended Client Library for Java</strong> lets you send messages <strong>256KB to 2GB</strong> in size. The message will be stored in S3 and library will reference the S3 object.</p>
-
+<h1 id="Message-Retention"><a href="#Message-Retention" class="headerlink" title="Message Retention"></a>Message Retention</h1><p>Message retention is how long SQS will hold onto a message in the queue before dropping it from the queue.<br>Message retention by default is <strong>4 days</strong><br>You can justify from <strong>60 seconds</strong> to <strong>14 days</strong></p>
+<h1 id="SQS-Queue-Types"><a href="#SQS-Queue-Types" class="headerlink" title="SQS Queue Types"></a>SQS Queue Types</h1><h2 id="Standard-Queues"><a href="#Standard-Queues" class="headerlink" title="Standard Queues"></a>Standard Queues</h2><p>Nearly unlimited number of messages per second.<br>Guarantees that a message will be delivered <strong>AT LEAST once</strong>.<br><strong>More than one copy</strong> of a message could be potentially delivered, causing things to happen out of order.<br>Provides <strong>best-effort ordering</strong> that a message is generally delivered in the same order they are delivered. </p>
+<h2 id="FIFO-Queues"><a href="#FIFO-Queues" class="headerlink" title="FIFO Queues"></a>FIFO Queues</h2><p>If you want guarantee of First-in-first-out order.<br>Without batching, FIFO queues support up to <strong>300</strong> API calls per second, per API method (SendMessage, ReceiveMessage, or DeleteMessage).<br>If you use <strong>batching</strong>, FIFO queues support up to <strong>3,000 transactions per second, per API method (SendMessageBatch, ReceiveMessage, or DeleteMessageBatch)</strong>. The 3000 transactions represent 300 API calls, each with a batch of 10 messages. </p>
+<p>FIFO queues have all the capabilities of the standard queue.</p>
+<h1 id="Visibility-Timeout"><a href="#Visibility-Timeout" class="headerlink" title="Visibility Timeout"></a>Visibility Timeout</h1><p>How to avoid someone else doing the same task?<br>A <strong>visibility timeout</strong> is the period of time that messages are invisible in the SQS queue, after a reader picks up that message.<br>Messages will be <strong>deleted</strong> from the queue after a job has been processed (before the visibility timeout expires). If a job is not processed before the visibility timeout expires, it will become visible again.<br>This can result in the same message being pulled twice!</p>
+<p><strong>30 seconds</strong> default<br><strong>0 second</strong> minimum<br><strong>12 hours</strong> maximum</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
         
         <br />
         <div id="comment-container">
