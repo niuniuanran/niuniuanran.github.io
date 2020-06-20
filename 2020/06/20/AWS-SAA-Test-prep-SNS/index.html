@@ -11,7 +11,7 @@
 
     <title>
         
-        Code on Anran!
+        AWS SAA Test prep SNS - Code on Anran!
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Pub-Sub"><span class="toc-text">What is Pub&#x2F;Sub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS"><span class="toc-text">SNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Topics"><span class="toc-text">SNS Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,92 +123,66 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/Version-Control-Through-and-Through/">
-                <h3>
-                    Version Control Through and Through
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#git" title="git">git</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#basic concepts" title="basic concepts">basic concepts</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test prep SNS
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/What-is-RESTful-API/">
-                <h3>
-                    What is RESTful API
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-20 12:32:40</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/7/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <blockquote>
+<p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
+</blockquote>
+<p><strong>Subscribe</strong> and <strong>send notifications</strong> via text message email, webhooks, lambdas, SQS and mobile notifications</p>
+<h1 id="What-is-Pub-Sub"><a href="#What-is-Pub-Sub" class="headerlink" title="What is Pub/Sub"></a>What is Pub/Sub</h1><p>Publish-subscribe pattern commonly implemented in <strong>messaging systems</strong>. In a pub/sub system the sender of messages (publishers) do not send their messages directly to receivers. They instead send their messages to an <strong>event bus</strong>.<br>The event bus categorizes their messages into groups. Then receivers of messages (subscribers) subscribe to these groups.<br>Whenever new messages appear within their subscription, the messages are immediately delivered to them.</p>
+<ul>
+<li>Publisher have no knowledge of who their subscribers are</li>
+<li>Subscribers do not pull for messages</li>
+<li>Messages are instead automatically and immediately <strong>pushed</strong> to subscribers</li>
+<li>Messages and events are interchangeable terms in pub/sub</li>
 </ul>
+<img src="pubsub.png" width="700px" alt=""/>
+
+<h1 id="SNS"><a href="#SNS" class="headerlink" title="SNS"></a>SNS</h1><p>A highly available, durable, secure, fully managed <strong>pub/sub messaging</strong> service that enables you to <strong>decouple</strong> <strong>microservices, distributed systems, and serverless applications</strong>. </p>
+<img src="sns.png" width="800px" alt=""/>
+
+<h1 id="SNS-Topics"><a href="#SNS-Topics" class="headerlink" title="SNS Topics"></a>SNS Topics</h1><p><strong>Topics</strong> allows you to group multiple subscriptions together.<br>A topic is able to deliver to multiple protocols at once eg. email, text message, http/s</p>
+<h2 id="Encryption"><a href="#Encryption" class="headerlink" title="Encryption"></a>Encryption</h2><p>You can encrypt Topics via SSE-KMS. </p>
+<ul>
+<li>Amazon SNS will encrypt your message as soon as it is received. </li>
+<li>The message is decrypted immediately prior to delivery.</li>
+</ul>
+<p>When topics deliver messages to subscribers, it will <strong>automatically format your message according to the subscriber’s chosen protocol</strong>.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -255,7 +233,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
