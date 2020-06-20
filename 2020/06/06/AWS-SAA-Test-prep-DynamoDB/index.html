@@ -155,7 +155,7 @@
 <h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><p>DynamoDB is:</p>
 <ul>
 <li>Fully managed</li>
-<li>multi-region</li>
+<li>multi-region with global table. by default one region</li>
 <li>multi-master</li>
 <li>durable database</li>
 <li>built-in security</li>
@@ -167,12 +167,13 @@
 <li>Eventual consistent reads(default)</li>
 <li>Strongly consistent reads</li>
 </ul>
-<p>All data is stored on <strong>SSD storage</strong>, and is kept 3 copies that spread across <strong>3 different regions</strong>.</p>
+<p>All data is stored on <strong>SSD storage</strong>, and is kept 3 copies that spread across <strong>different AZs in one region</strong>.<br> You can use global tables to keep DynamoDB tables in sync across AWS Regions.</p>
 <p><strong>Specify whatever Read Capacity Units and Write Capacity Units you need, and you just get it without you tweaking anything.</strong></p>
 <h1 id="Table-structure"><a href="#Table-structure" class="headerlink" title="Table structure"></a>Table structure</h1><img alt="" src="table.png" width="800px"/>
 
 <p>item<br>attribute<br>primary key is made up with partition key and sort key.</p>
-<h1 id="Consistent-Reads"><a href="#Consistent-Reads" class="headerlink" title="Consistent Reads"></a>Consistent Reads</h1><p>When data gets written to DynamoDB, it takes time to update the copies across multiple regions. It is possible to have inconsistent data. You can choose the read consistency:</p>
+<h1 id="Consistent-Reads"><a href="#Consistent-Reads" class="headerlink" title="Consistent Reads"></a>Consistent Reads</h1><p>Amazon DynamoDB is available in multiple AWS Regions around the world. Each Region is independent and isolated from other AWS Regions. For example, if you have a table called People in the us-east-2 Region and another table named People in the us-west-2 Region, these are considered two entirely separate tables.<br>When your application writes data to a DynamoDB table and receives an HTTP 200 response (OK), the write has occurred and is durable. The data is eventually consistent across all storage locations, usually within one second or less.</p>
+<p>When data gets written to DynamoDB, it takes time to update the copies across multiple regions. It is possible to have inconsistent data. You can choose the read consistency:</p>
 <h2 id="Eventual-Consistent-Reads-Default"><a href="#Eventual-Consistent-Reads-Default" class="headerlink" title="Eventual Consistent Reads (Default)"></a>Eventual Consistent Reads (Default)</h2><p>Reads are fast but not guaranteed to be consistent.<br>All copies of data eventually consistent within a second.</p>
 <h2 id="Strongly-Consistent-Reads"><a href="#Strongly-Consistent-Reads" class="headerlink" title="Strongly Consistent Reads"></a>Strongly Consistent Reads</h2><p>Guarantee of consistency, but higher latency (of within a second): have to wait until all results are consistent before result is returned.</p>
 

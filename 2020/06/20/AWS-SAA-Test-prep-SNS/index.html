@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Pub-Sub"><span class="toc-text">What is Pub&#x2F;Sub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS"><span class="toc-text">SNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Topics"><span class="toc-text">SNS Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Subscriptions"><span class="toc-text">SNS Subscriptions</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Pub-Sub"><span class="toc-text">What is Pub&#x2F;Sub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS"><span class="toc-text">SNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Topics"><span class="toc-text">SNS Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SNS-Subscriptions"><span class="toc-text">SNS Subscriptions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-as-subscriber"><span class="toc-text">Application as subscriber</span></a></li></ol>
 </div>
     
 </div>
@@ -151,7 +151,7 @@
         <blockquote>
 <p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
 </blockquote>
-<p><strong>Subscribe</strong> and <strong>send notifications</strong> via text message email, webhooks, lambdas, SQS and mobile notifications</p>
+<p>SNS is for <strong>Application Integration</strong>.<br>All messages published to SNS are stored redundantly across multiple Availability Zones.<br><strong>Subscribe</strong> and <strong>send notifications</strong> via text message email, webhooks, lambdas, SQS and mobile notifications</p>
 <h1 id="What-is-Pub-Sub"><a href="#What-is-Pub-Sub" class="headerlink" title="What is Pub/Sub"></a>What is Pub/Sub</h1><p>Publish-subscribe pattern commonly implemented in <strong>messaging systems</strong>. In a pub/sub system the sender of messages (publishers) do not send their messages directly to receivers. They instead send their messages to an <strong>event bus</strong>.<br>The event bus categorizes their messages into groups. Then receivers of messages (subscribers) subscribe to these groups.<br>Whenever new messages appear within their subscription, the messages are immediately delivered to them.</p>
 <ul>
 <li>Publisher have no knowledge of who their subscribers are</li>
@@ -181,6 +181,10 @@
 <li>SMS: send a text message</li>
 <li>Platform application endpoint: mobile push</li>
 </ul>
+<h1 id="Application-as-subscriber"><a href="#Application-as-subscriber" class="headerlink" title="Application as subscriber"></a>Application as subscriber</h1><img src="mobile-push.png" width="800px" alt=""/>
+
+<p>Push notification messages sent to a <strong>Platform application endpoint</strong>/ mobile endpoint can appear in the mobile app as message alerts, badge updates, or even sound alerts.</p>
+<img src="sns-cheatsheet.png" width="900px" alt=""/>
 
         
         <br />
