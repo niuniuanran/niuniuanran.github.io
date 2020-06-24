@@ -304,11 +304,11 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h3><img src="HAservices.png" width="700px"/>
-- Direct Connection(DX) is highly available when there are two ports open.  
-- ElastiCache is highly available when you group 2 to 6 nodes into a cluster with replicas where 1 to 5 read-only nodes contain replicate data of the group's single read/write primary node.
-- RedShift is highly available when you build multi-region or multi-availability zone (AZ) clusters
-
+<h3 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h3><ul>
+<li>Direct Connection(DX) is highly available when there are two ports open.  </li>
+<li>ElastiCache is highly available when you group 2 to 6 nodes into a cluster with replicas where 1 to 5 read-only nodes contain replicate data of the group’s single read/write primary node.</li>
+<li>RedShift is highly available when you build multi-region or multi-availability zone (AZ) clusters</li>
+</ul>
 <p>For any production relational database, we recommend using the <strong>Amazon RDS MultiAZ deployment</strong> feature, which creates a synchronously replicated standby instance in a different Availability Zone.</p>
 <blockquote>
 <p>Resilient applications can be designed for <strong>Graceful Failure</strong> by offering reduced functionality, such as read-only mode by using read replicas.</p>
