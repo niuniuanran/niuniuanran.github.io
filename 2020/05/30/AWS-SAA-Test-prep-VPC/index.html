@@ -151,6 +151,8 @@
         <blockquote>
 <p>The current note and all other notes titled “AWS SAA Test prep” are based on the 10-hour free tutorial hosted by Andrew Brown and published by freeCodeCamp, which is accessible on YouTube through <a href="https://youtu.be/Ia-UEYYR44s" target="_blank" rel="noopener">this link</a>. Special thanks for the maker and publisher of the awesome video!</p>
 </blockquote>
+<img src="subnets.png" alt="" width="800px"/>
+
 <p>Provision a logically isolated section of AWS Cloud where you can launch AWS resources in a virtual network that you define.</p>
 <h1 id="Core-components"><a href="#Core-components" class="headerlink" title="Core components"></a>Core components</h1><p>Think of a AWS VPC as your own personal data centre.<br>Gives you complete control over you virtual networking environment.</p>
 <ul>
@@ -251,7 +253,7 @@
 <p>If you want to deny a certain IP address block, use NACL. Security Group only has ALLOW rules.</p>
 <h1 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h1><p>NAT is the method of re-mapping one IP address space into another.<br>In the case of VPC, it is used to remap the private IP addresses of instances in a private subnet so that it will have outbound access to the Internet.</p>
 <h2 id="NAT-instance"><a href="#NAT-instance" class="headerlink" title="NAT instance"></a>NAT instance</h2><p>When creating a NAT instance you must disable source and destination checks on the instance.<br>Size of the instance determines how much traffic can be handled.<br>You must have a route out of the private subnet to the NAT instance.<br><strong>High Availability</strong> of a NAT instance can be achieved using <strong>Autoscaling Groups</strong>, multiple <strong>subnets in different AZs</strong>, and <strong>automatic failover between them using a script</strong>.</p>
-<h2 id="NAT-gateway"><a href="#NAT-gateway" class="headerlink" title="NAT gateway"></a>NAT gateway</h2><p>managed by AWS<br>automatically assigned a public IP address<br>You can only have 1 NAT Gateway inside 1 AZ. (Cannot span AZs)<br>Start at 5 Gbps and scales up to 45 Gbps.<br>Charged by hour + data processing</p>
+<h2 id="NAT-gateway"><a href="#NAT-gateway" class="headerlink" title="NAT gateway"></a>NAT gateway</h2><p>managed by AWS<br>automatically assigned a public IP address<br>You can only have 1 NAT Gateway inside 1 AZ. (Cannot span AZs)<br>Start at 5 Gbps and scales up to 45 Gbps.<br>Charged by hour + data processing<br><strong>NAT Gateways do not support port forwarding</strong></p>
 
         
         <br />
