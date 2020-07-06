@@ -262,7 +262,7 @@
 </li>
 </ul>
 <h1 id="EFS"><a href="#EFS" class="headerlink" title="EFS"></a>EFS</h1><p>Scalable, elastic, cloud-native NFS file system.<br>EFS is a file storage service for EC2 instances.</p>
-<p>Multiple EC2 instances in <strong>same VPC</strong> can mount a single EFS volume (volume must be in same VPC).<br>EC2 instances install the <strong>NFSv4.1 client</strong> and can then mount the EFS volume.<br>EFS is using Network File System version 4 (NFSv4) protocol.<br>EFS creates multiple <strong>mount targets</strong> in <strong>all your VPC subnets</strong>.</p>
+<p>Multiple EC2 instances in <strong>same VPC</strong> can mount a single EFS volume (volume must be in same VPC).<br>EC2 instances install the <strong>NFSv4.1 client</strong> and can then mount the EFS volume.<br>EFS is using Network File System version 4 (NFSv4) protocol.<br>EFS creates multiple <strong>mount targets</strong> in <strong>all your VPC subnets</strong>. One mount point in each VPC.</p>
 <img src="mount.png" width="900px" alt=""/>
 
 <p>EFS supports <strong>Read After Write</strong> consistency.</p>
