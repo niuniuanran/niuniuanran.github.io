@@ -294,7 +294,28 @@
 </ul>
 <p>Do not cache data that needs to be as fresh as possible.</p>
 <h2 id="Elasticity-and-Scalability"><a href="#Elasticity-and-Scalability" class="headerlink" title="Elasticity and Scalability"></a>Elasticity and Scalability</h2><h3 id="Horizontal-Scaling-vs-Vertical-Scaling"><a href="#Horizontal-Scaling-vs-Vertical-Scaling" class="headerlink" title="Horizontal Scaling vs Vertical Scaling"></a>Horizontal Scaling vs Vertical Scaling</h3><p>might be tested on whether you want to scale up/down or scale out/in.</p>
-<h3 id="Auto-Scaling"><a href="#Auto-Scaling" class="headerlink" title="Auto Scaling"></a>Auto Scaling</h3><p>Auto Scaling, Elastic Load Balancer and CloudWatch work together to enable auto scaling of EC2 instances.<br>Auto Scaling uses a <strong>Launch Configuration</strong> to launch a fully configured instance automatically.</p>
+<h3 id="Auto-Scaling"><a href="#Auto-Scaling" class="headerlink" title="Auto Scaling"></a>Auto Scaling</h3><p>Auto Scaling, Elastic Load Balancer and CloudWatch work together to enable auto scaling of EC2 instances.</p>
+<p>Auto Scaling uses a <strong>Launch Configuration</strong> to launch a fully configured instance automatically. Contains:</p>
+<ul>
+<li>AMI ID, </li>
+<li>instance type, </li>
+<li>storage configuration,</li>
+<li>key pair, </li>
+<li>user data, </li>
+<li>security group</li>
+</ul>
+<p>Auto Scaling Group</p>
+<ul>
+<li>Points to the launch configuration</li>
+<li>Specifies min, max, desired size of Auto Scaling group</li>
+<li>May reference an ELB</li>
+<li>Health Check Type</li>
+</ul>
+<p>Autho Scaling policy</p>
+<ul>
+<li>Specifies how much to scale in/out</li>
+<li><strong>One or more</strong> policies could be attached to one group.</li>
+</ul>
 
         
         <br />
