@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS SAA Exam Readiness note - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-Breakdown"><span class="toc-text">Question Breakdown</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Resilient-Architectures"><span class="toc-text">Design Resilient Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Choose-reliable-resilient-storage"><span class="toc-text">Choose reliable&#x2F;resilient storage.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ephemeral-volumes"><span class="toc-text">Ephemeral volumes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EFS"><span class="toc-text">EFS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EFS-process"><span class="toc-text">EFS process:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3"><span class="toc-text">S3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consistency-model"><span class="toc-text">Consistency model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Storage-classes"><span class="toc-text">Storage classes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-rest"><span class="toc-text">Encryption at rest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-transit"><span class="toc-text">Encryption at transit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Versioning"><span class="toc-text">Versioning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control"><span class="toc-text">Access Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multi-part-upload"><span class="toc-text">Multi-part upload</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Internet-API-accessible"><span class="toc-text">Internet-API accessible</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Regional-Availability"><span class="toc-text">Regional Availability</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decouple"><span class="toc-text">Decouple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mult-tier-architectures"><span class="toc-text">mult-tier architectures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#high-availability-and-fault-tolerance"><span class="toc-text">high availability and fault tolerance</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Exam Readiness note
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-06 16:24:34</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>The new version of SAA test is based around the well-architectured framework.</p>
+<p>Validate the person’s ability to:</p>
+<ul>
+<li>Define a solution using architectual design principles, based on customer requirements</li>
+<li>Provide implementation guidance based on best practices to the organisation <strong>throughout the lifecycle of the project</strong>.</li>
+</ul>
+<h1 id="Question-Breakdown"><a href="#Question-Breakdown" class="headerlink" title="Question Breakdown"></a>Question Breakdown</h1><ul>
+<li>Resilient: 34%</li>
+<li>Performant: 24%</li>
+<li>Secure: 26%</li>
+<li>Cost-optimised: 10%</li>
+<li>Operationally Excellent: 6%</li>
+</ul>
+<h1 id="Design-Resilient-Architectures"><a href="#Design-Resilient-Architectures" class="headerlink" title="Design Resilient Architectures"></a>Design Resilient Architectures</h1><h2 id="Choose-reliable-resilient-storage"><a href="#Choose-reliable-resilient-storage" class="headerlink" title="Choose reliable/resilient storage."></a>Choose reliable/resilient storage.</h2><h3 id="Ephemeral-volumes"><a href="#Ephemeral-volumes" class="headerlink" title="Ephemeral volumes"></a>Ephemeral volumes</h3><p>instance storage is ephemeral</p>
+<ul>
+<li>only certain EC2 types</li>
+<li>fixed capacity</li>
+<li>disk type and capacity depends on EC2 instance</li>
+<li>application-level durability</li>
+<li>good for caching/temporary storage.<h3 id="EBS"><a href="#EBS" class="headerlink" title="EBS"></a>EBS</h3>attachable storage<br>connects to one EC2 instance at a time</li>
+<li>different types</li>
+<li>encryption</li>
+<li>snapshots</li>
+<li>provisioned capacity</li>
+<li>independent lifecycle than EC2 instance</li>
+<li>multiple volumes striped to create larger volumes<br>Think as EBS volume as durable, attachable storage for EC2 instance.<br>Four types of EBS:<br>SDD is good for random access and HDD is good for sequential access.</li>
+<li>gp2</li>
+<li>io1</li>
+<li>st1: throughput optimised HDD</li>
+<li>sc1: Cold HDD</li>
+</ul>
+<p>SDD is more expensive than HDD.</p>
+<p>Further reading: <a href="https://d1.awsstatic.com/whitepapers/Storage/AWS%20Storage%20Services%20Whitepaper-v9.pdf" target="_blank" rel="noopener">White Paper: AWS Storage Overview</a></p>
+<h3 id="EFS"><a href="#EFS" class="headerlink" title="EFS"></a>EFS</h3><ul>
+<li>Also mounted as a disk into EC2 instance like EBS, but could be shared among instances.</li>
+<li>PB scale.<br>Elastic capacity.<br>Supports NFS v4.0, v4.1 protocol.<br>Compatible with Linux-based AMIs for Amazon EC2. Not currently supported for windows.</li>
+</ul>
+<h4 id="EFS-process"><a href="#EFS-process" class="headerlink" title="EFS process:"></a>EFS process:</h4><p>You create an Amazon EFS volume and then create a mount point for it in a particular VPC. The EFS volume can only attach to a single VPC at a time.<br>Within the VPC, you get <strong>mount target</strong> that your EC2 instance can connect to.</p>
+<h3 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h3><h4 id="Consistency-model"><a href="#Consistency-model" class="headerlink" title="Consistency model"></a>Consistency model</h4><p>You always want to ask the consistency for a distributed model.</p>
+<ul>
+<li>Strong consistency for new objects</li>
+<li>Eventual consistency for updates: because it is a scalable, distributed system.<h4 id="Storage-classes"><a href="#Storage-classes" class="headerlink" title="Storage classes"></a>Storage classes</h4>S3 Standard<br>S3 Standard-IA<h4 id="Encryption-at-rest"><a href="#Encryption-at-rest" class="headerlink" title="Encryption at rest"></a>Encryption at rest</h4>SSE-S3: S3 manages keys<br>SSE-KMS: KMS managed enveloped keys<br>SSE-C: customer manage keys to encrypt on the server side<h4 id="Encryption-at-transit"><a href="#Encryption-at-transit" class="headerlink" title="Encryption at transit"></a>Encryption at transit</h4>HTTPS<h4 id="Versioning"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning</h4>Great way to protect from accidental delete and overwrite.<h4 id="Access-Control"><a href="#Access-Control" class="headerlink" title="Access Control"></a>Access Control</h4>Control S3 access through:</li>
+<li>IAM user policies</li>
+<li>bucket policies</li>
+<li>Amazon S3 access control lists (ACLs) enable you to manage access to <strong>buckets and objects</strong>.<h4 id="Multi-part-upload"><a href="#Multi-part-upload" class="headerlink" title="Multi-part upload"></a>Multi-part upload</h4><h4 id="Internet-API-accessible"><a href="#Internet-API-accessible" class="headerlink" title="Internet-API accessible"></a>Internet-API accessible</h4><h4 id="Regional-Availability"><a href="#Regional-Availability" class="headerlink" title="Regional Availability"></a>Regional Availability</h4>Regional scoped.</li>
+</ul>
+<h2 id="Decouple"><a href="#Decouple" class="headerlink" title="Decouple"></a>Decouple</h2><p>ensures if one component fails, the others stay functional.</p>
+<h2 id="mult-tier-architectures"><a href="#mult-tier-architectures" class="headerlink" title="mult-tier architectures"></a>mult-tier architectures</h2><p>mult-tier architecture is naturally decoupled</p>
+<h2 id="high-availability-and-fault-tolerance"><a href="#high-availability-and-fault-tolerance" class="headerlink" title="high availability and fault tolerance"></a>high availability and fault tolerance</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
