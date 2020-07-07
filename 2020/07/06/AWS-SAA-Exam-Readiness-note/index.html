@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-Breakdown"><span class="toc-text">Question Breakdown</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Resilient-Architectures"><span class="toc-text">Design Resilient Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Choose-reliable-resilient-storage"><span class="toc-text">Choose reliable&#x2F;resilient storage.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ephemeral-volumes"><span class="toc-text">Ephemeral volumes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EFS"><span class="toc-text">EFS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EFS-process"><span class="toc-text">EFS process:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3"><span class="toc-text">S3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consistency-model"><span class="toc-text">Consistency model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Storage-classes"><span class="toc-text">Storage classes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-rest"><span class="toc-text">Encryption at rest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-transit"><span class="toc-text">Encryption at transit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Versioning"><span class="toc-text">Versioning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control"><span class="toc-text">Access Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multi-part-upload"><span class="toc-text">Multi-part upload</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Internet-API-accessible"><span class="toc-text">Internet-API accessible</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Regional-Availability"><span class="toc-text">Regional Availability</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Glacier"><span class="toc-text">Amazon Glacier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decouple"><span class="toc-text">Decouple</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQS-queue"><span class="toc-text">SQS queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decouple-from-Identity-e-g-IP-of-Components"><span class="toc-text">Decouple from Identity (e.g. IP) of Components</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mult-tier-architectures"><span class="toc-text">mult-tier architectures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#high-availability-and-fault-tolerance"><span class="toc-text">high availability and fault tolerance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fault-tolerance"><span class="toc-text">Fault tolerance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFormation"><span class="toc-text">CloudFormation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RTO-and-RPO"><span class="toc-text">RTO and RPO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Performant-Architectures"><span class="toc-text">Design Performant Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Storage-and-databases"><span class="toc-text">Storage and databases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS-1"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-1"><span class="toc-text">S3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Amazon-S3-Payment-Model"><span class="toc-text">Amazon S3 Payment Model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDS-or-NoSQL"><span class="toc-text">RDS or NoSQL?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-Amazon-RDS-when"><span class="toc-text">Use Amazon RDS when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Do-not-use-Amazon-RDS-when"><span class="toc-text">Do not use Amazon RDS when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDS-Read-Replicas"><span class="toc-text">RDS Read Replicas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DynamoDB-Provisioned-throughput"><span class="toc-text">DynamoDB: Provisioned throughput</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caching"><span class="toc-text">Caching</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront"><span class="toc-text">CloudFront</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElastiCache"><span class="toc-text">ElastiCache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Memcached-and-Redis"><span class="toc-text">Memcached and Redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Design-decision"><span class="toc-text">Design decision</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticity-and-Scalability"><span class="toc-text">Elasticity and Scalability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Horizontal-Scaling-vs-Vertical-Scaling"><span class="toc-text">Horizontal Scaling vs Vertical Scaling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Scaling"><span class="toc-text">Auto Scaling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-1"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shared-Responsibility-Model"><span class="toc-text">Shared Responsibility Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identities"><span class="toc-text">Identities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Secure-Application-Tiers"><span class="toc-text">Secure Application Tiers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Secure-Data"><span class="toc-text">Secure Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-in-transit"><span class="toc-text">Data in transit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-transferring-in-and-out-of-AWS-infrastructure"><span class="toc-text">Data transferring in and out of AWS infrastructure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-sent-to-the-AWS-API"><span class="toc-text">Data sent to the AWS API</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-at-rest"><span class="toc-text">Data at rest</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control-1"><span class="toc-text">Access Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Define-the-network-infrastructure-for-a-single-VPC-application"><span class="toc-text">Define the network infrastructure for a single VPC application</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Services-to-get-traffic-in-or-out-of-your-VPC"><span class="toc-text">Services to get traffic in or out of your VPC</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-Breakdown"><span class="toc-text">Question Breakdown</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Resilient-Architectures"><span class="toc-text">Design Resilient Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Choose-reliable-resilient-storage"><span class="toc-text">Choose reliable&#x2F;resilient storage.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ephemeral-volumes"><span class="toc-text">Ephemeral volumes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EFS"><span class="toc-text">EFS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EFS-process"><span class="toc-text">EFS process:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3"><span class="toc-text">S3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consistency-model"><span class="toc-text">Consistency model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Storage-classes"><span class="toc-text">Storage classes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-rest"><span class="toc-text">Encryption at rest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-transit"><span class="toc-text">Encryption at transit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Versioning"><span class="toc-text">Versioning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control"><span class="toc-text">Access Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multi-part-upload"><span class="toc-text">Multi-part upload</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Internet-API-accessible"><span class="toc-text">Internet-API accessible</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Regional-Availability"><span class="toc-text">Regional Availability</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Glacier"><span class="toc-text">Amazon Glacier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decouple"><span class="toc-text">Decouple</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQS-queue"><span class="toc-text">SQS queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decouple-from-Identity-e-g-IP-of-Components"><span class="toc-text">Decouple from Identity (e.g. IP) of Components</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mult-tier-architectures"><span class="toc-text">mult-tier architectures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#high-availability-and-fault-tolerance"><span class="toc-text">high availability and fault tolerance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fault-tolerance"><span class="toc-text">Fault tolerance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFormation"><span class="toc-text">CloudFormation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RTO-and-RPO"><span class="toc-text">RTO and RPO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Performant-Architectures"><span class="toc-text">Design Performant Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Storage-and-databases"><span class="toc-text">Storage and databases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS-1"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-1"><span class="toc-text">S3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Amazon-S3-Payment-Model"><span class="toc-text">Amazon S3 Payment Model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDS-or-NoSQL"><span class="toc-text">RDS or NoSQL?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-Amazon-RDS-when"><span class="toc-text">Use Amazon RDS when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Do-not-use-Amazon-RDS-when"><span class="toc-text">Do not use Amazon RDS when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDS-Read-Replicas"><span class="toc-text">RDS Read Replicas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DynamoDB-Provisioned-throughput"><span class="toc-text">DynamoDB: Provisioned throughput</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caching"><span class="toc-text">Caching</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront"><span class="toc-text">CloudFront</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElastiCache"><span class="toc-text">ElastiCache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Memcached-and-Redis"><span class="toc-text">Memcached and Redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Design-decision"><span class="toc-text">Design decision</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticity-and-Scalability"><span class="toc-text">Elasticity and Scalability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Horizontal-Scaling-vs-Vertical-Scaling"><span class="toc-text">Horizontal Scaling vs Vertical Scaling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Scaling"><span class="toc-text">Auto Scaling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-1"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shared-Responsibility-Model"><span class="toc-text">Shared Responsibility Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identities"><span class="toc-text">Identities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Secure-Data"><span class="toc-text">Secure Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-in-transit"><span class="toc-text">Data in transit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-transferring-in-and-out-of-AWS-infrastructure"><span class="toc-text">Data transferring in and out of AWS infrastructure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-sent-to-the-AWS-API"><span class="toc-text">Data sent to the AWS API</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-at-rest"><span class="toc-text">Data at rest</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control-1"><span class="toc-text">Access Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Where-to-store-keys"><span class="toc-text">Where to store keys</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Define-the-network-infrastructure-for-a-single-VPC-application"><span class="toc-text">Define the network infrastructure for a single VPC application</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Services-to-get-traffic-in-or-out-of-your-VPC"><span class="toc-text">Services to get traffic in or out of your VPC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-2"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cost-Optimisation"><span class="toc-text">Cost Optimisation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Pricing"><span class="toc-text">AWS Pricing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EC2-pricing"><span class="toc-text">EC2 pricing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-spot-instances"><span class="toc-text">Using spot instances</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-Pricing"><span class="toc-text">S3 Pricing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EBS-2"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#User-serverless-architecture-to-save-cost"><span class="toc-text">User serverless architecture to save cost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFront-1"><span class="toc-text">CloudFront</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront-Pricing"><span class="toc-text">CloudFront Pricing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-3"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operational-Excellence"><span class="toc-text">Operational Excellence</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Operational-Excellence-Design-Principles"><span class="toc-text">Operational Excellence Design Principles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Services-for-Operational-Excellence"><span class="toc-text">AWS Services for Operational Excellence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-4"><span class="toc-text">Test Axioms</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -347,7 +347,10 @@
 <li>Web Identity Federation: Users with web identities from Amazon.com or other Open ID provider have role assigned using Security Token Service (STS).</li>
 </ul>
 <p>It is impossible to put an IP restriction on root user logins.</p>
-<h2 id="Secure-Application-Tiers"><a href="#Secure-Application-Tiers" class="headerlink" title="Secure Application Tiers"></a>Secure Application Tiers</h2><h2 id="Secure-Data"><a href="#Secure-Data" class="headerlink" title="Secure Data"></a>Secure Data</h2><h3 id="Data-in-transit"><a href="#Data-in-transit" class="headerlink" title="Data in transit"></a>Data in transit</h3><h4 id="Data-transferring-in-and-out-of-AWS-infrastructure"><a href="#Data-transferring-in-and-out-of-AWS-infrastructure" class="headerlink" title="Data transferring in and out of AWS infrastructure"></a>Data transferring in and out of AWS infrastructure</h4><ul>
+<img src="IAM-policies.png" alt="" width="800px"/>
+
+<p>Policies control actions on AWS resources.</p>
+<h2 id="Secure-Data"><a href="#Secure-Data" class="headerlink" title="Secure Data"></a>Secure Data</h2><h3 id="Data-in-transit"><a href="#Data-in-transit" class="headerlink" title="Data in transit"></a>Data in transit</h3><h4 id="Data-transferring-in-and-out-of-AWS-infrastructure"><a href="#Data-transferring-in-and-out-of-AWS-infrastructure" class="headerlink" title="Data transferring in and out of AWS infrastructure"></a>Data transferring in and out of AWS infrastructure</h4><ul>
 <li>SSL over web</li>
 <li>IPsec for VPN</li>
 <li>IPsec over AWS Direct Connect</li>
@@ -363,7 +366,22 @@
 </ul>
 <h4 id="Encryption"><a href="#Encryption" class="headerlink" title="Encryption"></a>Encryption</h4><ul>
 <li>Server side: SSE-S3, SSE-KMS, SSE-C</li>
-<li>Client side: encrypt the data before sending in to S3: CSE-KMS, CSE-C(customer managed master encryption keys)</li>
+<li>Client side: encrypt the data before sending in to S3: CSE-KMS, CSE-C(customer managed master encryption keys)<br>In some cases, client-side encryption is required for compliance and regulations.<br>In general, server-side encryption has better performance and is easier.</li>
+</ul>
+<h4 id="Where-to-store-keys"><a href="#Where-to-store-keys" class="headerlink" title="Where to store keys"></a>Where to store keys</h4><ul>
+<li>Key Management Service<ul>
+<li>Customer software-based key management</li>
+<li>Integrated with many AWS services: EBS, S3, RDS, Redshift, Elastic Transcoder, WorkMail, EMR</li>
+<li>Use directly from application</li>
+</ul>
+</li>
+<li>AWS CloudHSM<ul>
+<li>Hardware-based key management</li>
+<li>Use directly from application</li>
+<li>FIPS 140-2 compliance</li>
+<li>Dedicated applicance for key management</li>
+</ul>
+</li>
 </ul>
 <h2 id="Define-the-network-infrastructure-for-a-single-VPC-application"><a href="#Define-the-network-infrastructure-for-a-single-VPC-application" class="headerlink" title="Define the network infrastructure for a single VPC application"></a>Define the network infrastructure for a single VPC application</h2><ul>
 <li>Use subnets to define Internet accessibility.</li>
@@ -378,6 +396,107 @@
 <li>AWS Direct Connect: Dedicated pipe</li>
 <li>VPC peering: Connect to other VPCs</li>
 <li>NAT Gateway: allow internet traffic from private subnets</li>
+</ul>
+<h2 id="Test-Axioms-2"><a href="#Test-Axioms-2" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>Lock down the root user</li>
+<li>Security groups only allow. Network ACLs also deny.</li>
+<li>Prefer IAM Roles to access keys.</li>
+</ul>
+<h1 id="Cost-Optimisation"><a href="#Cost-Optimisation" class="headerlink" title="Cost Optimisation"></a>Cost Optimisation</h1><h2 id="AWS-Pricing"><a href="#AWS-Pricing" class="headerlink" title="AWS Pricing"></a>AWS Pricing</h2><ul>
+<li>Pay as you go</li>
+<li>Pay less per unit by using more</li>
+<li>Pay less when you reserve<br>You pay for:</li>
+<li>Compute</li>
+<li>Storage</li>
+<li>Data Transfer<h2 id="EC2-pricing"><a href="#EC2-pricing" class="headerlink" title="EC2 pricing"></a>EC2 pricing</h2></li>
+<li>Clock hours of server time</li>
+<li>Machine configuration</li>
+<li>Machine purchase type</li>
+<li>Number of instances</li>
+<li>Elastic Load balancing: charged by time</li>
+<li>Detailed monitoring</li>
+<li>Auto Scaling: AWS Auto Scaling is <strong>free</strong> to use, and allows you to optimize the costs of your AWS environment.</li>
+<li>Elastic IP addresses</li>
+<li>Operation systems and software package (marketplace)</li>
+<li><strong>instance storage is free but ephemeral.</strong></li>
+<li>EC2 instance pricing factors:<ul>
+<li>EC2 instance family</li>
+<li>Tenancy (default/dedicated)</li>
+<li>Pricing model (reserved/spot/on demand)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Using-spot-instances"><a href="#Using-spot-instances" class="headerlink" title="Using spot instances"></a>Using spot instances</h3><ul>
+<li>Use <strong><a href="https://aws.amazon.com/blogs/aws/new-hibernate-your-ec2-instances/" target="_blank" rel="noopener">hibernate</a></strong> to pause your instance (saves the in-memory data) and resume later.</li>
+<li><strong>Spot blocks</strong> allow you to request Amazon EC2 Spot instances for 1 to 6 hours at a time to avoid being interrupted while your job completes.</li>
+</ul>
+<h2 id="S3-Pricing"><a href="#S3-Pricing" class="headerlink" title="S3 Pricing"></a>S3 Pricing</h2><ul>
+<li>Storage class</li>
+<li>Storage</li>
+<li>Requests</li>
+<li>Data transfer</li>
+</ul>
+<p><strong>EFS does not support public files</strong></p>
+<h2 id="EBS-2"><a href="#EBS-2" class="headerlink" title="EBS"></a>EBS</h2><ul>
+<li>Volumes: Solid State Drives(SDD, more expensive, good for random access) and Hard Disk Drives(HDD, good for continuous access)</li>
+<li>Input/output operations per seconds</li>
+<li>Snapshots taken and restored</li>
+<li>Data transfer</li>
+</ul>
+<h2 id="User-serverless-architecture-to-save-cost"><a href="#User-serverless-architecture-to-save-cost" class="headerlink" title="User serverless architecture to save cost"></a>User serverless architecture to save cost</h2><p>Better utilisation of resources by paying only when you use:</p>
+<ul>
+<li>Lambda</li>
+<li>DynamoDB</li>
+<li>Amazon S3</li>
+<li>API Gateway: attache your REST endpoints to Lambda, so that you can invoke the Lambda from the browser or from any HTTP client.</li>
+</ul>
+<h2 id="CloudFront-1"><a href="#CloudFront-1" class="headerlink" title="CloudFront"></a>CloudFront</h2><p>Benefit on both cost and performance!<br>Use cases</p>
+<ul>
+<li>Content: static OR dynamic</li>
+<li>Origins: Amazon S3, EC2, Elastic Load Balancing, HTTP servers<br>Reduce data transfer cost with CloudFront</li>
+<li>There is no data transfer charge between S3 and CloudFront.</li>
+<li>You can also use CloudFront to offload the work for EC2 instances.</li>
+</ul>
+<h3 id="CloudFront-Pricing"><a href="#CloudFront-Pricing" class="headerlink" title="CloudFront Pricing"></a>CloudFront Pricing</h3><ul>
+<li>Traffic distribution</li>
+<li>Requests</li>
+<li>Data transfer out</li>
+</ul>
+<h2 id="Test-Axioms-3"><a href="#Test-Axioms-3" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>If you know it will be on, reserve</li>
+<li>Any unused CPU is a waste of money</li>
+<li>Use the most cost-effective data storage service and class</li>
+<li>Determine the most cost-effective EC2 pricing model and instance type for each workload.</li>
+</ul>
+<h1 id="Operational-Excellence"><a href="#Operational-Excellence" class="headerlink" title="Operational Excellence"></a>Operational Excellence</h1><p>Main idea: make the system automated and adapting to circumstance changes.</p>
+<p>Operational Excellence: The ability to run and monitor systems to deliver business value and continually improve supporting processes and procedures.<br>Key practices:</p>
+<ul>
+<li>Prepare</li>
+<li>Operate</li>
+<li>Evolve</li>
+</ul>
+<h2 id="Operational-Excellence-Design-Principles"><a href="#Operational-Excellence-Design-Principles" class="headerlink" title="Operational Excellence Design Principles"></a>Operational Excellence Design Principles</h2><ul>
+<li>Perform operations with code</li>
+<li>Annotate documentation</li>
+<li>Make frequent, small, reversible changes</li>
+<li>Refine operations procedure frequently</li>
+<li>Anticipate failure</li>
+<li>Learn from all operational failures</li>
+</ul>
+<h2 id="AWS-Services-for-Operational-Excellence"><a href="#AWS-Services-for-Operational-Excellence" class="headerlink" title="AWS Services for Operational Excellence"></a>AWS Services for Operational Excellence</h2><ul>
+<li>AWS Config: track resources such as EBS volumes and EC2 instances. verifies that resources comply to configuration rules.</li>
+<li>AWS Cloud Trail: logs API calls</li>
+<li>AWS CloudFormation: code -&gt; stack</li>
+<li>AWS Inspector: check EC2 instances for security vulnerabilities</li>
+<li>AWS Trusted Advisor: check account for best practices on security, reliability, cost, performance and service limits</li>
+<li>VPC Flow Logs: logs network traffic. <strong>capture layer 3 and layer 4 IP-level logs. could not do things about layer 7 errors like 404 errors.</strong></li>
+<li>AWS CloudWatch: can help extract patterns by converting log lines into metrics.</li>
+</ul>
+<h2 id="Test-Axioms-4"><a href="#Test-Axioms-4" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>IAM roles and safer than keys and passwords.</li>
+<li>Monitor metrics across the system.</li>
+<li>Automate responses to metrics where appropriate.</li>
+<li>Provide alerts for anomalous conditions.</li>
 </ul>
 
         
