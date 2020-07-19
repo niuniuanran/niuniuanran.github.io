@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-text">Intro</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Workflow"><span class="toc-text">Workflow</span></a></li></ol>
 </div>
     
 </div>
@@ -151,7 +151,8 @@
         <p>I was taking the Microsoft Learn <a href="https://docs.microsoft.com/en-gb/learn/modules/automate-github-using-github-script/" target="_blank" rel="noopener">Automate GitHub by using GitHub Script</a> module. </p>
 <p>I took the GitHub learning lab<a href="https://lab.github.com/githubtraining/github-actions:-using-github-script" target="_blank" rel="noopener">GitHub Actions: Using GitHub Script</a>, of which the learning happens at <a href="https://github.com/niuniuanran/write-github-script/" target="_blank" rel="noopener">this repo</a>.</p>
 <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>The main difference between GitHub Action and octokit in usage is that GitHub Script provides you with a pre-authenticated octokit/rest.js client named github.</p>
-<p><a href="https://github.com/actions/github-script" target="_blank" rel="noopener">GitHub Script</a> enables you to automate common GitHub processes using GitHub Actions workflows.<br>This allows you to use the workflow context to script any API usage that is available through the octokit/rest.js library without the need to build a bulky custom action to do so.</p>
+<p><a href="https://github.com/actions/github-script" target="_blank" rel="noopener">GitHub Script</a> enables you to automate common GitHub processes using GitHub Actions workflows.<br>This allows you to use the workflow context to script any API usage that is available through the octokit/rest.js library without the need to build a bulky custom action to do so. See <a href="https://octokit.github.io/rest.js/v18" target="_blank" rel="noopener">octokit/rest.js</a> for the API client documentation.</p>
+<h1 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h1><p>A workflow file can be thought of as the recipe for automating a task. They house the start to finish instructions, in the form of jobs and steps, for what should happen based on specific triggers.</p>
 
         
         <br />
