@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AWS Cloud Architecturing Knowledge Check notes - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2"><span class="toc-text">2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-EC2-Run-Command"><span class="toc-text">Amazon EC2 Run Command</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Systems-Manager"><span class="toc-text">AWS Systems Manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-OpsWorks"><span class="toc-text">AWS OpsWorks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3"><span class="toc-text">3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4"><span class="toc-text">4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dedicated-Host"><span class="toc-text">Dedicated Host</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Placement"><span class="toc-text">Auto-Placement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Host-affinity"><span class="toc-text">Host affinity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dedicated-Instance"><span class="toc-text">Dedicated Instance</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-1"><span class="toc-text">4</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Cloud Architecturing Knowledge Check notes
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-20 11:01:14</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Here are 69 questions from the AWS Cloud Architecting Knowledge check that I find worth noting.</p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><img src="access-troubleshoot.png" width="700px" alt=""/>
+
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><img src="auto-deployment.png" width="700px" alt=""/>
+
+<p>Resource deployment and configuration automation</p>
+<h2 id="Amazon-EC2-Run-Command"><a href="#Amazon-EC2-Run-Command" class="headerlink" title="Amazon EC2 Run Command"></a>Amazon EC2 Run Command</h2><p><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html" target="_blank" rel="noopener">AWS Systems Manager Run Command</a> lets you remotely and securely manage the configuration of your managed instances. A managed instance is any EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager. </p>
+<p>Run Command enables you to <strong>automate</strong> common administrative tasks and perform ad hoc configuration changes at scale. </p>
+<h2 id="AWS-Systems-Manager"><a href="#AWS-Systems-Manager" class="headerlink" title="AWS Systems Manager"></a>AWS Systems Manager</h2><p><a href="https://aws.amazon.com/systems-manager/" target="_blank" rel="noopener">AWS Systems Manager</a> gives you visibility and control of your infrastructure on AWS. Systems Manager provides a unified user interface so you can view operational data from multiple AWS services and allows you to automate operational tasks across your AWS resources. </p>
+<p>Systems Manager simplifies resource and application management, shortens the time to detect and resolve operational problems, and makes it easy to operate and manage your infrastructure securely at scale.</p>
+<h2 id="AWS-OpsWorks"><a href="#AWS-OpsWorks" class="headerlink" title="AWS OpsWorks"></a>AWS OpsWorks</h2><p><a href="https://aws.amazon.com/opsworks/" target="_blank" rel="noopener">AWS OpsWorks</a> is a configuration management service that provides managed instances of <strong>Chef and Puppet</strong>. Chef and Puppet are <strong>automation platforms</strong> that allow you to <strong>use code to automate the configurations of your servers</strong>. OpsWorks lets you use Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments. </p>
+<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><img src="automate-test.png" alt="" width="800px"/>
+
+<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><img src="automatic-instance-placement.png" alt="" width="800px"/>
+
+<h2 id="Dedicated-Host"><a href="#Dedicated-Host" class="headerlink" title="Dedicated Host"></a>Dedicated Host</h2><p>To use a Dedicated Host, you first <strong>allocate hosts</strong> for use in your account. You then launch instances onto the hosts by specifying <strong>host tenancy</strong> for the instance. You must select a specific host for the instance to launch on to, or you can allow it to launch on to any host that has <strong>auto-placement enabled</strong> and matches its <strong>instance type</strong>. </p>
+<p>If you no longer need an On-Demand host, you can stop the instances running on the host, direct them to launch on a different host, and then release the host.</p>
+<p>Dedicated Hosts are also integrated with AWS License Manager. With License Manager, you can create a host resource group, which is a collection of Dedicated Hosts that are managed as a single entity. </p>
+<h3 id="Auto-Placement"><a href="#Auto-Placement" class="headerlink" title="Auto-Placement"></a>Auto-Placement</h3><p>Auto-placement is configured at the host level. It allows you to manage whether instances that you launch are launched onto a specific host, or onto any available host that has matching configurations.</p>
+<p>When the auto-placement of a Dedicated Host is disabled, it only accepts Host tenancy instance launches that specify its unique <strong>host ID</strong>. This is the default setting for new Dedicated Hosts.</p>
+<h3 id="Host-affinity"><a href="#Host-affinity" class="headerlink" title="Host affinity"></a>Host affinity</h3><p>Host affinity is configured at the instance level. It establishes a launch relationship between an instance and a Dedicated Host.</p>
+<p><strong>When affinity is set to Host, an instance launched onto a specific host always restarts on the same host if stopped</strong>. This applies to both targeted and untargeted launches.</p>
+<p>When affinity is set to Off, and you stop and restart the instance, it can be restarted on any available host. However, it tries to launch back onto the last Dedicated Host on which it ran (on a best-effort basis).</p>
+<h2 id="Dedicated-Instance"><a href="#Dedicated-Instance" class="headerlink" title="Dedicated Instance"></a>Dedicated Instance</h2><h1 id="4-1"><a href="#4-1" class="headerlink" title="4"></a>4</h1>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
