@@ -11,7 +11,7 @@
 
     <title>
         
-        Code on Anran!
+        C sharp ref keyword - Code on Anran!
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Passing-an-argument-by-reference"><span class="toc-text">Passing an argument by reference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference-return-values"><span class="toc-text">Reference return values</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ref-locals"><span class="toc-text">Ref locals</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,138 +123,53 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-08</div>
-        <div class="post-info">
-            <a href="/2020/04/08/AWS-Core-Service-Review/">
-                <h3>
-                    AWS Core Service Review
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#AWS CP Test" title="AWS CP Test">AWS CP Test</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        C sharp ref keyword
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-08</div>
-        <div class="post-info">
-            <a href="/2020/04/08/AWS-Cloud-Computing-Notes/">
-                <h3>
-                    AWS Cloud Computing Notes
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#AWS CP Test" title="AWS CP Test">AWS CP Test</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-20 14:17:38</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#C#" title="C#">C#</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/Version-Control-Through-and-Through/">
-                <h3>
-                    Version Control Through and Through
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#git" title="git">git</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#basic concepts" title="basic concepts">basic concepts</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/What-is-RESTful-API/">
-                <h3>
-                    What is RESTful API
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/9/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <p>The ref keyword indicates a value that is passed by reference. It is used in four different contexts:</p>
+<ul>
+<li>In a method signature and in a method call, to pass an argument to a method by reference. </li>
+<li>In a method signature, to return a value to the caller by reference. </li>
+<li>In a member body, to indicate that a reference return value is stored locally as a reference that the caller intends to modify or, in general, a local variable accesses another value by reference. </li>
+<li>In a struct declaration to declare a ref struct or a readonly ref struct. </li>
 </ul>
+<h1 id="Passing-an-argument-by-reference"><a href="#Passing-an-argument-by-reference" class="headerlink" title="Passing an argument by reference"></a>Passing an argument by reference</h1><p>When used in a method’s parameter list, the ref keyword indicates that an argument is passed by reference, not by value. The ref keyword <strong>makes the formal parameter an alias for the argument</strong>, which <strong>must be a variable</strong>. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void Method(ref int refArgument)</span><br><span class="line">   &#123;</span><br><span class="line">       refArgument &#x3D; refArgument + 44;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   int number &#x3D; 1;</span><br><span class="line">   Method(ref number);</span><br><span class="line">   Console.WriteLine(number);</span><br><span class="line">   &#x2F;&#x2F; Output: 45</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference-return-values"><a href="#Reference-return-values" class="headerlink" title="Reference return values"></a>Reference return values</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static ref int Find(int[,] matrix, Func&lt;int, bool&gt; predicate)</span><br><span class="line">&#123;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; matrix.GetLength(0); i++)</span><br><span class="line">        for (int j &#x3D; 0; j &lt; matrix.GetLength(1); j++)</span><br><span class="line">            if (predicate(matrix[i, j]))</span><br><span class="line">                return ref matrix[i, j];</span><br><span class="line">    throw new InvalidOperationException(&quot;Not found&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Ref-locals"><a href="#Ref-locals" class="headerlink" title="Ref locals"></a>Ref locals</h1><p>A ref local variable is used to refer to values returned using <code>return ref</code>.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -301,7 +220,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
