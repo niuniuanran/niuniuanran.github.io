@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-are-artifacts"><span class="toc-text">What are artifacts?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Artifact-storage"><span class="toc-text">Artifact storage</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-CI"><span class="toc-text">What is CI?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-are-artifacts"><span class="toc-text">What are artifacts?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Artifact-storage"><span class="toc-text">Artifact storage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub-Actions-for-CI"><span class="toc-text">GitHub Actions for CI</span></a></li></ol>
 </div>
     
 </div>
@@ -153,9 +153,17 @@
 <li>CI is the practice of using automation to build and test software every time a developer commits changes to version control. </li>
 <li>CI helps teams discover issues early in the development process and fix them quickly.</li>
 </ul>
+<h1 id="What-is-CI"><a href="#What-is-CI" class="headerlink" title="What is CI?"></a>What is CI?</h1><ul>
+<li>CI can help you stick to your team’s quality standards by running tests and reporting the results on GitHub. </li>
+<li>CI tools run builds and tests, <strong>triggered by commits</strong>. </li>
+<li>The results post back to GitHub in the pull request. </li>
+<li>This reduces context switching for developers, and improves consistency for testing.</li>
+<li>The goal is fewer bugs in production and faster feedback while developing.</li>
+</ul>
 <h1 id="What-are-artifacts"><a href="#What-are-artifacts" class="headerlink" title="What are artifacts?"></a>What are artifacts?</h1><p>When a workflow produces something other than a log entry, it’s called an artifact. </p>
 <p>Storing an artifact helps to preserve it between jobs. Each job uses a fresh instance of a VM, so you can’t reuse the artifact by saving it on the VM. If you need your artifact in a different job, you can upload the artifact to storage in one job, and download it for the other job.</p>
 <h2 id="Artifact-storage"><a href="#Artifact-storage" class="headerlink" title="Artifact storage"></a>Artifact storage</h2><p>Artifacts are stored in storage space on GitHub. The space is free for public repositories and some amount is free for private repositories, depending on the account. GitHub stores your artifact for 90 days.</p>
+<h1 id="GitHub-Actions-for-CI"><a href="#GitHub-Actions-for-CI" class="headerlink" title="GitHub Actions for CI"></a>GitHub Actions for CI</h1><p>I took GitHub Learning lab: <a href="https://lab.github.com/githubtraining/github-actions:-continuous-integration" target="_blank" rel="noopener">GitHub Actions: Continuous Integration</a>, which builds <a href="https://github.com/niuniuanran/github-actions-for-ci/" target="_blank" rel="noopener">this repository</a>.</p>
 
         
         <br />
