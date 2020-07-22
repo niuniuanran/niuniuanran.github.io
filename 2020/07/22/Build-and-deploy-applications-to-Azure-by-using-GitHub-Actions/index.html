@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Options-for-triggering-a-CD-workflow"><span class="toc-text">Options for triggering a CD workflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Store-credentials-with-GitHub-Secrets"><span class="toc-text">Store credentials with GitHub Secrets</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Options-for-triggering-a-CD-workflow"><span class="toc-text">Options for triggering a CD workflow</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ChatOps"><span class="toc-text">ChatOps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Labels-in-your-pull-request"><span class="toc-text">Labels in your pull request</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Store-credentials-with-GitHub-Secrets"><span class="toc-text">Store credentials with GitHub Secrets</span></a></li></ol>
 </div>
     
 </div>
@@ -148,10 +148,9 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Options-for-triggering-a-CD-workflow"><a href="#Options-for-triggering-a-CD-workflow" class="headerlink" title="Options for triggering a CD workflow"></a>Options for triggering a CD workflow</h1><ul>
-<li>ChatOps. ChatOps uses chat clients, chatbots and real-time communication tools to execute tasks. For example, you might leave a specific comment in a pull request that can kick off a bot. That bot might comment back with some statistics or run a workflow.</li>
-<li>Labels in your pull request. Different labels can start different workflows.  To use labels, your workflow will look like this:</li>
-</ul>
+        <p>This is my learning note when learning Continuous Delivery to Azure by GitHub Actions through <a href="https://docs.microsoft.com/en-gb/learn/modules/github-actions-cd/" target="_blank" rel="noopener">Microsoft Learn Module: Build and deploy applications to Azure by using GitHub Actions</a> and GitHub Learning Lab, <a href="https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure" target="_blank" rel="noopener">GitHub Actions: Continuous Delivery with Azure</a></p>
+<h1 id="Options-for-triggering-a-CD-workflow"><a href="#Options-for-triggering-a-CD-workflow" class="headerlink" title="Options for triggering a CD workflow"></a>Options for triggering a CD workflow</h1><h2 id="ChatOps"><a href="#ChatOps" class="headerlink" title="ChatOps"></a>ChatOps</h2><p>ChatOps uses chat clients, chatbots and real-time communication tools to execute tasks. For example, you might leave a specific comment in a pull request that can kick off a bot. That bot might comment back with some statistics or run a workflow.</p>
+<h2 id="Labels-in-your-pull-request"><a href="#Labels-in-your-pull-request" class="headerlink" title="Labels in your pull request"></a>Labels in your pull request</h2><p>Different labels can start different workflows.  To use labels, your workflow will look like this:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">types:</span> <span class="string">[labeled]</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="Store-credentials-with-GitHub-Secrets"><a href="#Store-credentials-with-GitHub-Secrets" class="headerlink" title="Store credentials with GitHub Secrets"></a>Store credentials with GitHub Secrets</h1><p>GitHub Secrets is a secure place to store sensitive information that your workflow will need.<br>In order to deploy to an Azure resource, the GitHub Action must have permission to access the resource. </p>
@@ -159,6 +158,7 @@
 
 <p>To access the secret:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">"Login via Azure CLI"</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">azure/login@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">creds:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.AZURE_CREDENTIALS</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
 
         
         <br />
