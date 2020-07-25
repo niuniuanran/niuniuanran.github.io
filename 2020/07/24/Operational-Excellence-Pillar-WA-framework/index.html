@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Principles"><span class="toc-text">Design Principles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-Services"><span class="toc-text">Core Services</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Principles"><span class="toc-text">Design Principles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-Services"><span class="toc-text">Core Services</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anti-Patterns"><span class="toc-text">Anti-Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Focus-only-on-technology-metrics"><span class="toc-text">Focus only on technology metrics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Changes"><span class="toc-text">Batch Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manual-Changes"><span class="toc-text">Manual Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stale-outdated-Document"><span class="toc-text">Stale (outdated) Document</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Best-Practice-Prepare"><span class="toc-text">Best Practice: Prepare</span></a></li></ol>
 </div>
     
 </div>
@@ -160,11 +160,15 @@
 
 <ul>
 <li><strong>AWS CloudFormation</strong> is key for operational excellence because it helps you ensure reliability. The service lets you treat infrastructure as code, and it provides templates you can use to replicate your environment.</li>
-<li>To prepare, <strong>AWS Config</strong> and <strong>AWS Config Rules</strong> can be used to create standards for workloads, and to determine whether environments are compliant with those standards before they are put into production.</li>
-<li><strong>CloudWatch</strong> allows you to monitor the operational health of a workload.</li>
+<li>To prepare, <strong>AWS Config</strong> and <strong>AWS Config Rules</strong> can be used to <em>create standards for workloads</em>, and to <em>determine whether environments are compliant with those standards before they are put into production</em>.</li>
+<li><strong>CloudWatch</strong> allows you to <em>monitor the operational health of a workload</em>.</li>
 <li><strong>Amazon Elasticsearch</strong> Service allows you to <em>analyze your log data to gain actionable insights quickly and securely</em>.</li>
 </ul>
-
+<h1 id="Anti-Patterns"><a href="#Anti-Patterns" class="headerlink" title="Anti-Patterns"></a>Anti-Patterns</h1><h2 id="Focus-only-on-technology-metrics"><a href="#Focus-only-on-technology-metrics" class="headerlink" title="Focus only on technology metrics"></a>Focus only on technology metrics</h2><p>You might not be delivering value to the customer if you’re not paying attention to latency.<br>You want to also have business metrics (which AWS offers)</p>
+<h2 id="Batch-Changes"><a href="#Batch-Changes" class="headerlink" title="Batch Changes"></a>Batch Changes</h2><p>Instead, make small, reversible changes</p>
+<h2 id="Manual-Changes"><a href="#Manual-Changes" class="headerlink" title="Manual Changes"></a>Manual Changes</h2><p>It is hard to reproduce errors caused by manual changes</p>
+<h2 id="Stale-outdated-Document"><a href="#Stale-outdated-Document" class="headerlink" title="Stale (outdated) Document"></a>Stale (outdated) Document</h2><p>Having outdated documentation or no documentation can create problems. Put a process in place to ensure all documentation is up-to-date.</p>
+<h1 id="Best-Practice-Prepare"><a href="#Best-Practice-Prepare" class="headerlink" title="Best Practice: Prepare"></a>Best Practice: Prepare</h1>
         
         <br />
         <div id="comment-container">
