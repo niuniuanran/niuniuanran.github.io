@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Principles"><span class="toc-text">Design Principles</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Principles"><span class="toc-text">Design Principles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-Services"><span class="toc-text">Core Services</span></a></li></ol>
 </div>
     
 </div>
@@ -153,8 +153,16 @@
 <li>Annotate document changes: automate the creation of documentation after every build, or you can automatically annotate (注解) hand-crafted documentation. Annotated documentation can be used by people and systems. Use annotations as an input to your operations code</li>
 <li>Make frequent, small, reversible changes: You want to design workloads to allow components to be updated regularly. </li>
 <li>Refine standard operations frequently</li>
-<li>Anticipate failure</li>
+<li>Anticipate failure: pre-mortem (事前验尸)</li>
 <li>Learn from all operational failures</li>
+</ul>
+<h1 id="Core-Services"><a href="#Core-Services" class="headerlink" title="Core Services"></a>Core Services</h1><img src="core-services.png" alt="" width="700px"/>
+
+<ul>
+<li><strong>AWS CloudFormation</strong> is key for operational excellence because it helps you ensure reliability. The service lets you treat infrastructure as code, and it provides templates you can use to replicate your environment.</li>
+<li>To prepare, <strong>AWS Config</strong> and <strong>AWS Config Rules</strong> can be used to create standards for workloads, and to determine whether environments are compliant with those standards before they are put into production.</li>
+<li><strong>CloudWatch</strong> allows you to monitor the operational health of a workload.</li>
+<li><strong>Amazon Elasticsearch</strong> Service allows you to <em>analyze your log data to gain actionable insights quickly and securely</em>.</li>
 </ul>
 
         
