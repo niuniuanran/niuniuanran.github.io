@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Principles"><span class="toc-text">Design Principles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-Services"><span class="toc-text">Core Services</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anti-Patterns"><span class="toc-text">Anti-Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Focus-only-on-technology-metrics"><span class="toc-text">Focus only on technology metrics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Changes"><span class="toc-text">Batch Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manual-Changes"><span class="toc-text">Manual Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stale-outdated-Document"><span class="toc-text">Stale (outdated) Document</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Best-Practice-Prepare"><span class="toc-text">Best Practice: Prepare</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Principles"><span class="toc-text">Design Principles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-Services"><span class="toc-text">Core Services</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anti-Patterns"><span class="toc-text">Anti-Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Focus-only-on-technology-metrics"><span class="toc-text">Focus only on technology metrics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Changes"><span class="toc-text">Batch Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manual-Changes"><span class="toc-text">Manual Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stale-outdated-Document"><span class="toc-text">Stale (outdated) Document</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Prepare"><span class="toc-text">Prepare</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Monitor-the-application-platform-and-infrastructure-components"><span class="toc-text">Monitor the application, platform, and infrastructure components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Validate-workloads-before-moving-into-production"><span class="toc-text">Validate workloads before moving into production</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Perform-Cloud-Operations"><span class="toc-text">Perform Cloud Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-responses-to-operational-events-and-failures"><span class="toc-text">Test responses to operational events and failures</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operate"><span class="toc-text">Operate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Evolve"><span class="toc-text">Evolve</span></a></li></ol>
 </div>
     
 </div>
@@ -168,7 +168,39 @@
 <h2 id="Batch-Changes"><a href="#Batch-Changes" class="headerlink" title="Batch Changes"></a>Batch Changes</h2><p>Instead, make small, reversible changes</p>
 <h2 id="Manual-Changes"><a href="#Manual-Changes" class="headerlink" title="Manual Changes"></a>Manual Changes</h2><p>It is hard to reproduce errors caused by manual changes</p>
 <h2 id="Stale-outdated-Document"><a href="#Stale-outdated-Document" class="headerlink" title="Stale (outdated) Document"></a>Stale (outdated) Document</h2><p>Having outdated documentation or no documentation can create problems. Put a process in place to ensure all documentation is up-to-date.</p>
-<h1 id="Best-Practice-Prepare"><a href="#Best-Practice-Prepare" class="headerlink" title="Best Practice: Prepare"></a>Best Practice: Prepare</h1>
+<h1 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h1><h2 id="Monitor-the-application-platform-and-infrastructure-components"><a href="#Monitor-the-application-platform-and-infrastructure-components" class="headerlink" title="Monitor the application, platform, and infrastructure components"></a>Monitor the application, platform, and infrastructure components</h2><p>You can use CloudWatch alarms, and send the information from CloudWatch logs to a dashboard to see the health of your infrastructure at any time. You can use this information to <strong>understand the customer experience and customer behaviors</strong>.</p>
+<h2 id="Validate-workloads-before-moving-into-production"><a href="#Validate-workloads-before-moving-into-production" class="headerlink" title="Validate workloads before moving into production"></a>Validate workloads before moving into production</h2><p>Ask yourself: are the workloads supported by operations?</p>
+<h2 id="Perform-Cloud-Operations"><a href="#Perform-Cloud-Operations" class="headerlink" title="Perform Cloud Operations"></a>Perform Cloud Operations</h2><ul>
+<li>Use Checklist for standard and required procedures</li>
+<li>Check that required procedures are adequately captured in runbooks and playbooks</li>
+<li>Validate trained personnel to make sure everyone is enabled</li>
+</ul>
+<h2 id="Test-responses-to-operational-events-and-failures"><a href="#Test-responses-to-operational-events-and-failures" class="headerlink" title="Test responses to operational events and failures"></a>Test responses to operational events and failures</h2><p>Make sure you test responses to operational events and failures so that you can quickly recover from them.</p>
+<h1 id="Operate"><a href="#Operate" class="headerlink" title="Operate"></a>Operate</h1><ul>
+<li>Achieve business and customer outcomes through the successful operation of a workload.</li>
+<li>Manage operational events with efficiency and effectiveness. You can do this by:<ul>
+<li>establishing <strong>baselines</strong> that you use to identify the improvement or degradation of operations, </li>
+<li>collecting and analyzing your <strong>metrics</strong></li>
+<li>then validating your understanding of how you <strong>define operational success</strong> and how it changes over time.</li>
+</ul>
+</li>
+<li>Communicate the <strong>operational status</strong> of workloads.  Consider that operational health includes both the health of the <strong>workload</strong>, and the health and success of the operations that act upon the workload—for example, <strong>deployment and incident response</strong>.</li>
+<li>Use <strong>dashboards and notifications</strong> so that information can be accessed automatically. The more people have access to information about the health of your infrastructure, the healthier it will be.</li>
+<li>If there is an unplanned outage, take the time to determine the root cause of the outage. Doing so will help mitigate future occurrences and unexpected effects from planned events</li>
+</ul>
+<h1 id="Evolve"><a href="#Evolve" class="headerlink" title="Evolve"></a>Evolve</h1><ul>
+<li>Dedicate work cycles to making continuous incremental improvements.</li>
+<li>Regularly evaluate and prioritize opportunities for improving procedures for both workloads and operations, such as <strong>feature requests, issue remediation, and compliance requirements</strong>. </li>
+<li>Identify areas for improvement, and include <strong>feedback loops</strong> within your procedures.</li>
+<li>Share “lessons learned” across teams to share the benefits of those lessons. <ul>
+<li>Analyze trends within the lessons learned</li>
+<li>Perform cross-team retrospective analysis of operations metrics</li>
+<li>Identify opportunities and methods for improvement. </li>
+<li>Implement changes and evaluate the results </li>
+</ul>
+</li>
+</ul>
+
         
         <br />
         <div id="comment-container">
