@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Defining-Maintainability"><span class="toc-text">Defining Maintainability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Comprehensibility-Analysability"><span class="toc-text">Comprehensibility (Analysability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alterability-Modifiability"><span class="toc-text">Alterability (Modifiability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testability"><span class="toc-text">Testability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Making-a-decision"><span class="toc-text">Making a decision</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Software-Decision-Making-criteria"><span class="toc-text">Software Decision-Making criteria</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-similar-variable-names-make-the-code-less-comprehensible"><span class="toc-text">Why similar variable names make the code less comprehensible?</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Defining-Maintainability"><span class="toc-text">Defining Maintainability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Comprehensibility-Analysability"><span class="toc-text">Comprehensibility (Analysability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alterability-Modifiability"><span class="toc-text">Alterability (Modifiability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testability"><span class="toc-text">Testability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Making-a-decision"><span class="toc-text">Making a decision</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Software-Decision-Making-criteria"><span class="toc-text">Software Decision-Making criteria</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Comprehension-Model"><span class="toc-text">Program Comprehension Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#External-representation"><span class="toc-text">External representation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Knowledge-Base"><span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mental-Model"><span class="toc-text">Mental Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assimilation-Process"><span class="toc-text">Assimilation Process</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-similar-variable-names-make-the-code-less-comprehensible"><span class="toc-text">Why similar variable names make the code less comprehensible?</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -133,6 +133,12 @@
     <div class="post-meta">
         <span class="attr">Post：<span>2020-01-01 16:13:02</span></span>
         
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Private Journal" title="Private Journal">Private Journal</a>
+        <span>/</span>
+        
+        
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
@@ -156,7 +162,15 @@
 <li>Uptime (availability)</li>
 <li>Total cost of ownership (<strong>Maintainability</strong>)</li>
 </ul>
-<h1 id="Comprehensibility"><a href="#Comprehensibility" class="headerlink" title="Comprehensibility"></a>Comprehensibility</h1><h2 id="Why-similar-variable-names-make-the-code-less-comprehensible"><a href="#Why-similar-variable-names-make-the-code-less-comprehensible" class="headerlink" title="Why similar variable names make the code less comprehensible?"></a>Why similar variable names make the code less comprehensible?</h2><p>Undistinguishable makes it hard to form a hypothesis and verify the hypothesis through reading the code.<br>Identifiers that do not tell anything about what the variable/method is doing also hinder the process of forming and verifying hypothesis, but is a different problem from Undistinguishable identifiers.</p>
+<h1 id="Comprehensibility"><a href="#Comprehensibility" class="headerlink" title="Comprehensibility"></a>Comprehensibility</h1><p>The more time and effort you need to put in to understand code well enough that you are confident enough to conduct maintenance activities the less comprehensible it is, therefore the less maintainable it is.</p>
+<h2 id="Program-Comprehension-Model"><a href="#Program-Comprehension-Model" class="headerlink" title="Program Comprehension Model"></a>Program Comprehension Model</h2><p>A program comprehension model is a means to explain how comprehension happens, the main components, processes, and interactions between them.</p>
+<img src="comprehension-model.png" alt="" width="600px"/>
+
+<h3 id="External-representation"><a href="#External-representation" class="headerlink" title="External representation"></a>External representation</h3><p>Anything external to the developer<br>E.g. source code, documentation, other developers, program traces, other relevant source code</p>
+<h3 id="Knowledge-Base"><a href="#Knowledge-Base" class="headerlink" title="Knowledge Base"></a>Knowledge Base</h3><p>What the developer knows that is likely to be relevant,<br>e.g. domain knowledge, knowledge of programming language,</p>
+<h3 id="Mental-Model"><a href="#Mental-Model" class="headerlink" title="Mental Model"></a>Mental Model</h3><p>The developer’s current understanding of the program under consideration,<br>e.g. known parts and current hypotheses</p>
+<h3 id="Assimilation-Process"><a href="#Assimilation-Process" class="headerlink" title="Assimilation Process"></a>Assimilation Process</h3><p>How the developer uses all available information to update the mental model,<br>e.g. generation and verification of hypotheses</p>
+<h2 id="Why-similar-variable-names-make-the-code-less-comprehensible"><a href="#Why-similar-variable-names-make-the-code-less-comprehensible" class="headerlink" title="Why similar variable names make the code less comprehensible?"></a>Why similar variable names make the code less comprehensible?</h2><p>Undistinguishable makes it hard to form a hypothesis and verify the hypothesis through reading the code.<br>Identifiers that do not tell anything about what the variable/method is doing also hinder the process of forming and verifying hypothesis, but is a different problem from Undistinguishable identifiers.</p>
 <!-- flag of hidden posts -->
         
         <br />
