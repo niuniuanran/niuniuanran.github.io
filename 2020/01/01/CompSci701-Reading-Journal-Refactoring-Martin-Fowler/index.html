@@ -165,6 +165,12 @@
 <p>It should be moved to <code>Movie</code> class and pass the result of <code>getDaysRented</code> as an argument.<br>This is because this method depends on how many possible <code>priceCode</code> there are in <code>Movie</code>.<br>If the potential change to this system is an addition of new movie type/<code>priceCode</code>, we want to <strong>contain the change caused by adding new movie types</strong> within the <code>Movie</code> class.</p>
 <h2 id="State-pattern-by-Gang-of-Four"><a href="#State-pattern-by-Gang-of-Four" class="headerlink" title="State pattern by Gang of Four"></a>State pattern by Gang of Four</h2><p>This looks like the Strategy pattern, but is different because <code>Price</code> class represents a “state” of the movie, instead of a “behaviour”. It could be updated from <code>NEW</code> to <code>REGULAR</code> after some time.</p>
 <img alt="" src="https://github.com/niuniuanran/niuniuanran.github.io/blob/master/2020/01/01/Image-Vault/state-pattern.png?raw=true" width="700px"/>
+
+<p>Related refactoring technique:</p>
+<ul>
+<li>Replace Type Code with State/Strategy</li>
+<li>Replace Conditional With Polymorphism</li>
+</ul>
 <!-- flag of hidden posts -->
         
         <br />
