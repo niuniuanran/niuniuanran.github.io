@@ -11,7 +11,7 @@
 
     <title>
         
-        CompSci701 Reading Journal - Refactoring (Martin Fowler) - Code on Anran!
+        CompSci701 Reading Journal - Refactoring by Martin Fowler - Code on Anran!
         
     </title><meta name="robots" content="noindex">
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-Refactor"><span class="toc-text">When to Refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-refactoring"><span class="toc-text">Before refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extract-methods"><span class="toc-text">Extract methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Placing-methods-in-the-right-place"><span class="toc-text">Placing methods in the right place</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Try-to-get-rid-of-temporary-variables"><span class="toc-text">Try to get rid of temporary variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-issue-in-refactoring"><span class="toc-text">Performance issue in refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-switch-on-another-object’s-attribute"><span class="toc-text">Don’t switch on another object’s attribute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State-pattern-by-Gang-of-Four"><span class="toc-text">State pattern by Gang of Four</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-Refactor"><span class="toc-text">When to Refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-refactoring"><span class="toc-text">Before refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extract-methods"><span class="toc-text">Extract methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Placing-methods-in-the-right-place"><span class="toc-text">Placing methods in the right place</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Try-to-get-rid-of-temporary-variables"><span class="toc-text">Try to get rid of temporary variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-issue-in-refactoring"><span class="toc-text">Performance issue in refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-switch-on-another-object’s-attribute"><span class="toc-text">Don’t switch on another object’s attribute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State-pattern-by-Gang-of-Four"><span class="toc-text">State pattern by Gang of Four</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Principles-of-Refactoring"><span class="toc-text">Principles of Refactoring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-refactoring"><span class="toc-text">What is refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-refactor"><span class="toc-text">When to refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Three-strikes-and-refactor"><span class="toc-text">Three strikes and refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Refactor-when-adding-new-functionality"><span class="toc-text">Refactor when adding new functionality</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -127,7 +127,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        CompSci701 Reading Journal - Refactoring (Martin Fowler)
+        CompSci701 Reading Journal - Refactoring by Martin Fowler
     </div>
 
     <div class="post-meta">
@@ -135,7 +135,13 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#Private Journal" title="Private Journal">Private Journal</a>
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Hidden Blog" title="Hidden Blog">Hidden Blog</a>
         <span>/</span>
         
         
@@ -176,6 +182,23 @@
 <ul>
 <li>Replace Type Code with State/Strategy</li>
 <li>Replace Conditional With Polymorphism</li>
+</ul>
+<p>Interactions after adding the State pattern:</p>
+<img src="state-pattern-interaction.png" width="700px" alt=""/>
+
+<p>UML after adding the State pattern:</p>
+<img src="state-uml.png" alt="" width="700px"/>
+
+
+<h1 id="Principles-of-Refactoring"><a href="#Principles-of-Refactoring" class="headerlink" title="Principles of Refactoring"></a>Principles of Refactoring</h1><h2 id="What-is-refactoring"><a href="#What-is-refactoring" class="headerlink" title="What is refactoring"></a>What is refactoring</h2><p>A change to the internal structure of a software to improve its comprehensibility and reduce its maintaining cost, without changing its observable behaviours.</p>
+<h2 id="When-to-refactor"><a href="#When-to-refactor" class="headerlink" title="When to refactor"></a>When to refactor</h2><p>You do not refactor for the sake of refactoring. You have another goal and use refactoring to facilitate that.</p>
+<h2 id="Three-strikes-and-refactor"><a href="#Three-strikes-and-refactor" class="headerlink" title="Three strikes and refactor"></a>Three strikes and refactor</h2><p>Don Roberts’ “The rule of three”: </p>
+<blockquote>
+<p>The third time you do something similar, you refactor.</p>
+</blockquote>
+<h2 id="Refactor-when-adding-new-functionality"><a href="#Refactor-when-adding-new-functionality" class="headerlink" title="Refactor when adding new functionality"></a>Refactor when adding new functionality</h2><ul>
+<li>Refactoring helps us understand the code to be modified;</li>
+<li>Refactoring makes the structure clear and easier to be extended.</li>
 </ul>
 <!-- flag of hidden posts -->
         
