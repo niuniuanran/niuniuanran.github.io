@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        CompSci701 Reading Journal - Refactoring (Martin Fowler) - Code on Anran!
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-Refactor"><span class="toc-text">When to Refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-refactoring"><span class="toc-text">Before refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extract-methods"><span class="toc-text">Extract methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Placing-methods-in-the-right-place"><span class="toc-text">Placing methods in the right place</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Try-to-get-rid-of-temporary-variables"><span class="toc-text">Try to get rid of temporary variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-issue-in-refactoring"><span class="toc-text">Performance issue in refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-switch-on-another-object’s-attribute"><span class="toc-text">Don’t switch on another object’s attribute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State-pattern-by-Gang-of-Four"><span class="toc-text">State pattern by Gang of Four</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CompSci701 Reading Journal - Refactoring (Martin Fowler)
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-01-01 16:13:02</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Today I started reading the book recommended at class:<br>Martin Fowler (feat. Kent Beck) Refactoring: Improving the Design of Existing Code.<br>Addison-Wesley (2012).</p>
+<p>I decided to go with the Chinese translated version, translated by Mr 熊节. This is because I read by far faster in Chinese and this will save me lots of time (and also because this translation is pretty good, compared to the tedious Chinese translation for Clean Code).</p>
+<p>I will write my note back in English to reinforce learning.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="When-to-Refactor"><a href="#When-to-Refactor" class="headerlink" title="When to Refactor"></a>When to Refactor</h2><p>This is a nice description for when to refactor, which could help me consider how I improve my assignment.</p>
+<blockquote>
+<p>If you want to add a new feature to the program, and the structure of the code makes it inconvenient to do so, then refactor before adding the feature.</p>
+</blockquote>
+<h2 id="Before-refactoring"><a href="#Before-refactoring" class="headerlink" title="Before refactoring"></a>Before refactoring</h2><p><strong>Good tests are the foundation for refactoring!</strong></p>
+<p>Refactoring could introduce bugs, so write a reliable testing environment to ensure you don’t break things during refactoring.</p>
+<h2 id="Extract-methods"><a href="#Extract-methods" class="headerlink" title="Extract methods"></a>Extract methods</h2><p>The smaller your code block, the easier to manage, change and move them.<br>To extract methods, you need to find the local variables and parameters.<br>Any <strong>unchanged</strong> variables in the long block could be passed to the extracted method/function as arguments.<br>Be careful with changed variables”. If there is only one variable’s value being changed, it can be the return value of the new argument.</p>
+<h2 id="Placing-methods-in-the-right-place"><a href="#Placing-methods-in-the-right-place" class="headerlink" title="Placing methods in the right place"></a>Placing methods in the right place</h2><p>Most of the time, functions/methods should be put in where the data it uses belongs. This is relatable to a static method I wrote for Kalah:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Generate a pair of player partner for Kalah game.</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> KalahPlayer[] createNewPlayerPair() &#123;</span><br><span class="line">    KalahPlayer[] newPlayerPair = <span class="keyword">new</span> KalahPlayer[<span class="number">2</span>];</span><br><span class="line">    newPlayerPair[<span class="number">0</span>] = <span class="keyword">new</span> KalahPlayer(DEFAULT_PLAYER_ONE_NAME);</span><br><span class="line">    newPlayerPair[<span class="number">1</span>] = <span class="keyword">new</span> KalahPlayer(DEFAULT_PLAYER_TWO_NAME);</span><br><span class="line">    newPlayerPair[<span class="number">0</span>].setOpponent(newPlayerPair[<span class="number">1</span>]);</span><br><span class="line">    newPlayerPair[<span class="number">1</span>].setOpponent(newPlayerPair[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> newPlayerPair;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To start with it was in the <code>Kalah</code> class because this is where it is used.<br>Then I moved it to <code>KalahJudge</code> class because I don’t want <code>Kalah</code> to know too much about processes other than driving the game state.<br>Finally I moved it to <code>KalahPlayer</code>, because:</p>
+<ul>
+<li><code>KalahPlayer</code> is all this method deals with and needs to know;</li>
+<li>If I put this “constructor” method in <code>KalahPlayer</code>, I will be able to make <code>KalahPlayer</code>‘s constructor private, because this should be the only way to create a valid <code>KalahPlayer</code> instance.</li>
+</ul>
+<h2 id="Try-to-get-rid-of-temporary-variables"><a href="#Try-to-get-rid-of-temporary-variables" class="headerlink" title="Try to get rid of temporary variables"></a>Try to get rid of temporary variables</h2><p>Temporary variables could be problems. They are only valid in the function they belong to, and therefore could contribute to a long and complex function. It is easy to lose track of temporary variables in a long function.</p>
+<h2 id="Performance-issue-in-refactoring"><a href="#Performance-issue-in-refactoring" class="headerlink" title="Performance issue in refactoring"></a>Performance issue in refactoring</h2><p>Replacing temporary variables with query <strong>could</strong> cause performance issue. For example, there might need to be extra loops in the query method. It says <strong>could</strong> because you never know until you run assessments on the running time. You do not need to worry about this when you refactor. Worry about them when you are optimising - by that time you are at a good position with well-refactored code.</p>
+<h2 id="Don’t-switch-on-another-object’s-attribute"><a href="#Don’t-switch-on-another-object’s-attribute" class="headerlink" title="Don’t switch on another object’s attribute"></a>Don’t <code>switch</code> on another object’s attribute</h2><p>With the <code>Movie</code> and <code>Rental</code> example in the book, <code>getCharges</code> switch among different movie types.</p>
+<p>This method is originally in the <code>Rental</code> class and uses the <code>getDaysRented()</code> method belonging to <code>Rental</code> and the <code>getPriceCode()</code> method belonging to <code>Movie</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getCharge</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">double</span> result=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">switch</span>(getMovie().getPriceCode())&#123;</span><br><span class="line">    caseMovie.REGULAR:</span><br><span class="line">      result+=<span class="number">2</span>;</span><br><span class="line">      <span class="keyword">if</span>(getDaysRented()&gt;<span class="number">2</span>)</span><br><span class="line">        result+=(getDaysRented()-<span class="number">2</span>)*<span class="number">1.5</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    caseMovie.NEW_RELEASE:</span><br><span class="line">      result+=getDaysRented()*<span class="number">3</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    caseMovie.CHILDRENS:</span><br><span class="line">      result+=<span class="number">1.5</span>;</span><br><span class="line">      <span class="keyword">if</span>(getDaysRented()&gt;<span class="number">3</span>)</span><br><span class="line">        result+=(getDaysRented()-<span class="number">3</span>)*<span class="number">1.5</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>It should be moved to <code>Movie</code> class and pass the result of <code>getDaysRented</code> as an argument.<br>This is because this method depends on how many possible <code>priceCode</code> there are in <code>Movie</code>.<br>If the potential change to this system is an addition of new movie type/<code>priceCode</code>, we want to <strong>contain the change caused by adding new movie types</strong> within the <code>Movie</code> class.</p>
+<h2 id="State-pattern-by-Gang-of-Four"><a href="#State-pattern-by-Gang-of-Four" class="headerlink" title="State pattern by Gang of Four"></a>State pattern by Gang of Four</h2><img alt="" src="https://github.com/niuniuanran/niuniuanran.github.io/blob/master/2020/01/01/Image-Vault/state-pattern.png?raw=true" width="700px"/>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
