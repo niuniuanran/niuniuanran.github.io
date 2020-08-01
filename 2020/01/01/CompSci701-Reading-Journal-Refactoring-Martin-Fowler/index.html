@@ -476,7 +476,10 @@
 </blockquote>
 <p>Benefit of frequently running automatic test:</p>
 <blockquote>
-<p>If I added a bug that was caught by a previous test, it would show up as soon as I ran that test. Because the test had worked before, I would know that the bug was in the work I had done since I last tested. Because I ran the tests frequently, only a few minutes had elapsed. I thus knew that the source of the bug was the code I had just written. Because that code was fresh in my mind and was a small amount, the bug was easy to find.</p>
+<p>A suite of tests is a powerful bug detector that decapitates the time it takes to find bugs. (while the bugs are freshly introduced)</p>
+</blockquote>
+<blockquote>
+<p>The standard Java idiom for testing is the testing main. The idea is that every class should have a main function that tests the class. It’s a reasonable convention (although not honored much), but it can become awkward. The problem is that such a convention makes it tricky to run many tests easily. Another approach is to build separate test classes that work in a framework to make testing easier.</p>
 </blockquote>
 <!-- flag of hidden posts -->
         
