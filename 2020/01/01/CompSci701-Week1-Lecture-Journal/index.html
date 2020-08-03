@@ -11,7 +11,7 @@
 
     <title>
         
-        CompSci701 Week1 Lecture Journal - Code on Anran!
+        CompSci701 Week1-2 Lecture Journal - Code on Anran!
         
     </title><meta name="robots" content="noindex">
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Defining-Maintainability"><span class="toc-text">Defining Maintainability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Comprehensibility-Analysability"><span class="toc-text">Comprehensibility (Analysability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alterability-Modifiability"><span class="toc-text">Alterability (Modifiability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testability"><span class="toc-text">Testability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Making-a-decision"><span class="toc-text">Making a decision</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Software-Decision-Making-criteria"><span class="toc-text">Software Decision-Making criteria</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Comprehension-Model"><span class="toc-text">Program Comprehension Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#External-representation"><span class="toc-text">External representation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Knowledge-Base"><span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mental-Model"><span class="toc-text">Mental Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assimilation-Process"><span class="toc-text">Assimilation Process</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-similar-variable-names-make-the-code-less-comprehensible"><span class="toc-text">Why similar variable names make the code less comprehensible?</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Defining-Maintainability"><span class="toc-text">Defining Maintainability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Comprehensibility-Analysability"><span class="toc-text">Comprehensibility (Analysability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alterability-Modifiability"><span class="toc-text">Alterability (Modifiability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testability"><span class="toc-text">Testability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Making-a-decision"><span class="toc-text">Making a decision</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Software-Decision-Making-criteria"><span class="toc-text">Software Decision-Making criteria</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Comprehension-Model"><span class="toc-text">Program Comprehension Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#External-representation"><span class="toc-text">External representation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Knowledge-Base"><span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mental-Model"><span class="toc-text">Mental Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assimilation-Process"><span class="toc-text">Assimilation Process</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-similar-variable-names-make-the-code-less-comprehensible"><span class="toc-text">Why similar variable names make the code less comprehensible?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Naming"><span class="toc-text">Naming</span></a></li></ol>
 </div>
     
 </div>
@@ -127,7 +127,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        CompSci701 Week1 Lecture Journal
+        CompSci701 Week1-2 Lecture Journal
     </div>
 
     <div class="post-meta">
@@ -179,6 +179,18 @@
 <h2 id="Why-similar-variable-names-make-the-code-less-comprehensible"><a href="#Why-similar-variable-names-make-the-code-less-comprehensible" class="headerlink" title="Why similar variable names make the code less comprehensible?"></a>Why similar variable names make the code less comprehensible?</h2><ul>
 <li>Undistinguishable makes it hard to form a hypothesis and verify the hypothesis through reading the code.</li>
 <li>Identifiers that do not tell anything about what the variable/method is doing also hinder the process of forming and verifying hypothesis, but is a different problem from Undistinguishable identifiers.</li>
+</ul>
+<h1 id="Naming"><a href="#Naming" class="headerlink" title="Naming"></a>Naming</h1><p>Every time we need to go to External Representation, there is a big drop in comprehensibility.</p>
+<p>How can we use the comprehension model to decide which are the better names (for<br>comprehension)?</p>
+<ul>
+<li>Assumptions:<ul>
+<li>putting facts we know (from <strong>Knowledge Base</strong>) into <strong>Mental Model</strong> is more efficient that putting new knowledge<br>(from <strong>External Representation</strong>) into <strong>Mental Model</strong></li>
+<li>accessing <strong>Mental Model</strong> is more efficient than rest of <strong>Knowledge Base</strong></li>
+<li>accessing <strong>Knowledge Base</strong> is more efficient than accessing <strong>External Representation</strong></li>
+</ul>
+</li>
+<li>If we are familiar with the convention that factorial is often written n! (it is in <strong>Knowledge Base</strong>), then the<br>mapping from “value the factorial is of” to “n” should not take much effort to add to <strong>Mental Model</strong> if n<br>is used as the parameter</li>
+<li>If not familiar with the convention, then it is less obvious that “n” is the most efficient (and so best) choice</li>
 </ul>
 <!-- flag of hidden posts -->
         
