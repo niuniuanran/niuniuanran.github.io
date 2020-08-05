@@ -159,7 +159,19 @@
 <p>You cannot change the permissions defined in AWS managed policies. AWS occasionally updates the permissions defined in an AWS managed policy. When AWS does this, the update affects all principal entities (users, groups, and roles) that the policy is attached to. </p>
 <h2 id="Customer-Managed-Policies"><a href="#Customer-Managed-Policies" class="headerlink" title="Customer Managed Policies"></a>Customer Managed Policies</h2><p>You can create standalone policies that you administer in your own AWS account, which we refer to as customer managed policies. You can then attach the policies to multiple principal entities in your AWS account. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy. Each policy also have its own ARN.</p>
 <p>A great way to create a customer managed policy is to start by copying an existing AWS managed policy. That way you know that the policy is correct at the beginning and all you need to do is customize it to your environment.</p>
-<h2 id="Inline-Policies"><a href="#Inline-Policies" class="headerlink" title="Inline Policies"></a>Inline Policies</h2><p>An inline policy is a policy that’s embedded in an IAM identity (a user, group, or role). That is, the policy is an inherent part of the identity. You can create a policy and embed it in a identity, either when you create the identity or later.</p>
+<h2 id="Inline-Policies"><a href="#Inline-Policies" class="headerlink" title="Inline Policies"></a>Inline Policies</h2><ul>
+<li><p>For Identity-based policy:</p>
+<ul>
+<li>An inline policy is a policy that’s <strong>embedded in an IAM identity</strong> (a user, group, or role). </li>
+<li>The policy is an inherent part of the identity. You can create a policy and embed it in a identity, either when you create the identity or later.</li>
+</ul>
+</li>
+<li><p>For Resource-based policy:</p>
+<ul>
+<li>Resource-based policies are inline only, not managed.</li>
+</ul>
+</li>
+</ul>
 <h1 id="What-a-policy-looks-like"><a href="#What-a-policy-looks-like" class="headerlink" title="What a policy looks like"></a>What a policy looks like</h1><p>A policy defines what actions are allowed or denied for specific AWS resources. This policy is granting permission to List and Describe information about EC2, Elastic Load Balancing, CloudWatch and Auto Scaling. This ability to view resources, but not modify them, is ideal for assigning to a Support role.</p>
 <p>The basic structure of the statements in an IAM Policy is:</p>
 <ul>
