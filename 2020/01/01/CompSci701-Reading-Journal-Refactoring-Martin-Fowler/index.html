@@ -531,7 +531,9 @@
 <h1 id="Moving-Features-Between-Objects"><a href="#Moving-Features-Between-Objects" class="headerlink" title="Moving Features Between Objects"></a>Moving Features Between Objects</h1><blockquote>
 <p>You’ve probably heard that a class should be a crisp abstraction, handle a few clear<br>  responsibilities, or some similar guideline. In practice, classes grow. You add some operations<br>  here, a bit of data there. You add a responsibility to a class feeling that it’s not worth a separate<br>  class, but as that responsibility grows and breeds, the class becomes too complicated. Soon your<br>  class is as crisp as a microwaved duck.</p>
 </blockquote>
-<h2 id="Introduce-Foreign-Method"><a href="#Introduce-Foreign-Method" class="headerlink" title="Introduce Foreign Method"></a>Introduce Foreign Method</h2><h2 id="Introduce-Local-Extension"><a href="#Introduce-Local-Extension" class="headerlink" title="Introduce Local Extension"></a>Introduce Local Extension</h2><!-- flag of hidden posts -->
+<h2 id="Introduce-Foreign-Method"><a href="#Introduce-Foreign-Method" class="headerlink" title="Introduce Foreign Method"></a>Introduce Foreign Method</h2><p>Introduce a foreign method when a server class you are using needs an additional method, but you can’t modify the class. To do so, create a method in the client class with an instance of the server class as its first argument.</p>
+<h2 id="Introduce-Local-Extension"><a href="#Introduce-Local-Extension" class="headerlink" title="Introduce Local Extension"></a>Introduce Local Extension</h2><p>Introduce Local Extension when a server class you are using needs several additional methods, but you can’t modify the class.<br>Create a new class that contains these extra methods. Make this extension class a subclass or a wrapper of the original.</p>
+<!-- flag of hidden posts -->
         
         <br />
         <div id="comment-container">
