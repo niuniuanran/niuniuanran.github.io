@@ -11,7 +11,7 @@
 
     <title>
         
-        Nullable value types in C sharp - Code on Anran!
+        Nullable value types and Type Testing with Value Matching in C sharp - Code on Anran!
         
     </title>
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Test-Typing-with-Pattern-Matching"><span class="toc-text">Test Typing with Pattern Matching</span></a></li></ol>
 </div>
     
 </div>
@@ -127,11 +127,17 @@
 
 <div class="post-container">
     <div class="post-title">
-        Nullable value types in C sharp
+        Nullable value types and Type Testing with Value Matching in C sharp
     </div>
 
     <div class="post-meta">
         <span class="attr">Post：<span>2020-08-08 14:04:12</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#C#" title="C#">C#</a>
+        <span>/</span>
+        
         
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
@@ -139,7 +145,15 @@
 </span>
     </div>
     <div class="post-content ">
-        
+        <p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types" target="_blank" rel="noopener">A nullable value type</a> <code>T?</code> represents all values of its underlying value type T and an additional null value. </p>
+<p>For example, you can assign any of the following three values to a <code>bool?</code> variable: <code>true</code>, <code>false</code>, or <code>null</code>. </p>
+<p>An underlying value type T cannot be a nullable value type itself.</p>
+<h1 id="Test-Typing-with-Pattern-Matching"><a href="#Test-Typing-with-Pattern-Matching" class="headerlink" title="Test Typing with Pattern Matching"></a>Test Typing with Pattern Matching</h1><p>Beginning with C# 7.0, the is operator also tests an expression result against a pattern. In particular, it supports the type pattern in the following form:</p>
+<figure class="highlight plain"><figcaption><span>is T v</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">Example combining **nullable value type** and pattern matching:</span><br><span class="line"> </span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">int i &#x3D; 23;</span><br><span class="line">object iBoxed &#x3D; i;</span><br><span class="line">int? jNullable &#x3D; 7;</span><br><span class="line">if (iBoxed is int a &amp;&amp; jNullable is int b)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(a + b);  &#x2F;&#x2F; output 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Read further <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast" target="_blank" rel="noopener">here at Microsoft Docs for type testing and cast</a></p>
+
         
         <br />
         <div id="comment-container">
