@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        Parallel and Distributed Computing Learning Notes - Code on Anran!
+        Parallel and Distributed Computing Intro Notes - Code on Anran!
         
     </title>
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-vs-Distributed-Computing"><span class="toc-text">Parallel vs Distributed Computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><span class="toc-text">Lynch’s Discussion of how Distributed Algorithms differ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Inter-process-Communication-IPC-Method"><span class="toc-text">The Inter-process Communication (IPC) Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-Model"><span class="toc-text">Timing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Failure-Model"><span class="toc-text">Failure Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Addressed"><span class="toc-text">Problem Addressed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-scenario-in-distributed-computing"><span class="toc-text">Typical scenario in distributed computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rounds-and-Steps"><span class="toc-text">Rounds and Steps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronise-model-as-a-particular-case-of-asynchronous-models"><span class="toc-text">Synchronise model as a particular case of asynchronous models</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Asynchronous-model"><span class="toc-text">Asynchronous model</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#async-time-complexity-gt-sync-time-complexity"><span class="toc-text">async time complexity &gt;&#x3D; sync time complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronous-model-with-FIFO-channels"><span class="toc-text">Asynchronous model with FIFO channels</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-vs-Distributed-Computing"><span class="toc-text">Parallel vs Distributed Computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><span class="toc-text">Lynch’s Discussion of how Distributed Algorithms differ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Inter-process-Communication-IPC-Method"><span class="toc-text">The Inter-process Communication (IPC) Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-Model"><span class="toc-text">Timing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Failure-Model"><span class="toc-text">Failure Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Addressed"><span class="toc-text">Problem Addressed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-scenario-in-distributed-computing"><span class="toc-text">Typical scenario in distributed computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rounds-and-Steps"><span class="toc-text">Rounds and Steps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronise-model-as-a-particular-case-of-asynchronous-models"><span class="toc-text">Synchronise model as a particular case of asynchronous models</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Asynchronous-model"><span class="toc-text">Asynchronous model</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#async-time-complexity-gt-sync-time-complexity"><span class="toc-text">async time complexity &gt;&#x3D; sync time complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronous-model-with-FIFO-channels"><span class="toc-text">Asynchronous model with FIFO channels</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Non-determinism"><span class="toc-text">Non-determinism</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Confluent-system"><span class="toc-text">Confluent system</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -127,7 +127,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        Parallel and Distributed Computing Learning Notes
+        Parallel and Distributed Computing Intro Notes
     </div>
 
     <div class="post-meta">
@@ -250,7 +250,20 @@
 </ul>
 <h2 id="async-time-complexity-gt-sync-time-complexity"><a href="#async-time-complexity-gt-sync-time-complexity" class="headerlink" title="async time complexity &gt;= sync time complexity"></a>async time complexity &gt;= sync time complexity</h2><p>Time complexity (<strong>worst-case</strong>) = supremum of all possible normalised async runs.</p>
 <p>Sync run is just one of the all possible runs, where all transit is 1 time unit.</p>
-<h2 id="Asynchronous-model-with-FIFO-channels"><a href="#Asynchronous-model-with-FIFO-channels" class="headerlink" title="Asynchronous model with FIFO channels"></a>Asynchronous model with FIFO channels</h2><p>   </p>
+<h2 id="Asynchronous-model-with-FIFO-channels"><a href="#Asynchronous-model-with-FIFO-channels" class="headerlink" title="Asynchronous model with FIFO channels"></a>Asynchronous model with FIFO channels</h2><ul>
+<li>The FIFO guarantee: faster messages cannot overtake earlier slower messages sent over the same channel</li>
+<li>Congestion (pileup) may occur and this should be accounted for</li>
+<li>The timing assumption: (each message (individually): transit time (send -&gt; receive) takes <strong>any real number of time units</strong> (for synchronous it is 1 time unit), or, normalised: any real number in the [0; 1] interval) only applies to the top (oldest) message in the FIFO queue</li>
+<li>After the top message is delivered, the next top message is delivered after an additional arbitrary delay.</li>
+<li>Thus, <strong>a sequence of n messages may take n time units</strong> until the last is delivered</li>
+</ul>
+<h1 id="Non-determinism"><a href="#Non-determinism" class="headerlink" title="Non-determinism"></a>Non-determinism</h1><p>Both sync and async timing models are non-deterministic.</p>
+<ul>
+<li>Choice of request (sync and async)</li>
+<li>Message delay may vary (async)</li>
+</ul>
+<p>However, all executions must arrive to a valid decision (not necessarily the same, but valid).</p>
+<h2 id="Confluent-system"><a href="#Confluent-system" class="headerlink" title="Confluent system"></a>Confluent system</h2><p>In computer science, confluence is a property of rewriting systems, describing which terms in such a system can be rewritten in more than one way, to yield the same result. </p>
 
         
         <br />
