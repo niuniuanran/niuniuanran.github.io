@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-vs-Distributed-Computing"><span class="toc-text">Parallel vs Distributed Computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><span class="toc-text">Lynch’s Discussion of how Distributed Algorithms differ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Inter-process-Communication-IPC-Method"><span class="toc-text">The Inter-process Communication (IPC) Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-Model"><span class="toc-text">Timing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Failure-Model"><span class="toc-text">Failure Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Addressed"><span class="toc-text">Problem Addressed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-scenario-in-distributed-computing"><span class="toc-text">Typical scenario in distributed computing</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-vs-Distributed-Computing"><span class="toc-text">Parallel vs Distributed Computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><span class="toc-text">Lynch’s Discussion of how Distributed Algorithms differ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Inter-process-Communication-IPC-Method"><span class="toc-text">The Inter-process Communication (IPC) Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-Model"><span class="toc-text">Timing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Failure-Model"><span class="toc-text">Failure Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Addressed"><span class="toc-text">Problem Addressed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-scenario-in-distributed-computing"><span class="toc-text">Typical scenario in distributed computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Presentation-of-Graph"><span class="toc-text">Presentation of Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Edge-Set"><span class="toc-text">Edge Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-List"><span class="toc-text">Adjacency List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-Matrix"><span class="toc-text">Adjacency Matrix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tree"><span class="toc-text">Tree</span></a></li></ol>
 </div>
     
 </div>
@@ -208,8 +208,15 @@
 <li>independent failures are possible: nodes, communication channels (Failure model)</li>
 <li>the network topology (size, diameter, neighbourhoods) and other characteristics (e.g. latencies) are often unknown to <strong>individual nodes</strong>  </li>
 <li>the network may or may not dynamically change</li>
-<li>nodes solve parts of a bigger problem or have individual problems but still need some sort of <strong>coordination</strong> - which is achieved by distributed algorithms</li>
+<li>nodes solve parts of a bigger problem or have individual problems but still need some sort of <strong>coordination</strong> - which is achieved by distributed algorithms.</li>
 </ul>
+<h1 id="Presentation-of-Graph"><a href="#Presentation-of-Graph" class="headerlink" title="Presentation of Graph"></a>Presentation of Graph</h1><h2 id="Edge-Set"><a href="#Edge-Set" class="headerlink" title="Edge Set"></a>Edge Set</h2><img alt="" src="set.png" width="300px"/>
+
+<h2 id="Adjacency-List"><a href="#Adjacency-List" class="headerlink" title="Adjacency List"></a>Adjacency List</h2><img alt="" src="list.png" width="300px"/>
+
+<h2 id="Adjacency-Matrix"><a href="#Adjacency-Matrix" class="headerlink" title="Adjacency Matrix"></a>Adjacency Matrix</h2><img alt="" src="matrix.png" width="300px"/>
+
+<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><p>Graph with no circuit(loop): if you travel from v1 to v4, the only way to come back to v1 is through <strong>backtrack</strong>.</p>
 
         
         <br />
