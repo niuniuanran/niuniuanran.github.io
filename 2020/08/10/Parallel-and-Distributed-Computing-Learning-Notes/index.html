@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-vs-Distributed-Computing"><span class="toc-text">Parallel vs Distributed Computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><span class="toc-text">Lynch’s Discussion of how Distributed Algorithms differ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Inter-process-Communication-IPC-Method"><span class="toc-text">The Inter-process Communication (IPC) Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-Model"><span class="toc-text">Timing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Failure-Model"><span class="toc-text">Failure Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Addressed"><span class="toc-text">Problem Addressed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-scenario-in-distributed-computing"><span class="toc-text">Typical scenario in distributed computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Presentation-of-Graph"><span class="toc-text">Presentation of Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Edge-Set"><span class="toc-text">Edge Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-List"><span class="toc-text">Adjacency List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-Matrix"><span class="toc-text">Adjacency Matrix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tree"><span class="toc-text">Tree</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-vs-Distributed-Computing"><span class="toc-text">Parallel vs Distributed Computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><span class="toc-text">Lynch’s Discussion of how Distributed Algorithms differ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Inter-process-Communication-IPC-Method"><span class="toc-text">The Inter-process Communication (IPC) Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-Model"><span class="toc-text">Timing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Failure-Model"><span class="toc-text">Failure Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Addressed"><span class="toc-text">Problem Addressed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-scenario-in-distributed-computing"><span class="toc-text">Typical scenario in distributed computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rounds-and-Steps"><span class="toc-text">Rounds and Steps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronise-model-as-a-particular-case-of-asynchronous-models"><span class="toc-text">Synchronise model as a particular case of asynchronous models</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Asynchronous-model"><span class="toc-text">Asynchronous model</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#async-time-complexity-gt-sync-time-complexity"><span class="toc-text">async time complexity &gt;&#x3D; sync time complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronous-model-with-FIFO-channels"><span class="toc-text">Asynchronous model with FIFO channels</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -212,13 +212,45 @@
 <li>the network may or may not dynamically change</li>
 <li>nodes solve parts of a bigger problem or have individual problems but still need some sort of <strong>coordination</strong> - which is achieved by distributed algorithms.</li>
 </ul>
-<h1 id="Presentation-of-Graph"><a href="#Presentation-of-Graph" class="headerlink" title="Presentation of Graph"></a>Presentation of Graph</h1><h2 id="Edge-Set"><a href="#Edge-Set" class="headerlink" title="Edge Set"></a>Edge Set</h2><img alt="" src="set.png" width="300px"/>
-
-<h2 id="Adjacency-List"><a href="#Adjacency-List" class="headerlink" title="Adjacency List"></a>Adjacency List</h2><img alt="" src="list.png" width="300px"/>
-
-<h2 id="Adjacency-Matrix"><a href="#Adjacency-Matrix" class="headerlink" title="Adjacency Matrix"></a>Adjacency Matrix</h2><img alt="" src="matrix.png" width="300px"/>
-
-<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><p>Graph with no circuit(loop): if you travel from v1 to v4, the only way to come back to v1 is through <strong>backtrack</strong>.</p>
+<h1 id="Rounds-and-Steps"><a href="#Rounds-and-Steps" class="headerlink" title="Rounds and Steps"></a>Rounds and Steps</h1><p>Nodes work in rounds (macro-steps), which have three sub-steps:</p>
+<ul>
+<li>1 Receive sub-step: receive incoming messages</li>
+<li>2 Process sub-step: change local node state</li>
+<li>3 Send sub-step: send outgoing messages</li>
+</ul>
+<blockquote>
+<p>Note: some algorithms expect null or empty messages, as an explicit conrmation that nothing was sent</p>
+</blockquote>
+<h1 id="Synchronise-model-as-a-particular-case-of-asynchronous-models"><a href="#Synchronise-model-as-a-particular-case-of-asynchronous-models" class="headerlink" title="Synchronise model as a particular case of asynchronous models"></a>Synchronise model as a particular case of asynchronous models</h1><p>We describe timing model with the rounds and steps above.</p>
+<ul>
+<li>Synchronous model， version 1<ul>
+<li>all nodes: <em>process</em> takes 1 time unit</li>
+<li>all messages: transit time (<em>send</em> -&gt; <em>receive</em>) takes 0 time units</li>
+</ul>
+</li>
+<li>Synchronous model, version 2<ul>
+<li>all nodes: <em>process</em> takes 0 time units</li>
+<li>all messages: transit time (<em>send</em> -&gt; <em>receive</em>) takes 1 time units</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The second (and equivalent) version ensures that <strong>synchronised models are a particular case of asynchronous models</strong></p>
+</blockquote>
+<h1 id="Asynchronous-model"><a href="#Asynchronous-model" class="headerlink" title="Asynchronous model"></a>Asynchronous model</h1><ul>
+<li><p>all nodes: <em>process</em> takes 0 time units</p>
+</li>
+<li><p>each message (individually): transit time (send -&gt; receive) takes <strong>any real number of time units</strong> (for synchronous it is 1 time unit)</p>
+<ul>
+<li>or, normalised: any real number in the [0; 1] interval</li>
+</ul>
+</li>
+<li><p>often, a FIFO guarantee, which however may affect the above timing assumption (see next slide)</p>
+</li>
+</ul>
+<h2 id="async-time-complexity-gt-sync-time-complexity"><a href="#async-time-complexity-gt-sync-time-complexity" class="headerlink" title="async time complexity &gt;= sync time complexity"></a>async time complexity &gt;= sync time complexity</h2><p>Time complexity (<strong>worst-case</strong>) = supremum of all possible normalised async runs.</p>
+<p>Sync run is just one of the all possible runs, where all transit is 1 time unit.</p>
+<h2 id="Asynchronous-model-with-FIFO-channels"><a href="#Asynchronous-model-with-FIFO-channels" class="headerlink" title="Asynchronous model with FIFO channels"></a>Asynchronous model with FIFO channels</h2><p>   </p>
 
         
         <br />
