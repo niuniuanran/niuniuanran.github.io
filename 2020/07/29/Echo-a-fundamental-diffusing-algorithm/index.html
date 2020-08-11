@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Starting-and-Terminating-options-for-Distributed-algorithms"><span class="toc-text">Starting and Terminating options for Distributed algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Options"><span class="toc-text">Start Options</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminate-Options"><span class="toc-text">Terminate Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echo-Algorithm"><span class="toc-text">Echo Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-phases"><span class="toc-text">Two phases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Links-pointers"><span class="toc-text">Links(pointers)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Termination"><span class="toc-text">Termination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sync-Mode"><span class="toc-text">Sync Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity-analysis"><span class="toc-text">Time complexity analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-Mode"><span class="toc-text">Async Mode</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Starting-and-Terminating-options-for-Distributed-algorithms"><span class="toc-text">Starting and Terminating options for Distributed algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Options"><span class="toc-text">Start Options</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminate-Options"><span class="toc-text">Terminate Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echo-Algorithm"><span class="toc-text">Echo Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-phases"><span class="toc-text">Two phases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Links-pointers"><span class="toc-text">Links(pointers)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Termination"><span class="toc-text">Termination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sync-Mode"><span class="toc-text">Sync Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity-analysis"><span class="toc-text">Time complexity analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity-analysis"><span class="toc-text">Message complexity analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-Mode"><span class="toc-text">Async Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity"><span class="toc-text">Time complexity</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#how-to-justify-this"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; how to justify this?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity"><span class="toc-text">Message complexity</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -165,8 +165,23 @@
 <h2 id="Termination"><a href="#Termination" class="headerlink" title="Termination"></a>Termination</h2><p>After receiving echo tokens from all its neighbours, the source node <strong>decides the termination</strong>. Optionally, the source node can start a third phase to broadcast this termination to other nodes.</p>
 <h2 id="Sync-Mode"><a href="#Sync-Mode" class="headerlink" title="Sync Mode"></a>Sync Mode</h2><p>In Sync mode, you get a BFS spanning tree in broadcast phase (Echo also known as SyncBFS)</p>
 <h3 id="Time-complexity-analysis"><a href="#Time-complexity-analysis" class="headerlink" title="Time complexity analysis"></a>Time complexity analysis</h3><p>Time complexity:<br>Time Units &lt;= 2D + 1</p>
-<p>D is the depth of the BFS spanning tree.</p>
+<p>D is the depth of the BFS spanning tree. </p>
+<ul>
+<li>In the broadcast stage, in each time unit, the messages go deeper into the tree by 1. It takes at most D time units to reach all nodes.</li>
+<li>For the leaf nodes to know that their neighbours have all received a message, it takes 1 extra time unit for all leaf nodes to send messages to neighbours. Now all leaf nodes are ready to ConvergeCast.</li>
+<li>For the root node to receive message for neighbours, nodes at different lengths will need to ConvergeCast back, coming one level up the depth at each time unit. This process takes at most D time units too.</li>
+</ul>
+<h3 id="Message-complexity-analysis"><a href="#Message-complexity-analysis" class="headerlink" title="Message complexity analysis"></a>Message complexity analysis</h3><p>Messages = 2|E|</p>
+<p>Because each node will expect to receive from all its neighbours, each edge will have two messages (-&gt; and &lt;-) going through it. </p>
 <h2 id="Async-Mode"><a href="#Async-Mode" class="headerlink" title="Async Mode"></a>Async Mode</h2><p>In async mode, you get a spanning tree, but not necessarily a BFS spanning tree.</p>
+<h3 id="Time-complexity"><a href="#Time-complexity" class="headerlink" title="Time complexity"></a>Time complexity</h3><p>Time complexity:<br>Time Units = O(|V|)</p>
+<p>There are fast and slow messages.<br>Each slow message takes 1 (normalised) time unit. Each fast message only takes <code>Epsilon</code>. </p>
+<p>Async is a kind of an eager process. </p>
+<ul>
+<li>You build a spanning tree eagerly, taking whichever path is fast for you - the spanning tree gets built pretty fast, ~ |V|*<code>Epsilon</code> time. </li>
+<li>Now what is left for you is the slow edges. Each vertex will need to </li>
+</ul>
+<h1 id="how-to-justify-this"><a href="#how-to-justify-this" class="headerlink" title="===== how to justify this?"></a>===== how to justify this?</h1><h3 id="Message-complexity"><a href="#Message-complexity" class="headerlink" title="Message complexity"></a>Message complexity</h3><p>The message number remains the same as sync model,<br>message number = 2E = O(|E|)</p>
 
         
         <br />
