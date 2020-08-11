@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Starting-and-Terminating-options-for-Distributed-algorithms"><span class="toc-text">Starting and Terminating options for Distributed algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Options"><span class="toc-text">Start Options</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminate-Options"><span class="toc-text">Terminate Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echo-Algorithm"><span class="toc-text">Echo Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-phases"><span class="toc-text">Two phases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Links-pointers"><span class="toc-text">Links(pointers)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Termination"><span class="toc-text">Termination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sync-Mode"><span class="toc-text">Sync Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity-analysis"><span class="toc-text">Time complexity analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-Mode"><span class="toc-text">Async Mode</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -148,7 +148,26 @@
 </span>
     </div>
     <div class="post-content ">
-        
+        <h1 id="Starting-and-Terminating-options-for-Distributed-algorithms"><a href="#Starting-and-Terminating-options-for-Distributed-algorithms" class="headerlink" title="Starting and Terminating options for Distributed algorithms"></a>Starting and Terminating options for Distributed algorithms</h1><p>For distributed algorithms you need a way to let your distributed system know when it is time to start or terminate the computation.</p>
+<h2 id="Start-Options"><a href="#Start-Options" class="headerlink" title="Start Options"></a>Start Options</h2><ul>
+<li>Single source/ Centralised/ Diffusing. Echo is a typical diffuing algorithm, starting from one single source.</li>
+<li>Many source/ Decentralised<h2 id="Terminate-Options"><a href="#Terminate-Options" class="headerlink" title="Terminate Options"></a>Terminate Options</h2></li>
+<li>Sometimes one node (often the initiator) takes the final decision and can notify the rest (usually <strong>omitted phase</strong>)</li>
+<li>In general, this can be very challenging and requires sophisticated control algorithms for termination detection.</li>
+</ul>
+<h1 id="Echo-Algorithm"><a href="#Echo-Algorithm" class="headerlink" title="Echo Algorithm"></a>Echo Algorithm</h1><p>Echo is a fundamental <strong>diffusing</strong> algorithm. </p>
+<h2 id="Two-phases"><a href="#Two-phases" class="headerlink" title="Two phases"></a>Two phases</h2><p>Echo combines two phases:</p>
+<ul>
+<li>A broadcast: “top-down”, builds child-to-parent links in a <strong>spanning tree</strong></li>
+<li>ConvergeCast: “bottom-down”/echo phase, confirms that the node has finished its part.</li>
+</ul>
+<h2 id="Links-pointers"><a href="#Links-pointers" class="headerlink" title="Links(pointers)"></a>Links(pointers)</h2><p>Child-to-parent links built at broadcast. Parent-to-child links built either at convergecast or by additional confirmation messages immediately after the broadcast.</p>
+<h2 id="Termination"><a href="#Termination" class="headerlink" title="Termination"></a>Termination</h2><p>After receiving echo tokens from all its neighbours, the source node <strong>decides the termination</strong>. Optionally, the source node can start a third phase to broadcast this termination to other nodes.</p>
+<h2 id="Sync-Mode"><a href="#Sync-Mode" class="headerlink" title="Sync Mode"></a>Sync Mode</h2><p>In Sync mode, you get a BFS spanning tree in broadcast phase (Echo also known as SyncBFS)</p>
+<h3 id="Time-complexity-analysis"><a href="#Time-complexity-analysis" class="headerlink" title="Time complexity analysis"></a>Time complexity analysis</h3><p>Time complexity:<br>Time Units &lt;= 2D + 1</p>
+<p>D is the depth of the BFS spanning tree.</p>
+<h2 id="Async-Mode"><a href="#Async-Mode" class="headerlink" title="Async Mode"></a>Async Mode</h2><p>In async mode, you get a spanning tree, but not necessarily a BFS spanning tree.</p>
+
         
         <br />
         <div id="comment-container">
