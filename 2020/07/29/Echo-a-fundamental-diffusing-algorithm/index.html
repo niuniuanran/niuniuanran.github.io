@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Starting-and-Terminating-options-for-Distributed-algorithms"><span class="toc-text">Starting and Terminating options for Distributed algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Options"><span class="toc-text">Start Options</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminate-Options"><span class="toc-text">Terminate Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echo-Algorithm"><span class="toc-text">Echo Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-phases"><span class="toc-text">Two phases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Links-pointers"><span class="toc-text">Links(pointers)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Termination"><span class="toc-text">Termination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sync-Mode"><span class="toc-text">Sync Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity-analysis"><span class="toc-text">Time complexity analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity-analysis"><span class="toc-text">Message complexity analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-Mode"><span class="toc-text">Async Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity"><span class="toc-text">Time complexity</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#how-to-justify-this"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; how to justify this?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity"><span class="toc-text">Message complexity</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Starting-and-Terminating-options-for-Distributed-algorithms"><span class="toc-text">Starting and Terminating options for Distributed algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Options"><span class="toc-text">Start Options</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminate-Options"><span class="toc-text">Terminate Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echo-Algorithm"><span class="toc-text">Echo Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-phases"><span class="toc-text">Two phases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Links-pointers"><span class="toc-text">Links(pointers)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Termination"><span class="toc-text">Termination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sync-Mode"><span class="toc-text">Sync Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity-analysis"><span class="toc-text">Time complexity analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity-analysis"><span class="toc-text">Message complexity analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-Mode"><span class="toc-text">Async Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity"><span class="toc-text">Time complexity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity"><span class="toc-text">Message complexity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-complexity-Async-v-s-Sync"><span class="toc-text">Time complexity: Async v.s Sync</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-supremum"><span class="toc-text">What is supremum?</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -179,9 +179,25 @@
 <p>Async is a kind of an eager process. </p>
 <ul>
 <li>You build a spanning tree eagerly, taking whichever path is fast for you - the spanning tree gets built pretty fast, ~ |V|*<code>Epsilon</code> time. </li>
-<li>Now what is left for you is the slow edges. Each vertex will need to </li>
+<li>Now what is left for you is the slow edges. To finalise the echo, each node will need to finish their ConvergeCast on a slower node. </li>
 </ul>
-<h1 id="how-to-justify-this"><a href="#how-to-justify-this" class="headerlink" title="===== how to justify this?"></a>===== how to justify this?</h1><h3 id="Message-complexity"><a href="#Message-complexity" class="headerlink" title="Message complexity"></a>Message complexity</h3><p>The message number remains the same as sync model,<br>message number = 2E = O(|E|)</p>
+<h3 id="Message-complexity"><a href="#Message-complexity" class="headerlink" title="Message complexity"></a>Message complexity</h3><p>The message number remains the same as sync model,<br>message number = 2E = O(|E|)</p>
+<h2 id="Time-complexity-Async-v-s-Sync"><a href="#Time-complexity-Async-v-s-Sync" class="headerlink" title="Time complexity: Async v.s Sync"></a>Time complexity: Async v.s Sync</h2><ul>
+<li>Sync is a special case of Async. <ul>
+<li>Async’s time complexity is a <strong>supremum over all possible normalised executions</strong> (delivery time in [0; 1]), inclusing sync.</li>
+</ul>
+</li>
+<li>In Sync, all edges takes 1 time unit to travel.  <ul>
+<li>Waiting for all messages to arrive before making a decision and proceed to the next step helps us build the optimised BFS tree.  </li>
+<li>With a BFS tree, we can ensure that echo finishes in 2|D| + 1 time.</li>
+</ul>
+</li>
+<li>In Async, the eager broadcast means we might not choose the overall efficient tree. All graphs could behave like a line. <ul>
+<li>Actually, with a line, |V| = |D| and O(|V|)=O(|D|), async and sync has the same complexity.</li>
+</ul>
+</li>
+</ul>
+<h3 id="What-is-supremum"><a href="#What-is-supremum" class="headerlink" title="What is supremum?"></a>What is supremum?</h3><p>For set (0,1), the supremum is 1. There is no maximum.<br>For set [0,1], the supremum and the maximum are both 1.</p>
 
         
         <br />
