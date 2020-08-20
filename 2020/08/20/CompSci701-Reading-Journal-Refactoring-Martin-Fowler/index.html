@@ -692,9 +692,10 @@
 <li>Take each long procedure and apply <strong>Extract Method</strong> and the related refactorings to break it down. </li>
 <li>As you break down the procedures, use <strong>Move Method</strong> to move each one to the appropriate dumb data class.</li>
 </ul>
-<h1 id="Separate-Domain-from-Presentation"><a href="#Separate-Domain-from-Presentation" class="headerlink" title="Separate Domain from Presentation"></a>Separate Domain from Presentation</h1><p>Some GUI classes contain domain logic. Take the domain logic  out as a separate class.</p>
+<h1 id="Separate-Domain-from-Presentation"><a href="#Separate-Domain-from-Presentation" class="headerlink" title="Separate Domain from Presentation"></a>Separate Domain from Presentation</h1><p>Some GUI classes contain domain logic. Take the domain logic out as a separate class.</p>
 <img alt="domain-from-pre.png" alt="" width="600px"/>
 
+<p>After the refactoring, your presentation class will know about the domain class, but the domain class does not need to know about presentation.</p>
 <h2 id="MVC-Pattern"><a href="#MVC-Pattern" class="headerlink" title="MVC Pattern"></a>MVC Pattern</h2><p>Key value of MVC: separation between the code for user interface (View) and the domain logic (Model). The presentation class in only responsible for user interface; The domain class only contains business logic.</p>
 
         
