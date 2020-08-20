@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        CompSci701 Reading Journal - Refactoring by Martin Fowler - Code on Anran!
+        Reading Journal - Refactoring, by Martin Fowler - Code on Anran!
         
     </title>
 
@@ -127,11 +127,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        CompSci701 Reading Journal - Refactoring by Martin Fowler
+        Reading Journal - Refactoring, by Martin Fowler
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-08-11 16:13:02</span></span>
+        <span class="attr">Post：<span>2020-08-20 16:13:02</span></span>
         
         <span class="attr">Tags：/
         
@@ -685,6 +685,12 @@
 <h1 id="Convert-Procedural-Design-to-Objects"><a href="#Convert-Procedural-Design-to-Objects" class="headerlink" title="Convert Procedural Design to Objects"></a>Convert Procedural Design to Objects</h1><img src="Convert-procedural-to-objects.png" width="600px" alt=""/>
 
 <p>I had a vivid experience on this refactoring with my CompSci711 assignment (Echo - sequential).<br>I got more flexibility to achieve distributed echoing if I encapsulate the procedural communications into <code>Node</code> objects and let them maintain their own state. </p>
+<p>“Using objects” is more than calling constructors. The typical situation is long procedural methods on a class with little data and dumb data objects with nothing more than accessors.</p>
+<p>Scenarios when you do need <strong>classes with behaviours/procedures and little/no data</strong>: Strategy objects! These are dedicated for varying behaviours. They are usually small and are used when we have a particular need for flexibility.</p>
+<p>Key process:</p>
+<blockquote>
+<p>Take each long procedure and apply Extract Method and the related refactorings to break it down. As you break down the procedures, use Move Method to move each one to the appropriate dumb data class.</p>
+</blockquote>
 
         
         <br />
