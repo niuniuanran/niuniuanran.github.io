@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        SAA Test Question notes - Code on Anran!
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Aurora-Read-Replica-Failover"><span class="toc-text">AWS Aurora Read Replica Failover</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cancelling-Spot-instance-request"><span class="toc-text">Cancelling Spot instance request</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-Start-spot-instance"><span class="toc-text">Stop&#x2F;Start spot instance</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        SAA Test Question notes
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-21 10:21:03</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS SAA" title="AWS SAA">AWS SAA</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="AWS-Aurora-Read-Replica-Failover"><a href="#AWS-Aurora-Read-Replica-Failover" class="headerlink" title="AWS Aurora Read Replica Failover"></a>AWS Aurora Read Replica Failover</h1><ul>
+<li>Today we are making Aurora even more flexible by giving you control over the failover priority of each read replica. </li>
+<li>Each read replica is now associated with a priority tier (0-15).</li>
+<li>In the event of a failover, Amazon RDS will promote the read replica that has the highest priority <strong>(the lowest numbered tier)</strong>. </li>
+<li>If two or more replicas have the same priority, RDS will promote the one that is the same size as the previous primary instance.</li>
+</ul>
+<p><a href="https://aws.amazon.com/rds/features/read-replicas/" target="_blank" rel="noopener">Read more here</a>.</p>
+<h1 id="Cancelling-Spot-instance-request"><a href="#Cancelling-Spot-instance-request" class="headerlink" title="Cancelling Spot instance request"></a>Cancelling Spot instance request</h1><p>If you no longer want your Spot Instance request, you can cancel it. You can only cancel Spot Instance requests that are open, active, or disabled.</p>
+<ul>
+<li>Your Spot Instance request is <strong>open</strong> when your request has not yet been fulfilled and no instances have been launched. </li>
+<li>Your Spot Instance request is <strong>active</strong> when your request has been fulfilled and Spot Instances have launched as a result.</li>
+<li>Your Spot Instance request is <strong>disabled</strong> when you stop your Spot Instance.</li>
+</ul>
+<p>If your Spot Instance request is active and has an associated running Spot Instance, canceling the request does not terminate the instance.</p>
+<p>If your Spot Instance request is active and has an associated running Spot Instance, or your Spot Instance request is disabled and has an associated stopped Spot Instance, canceling the request does not terminate the instance; <strong>you must terminate the running Spot Instance manually</strong>. </p>
+<p>If you terminate a running or stopped Spot Instance that was launched by a persistent Spot request, the Spot request returns to the open state so that a new Spot Instance can be launched. To cancel a persistent Spot request and terminate its Spot Instances, <strong>you must cancel the Spot request first and then terminate the Spot Instances</strong>. Otherwise, the persistent Spot request can launch a new instance.</p>
+<h2 id="Stop-Start-spot-instance"><a href="#Stop-Start-spot-instance" class="headerlink" title="Stop/Start spot instance"></a>Stop/Start spot instance</h2><p>The feature of stopping a persistent is available for persistent Spot requests. </p>
+<ul>
+<li>You will <strong>not be charged for instance usage</strong> while your instance is stopped. </li>
+<li><strong>EBS volume storage</strong> is charged at standard rates. </li>
+</ul>
+<p>Upon restart, the EBS root device is restored from its prior state, previously attached <strong>data volumes are reattached</strong>, and the instance <strong>retains its instance ID</strong>. </p>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
