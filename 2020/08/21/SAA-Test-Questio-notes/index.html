@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Aurora-Read-Replica-Failover"><span class="toc-text">AWS Aurora Read Replica Failover</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cancelling-Spot-instance-request"><span class="toc-text">Cancelling Spot instance request</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-Start-spot-instance"><span class="toc-text">Stop&#x2F;Start spot instance</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Aurora-Read-Replica-Failover"><span class="toc-text">AWS Aurora Read Replica Failover</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cancelling-Spot-instance-request"><span class="toc-text">Cancelling Spot instance request</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-Start-spot-instance"><span class="toc-text">Stop&#x2F;Start spot instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spot-Instance-interruptions"><span class="toc-text">Spot Instance interruptions</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -167,6 +167,12 @@
 <li><strong>EBS volume storage</strong> is charged at standard rates. </li>
 </ul>
 <p>Upon restart, the EBS root device is restored from its prior state, previously attached <strong>data volumes are reattached</strong>, and the instance <strong>retains its instance ID</strong>. </p>
+<h2 id="Spot-Instance-interruptions"><a href="#Spot-Instance-interruptions" class="headerlink" title="Spot Instance interruptions"></a>Spot Instance interruptions</h2><p>You can specify that Amazon EC2 should do one of the following when it interrupts a Spot Instance:</p>
+<ul>
+<li>Stop the Spot Instance</li>
+<li>Hibernate the Spot Instance</li>
+<li>Terminate the Spot Instance<br>The default is to <strong>terminate</strong> Spot Instances when they are interrupted. To change the interruption behavior, see Specifying the interruption behavior.</li>
+</ul>
 <!-- flag of hidden posts -->
         
         <br />
