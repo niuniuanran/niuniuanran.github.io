@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        CompSci701 Lecture Journal - Code on Anran!
+        CompSci701 Lecture Journal Week 1-4 - Code on Anran!
         
     </title><meta name="robots" content="noindex">
 
@@ -127,7 +127,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        CompSci701 Lecture Journal
+        CompSci701 Lecture Journal Week 1-4
     </div>
 
     <div class="post-meta">
@@ -728,12 +728,15 @@
 </ul>
 </li>
 <li>vertical spacing slows down finding the line (efficiency)</li>
-<li>whitespaces make it harder to determine which bits are associated (efficiency and effectiveness)<h3 id="How-informative-intent-comments-could-help-comprehension"><a href="#How-informative-intent-comments-could-help-comprehension" class="headerlink" title="How informative, intent comments could help comprehension:"></a>How informative, intent comments could help comprehension:</h3>Reading comment/reading everything in code both require access to ER, but without the comment, more of the ER is needed so less efficient.<h3 id="Comment-on-the-usefulness-of-the-comment"><a href="#Comment-on-the-usefulness-of-the-comment" class="headerlink" title="Comment on the usefulness of the comment:"></a>Comment on the usefulness of the comment:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Protect constructor since it is a static only class</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="title">Assert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-My attempted answer:<br>An amplification of the <code>protected</code> keyword. Informative and explains the intention of making the constructor <code>protected</code>.</li>
+<li>whitespaces make it harder to determine which bits are associated (efficiency and effectiveness)<h3 id="How-informative-intent-comments-could-help-comprehension"><a href="#How-informative-intent-comments-could-help-comprehension" class="headerlink" title="How informative, intent comments could help comprehension:"></a>How informative, intent comments could help comprehension:</h3>Reading comment/reading everything in code both require access to ER, but without the comment, more of the ER is needed so less efficient.<h3 id="Comment-on-the-usefulness-of-the-comment"><a href="#Comment-on-the-usefulness-of-the-comment" class="headerlink" title="Comment on the usefulness of the comment:"></a>Comment on the usefulness of the comment:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Protect constructor since it is a static only class</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="title">Assert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Mapping the comments with the descriptions in the list is a good start point:<ul>
+<li>Good comments: Legal, Informative, Intent, Clarification, Consequences, TODO, Amplification, API documentation (e.g. Javadocs)</li>
+<li>Bad comments: Mumbling, Redundant, Misleading, Mandataed, Journal, Noise, Scary Noise, Position Markers, Attributions, Commented-out code, HTML, Nonlocal Information, Too much Information, Inobvious Connection, Function headers</li>
 </ul>
-<blockquote>
-<p>Good comments: Legal, Informative, Intent, Clarification, Consequences, TODO, Amplification, API documentation (e.g. Javadocs)<br>Bad comments: Mumbling, Redundant, Misleading, Mandataed, Journal, Noise, Scary Noise, Position Markers, Attributions, Commented-out code, HTML, Nonlocal Information, Too much Information, Inobvious Connection, Function headers</p>
-</blockquote>
+</li>
+<li>Explain how the source code will not be enough for a reader with basic language knowledge.</li>
+<li>Explain how the comment will facilitate these readers to better understand the code.</li>
+</ul>
 <h2 id="The-four-practice-discussions-we’ve-done"><a href="#The-four-practice-discussions-we’ve-done" class="headerlink" title="The four practice discussions we’ve done:"></a>The four practice discussions we’ve done:</h2><ul>
 <li>How bad names hurt maintainability</li>
 <li>How bad formatting/commenting hurt maintainability (remove commented out code!)</li>
