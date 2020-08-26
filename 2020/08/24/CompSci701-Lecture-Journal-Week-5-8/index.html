@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-and-its-name"><span class="toc-text">Class and its name</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-oriented-design"><span class="toc-text">Object-oriented design</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Key-features-for-OOP"><span class="toc-text">Key features for OOP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OOP-definition"><span class="toc-text">OOP definition</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Consequences"><span class="toc-text">Consequences</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objects"><span class="toc-text">Objects</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Finding-good-objects"><span class="toc-text">Finding good objects</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Context-schema-amp-Design-schema"><span class="toc-text">Context schema &amp; Design schema</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#“Match”-One-aspect-expected-number-of-objects-created"><span class="toc-text">“Match”? One aspect: expected number of objects created</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-and-its-name"><span class="toc-text">Class and its name</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-oriented-design"><span class="toc-text">Object-oriented design</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Key-features-for-OOP"><span class="toc-text">Key features for OOP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OOP-definition"><span class="toc-text">OOP definition</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Consequences"><span class="toc-text">Consequences</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objects"><span class="toc-text">Objects</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Finding-good-objects"><span class="toc-text">Finding good objects</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Context-schema-amp-Design-schema"><span class="toc-text">Context schema &amp; Design schema</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#“Match”-One-aspect-expected-number-of-objects-created"><span class="toc-text">“Match”? One aspect: expected number of objects created</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tic-tac-toc-example"><span class="toc-text">Tic-tac-toc example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Context-Schema-amp-Design-Schema"><span class="toc-text">Context Schema &amp; Design Schema</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Context-Schema"><span class="toc-text">Context Schema</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-Schema"><span class="toc-text">Design Schema</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Martin-on-classes"><span class="toc-text">Martin on classes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Organisation"><span class="toc-text">Organisation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encapsulation-no-just-Visibility"><span class="toc-text">Encapsulation: no just Visibility</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Visibility"><span class="toc-text">Visibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Abstraction-vs-details"><span class="toc-text">Abstraction vs details</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Small"><span class="toc-text">Small</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Responsibility-Principle-SRP"><span class="toc-text">Single Responsibility Principle (SRP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cohesion"><span class="toc-text">Cohesion</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Key-points"><span class="toc-text">Key points</span></a>
 </div>
     
 </div>
@@ -206,13 +206,53 @@
 <blockquote>
 <p>Explain, using the comprehension model, under what conditions functions with 2 parameters are harder to comprehend than functions with 1 parameter</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+<h1 id="Tic-tac-toc-example"><a href="#Tic-tac-toc-example" class="headerlink" title="Tic-tac-toc example"></a>Tic-tac-toc example</h1><p>Context Schema: grid, player, game, as well as the Swing panel, mapping to the context of our problem/requirement.<br>Design Schema: MVC, who’s the model, controller and view will map to our design schema.</p>
+<h1 id="Context-Schema-amp-Design-Schema"><a href="#Context-Schema-amp-Design-Schema" class="headerlink" title="Context Schema &amp; Design Schema"></a>Context Schema &amp; Design Schema</h1><p>Classes should represent concepts from the context schema or design schema. </p>
+<h2 id="Context-Schema"><a href="#Context-Schema" class="headerlink" title="Context Schema"></a>Context Schema</h2><p>What we know about the problem is solved and the context that the problem is in.</p>
+<h2 id="Design-Schema"><a href="#Design-Schema" class="headerlink" title="Design Schema"></a>Design Schema</h2><p>Design patterns</p>
+<h1 id="Martin-on-classes"><a href="#Martin-on-classes" class="headerlink" title="Martin on classes"></a>Martin on classes</h1><h2 id="Organisation"><a href="#Organisation" class="headerlink" title="Organisation"></a>Organisation</h2><p>“Standard” vertical order</p>
+<ul>
+<li>public static final fields (constants)</li>
+<li>other static fields</li>
+<li>instance fields</li>
+<li>constructors</li>
+<li>public methods<ul>
+<li>what order?</li>
+</ul>
+</li>
+<li>non public methods (but those called by public methods close to the methods they’re called from)<ul>
+<li>not always possible -&gt; Try to order method with a logical relation closer together.</li>
+<li>what about protected versus private?</li>
+</ul>
+</li>
+</ul>
+<p>Questions:</p>
+<ul>
+<li>If a private method is called by three different public methods, which should the private method be close to?</li>
+<li>Getters and Setters? <ul>
+<li>Can be treated the same as other public/private methods. </li>
+</ul>
+</li>
+<li>The important thing: people follow the same practice so that it is easier for people to locate things.</li>
+</ul>
+<h2 id="Encapsulation-no-just-Visibility"><a href="#Encapsulation-no-just-Visibility" class="headerlink" title="Encapsulation: no just Visibility"></a>Encapsulation: no just Visibility</h2><h3 id="Visibility"><a href="#Visibility" class="headerlink" title="Visibility"></a>Visibility</h3><p>Fields and “utility functions” usually private. Protected is acceptable sometimes.<br>There is seldom a reason to have a public [field].</p>
+<h3 id="Abstraction-vs-details"><a href="#Abstraction-vs-details" class="headerlink" title="Abstraction vs details"></a>Abstraction vs details</h3><p>Direct access to representation details of abstraction from outside the abstraction is a bad idea: don’e expose the implementation details.</p>
+<p>If you do make fields public, you create the possibility that the clients can use them in ways different than what the abstractions are supposed to do.</p>
+<ul>
+<li>The design question: “What methods are needed to support the abstraction?” </li>
+<li>Sometimes exposing getters about the choice of representation but does not support the abstraction of the class is supposed to represent “bad encapsulation”.</li>
+</ul>
+<h2 id="Small"><a href="#Small" class="headerlink" title="Small"></a>Small</h2><p>We know the less an object represents a concept in the context schema/design schema, the less comprehensible the design.</p>
+<p>Observation: the smaller the class, the more likely it will represent a specific <strong>concept</strong> in the context/design schema : “Small” is the effect.</p>
+<h2 id="Single-Responsibility-Principle-SRP"><a href="#Single-Responsibility-Principle-SRP" class="headerlink" title="Single Responsibility Principle (SRP)"></a>Single Responsibility Principle (SRP)</h2><p>One and only one <em>reason to change</em> (only one concept change in the schema will cause the class to change).</p>
+<p>Classes that only have one responsibility or only one reason to change are likely to be small.</p>
+<h2 id="Cohesion"><a href="#Cohesion" class="headerlink" title="Cohesion"></a>Cohesion</h2><p>Essentially the same as single responsibility</p>
+<h1 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h1><ul>
+<li>Match concepts in the context and design schema</li>
+<li>Encapsulation: an object’s exposed behaviours &lt;=&gt; the concept it represents</li>
+<li>objects that are a good match with a specific concepts: SRP, Cohesive</li>
+<li>Classes with good objects tend to be “small” (for some definition of small). Small is the effect/result of good match with a concept.</li>
+</ul>
 <!-- flag of hidden posts -->
         
         <br />
