@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Aurora-Read-Replica-Failover"><span class="toc-text">AWS Aurora Read Replica Failover</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cancelling-Spot-instance-request"><span class="toc-text">Cancelling Spot instance request</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-Start-spot-instance"><span class="toc-text">Stop&#x2F;Start spot instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spot-Instance-interruptions"><span class="toc-text">Spot Instance interruptions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Active-Directory"><span class="toc-text">AWS Active Directory</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Aurora-Read-Replica-Failover"><span class="toc-text">AWS Aurora Read Replica Failover</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cancelling-Spot-instance-request"><span class="toc-text">Cancelling Spot instance request</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-Start-spot-instance"><span class="toc-text">Stop&#x2F;Start spot instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spot-Instance-interruptions"><span class="toc-text">Spot Instance interruptions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Active-Directory"><span class="toc-text">AWS Active Directory</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data-transfer-cost"><span class="toc-text">Data transfer cost</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Free-transfer-in-Internet-gt-AWS-regions"><span class="toc-text">Free transfer in: Internet -&gt; AWS regions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Charged-transfer-out-AWS-regions-gt-Internet"><span class="toc-text">Charged transfer out: AWS regions -&gt; Internet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Charged-across-regions-AWS-Region-gt-Another-AWS-Region"><span class="toc-text">Charged across regions: AWS Region -&gt; Another AWS Region</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-transfer-via-On-site-gt-AWS-Region-free-AWS-gt-site-charged"><span class="toc-text">Data transfer via: On site -&gt; AWS Region free, AWS-&gt;site charged</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Services-with-free-transfer-within-same-region"><span class="toc-text">Services with free transfer within same region</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Services-with-a-charge-across-availability-zones"><span class="toc-text">Services with a charge across availability zones</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-Data-Transfer-Cost"><span class="toc-text">S3 Data Transfer Cost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Edge-location-data-transfer"><span class="toc-text">Edge location data transfer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#App-Mesh"><span class="toc-text">App Mesh</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2"><span class="toc-text">2</span></a></li></ol>
 </div>
     
 </div>
@@ -174,9 +174,75 @@
 <li>Terminate the Spot Instance<br>The default is to <strong>terminate</strong> Spot Instances when they are interrupted. To change the interruption behavior, see Specifying the interruption behavior.</li>
 </ul>
 <h1 id="AWS-Active-Directory"><a href="#AWS-Active-Directory" class="headerlink" title="AWS Active Directory"></a>AWS Active Directory</h1><p>AWS Microsoft AD (Standard Edition) offers you a highly available and cost-effective primary directory in the AWS Cloud that you can use to manage users, groups, and computers. </p>
-<img src="1.png" alt="" width="800px"/>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><img src="1.png" alt="" width="800px"/>
 
-<img src="2.png" alt="" width="800px"/>
+<h1 id="Data-transfer-cost"><a href="#Data-transfer-cost" class="headerlink" title="Data transfer cost"></a>Data transfer cost</h1><p>Data transferred between EC2 instances or containers, or Elastic Network Interfaces in the same availability zone and same VPC via <strong>public or Elastic IPv4 addresses</strong> are charged at $0.01 per GB for egress traffic and $0.01 per GB for ingress traffic.<br>Data transferred between EC2 instances or containers, or Elastic Network Interfaces in the same availability zone and same VPC over <strong>private IPv4 or IPv6 addresses</strong> are free.</p>
+<img src="https://miro.medium.com/max/1400/1*qzQrOLD7_y_cpwWWIE8U7A.png" width="800px" alt=""/>
+
+<img src="https://miro.medium.com/max/1400/1*EWbdP6GTByHg8nPT-aXMTA.png" alt="" width="800px"/>
+
+<img src="https://miro.medium.com/max/1400/1*as65Ih1vXU27wQZgIoB9Wg.png" alt="" width="800px"/>
+
+<h2 id="Free-transfer-in-Internet-gt-AWS-regions"><a href="#Free-transfer-in-Internet-gt-AWS-regions" class="headerlink" title="Free transfer in: Internet -&gt; AWS regions"></a>Free transfer in: Internet -&gt; AWS regions</h2><p>Data transfer into all AWS regions from the Internet is free.</p>
+<h2 id="Charged-transfer-out-AWS-regions-gt-Internet"><a href="#Charged-transfer-out-AWS-regions-gt-Internet" class="headerlink" title="Charged transfer out: AWS regions -&gt; Internet"></a>Charged transfer out: AWS regions -&gt; Internet</h2><p>Data transfer out to the Internet from all AWS regions is billed at region-specific, tiered data transfer rates.</p>
+<h2 id="Charged-across-regions-AWS-Region-gt-Another-AWS-Region"><a href="#Charged-across-regions-AWS-Region-gt-Another-AWS-Region" class="headerlink" title="Charged across regions: AWS Region -&gt; Another AWS Region"></a>Charged across regions: AWS Region -&gt; Another AWS Region</h2><p>Data transfer out from the local AWS region to another AWS region is charged at source region-specific data transfer rates. These costs are typically labeled as InterRegion Inbound or InterRegion Outbound transfer type in the monthly AWS bills.</p>
+<h2 id="Data-transfer-via-On-site-gt-AWS-Region-free-AWS-gt-site-charged"><a href="#Data-transfer-via-On-site-gt-AWS-Region-free-AWS-gt-site-charged" class="headerlink" title="Data transfer via: On site -&gt; AWS Region free, AWS-&gt;site charged"></a>Data transfer via: On site -&gt; AWS Region free, AWS-&gt;site charged</h2><p>AWS Direct Connect is an AWS network service that provides an alternative to using the Internet to connect customer’s on-premise sites to AWS. Customers connect their pre-existing data center or office network to AWS via an AWS Direct Connect location.<br>Data transfer into AWS regions through AWS Direct Connect locations is free.</p>
+<p>Data transfer out of AWS regions through AWS Direct Connect is charged.</p>
+<img src="https://miro.medium.com/max/1400/1*f0Mt5dt0alKwoUp3doeEeQ.png" alt="transfer through dx" width="600px"/>
+
+<h2 id="Services-with-free-transfer-within-same-region"><a href="#Services-with-free-transfer-within-same-region" class="headerlink" title="Services with free transfer within same region"></a>Services with free transfer within same region</h2><p>Data transferred between:</p>
+<ul>
+<li>Amazon S3, Amazon Glacier, </li>
+<li>Amazon DynamoDB, </li>
+<li>Amazon SES, Amazon SQS, </li>
+<li>Amazon Kinesis, </li>
+<li>Amazon ECR, </li>
+<li>Amazon SNS or </li>
+<li>Amazon SimpleDB and </li>
+<li>Amazon EC2 instances<br>in the same AWS Region is free.<br>Data transferred “in” to and “out” from Amazon Classic and Application Elastic Load Balancers using private IP addresses, between EC2 instances and the load balancer in the same AWS Region is free.</li>
+</ul>
+<h2 id="Services-with-a-charge-across-availability-zones"><a href="#Services-with-a-charge-across-availability-zones" class="headerlink" title="Services with a charge across availability zones"></a>Services with a charge across availability zones</h2><p>Data transferred “in” to and “out” from </p>
+<ul>
+<li>Amazon EC2, </li>
+<li>Amazon RDS, </li>
+<li>Amazon Redshift, </li>
+<li>Amazon DynamoDB Accelerator (DAX), and </li>
+<li>Amazon ElastiCache instances or </li>
+<li>Elastic Network Interfaces </li>
+</ul>
+<p>across Availability Zones or VPC Peering connections in the same AWS Region is charged at $0.01/GB in each direction.</p>
+<p>Data transferred between </p>
+<ul>
+<li>Amazon EC2, </li>
+<li>Amazon RDS, </li>
+<li>Amazon Redshift, </li>
+<li>Amazon ElastiCache instances and </li>
+<li>Elastic Network Interfaces </li>
+</ul>
+<p>in the same Availability Zone is free. </p>
+<h2 id="S3-Data-Transfer-Cost"><a href="#S3-Data-Transfer-Cost" class="headerlink" title="S3 Data Transfer Cost"></a>S3 Data Transfer Cost</h2><ul>
+<li><p>Free for:</p>
+<ul>
+<li>Transfer into S3</li>
+<li>Transfer out from Amazon S3 to Amazon CloudFront</li>
+<li>Data transferred out to an Amazon Elastic Compute Cloud (Amazon EC2) instance, when the instance is in the same AWS Region as the S3 bucket.</li>
+</ul>
+</li>
+<li><p>Charges for:</p>
+<ul>
+<li>PUT, COPY, POST, LIST, GET requests</li>
+<li>Storage, per GB per month</li>
+<li>Transfer across region</li>
+</ul>
+</li>
+</ul>
+<h2 id="Edge-location-data-transfer"><a href="#Edge-location-data-transfer" class="headerlink" title="Edge location data transfer"></a>Edge location data transfer</h2><p>Data transfer out of AWS edge locations to the Internet is billed at region-specific, tiered data transfer rates.</p>
+<p>Into edge location is free.</p>
+<h1 id="App-Mesh"><a href="#App-Mesh" class="headerlink" title="App Mesh"></a>App Mesh</h1><p>Application-level networking for all your services.</p>
+<p>AWS App Mesh is a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure. App Mesh standardizes how your services communicate, giving you end-to-end visibility and ensuring high-availability for your applications.</p>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><img src="2.png" alt="" width="800px"/>
+
+
 
 <img src="3.png" alt="" width="800px"/>
 
@@ -189,11 +255,17 @@
 <img src="7.png" alt="" width="800px"/>
 
 <img src="8.png" alt="" width="800px"/>
+
 <img src="9.png" alt="" width="800px"/>
+
 <img src="10.png" alt="" width="800px"/>
+
 <img src="11.png" alt="" width="800px"/>
+
 <img src="12.png" alt="" width="800px"/>
+
 <img src="13.png" alt="" width="800px"/>
+
 <img src="14.png" alt="" width="800px"/>
 <img src="15.png" alt="" width="800px"/>
 <img src="16.png" alt="" width="800px"/>

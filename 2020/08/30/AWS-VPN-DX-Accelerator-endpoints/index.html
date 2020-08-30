@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS VPN, DX, Accelerator, endpoints - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-VPN"><span class="toc-text">AWS VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Billing"><span class="toc-text">Billing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Client-VPN"><span class="toc-text">AWS Client VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-VPN-endpoint"><span class="toc-text">Client VPN endpoint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Target-Network"><span class="toc-text">Target Network</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Site-to-Site-VPN"><span class="toc-text">Site-to-Site VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quota"><span class="toc-text">Quota</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accelerated-Site-to-Site-VPN-connections"><span class="toc-text">Accelerated Site-to-Site VPN connections</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Direct-Connect"><span class="toc-text">Direct Connect</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtual-Interface"><span class="toc-text">Virtual Interface</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Private-Virtual-Interface"><span class="toc-text">Private Virtual Interface</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redundant-Connections"><span class="toc-text">Redundant Connections</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtual-Private-Gateway-Associations"><span class="toc-text">Virtual Private Gateway Associations</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-S3-Transfer-Acceleration"><span class="toc-text">Amazon S3 Transfer Acceleration</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Billing-1"><span class="toc-text">Billing</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Global-Accelerator"><span class="toc-text">AWS Global Accelerator</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS VPN, DX, Accelerator, endpoints
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-30 20:40:20</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="AWS-VPN"><a href="#AWS-VPN" class="headerlink" title="AWS VPN"></a>AWS VPN</h1><p>AWS VPN is comprised of two services: </p>
+<ul>
+<li>AWS Site-to-Site VPN enables you to securely connect your <strong>on-premises network or branch office site</strong> to your <strong>Amazon Virtual Private Cloud (Amazon VPC)</strong>. </li>
+<li>AWS Client VPN enables you to securely connect <strong>users</strong> to <strong>AWS or on-premises networks</strong>.</li>
+</ul>
+<h2 id="Billing"><a href="#Billing" class="headerlink" title="Billing"></a>Billing</h2><p>VPN connection-hours are billed for any time your VPN connections are in the “available” state. </p>
+<h2 id="AWS-Client-VPN"><a href="#AWS-Client-VPN" class="headerlink" title="AWS Client VPN"></a>AWS Client VPN</h2><p>AWS Client VPN is a managed client-based VPN service that enables you to securely access your AWS resources or your on-premises network. </p>
+<h3 id="Client-VPN-endpoint"><a href="#Client-VPN-endpoint" class="headerlink" title="Client VPN endpoint"></a>Client VPN endpoint</h3><p>With AWS Client VPN, you configure an endpoint to which your users can connect to establish a secure TLS VPN session. This enables clients to access resources in AWS or an on-premises from any location using an OpenVPN-based VPN client. </p>
+<p>The Client VPN endpoint is a <strong>regional construct</strong> that you configure to use the service.<br>The VPN sessions of the end users terminate at the Client VPN endpoint.<br>As part of configuring the Client VPN endpoint, you specify the authentication details, server certificate information, client IP address allocation, logging, and VPN options.</p>
+<h3 id="Target-Network"><a href="#Target-Network" class="headerlink" title="Target Network"></a>Target Network</h3><p>目标网络是与 Client VPN 终端节点关联的网络，它可以安全访问 AWS 资源以及本地资源。目前，目标网络是您的 Amazon VPC 中的子网。</p>
+<h2 id="Site-to-Site-VPN"><a href="#Site-to-Site-VPN" class="headerlink" title="Site-to-Site VPN"></a>Site-to-Site VPN</h2><p>You can create an IPsec VPN connection between your VPC and your remote network. </p>
+<ul>
+<li>On the AWS side of the Site-to-Site VPN connection, a <strong>virtual private gateway</strong> or <strong>transit gateway</strong> provides two VPN endpoints (tunnels) for automatic failover. </li>
+<li>You configure your <strong>customer gateway device</strong> on the remote side of the Site-to-Site VPN connection. A customer gateway device is a physical or software appliance that you own or manage in your <strong>on-premises network</strong> (on your side of a Site-to-Site VPN connection). </li>
+</ul>
+<h3 id="Quota"><a href="#Quota" class="headerlink" title="Quota"></a>Quota</h3><p>You can have:</p>
+<ul>
+<li>One internet gateway per VPC</li>
+<li>Five <strong>virtual private gateways</strong> per AWS account per AWS Region</li>
+<li>Fifty <strong>customer gateways</strong> per AWS account per AWS Region</li>
+<li>Ten IPsec VPN Connections per virtual private gateway</li>
+</ul>
+<p>An Internet gateway is not required to establish a Site-to-Site VPN connection.</p>
+<h3 id="Accelerated-Site-to-Site-VPN-connections"><a href="#Accelerated-Site-to-Site-VPN-connections" class="headerlink" title="Accelerated Site-to-Site VPN connections"></a>Accelerated Site-to-Site VPN connections</h3><p>You can optionally enable acceleration for your Site-to-Site VPN connection.<br>An accelerated Site-to-Site VPN connection (accelerated VPN connection) uses AWS Global Accelerator to route traffic from your on-premises network to an AWS edge location that is closest to your customer gateway device. </p>
+<h1 id="Direct-Connect"><a href="#Direct-Connect" class="headerlink" title="Direct Connect"></a>Direct Connect</h1><p>AWS Direct Connect is a network service that provides an alternative to using the Internet to <strong>connect customer’s on premise sites to AWS</strong>.</p>
+<img src="https://d1.awsstatic.com/AWS%20Direct%20Connect/Product-Page-Diagram_Direct-Connect.0166400894ac5f9c921c3f7a346f55d8c42f492c.png" alt="steps to build DX" width="700px"/>
+
+<p>AWS Direct Connect’s simple pay as-you-go pricing and no minimum commitment means you pay only for the network ports you use and the data you transfer out of the AWS Region over the AWS Direct Connect connection, which can greatly reduce your networking costs.</p>
+<h2 id="Virtual-Interface"><a href="#Virtual-Interface" class="headerlink" title="Virtual Interface"></a>Virtual Interface</h2><p>To begin using your AWS Direct Connect connection, you must create a virtual interface. </p>
+<ul>
+<li>You can create a <strong>private virtual interface</strong> to connect to your VPC. </li>
+<li>Or, you can create a <strong>public virtual interface</strong> to connect to public AWS services that aren’t in a VPC.</li>
+</ul>
+<h3 id="Private-Virtual-Interface"><a href="#Private-Virtual-Interface" class="headerlink" title="Private Virtual Interface"></a>Private Virtual Interface</h3><p>When you create a private virtual interface to a VPC, you need a private virtual interface for each VPC to which to connect. For example, you need three private virtual interfaces to connect to three VPCs.</p>
+<h2 id="Redundant-Connections"><a href="#Redundant-Connections" class="headerlink" title="Redundant Connections"></a>Redundant Connections</h2><p>To provide for failover, we recommend that you request and configure two dedicated connections to AWS.<br>These connections can terminate on one or two routers in your network.</p>
+<img src="https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/redundant_connection.png" alt="Redundant DX" width="500px"/>
+
+<h2 id="Virtual-Private-Gateway-Associations"><a href="#Virtual-Private-Gateway-Associations" class="headerlink" title="Virtual Private Gateway Associations"></a>Virtual Private Gateway Associations</h2><p>You can use an AWS Direct Connect gateway to connect your AWS Direct Connect connection over a private virtual interface to one or more VPCs in any account that are located in the same or different Regions. You associate a Direct Connect gateway with the virtual private gateway for the VPC. Then, you create a private virtual interface for your AWS Direct Connect connection to the Direct Connect gateway. You can attach multiple private virtual interfaces to your Direct Connect gateway.</p>
+<h1 id="Amazon-S3-Transfer-Acceleration"><a href="#Amazon-S3-Transfer-Acceleration" class="headerlink" title="Amazon S3 Transfer Acceleration"></a>Amazon S3 Transfer Acceleration</h1><p>Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket.<br>Transfer Acceleration takes advantage of <strong>Amazon CloudFront’s globally distributed edge locations</strong>. As the data arrives at an edge location, data is routed to Amazon S3 over an <strong>optimized network path</strong>.</p>
+<h2 id="Billing-1"><a href="#Billing-1" class="headerlink" title="Billing"></a>Billing</h2><p>Transfer acceleration pricing is based on the AWS <strong>edge location</strong> used to accelerate your transfer. S3 Transfer Acceleration pricing is <strong>in addition</strong> to Data Transfer pricing. </p>
+<p>If we determine that it is not likely to be faster than a regular Amazon S3 transfer of the same object to the same destination AWS Region:</p>
+<ul>
+<li>AWS will <strong>not charge</strong> for that use of S3 Transfer Acceleration for that transfer, </li>
+<li>AWS may bypass the S3 Transfer Acceleration system for that upload.</li>
+</ul>
+<h1 id="AWS-Global-Accelerator"><a href="#AWS-Global-Accelerator" class="headerlink" title="AWS Global Accelerator"></a>AWS Global Accelerator</h1>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
