@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-1"><span class="toc-text">Implementation 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Speculative-Generality"><span class="toc-text">Speculative Generality</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-2"><span class="toc-text">Implementation 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Assignment-Requirements"><span class="toc-text">Assignment Requirements</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-Review"><span class="toc-text">Code Review</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Report"><span class="toc-text">Report</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-1"><span class="toc-text">Implementation 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Speculative-Generality"><span class="toc-text">Speculative Generality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-of-refactoring"><span class="toc-text">Timing of refactoring?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-2"><span class="toc-text">Implementation 2</span></a></li></ol>
 </div>
     
 </div>
@@ -144,9 +144,6 @@
         <a class="tag" href="/tags/#Private Blog" title="Private Blog">Private Blog</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#🚧 Work in Process" title="🚧 Work in Process">🚧 Work in Process</a>
-        <span>/</span>
-        
         
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
@@ -158,16 +155,12 @@
 <p>The interfaces look more luring as it does not add misleading concrete method implementations. But still I think it is a waste to make assumptions on what methods will need to be reused and extract an interface so early. It is always easy to extract an interface based on real need. When we only know of one concrete class, what’s the point? </p>
 <p>The long methods like <code>move</code> is bit harder to wade into. Will come back to it.</p>
 <p>(28 Aug 2020)<br>I’m so angry and so sad about this implementation😠💔<br>Never realised I’ll be emotional reading code, good experience and good training on not yelling in code reviews 😂.<br>I can see that the author is working hard to extract all these interfaces and classes and delegations, but frustratingly, these are all based on his/her <strong>assumptions</strong> of what will need to be extended.<br>The author delegated most of the game logic into a <code>Rule</code> class and the <code>Board</code> becomes a dumb data container not knowing how to take care of itself. This does not enhance alterability, because </p>
+<p>(1 Sep 2020)<br>I wound up rating this implementation 1, and I honestly would prefer rewriting the whole thing than looking at it. </p>
+<p>This is a vivid lesson to myself how awful it will be for readers/clients if I make assumptions about future extensions/changes, and think of myself to be so clever that I can extract a fancy interface/ delegation relationship before anyone asks for it. </p>
+<h2 id="Timing-of-refactoring"><a href="#Timing-of-refactoring" class="headerlink" title="Timing of refactoring?"></a>Timing of refactoring?</h2><p>After looking at implementation one, I have more thoughts about when to refactor.<br>Before I think that big refactoring should happen immediately after I have implemented the code. I thought I should look at the code and think, what will need in the future, and how to prepare for them.<br>Now I think big refactoring might be more efficient <strong>before I need to extend or change</strong>.<br>Of course I still should review and improve my code continuously, giving a better name and better structure etc., but major refactorings, such as extracting a new inheritance hierarchy, will be <strong>much more efficient when I have a realistic direction of how the code needs to be changed or extended</strong>.</p>
 <h1 id="Implementation-2"><a href="#Implementation-2" class="headerlink" title="Implementation 2"></a>Implementation 2</h1><p> The first view makes me think of procedural programming, as objects more like containers for data, and the programme is driven by a couple of long methods. I might be wrong. Will have a better look soon.</p>
-<h1 id="Assignment-Requirements"><a href="#Assignment-Requirements" class="headerlink" title="Assignment Requirements"></a>Assignment Requirements</h1><h2 id="Code-Review"><a href="#Code-Review" class="headerlink" title="Code Review"></a>Code Review</h2><ul>
-<li>You are to review two Java implementations of Kalah, and comment on the <strong>maintainability</strong> of each implementation. </li>
-<li>You should think carefully about the type of comments you could make and how these comments could <strong>help someone else to improve the maintainability of the given implementations</strong>. </li>
-<li>You should also post an <strong>overall comment</strong> in each pull request summarising the comments you made. <h2 id="Report"><a href="#Report" class="headerlink" title="Report"></a>Report</h2></li>
-<li>You must submit a short report comparing your implementation of Kalah from Assignment 1 with the two given implementations. </li>
-<li>Your report should consists of 2 paragraphs (one for each implementation), explaining why your implementation is better or worse in terms of maintainability than each implementation.  </li>
-<li>In your report, you should also rate each implementation (including yours) on a scale from 1 (I never want to work on this code) to 5 (The code is very maintainable). </li>
-<li>You must use the IEEE conference template, using A4 page format, 10pt font for the body, and conference style. You must submit a PDF file based on this template. The title can be simple (e.g. “Assignment 2”). It should include your username in the author field (as well as your name). You do not need an abstract, introduction/conclusions, etc.</li>
-</ul>
+<p>(31 Aug 2020)<br>I really like it that the author used a simple integer to keep track of pit. I think both implementation 1 and I have been overthinking about <code>Container</code>, <code>Store</code> and <code>House</code> - these classes are just dumb containers of the <code>seedNum</code> integer! Adding 100 methods that add to/deduct from this integer does not change the fact that these classes are so dumb! </p>
+<p>Looking back at my <a href="https://niuniuanran.github.io/2020/01/01/CompSci701-Assignment1-Journal/">Assignment 1 Journal</a>, having <code>Container</code>, <code>Store</code> and <code>House</code> classes were popped up very early, and I never reviewed this decision. They are so solidly a “THING” in real life that I never doubt that I should make them a separate class. I should be more aware of such dumb data containers in the future, and try not to create classes for the sake of creating classes.</p>
 <!-- flag of hidden posts -->
         
         <br />
