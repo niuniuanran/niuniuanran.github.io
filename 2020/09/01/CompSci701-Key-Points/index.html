@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Maintainability-Intro"><span class="toc-text">Maintainability Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Naming"><span class="toc-text">Naming</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Formatting"><span class="toc-text">Formatting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Commenting"><span class="toc-text">Commenting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Functions"><span class="toc-text">Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Arguments"><span class="toc-text">Arguments</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Maintainability-Intro"><span class="toc-text">Maintainability Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Naming"><span class="toc-text">Naming</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Formatting"><span class="toc-text">Formatting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Commenting"><span class="toc-text">Commenting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Functions"><span class="toc-text">Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Arguments"><span class="toc-text">Arguments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Acceptable-one-argument"><span class="toc-text">Acceptable one argument:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#To-be-avoided"><span class="toc-text">To be avoided:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol>
 </div>
     
 </div>
@@ -197,18 +197,12 @@
 </li>
 <li>Refactor to improve use of functions</li>
 </ul>
-<h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2><ul>
-<li>Acceptable one argument:<ul>
+<h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2><h3 id="Acceptable-one-argument"><a href="#Acceptable-one-argument" class="headerlink" title="Acceptable one argument:"></a>Acceptable one argument:</h3><ul>
 <li>function that ask a question about the argument (e.g. boolean isQuote(char))</li>
 <li>function that returns a value based on the argument (“transforms” it) (e.g. String exercise7(String))</li>
-<li>functions that signal an event that indicates some change in state should take place (setter)</li>
-</ul>
-</li>
-<li>To be avoided:<ul>
+<li>functions that signal an event that indicates some change in state should take place (setter)<h3 id="To-be-avoided"><a href="#To-be-avoided" class="headerlink" title="To be avoided:"></a>To be avoided:</h3></li>
 <li>functions with “flag” arguments—where the function behaves differently depending on the value of the argument (and so cannot be said to be doing only one thing)</li>
 <li>output argument: arguments whose value is changed and the change is visible to the caller. Martin argues this is confusing as we don’t expect the argument value to be changed.</li>
-</ul>
-</li>
 </ul>
 <h1 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h1><ul>
 <li><p>Object-oriented design is creating a program that, when it executes, results in objects sending messages to each other. </p>
