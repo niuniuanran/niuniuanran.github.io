@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3-Discussed-6-1-45’51’’"><span class="toc-text">PAQ 5.3 (Discussed 6.1, 45’51’’)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-1"><span class="toc-text">PAQ 3.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-2"><span class="toc-text">PAQ 3.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-1"><span class="toc-text">PAQ 4.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3-Discussed-6-1-45’51’’"><span class="toc-text">PAQ 5.3 (Discussed 6.1, 45’51’’)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li></ol>
 </div>
     
 </div>
@@ -135,9 +135,6 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#🚧 Work in Process" title="🚧 Work in Process">🚧 Work in Process</a>
-        <span>/</span>
-        
         <a class="tag" href="/tags/#CompSci701" title="CompSci701">CompSci701</a>
         <span>/</span>
         
@@ -148,19 +145,44 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="PAQ-4-2"><a href="#PAQ-4-2" class="headerlink" title="PAQ 4.2"></a>PAQ 4.2</h1><blockquote>
+        <h1 id="PAQ-3-1"><a href="#PAQ-3-1" class="headerlink" title="PAQ 3.1"></a>PAQ 3.1</h1><blockquote>
+<p>You have learned that in the code you are trying to understand, the variable a is used to track how many times the character ’a’ has been seen in the input string. Which of the following elements (listed in alphabetical order) of the comprehension model we have been using is most relevant to this?<br>  (a) Assimilation Process<br>  (b) External Representation<br>  (d) Knowledge Base<br>  (c) Mental Model</p>
+</blockquote>
+<p>Keyword: You <strong>have learnt</strong> that <strong>the code you are trying to understand</strong><br>Therefore, Mental Model.</p>
+<h1 id="PAQ-3-2"><a href="#PAQ-3-2" class="headerlink" title="PAQ 3.2"></a>PAQ 3.2</h1><blockquote>
+<p>For the comprehension model discussed in the course, explain the difference between the mental model and the knowledge base. Use (small!) code examples to illustrate the difference.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">calculateChildrenBookRentCharge</span><span class="params">(<span class="keyword">int</span> days)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Math.max(<span class="number">0.5</span>, days * <span class="number">0.1</span>); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Mental Model is our active understanding/hypotheses of what the current programme does, and Knowledge Base is what we already know</p>
+<p>As we read the method name <code>calculateChildrenRentCharge</code>, we register a hypothesis into our mental model that the method is likely intended to calculate an amount of money, payable for renting a children’s book. </p>
+<p>It is in our Knowledge Base that money needs to be represented with two digits after decimal, and that <code>double</code> type supports such representation of money. These two pieces of information from Knowledge Base helps validates the hypothesis in Mental Model that the method returns amount of money.</p>
+<p>We also access from Knowledge Base that <code>Math.max</code> take two values as parameters and returns the bigger value, and <code>*</code> means to multiply the values on its two sides.<br>We now can add to our Mental Model that the method calculates rent for children in such a rule: charge 0.1 per day, but charge at least 0.5 when renting less than 5 days.</p>
+<h1 id="PAQ-4-1"><a href="#PAQ-4-1" class="headerlink" title="PAQ 4.1"></a>PAQ 4.1</h1><blockquote>
+<p>Recall the paper: J. Bauer, J. Siegmund, N. Peitek, J. C. Hofmeister and S. Apel,<br>  ”Indentation: Simply a Matter of Style or Support for Program Comprehension?,” 2019<br>  IEEE/ACM 27th International Conference on Program Comprehension (ICPC), Montreal,<br>  QC, Canada, 2019, pp. 154-164, <a href="http://doi.org/10.1109/ICPC.2019.00033" target="_blank" rel="noopener">http://doi.org/10.1109/ICPC.2019.00033</a></p>
+<ul>
+<li>What was the main goal of the research described in this paper?</li>
+<li>The results from the study in this paper were essentially negative—they were not able to find evidence for their hypotheses. Give 2 (TWO) explanations for why they got negative results. Be specific.</li>
+</ul>
+</blockquote>
+<p>Main goal: To find out whether indentation affect the efficiency and effectiveness of code comprehension.<br>Reasons why no effects are found:</p>
+<ul>
+<li>Maybe the indentation has no effect and the original study with positive effect got the result from other variables.</li>
+<li>Maybe the participants in the research are trained/educated in a way that are resilient to changes in format of indentation.</li>
+<li>Maybe the code example was so easy that even represented with bad indentation, the reader can still comprehend it in a short time that shows no noticeable difference with good indentation version.</li>
+</ul>
+<h1 id="PAQ-4-2"><a href="#PAQ-4-2" class="headerlink" title="PAQ 4.2"></a>PAQ 4.2</h1><blockquote>
 <p>Consider the following code fragment (which comes from the JUnit 4.11 implementation for<br>  org.junit.Assert):</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Protect constructor since it is a static only class</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="title">Assert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Briefly comment on the usefulness of this comment.</p>
 </blockquote>
-<p>One good reason for giving comments: explain something that on the surface looks strange.<br>As a technical rule, we make constructors public. The fact that this constructor is not <code>public</code> but <code>protected</code> is different from the usual practices in an average readers’ Knowledge Base.<br>We could not explain why with naming, because the constructor has to be named <code>Assert</code>. Therefore, comment will be the only way to provide an explanation of the <code>protected</code> visibility.</p>
+<p>One good reason for giving comments: explain something that on the surface looks strange.<br>As a technical rule, we make constructors public. The fact that this constructor is not <code>public</code> but <code>protected</code> is different from the usual practices in an average readers’ Knowledge Base.<br>We could not explain why with naming, because the constructor has to be named <code>Assert</code>. Therefore, comment will be the only way and an effective to provide an explanation on why using the <code>protected</code> visibility here.</p>
 <h1 id="PAQ-5-1"><a href="#PAQ-5-1" class="headerlink" title="PAQ 5.1"></a>PAQ 5.1</h1><blockquote>
 <p>Explain, using the comprehension model, under what conditions functions with 2 parameters are harder to comprehend than functions with 1 parameter.</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">calculateRentCharge</span><span class="params">(<span class="keyword">int</span> days, string memberType)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (memberType == <span class="string">"Children"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> days * <span class="number">0.1</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (memberType == <span class="string">"Loyal"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.max(<span class="number">0.5</span>, days * <span class="number">0.2</span>);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.max(<span class="number">5</span>, <span class="number">3</span> + days * <span class="number">0.3</span>);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The second parameter is a flag that tells <code>calculateRentCharge</code> how to calculate the rental charge based on membership type of the book renter.<br>The function is actually doing three things, and the code will be more comprehensible if they are split into three methods:<br><code>calculateChildrenRentCharge(int days)</code>, <code>calculateLoyalRentCharge(int days)</code>, <code>calculateCasualRentCharge(int days)</code>. The names of these methods better reveal the ONE thing that the method is doing, and is easier to be registered to reader’s Mental Model, thus increasing the efficiency of comprehension.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">calculateRentCharge</span><span class="params">(<span class="keyword">int</span> days, string memberType)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (memberType == <span class="string">"Children"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> days * <span class="number">0.1</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (memberType == <span class="string">"Loyal"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.max(<span class="number">0.5</span>, days * <span class="number">0.2</span>);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.max(<span class="number">5</span>, <span class="number">3</span> + days * <span class="number">0.3</span>);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The second parameter is a flag that tells <code>calculateRentCharge</code> how to calculate the rental charge based on membership type of the book renter.<br>The function is actually doing three things, and the code will be more comprehensible if they are split into three methods:<br><code>calculateChildrenRentCharge(int days)</code>, <code>calculateLoyalRentCharge(int days)</code>, <code>calculateCasualRentCharge(int days)</code>. The names of these methods better reveal the ONE thing that the method is doing, and their mapping with problem will be easier to be registered to reader’s Mental Model, thus increasing the efficiency of comprehension.</p>
 <h1 id="PAQ-5-3-Discussed-6-1-45’51’’"><a href="#PAQ-5-3-Discussed-6-1-45’51’’" class="headerlink" title="PAQ 5.3 (Discussed 6.1, 45’51’’)"></a>PAQ 5.3 (Discussed 6.1, 45’51’’)</h1><blockquote>
 <p>Suppose you were shown two designs for a system, Design A, which has 5 classes, and Design B, which has 9 classes. For both designs, you agree that the classes are reasonable. Which design do you think is likely to be more comprehensible and why?</p>
 </blockquote>
@@ -170,10 +192,9 @@
 <h1 id="PAQ-6-1"><a href="#PAQ-6-1" class="headerlink" title="PAQ 6.1"></a>PAQ 6.1</h1><blockquote>
 <p>Give an example of how use of “Argument Objects” will not improve comprehensibility.<br>Explain your answer.</p>
 </blockquote>
-<ul>
-<li>To answer this question, you will have to demonstrate how you’re applying this advice to reduce argument number by putting multiple arguments into argument objects. </li>
-<li>Then you might argue that putting them together in this way does not improve comprehensibility, for example, unrelated things put together into an object. The resulting object has no association with context schema or design schema, and therefore could not be easily indexed into reader’s MM as a whole. The difficulty in registering objects into Mental Model thus reduces the efficiency of comprehension, because now reader will need to go to external representation even more frequently to understand what the code is doing.</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">calculateRentCharge</span><span class="params">(<span class="keyword">int</span> days, string memberType)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// calculate rent for different membership type </span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>This method takes in two arguments, but they do not belong to the same concept. <code>days</code> is related to the one-off rent, while <code>memberType</code> is related to the member.<br> If we put them into an argument object, and call it something like <code>rentInformation</code>, the reader will not be able to map <code>rentInformation</code> with a concept in the context schema of a book renting store. Therefore, it is hard to register what this object means into Mental Model for quick access. Instead, the reader need to frequently look into External Representation for the two concepts that <code>rentInformation</code> contains, which is slower. As a result, having this argument object reduces the efficiency of comprehensibility.</p>
 <!-- flag of hidden posts -->
         
         <br />
