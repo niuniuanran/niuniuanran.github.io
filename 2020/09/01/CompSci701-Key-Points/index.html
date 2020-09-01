@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Maintainability-Intro"><span class="toc-text">Maintainability Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Naming"><span class="toc-text">Naming</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Formatting"><span class="toc-text">Formatting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Commenting"><span class="toc-text">Commenting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Functions"><span class="toc-text">Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Arguments"><span class="toc-text">Arguments</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol>
 </div>
     
 </div>
@@ -151,7 +151,90 @@
 </span>
     </div>
     <div class="post-content ">
-        <!-- flag of hidden posts -->
+        <h1 id="Maintainability-Intro"><a href="#Maintainability-Intro" class="headerlink" title="Maintainability Intro"></a>Maintainability Intro</h1><ul>
+<li>Maintenance costs dominate the lifetime cost of a software product.</li>
+<li>The more maintainable the software, the lower the maintenance costs, and so the lower the lifetime cost.</li>
+<li>Maintainability (for this course) consists of Comprehensibility, Alterability, and Testability.<ul>
+<li>Comprehensibility (Analysability): Degree of effectiveness and efficiency with which the implementation can be understood in order to conduct maintenance activities with confidence </li>
+<li>Alterability (Modifiability): degree to which a product or system can be effectively and efficiently changed without introducing defects or degrading existing product quality. </li>
+<li>Testability — degree of effectiveness and efficiency with which test criteria can be established for a system, product or component and tests can be performed to determine whether those criteria have been met.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Comprehensibility"><a href="#Comprehensibility" class="headerlink" title="Comprehensibility"></a>Comprehensibility</h1><ul>
+<li>Decisions are about choosing between alternatives according to criteria</li>
+<li>We try to describe comprehension using comprehension models<ul>
+<li><strong>External representation</strong>: Anything external to the developer E.g. source code, documentation, other developers, program traces, other relevant source code</li>
+<li><strong>Knowledge Base</strong>: What the developer knows that is likely to be relevant, e.g. domain knowledge, knowledge of programming language,</li>
+<li><strong>Mental Model</strong>: The developer’s current understanding of the program under consideration, e.g. known parts and current hypotheses</li>
+<li><strong>Assimilation Process</strong>: How the developer uses all available information to update the mental model, e.g. generation and verification of hypotheses</li>
+</ul>
+</li>
+</ul>
+<h1 id="Naming"><a href="#Naming" class="headerlink" title="Naming"></a>Naming</h1><ul>
+<li>Names help comprehensibility</li>
+<li>Much advice on how to choose names, mostly based on intuition and (different) people’s experience</li>
+<li>Choose names that are easy to add to the MM, or can be easily found in the KB. Avoid the need to go to the ER. (this isn’t easy!)</li>
+<li>Research largely supports our intuition, but is not extensive</li>
+</ul>
+<h1 id="Formatting"><a href="#Formatting" class="headerlink" title="Formatting"></a>Formatting</h1><ul>
+<li>Formatting matters</li>
+<li>Format for readability</li>
+</ul>
+<h1 id="Commenting"><a href="#Commenting" class="headerlink" title="Commenting"></a>Commenting</h1><ul>
+<li>Avoid the need for comments where possible</li>
+<li>Comments that support comprehension (and possibly other aspects of maintainability) are acceptable.<ul>
+<li>Good: Legal, Informative, Intent, Clarification, Consequences, TODO, Amplification, API documentation (e.g. Javadocs)</li>
+<li>Bad: Mumbling, Redundant, Misleading, Mandataed, Journal, Noise, Scary Noise, Position Markers, Attributions, Commented-out code, HTML, Nonlocal Information, Too much Information, Inobvious Connection, Function headers</li>
+</ul>
+</li>
+</ul>
+<h1 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h1><ul>
+<li>Use of many small good functions can aid comprehension (at least) <ul>
+<li>because their names indicate the one thing that they do (self documenting code!) </li>
+<li>often the functions with the lower levels of abstraction do not need to be considered, reducing the need to go to the external representation </li>
+</ul>
+</li>
+<li>Refactor to improve use of functions</li>
+</ul>
+<h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2><ul>
+<li>Acceptable one argument:<ul>
+<li>function that ask a question about the argument (e.g. boolean isQuote(char))</li>
+<li>function that returns a value based on the argument (“transforms” it) (e.g. String exercise7(String))</li>
+<li>functions that signal an event that indicates some change in state should take place (setter)</li>
+</ul>
+</li>
+<li>To be avoided:<ul>
+<li>functions with “flag” arguments—where the function behaves differently depending on the value of the argument (and so cannot be said to be doing only one thing)</li>
+<li>output argument: arguments whose value is changed and the change is visible to the caller. Martin argues this is confusing as we don’t expect the argument value to be changed.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h1><ul>
+<li><p>Object-oriented design is creating a program that, when it executes, results in objects sending messages to each other. </p>
+</li>
+<li><p>A good object-oriented design has objects that make sense with respect to the context schema.</p>
+</li>
+<li><p>Classes tell us what objects can be created </p>
+</li>
+<li><p>The closer classes match concepts in the context schema, the more comprehensible the design </p>
+</li>
+<li><p>One aspect of “matches” is, is the number of objects created from the class what we expect from the context scheme</p>
+</li>
+<li><p>To aid comprehension, we want classes that are a good match to concepts in the context and design schema </p>
+</li>
+<li><p>Encapsulation means the way an object actually behaves is consistent with the concept it represents </p>
+</li>
+<li><p>Various phrases are used to describe objects that are a good match: SRP, Cohesive </p>
+</li>
+<li><p>Classes with good objects tend to be “small” (for some definition of small)</p>
+</li>
+<li><p>Some concepts are made up of “smaller” concepts—one decision that needs to be made when doing design is when to stop sub-dividing concepts </p>
+</li>
+<li><p>Do not use “it’s too simple” as an excuse to not create a class!</p>
+</li>
+</ul>
+<!-- flag of hidden posts -->
         
         <br />
         <div id="comment-container">
