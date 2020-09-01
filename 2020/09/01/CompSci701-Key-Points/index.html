@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        CompSci701 Potential Assessment Questions - Code on Anran!
+        CompSci701 Key Points - Code on Anran!
         
     </title><meta name="robots" content="noindex">
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3-Discussed-6-1-45’51’’"><span class="toc-text">PAQ 5.3 (Discussed 6.1, 45’51’’)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -127,13 +127,16 @@
 
 <div class="post-container">
     <div class="post-title">
-        CompSci701 Potential Assessment Questions
+        CompSci701 Key Points
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-09-01 10:39:25</span></span>
+        <span class="attr">Post：<span>2020-09-01 23:07:37</span></span>
         
         <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
         
         <a class="tag" href="/tags/#🚧 Work in Process" title="🚧 Work in Process">🚧 Work in Process</a>
         <span>/</span>
@@ -148,31 +151,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="PAQ-4-2"><a href="#PAQ-4-2" class="headerlink" title="PAQ 4.2"></a>PAQ 4.2</h1><blockquote>
-<p>Consider the following code fragment (which comes from the JUnit 4.11 implementation for<br>  org.junit.Assert):</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Protect constructor since it is a static only class</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="title">Assert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Briefly comment on the usefulness of this comment.</p>
-</blockquote>
-<p>One good reason for giving comments: explain something that on the surface looks strange.<br>As a technical rule, we make constructors public. The fact that this constructor is not <code>public</code> but <code>protected</code> is different from the usual practices in an average readers’ Knowledge Base.<br>We could not explain why with naming, because the constructor has to be named <code>Assert</code>. Therefore, comment will be the only way to provide an explanation of the <code>protected</code> visibility.</p>
-<h1 id="PAQ-5-1"><a href="#PAQ-5-1" class="headerlink" title="PAQ 5.1"></a>PAQ 5.1</h1><blockquote>
-<p>Explain, using the comprehension model, under what conditions functions with 2 parameters are harder to comprehend than functions with 1 parameter.</p>
-</blockquote>
-<h1 id="PAQ-5-3-Discussed-6-1-45’51’’"><a href="#PAQ-5-3-Discussed-6-1-45’51’’" class="headerlink" title="PAQ 5.3 (Discussed 6.1, 45’51’’)"></a>PAQ 5.3 (Discussed 6.1, 45’51’’)</h1><blockquote>
-<p>Suppose you were shown two designs for a system, Design A, which has 5 classes, and Design B, which has 9 classes. For both designs, you agree that the classes are reasonable. Which design do you think is likely to be more comprehensible and why?</p>
-</blockquote>
-<p>If you choose your classes well and you choose the names well, having more classes means we have a more refined mapping between class and smaller concepts in the context/design schema.<br>It will be easier to index the mapping between classes and the smaller concepts they represent. It will be easier to access our mental model when we see the usage of the classes in the source code. The comprehension will be more efficient, because we do not need to read into more details of a larger class to understand what the class is doing.<br>Therefore, 9 classes are likely to be more comprehensible than 5 classes.</p>
-<img src="model.png" alt="" width="600px"/>
-
-<h1 id="PAQ-6-1"><a href="#PAQ-6-1" class="headerlink" title="PAQ 6.1"></a>PAQ 6.1</h1><blockquote>
-<p>Give an example of how use of “Argument Objects” will not improve comprehensibility.<br>Explain your answer.</p>
-</blockquote>
-<ul>
-<li>To answer this question, you will have to demonstrate how you’re applying this advice to reduce argument number by putting multiple arguments into argument objects. </li>
-<li>Then you might argue that putting them together in this way does not improve comprehensibility, for example, unrelated things put together into an object. The resulting object has no association with context schema or design schema, and therefore could not be easily indexed into reader’s MM as a whole. The difficulty in registering objects into Mental Model thus reduces the efficiency of comprehension, because now reader will need to go to external representation even more frequently to understand what the code is doing.</li>
-</ul>
-<!-- flag of hidden posts -->
+        <!-- flag of hidden posts -->
         
         <br />
         <div id="comment-container">
