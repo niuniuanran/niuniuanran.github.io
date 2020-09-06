@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS SAA Preparation: The final week - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Patch-my-EC2-Knowledge"><span class="toc-text">Patch my EC2 Knowledge</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Inspector"><span class="toc-text">Inspector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Options-to-Connect-to-instance"><span class="toc-text">Options to Connect to instance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-standalone-SSH-Client"><span class="toc-text">A standalone SSH Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-Manager"><span class="toc-text">Session Manager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EC2-Instance-Connect-Browser-based-SSH-connect"><span class="toc-text">EC2 Instance Connect (Browser-based SSH connect)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Group"><span class="toc-text">Security Group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elastic-IP"><span class="toc-text">Elastic IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bootstrapping"><span class="toc-text">Bootstrapping</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Directory-Service"><span class="toc-text">AWS Directory Service</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Preparation: The final week
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-09-06 11:45:16</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA" title="AWS SAA">AWS SAA</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>For the upcoming week (7 Sep - 13 Sep) I will put my first priority on passing the SAA Exam ⛽️⛽️ And patch the knowledge gap as much as I can.</p>
+<h1 id="Patch-my-EC2-Knowledge"><a href="#Patch-my-EC2-Knowledge" class="headerlink" title="Patch my EC2 Knowledge"></a>Patch my EC2 Knowledge</h1><h2 id="Inspector"><a href="#Inspector" class="headerlink" title="Inspector"></a>Inspector</h2><ul>
+<li>Installed into EC2 instances as an agent; </li>
+<li>Run automated tests</li>
+<li>Generate PDF report</li>
+</ul>
+<h2 id="Options-to-Connect-to-instance"><a href="#Options-to-Connect-to-instance" class="headerlink" title="Options to Connect to instance"></a>Options to Connect to instance</h2><h3 id="A-standalone-SSH-Client"><a href="#A-standalone-SSH-Client" class="headerlink" title="A standalone SSH Client"></a>A standalone SSH Client</h3><p>Done that.</p>
+<h3 id="Session-Manager"><a href="#Session-Manager" class="headerlink" title="Session Manager"></a>Session Manager</h3><ul>
+<li><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html" target="_blank" rel="noopener">AWS Systems Manager Session Manager</a></li>
+<li>Manage your EC2 instances, on-premises instances, and virtual machines (VMs) through an interactive one-click browser-based shell or through the AWS CLI)<h3 id="EC2-Instance-Connect-Browser-based-SSH-connect"><a href="#EC2-Instance-Connect-Browser-based-SSH-connect" class="headerlink" title="EC2 Instance Connect (Browser-based SSH connect)"></a>EC2 Instance Connect (Browser-based SSH connect)</h3></li>
+<li>Connect to your EC2 instance within your browser</li>
+<li>A temporary key managed by AWS</li>
+</ul>
+<h2 id="Security-Group"><a href="#Security-Group" class="headerlink" title="Security Group"></a>Security Group</h2><p>(Points taken from <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/" target="_blank" rel="noopener">Stephane’s Udemy Course</a>)</p>
+<ul>
+<li>Works “outside” the EC2: EC2 instance won’t know about the blocked traffic</li>
+<li>Good to maintain a separate security group for SSH access</li>
+<li>If your application is not accessible (time out), then it’s a security group issue</li>
+<li>If your application gives a “connection refused“ error, then it’s an application error, or it’s not launched</li>
+</ul>
+<h2 id="Elastic-IP"><a href="#Elastic-IP" class="headerlink" title="Elastic IP"></a>Elastic IP</h2><p>(Points taken from <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/" target="_blank" rel="noopener">Stephane’s Udemy Course</a>)<br>Try to avoid using Elastic IP:</p>
+<ul>
+<li>They often reflect poor architectural decisions</li>
+<li>Instead, use a random public IP and register a DNS name to it</li>
+<li>Or, as we’ll see later, use a Load Balancer and don’t use a public IP</li>
+</ul>
+<h2 id="Bootstrapping"><a href="#Bootstrapping" class="headerlink" title="Bootstrapping"></a>Bootstrapping</h2><ul>
+<li>Bootstrapping means launching commands when a machine starts</li>
+<li>Run once at the instance first start</li>
+<li>The EC2 User Data Script runs with the root user</li>
+</ul>
+<p>Related Concept:</p>
+<ul>
+<li><a href="https://niuniuanran.github.io/2020/04/23/Architecting-for-the-Cloud-AWS-Best-Practices-Whitepaper-reading-notes/#Instantiating-Compute-Resources">Instantiating Compute Resources</a></li>
+<li>Another approach of bootstrapping: AWS OpsWorks (Chef and Puppet)</li>
+<li>Golden Image: AMI, RDS Snapshot, EBS Snapshot</li>
+<li>Compared to the bootstrapping approach, a golden image:<ul>
+<li>faster start times</li>
+<li>removes dependencies to configuration services or third-party repositories.</li>
+</ul>
+</li>
+</ul>
+<h1 id="AWS-Directory-Service"><a href="#AWS-Directory-Service" class="headerlink" title="AWS Directory Service"></a>AWS Directory Service</h1><p>AWS Managed Microsoft AD is built on actual Microsoft AD and does not require you to synchronize or replicate data from your existing Active Directory to the cloud.</p>
+<p>Related concepts:</p>
+<ul>
+<li>IAM Federation, SSO</li>
+<li>SAML Standard</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
