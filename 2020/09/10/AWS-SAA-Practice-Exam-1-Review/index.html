@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        Code on Anran!
+        AWS SAA Practice Exam 1 Review - Code on Anran!
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront-Access-Control-options"><span class="toc-text">CloudFront Access Control options</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront-signed-URLs"><span class="toc-text">CloudFront signed URLs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFront-signed-cookies"><span class="toc-text">CloudFront signed cookies</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora-Read-Replica"><span class="toc-text">Aurora Read Replica</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC-Endpoints"><span class="toc-text">VPC Endpoints</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,69 +123,58 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/What-is-RESTful-API/">
-                <h3>
-                    What is RESTful API
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Practice Exam 1 Review
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-09-10 18:36:18</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#🚧 Work in Process" title="🚧 Work in Process">🚧 Work in Process</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA" title="AWS SAA">AWS SAA</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#🌻 Actively Looking" title="🌻 Actively Looking">🌻 Actively Looking</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/13/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <h1 id="CloudFront-Access-Control-options"><a href="#CloudFront-Access-Control-options" class="headerlink" title="CloudFront Access Control options"></a>CloudFront Access Control options</h1><p>Many companies that distribute content over the internet want to restrict access to documents, business data, media streams, or content that is intended for selected users, for example, users who have paid a fee.</p>
+<p>To securely serve this private content by using CloudFront, you can do the following:<br>Require that your users access your private content by using special CloudFront signed URLs or signed cookies.</p>
+<h3 id="CloudFront-signed-URLs"><a href="#CloudFront-signed-URLs" class="headerlink" title="CloudFront signed URLs"></a>CloudFront signed URLs</h3><p>A signed URL includes additional information, for example, expiration date and time, that gives you more control over access to your content. So this is a correct option.</p>
+<h2 id="CloudFront-signed-cookies"><a href="#CloudFront-signed-cookies" class="headerlink" title="CloudFront signed cookies"></a>CloudFront signed cookies</h2><p>CloudFront signed cookies allow you to control who can access your content when you don’t want to change your current URLs or when you want to provide access to multiple restricted files, for example, all of the files in the subscribers’ area of a website. </p>
+<h1 id="Aurora-Read-Replica"><a href="#Aurora-Read-Replica" class="headerlink" title="Aurora Read Replica"></a>Aurora Read Replica</h1><ul>
+<li>Amazon Aurora features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 64TB per database instance. </li>
+<li>It delivers high performance and availability with up to 15 low-latency read replicas, point-in-time recovery, continuous backup to Amazon S3, and replication across <strong>three Availability Zones (AZs)</strong>.</li>
+<li>For Amazon Aurora, each read replica is associated with a priority tier (0-15). In the event of a failover, Amazon RDS will promote the read replica that has the highest priority (<strong>the lowest numbered tier</strong>). </li>
+<li>If two or more replicas have the same priority, RDS will promote the one that is the <strong>same size as the previous primary instance</strong>.</li>
+<li>If two or more Aurora Replicas share the same priority and size, then Amazon RDS promotes an arbitrary replica in the same promotion tier.</li>
 </ul>
+<h1 id="VPC-Endpoints"><a href="#VPC-Endpoints" class="headerlink" title="VPC Endpoints"></a>VPC Endpoints</h1><p>Endpoints are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between instances in your VPC and services without imposing availability risks or bandwidth constraints on your network traffic.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -232,7 +225,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
