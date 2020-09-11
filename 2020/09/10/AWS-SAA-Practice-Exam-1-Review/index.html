@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront-Access-Control-options"><span class="toc-text">CloudFront Access Control options</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront-signed-URLs"><span class="toc-text">CloudFront signed URLs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFront-signed-cookies"><span class="toc-text">CloudFront signed cookies</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora-Read-Replica"><span class="toc-text">Aurora Read Replica</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC-Endpoints"><span class="toc-text">VPC Endpoints</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront-Access-Control-options"><span class="toc-text">CloudFront Access Control options</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront-signed-URLs"><span class="toc-text">CloudFront signed URLs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFront-signed-cookies"><span class="toc-text">CloudFront signed cookies</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora-Read-Replica"><span class="toc-text">Aurora Read Replica</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC-Endpoints"><span class="toc-text">VPC Endpoints</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VPC-endpoint-types"><span class="toc-text">VPC endpoint types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-an-Interface-VPC-Endpoint"><span class="toc-text">Creating an Interface VPC Endpoint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-PrivateLink-used-with-Interface-VPC-Endpoint"><span class="toc-text">AWS PrivateLink: used with Interface VPC Endpoint</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API-Gateway"><span class="toc-text">API Gateway</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#API-Types"><span class="toc-text">API Types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECS-Types-and-Pricing"><span class="toc-text">ECS Types and Pricing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#S3-and-S3TA-Pricing"><span class="toc-text">S3 and S3TA Pricing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Processing-Capacity"><span class="toc-text">SQS Processing Capacity</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Messages-in-Queue"><span class="toc-text">Messages in Queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Message-Size"><span class="toc-text">Message Size</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Snowball"><span class="toc-text">AWS Snowball</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Snowball-Edge-Storage-Optimized"><span class="toc-text">Snowball Edge Storage Optimized</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Snowball-Edge-Compute-Optimized"><span class="toc-text">Snowball Edge Compute Optimized</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Into-S3"><span class="toc-text">Into S3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-s-Direct-Connect"><span class="toc-text">v.s. Direct Connect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-s-Site-to-Site-VPN"><span class="toc-text">v.s. Site-to-Site VPN</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Multi-AZ"><span class="toc-text">RDS Multi-AZ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upgrade-Downtime"><span class="toc-text">Upgrade Downtime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HA-amp-Failover"><span class="toc-text">HA &amp; Failover</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -162,7 +162,96 @@
 <li>If two or more replicas have the same priority, RDS will promote the one that is the <strong>same size as the previous primary instance</strong>.</li>
 <li>If two or more Aurora Replicas share the same priority and size, then Amazon RDS promotes an arbitrary replica in the same promotion tier.</li>
 </ul>
-<h1 id="VPC-Endpoints"><a href="#VPC-Endpoints" class="headerlink" title="VPC Endpoints"></a>VPC Endpoints</h1><p>Endpoints are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between instances in your VPC and services without imposing availability risks or bandwidth constraints on your network traffic.</p>
+<h1 id="VPC-Endpoints"><a href="#VPC-Endpoints" class="headerlink" title="VPC Endpoints"></a>VPC Endpoints</h1><ul>
+<li>Endpoints are virtual devices. </li>
+<li>They are horizontally scaled, redundant, and highly available <strong>VPC components</strong>. </li>
+<li>They allow communication between <strong>instances in your VPC</strong> and <strong>services</strong> without imposing availability risks or bandwidth constraints on your network traffic.</li>
+<li>Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.</li>
+</ul>
+<h2 id="VPC-endpoint-types"><a href="#VPC-endpoint-types" class="headerlink" title="VPC endpoint types"></a>VPC endpoint types</h2><p>There are two types of VPC endpoints: interface endpoints and gateway endpoints. </p>
+<ul>
+<li>An interface endpoint is an <strong>elastic network interface</strong> with a <strong>private IP address</strong> from the IP address range of your subnet that serves as an <strong>entry point</strong> for traffic destined to a supported service.</li>
+<li>A gateway endpoint is a gateway that you specify as a <strong>target for a route</strong> in your route table for traffic destined to a supported AWS service. The following AWS services are supported by gateway endpoints:<ol>
+<li>Amazon S3</li>
+<li>DynamoDB</li>
+</ol>
+</li>
+<li>Neither S3 nor DynamoDB supports interface endpoints.</li>
+</ul>
+<h2 id="Creating-an-Interface-VPC-Endpoint"><a href="#Creating-an-Interface-VPC-Endpoint" class="headerlink" title="Creating an Interface VPC Endpoint"></a>Creating an Interface VPC Endpoint</h2><ol>
+<li>Choose the VPC in which to create the interface endpoint, and provide the name of the AWS service, endpoint service, or AWS Marketplace service to which you’re connecting.</li>
+<li>Choose a subnet in your VPC to use the interface endpoint. We create an endpoint network interface in the subnet. </li>
+<li>You can specify more than one subnet in different Availability Zones (as supported by the service) to help ensure that your interface endpoint is resilient to Availability Zone failures. In that case, we create an endpoint network interface in each subnet that you specify.</li>
+</ol>
+<h1 id="AWS-PrivateLink-used-with-Interface-VPC-Endpoint"><a href="#AWS-PrivateLink-used-with-Interface-VPC-Endpoint" class="headerlink" title="AWS PrivateLink: used with Interface VPC Endpoint"></a>AWS PrivateLink: used with Interface VPC Endpoint</h1><ul>
+<li>To use AWS PrivateLink, create an <strong>interface VPC endpoint</strong> for a service in your VPC. </li>
+<li>This creates an Elastic Network Interface (ENI) in your subnet with a private IP address that serves as an <strong>entry point</strong> for <strong>traffic destined to the service</strong>. </li>
+<li>Service endpoints available over AWS PrivateLink will appear as ENIs with private IPs in your VPCs.</li>
+</ul>
+<h1 id="API-Gateway"><a href="#API-Gateway" class="headerlink" title="API Gateway"></a>API Gateway</h1><ul>
+<li>A fully managed service.</li>
+<li>API Gateway supports <strong>containerized</strong> and <strong>serverless</strong> workloads, as well as <strong>web applications</strong>.</li>
+</ul>
+<img src="https://d1.awsstatic.com/serverless/New-API-GW-Diagram.c9fc9835d2a9aa00ef90d0ddc4c6402a2536de0d.png" alt="" width="API-gateway"/>
+
+<h2 id="API-Types"><a href="#API-Types" class="headerlink" title="API Types"></a>API Types</h2><ol>
+<li>RESTful API<ul>
+<li>Build RESTful APIs optimized for <strong>serverless, stateless</strong> workloads and HTTP backends using HTTP APIs. </li>
+</ul>
+</li>
+<li>WebSocket API<ul>
+<li>API Gateway maintains a persistent connection to handle message transfer between your backend service and your clients. <strong>Stateful</strong>.</li>
+<li>Route incoming messages based on message content.</li>
+<li>Adhere to the WebSocket protocol, which enables stateful, full-duplex communication between client and server. </li>
+</ul>
+</li>
+</ol>
+<h1 id="ECS-Types-and-Pricing"><a href="#ECS-Types-and-Pricing" class="headerlink" title="ECS Types and Pricing"></a>ECS Types and Pricing</h1><img src="https://d1.awsstatic.com/diagrams/product-page-diagrams/product-page-diagram_ECS_1.86ebd8c223ec8b55aa1903c423fbe4e672f3daf7.png" alt="ecs"/>
+
+<p>2 launch types on ECS: EC2 and Fargate.</p>
+<ul>
+<li>With the EC2 launch type, there is no additional charge for the ECS. You pay for AWS resources (e.g. EC2 instances or EBS volumes) you create to store and run your application.</li>
+<li>With the Fargate launch type, you pay for the <strong>amount of vCPU and memory resources</strong> that your containerized application requests. vCPU and memory resources are calculated <strong>from the time your container images are pulled until the Amazon ECS Task terminates</strong>, rounded up to the nearest second. </li>
+</ul>
+<h1 id="S3-and-S3TA-Pricing"><a href="#S3-and-S3TA-Pricing" class="headerlink" title="S3 and S3TA Pricing"></a>S3 and S3TA Pricing</h1><ul>
+<li>There are no S3 data transfer charges when data is transferred in from the internet. </li>
+<li>With S3TA, you pay only for transfers that are accelerated. </li>
+</ul>
+<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q40-i1.jpg" alt=""/>
+
+<h1 id="SQS-Processing-Capacity"><a href="#SQS-Processing-Capacity" class="headerlink" title="SQS Processing Capacity"></a>SQS Processing Capacity</h1><ol>
+<li>Standard queues support a nearly unlimited number of API calls per second, per API action (SendMessage, ReceiveMessage, or DeleteMessage).</li>
+<li>If you use batching, FIFO queues support up to 3,000 transactions per second, per API method (SendMessageBatch, ReceiveMessage, or DeleteMessageBatch). The 3000 transactions represent <strong>300 API calls, each with a batch of 10 messages</strong>. </li>
+<li>Without batching, FIFO queues support up to 300 API calls per second, per API method (SendMessage, ReceiveMessage, or DeleteMessage).</li>
+</ol>
+<h2 id="Messages-in-Queue"><a href="#Messages-in-Queue" class="headerlink" title="Messages in Queue"></a>Messages in Queue</h2><ul>
+<li>A single Amazon SQS message queue can contain an <strong>unlimited</strong> number of messages. </li>
+<li>However, there is a 120,000 quota for the <strong>number of inflight messages</strong> for a standard queue and 20,000 for a FIFO queue.</li>
+</ul>
+<h2 id="Message-Size"><a href="#Message-Size" class="headerlink" title="Message Size"></a>Message Size</h2><p>SQS supports a maximum message size of 256kb.</p>
+<h1 id="AWS-Snowball"><a href="#AWS-Snowball" class="headerlink" title="AWS Snowball"></a>AWS Snowball</h1><ul>
+<li>AWS Snowball is a data migration and edge computing device that comes in two device options: Compute Optimized and Storage Optimized.</li>
+<li>Snowball is intended to serve as a data transport solution for moving high volumes of data into and out of <strong>a designated AWS services region</strong>.</li>
+<li>Snowball encrypts all data with 256-bit encryption. Your keys are never sent to or stored on the device.</li>
+</ul>
+<h2 id="Snowball-Edge-Storage-Optimized"><a href="#Snowball-Edge-Storage-Optimized" class="headerlink" title="Snowball Edge Storage Optimized"></a>Snowball Edge Storage Optimized</h2><p>Snowball Edge Storage Optimized devices provide 40 vCPUs of compute capacity coupled with <strong>80TB</strong> of usable block or Amazon S3-compatible object storage. It is well-suited for local storage and large-scale data transfer. </p>
+<h2 id="Snowball-Edge-Compute-Optimized"><a href="#Snowball-Edge-Compute-Optimized" class="headerlink" title="Snowball Edge Compute Optimized"></a>Snowball Edge Compute Optimized</h2><p>Snowball Edge Compute Optimized devices provide 52 vCPUs, <strong>42TB</strong> of usable block or object storage, and an optional GPU for use cases such as advanced machine learning and full motion video analysis in disconnected environments. </p>
+<h2 id="Into-S3"><a href="#Into-S3" class="headerlink" title="Into S3"></a>Into S3</h2><p>The data stored on the Snowball Edge device can be copied into the S3 bucket and later transitioned into AWS Glacier via a lifecycle policy. You can’t directly copy data from Snowball Edge devices into AWS Glacier.</p>
+<h2 id="v-s-Direct-Connect"><a href="#v-s-Direct-Connect" class="headerlink" title="v.s. Direct Connect"></a>v.s. Direct Connect</h2><p>Direct Connect involves significant monetary investment and takes more than a month to set up.<br>Suitable if you have on-going big transfer needs.</p>
+<h2 id="v-s-Site-to-Site-VPN"><a href="#v-s-Site-to-Site-VPN" class="headerlink" title="v.s. Site-to-Site VPN"></a>v.s. Site-to-Site VPN</h2><p>AWS Site-to-Site VPN enables you to securely connect your on-premises network or branch office site to your Amazon Virtual Private Cloud (Amazon VPC). VPN Connections are a good solution if you have an immediate need, and have low to modest bandwidth requirements. </p>
+<h1 id="RDS-Multi-AZ"><a href="#RDS-Multi-AZ" class="headerlink" title="RDS Multi-AZ"></a>RDS Multi-AZ</h1><h2 id="Upgrade-Downtime"><a href="#Upgrade-Downtime" class="headerlink" title="Upgrade Downtime"></a>Upgrade Downtime</h2><p>Upgrades to the database engine level require downtime. Even if your RDS DB instance uses a Multi-AZ deployment, both the primary and standby DB instances are upgraded <strong>at the same time</strong>. This causes <strong>downtime</strong> until the upgrade is complete, and the duration of the downtime varies based on the size of your DB instance.</p>
+<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q58-i1.jpg"/>
+
+<h2 id="HA-amp-Failover"><a href="#HA-amp-Failover" class="headerlink" title="HA &amp; Failover"></a>HA &amp; Failover</h2><ul>
+<li>Nothing to do with scalability.</li>
+<li>One Hostname. </li>
+<li>Only database engine on primary instance is active.</li>
+<li>If one AZ goes down, the failover will occur, and the standby slave will be promoted to master.</li>
+<li>Automated backups are taken from standby.</li>
+<li>AWS automatically synchronizes changes in the database over to the standby copy: sync communication.</li>
+</ul>
+<img src="http://localhost:4000/2020/06/06/AWS-SAA-Test-prep-RDS/multiaz-replica.png" alt="" width="700px"/>
+
 
         
         <br />
