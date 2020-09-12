@@ -158,7 +158,6 @@
 <h1 id="Aurora-Read-Replica"><a href="#Aurora-Read-Replica" class="headerlink" title="Aurora Read Replica"></a>Aurora Read Replica</h1><ul>
 <li>Amazon Aurora features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 64TB per database instance. </li>
 <li>It delivers high performance and availability with up to 15 low-latency read replicas, point-in-time recovery, continuous backup to Amazon S3, and replication across <strong>three Availability Zones (AZs)</strong>.</li>
-<li>For Amazon Aurora, each read replica is associated with a priority tier (0-15). In the event of a failover, Amazon RDS will promote the read replica that has the highest priority (<strong>the lowest numbered tier</strong>). </li>
 <li>If two or more replicas have the same priority, RDS will promote the one that is the <strong>same size as the previous primary instance</strong>.</li>
 <li>If two or more Aurora Replicas share the same priority and size, then Amazon RDS promotes an arbitrary replica in the same promotion tier.</li>
 </ul>
@@ -192,7 +191,7 @@
 <li>A fully managed service.</li>
 <li>API Gateway supports <strong>containerized</strong> and <strong>serverless</strong> workloads, as well as <strong>web applications</strong>.</li>
 </ul>
-<img src="https://d1.awsstatic.com/serverless/New-API-GW-Diagram.c9fc9835d2a9aa00ef90d0ddc4c6402a2536de0d.png" alt="" width="API-gateway"/>
+<img src="https://d1.awsstatic.com/serverless/New-API-GW-Diagram.c9fc9835d2a9aa00ef90d0ddc4c6402a2536de0d.png" alt="" width="API-gateway" width="600" />
 
 <h2 id="API-Types"><a href="#API-Types" class="headerlink" title="API Types"></a>API Types</h2><ol>
 <li>RESTful API<ul>
@@ -206,7 +205,7 @@
 </ul>
 </li>
 </ol>
-<h1 id="ECS-Types-and-Pricing"><a href="#ECS-Types-and-Pricing" class="headerlink" title="ECS Types and Pricing"></a>ECS Types and Pricing</h1><img src="https://d1.awsstatic.com/diagrams/product-page-diagrams/product-page-diagram_ECS_1.86ebd8c223ec8b55aa1903c423fbe4e672f3daf7.png" alt="ecs"/>
+<h1 id="ECS-Types-and-Pricing"><a href="#ECS-Types-and-Pricing" class="headerlink" title="ECS Types and Pricing"></a>ECS Types and Pricing</h1><img src="https://d1.awsstatic.com/diagrams/product-page-diagrams/product-page-diagram_ECS_1.86ebd8c223ec8b55aa1903c423fbe4e672f3daf7.png" alt="ecs" width="600" />
 
 <p>2 launch types on ECS: EC2 and Fargate.</p>
 <ul>
@@ -217,7 +216,7 @@
 <li>There are no S3 data transfer charges when data is transferred in from the internet. </li>
 <li>With S3TA, you pay only for transfers that are accelerated. </li>
 </ul>
-<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q40-i1.jpg" alt=""/>
+<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q40-i1.jpg" alt="" width="600" />
 
 <h1 id="SQS-Processing-Capacity"><a href="#SQS-Processing-Capacity" class="headerlink" title="SQS Processing Capacity"></a>SQS Processing Capacity</h1><ol>
 <li>Standard queues support a nearly unlimited number of API calls per second, per API action (SendMessage, ReceiveMessage, or DeleteMessage).</li>
@@ -240,7 +239,7 @@
 <h2 id="v-s-Direct-Connect"><a href="#v-s-Direct-Connect" class="headerlink" title="v.s. Direct Connect"></a>v.s. Direct Connect</h2><p>Direct Connect involves significant monetary investment and takes more than a month to set up.<br>Suitable if you have on-going big transfer needs.</p>
 <h2 id="v-s-Site-to-Site-VPN"><a href="#v-s-Site-to-Site-VPN" class="headerlink" title="v.s. Site-to-Site VPN"></a>v.s. Site-to-Site VPN</h2><p>AWS Site-to-Site VPN enables you to securely connect your on-premises network or branch office site to your Amazon Virtual Private Cloud (Amazon VPC). VPN Connections are a good solution if you have an immediate need, and have low to modest bandwidth requirements. </p>
 <h1 id="RDS-Multi-AZ"><a href="#RDS-Multi-AZ" class="headerlink" title="RDS Multi-AZ"></a>RDS Multi-AZ</h1><h2 id="Upgrade-Downtime"><a href="#Upgrade-Downtime" class="headerlink" title="Upgrade Downtime"></a>Upgrade Downtime</h2><p>Upgrades to the database engine level require downtime. Even if your RDS DB instance uses a Multi-AZ deployment, both the primary and standby DB instances are upgraded <strong>at the same time</strong>. This causes <strong>downtime</strong> until the upgrade is complete, and the duration of the downtime varies based on the size of your DB instance.</p>
-<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q58-i1.jpg"/>
+<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q58-i1.jpg" width="600" />
 
 <h2 id="HA-amp-Failover"><a href="#HA-amp-Failover" class="headerlink" title="HA &amp; Failover"></a>HA &amp; Failover</h2><ul>
 <li>Nothing to do with scalability.</li>
@@ -250,7 +249,7 @@
 <li>Automated backups are taken from standby.</li>
 <li>AWS automatically synchronizes changes in the database over to the standby copy: sync communication.</li>
 </ul>
-<img src="http://localhost:4000/2020/06/06/AWS-SAA-Test-prep-RDS/multiaz-replica.png" alt="" width="700px"/>
+<img src="http://localhost:4000/2020/06/06/AWS-SAA-Test-prep-RDS/multiaz-replica.png" alt="" width="700px" width="600" />
 
 <h1 id="Writing-to-Amazon-Kinesis-Data-Streams-Using-Kinesis-Agent"><a href="#Writing-to-Amazon-Kinesis-Data-Streams-Using-Kinesis-Agent" class="headerlink" title="Writing to Amazon Kinesis Data Streams Using Kinesis Agent"></a>Writing to Amazon Kinesis Data Streams Using Kinesis Agent</h1><ul>
 <li>Kinesis Agent is a stand-alone Java software application that offers an easy way to collect and send data to <strong>Kinesis Data Streams</strong> OR <strong>Kinesis Data Firehose</strong>. </li>
@@ -261,7 +260,7 @@
 <li>You can install the agent on <strong>Linux-based</strong> server environments such as web servers, log servers, and database servers. </li>
 <li>After installing the agent, configure it by specifying the <strong>files to monitor</strong> and the stream for the data. After the agent is configured, it durably collects data from the files and reliably sends it to the stream.</li>
 </ul>
-<h1 id="Add-data-to-Kinesis-Data-Firehose"><a href="#Add-data-to-Kinesis-Data-Firehose" class="headerlink" title="Add data to Kinesis Data Firehose"></a>Add data to Kinesis Data Firehose</h1><img src="https://d1.awsstatic.com/Products/product-name/diagrams/product-page-diagram_Amazon-Kinesis-Data-Firehose.9340b812ab86518341c47b24316995b3792bf6e1.png" alt=""/>
+<h1 id="Add-data-to-Kinesis-Data-Firehose"><a href="#Add-data-to-Kinesis-Data-Firehose" class="headerlink" title="Add data to Kinesis Data Firehose"></a>Add data to Kinesis Data Firehose</h1><img src="https://d1.awsstatic.com/Products/product-name/diagrams/product-page-diagram_Amazon-Kinesis-Data-Firehose.9340b812ab86518341c47b24316995b3792bf6e1.png" alt="" width="600" />
 
 <h3 id="Data-Source-Options"><a href="#Data-Source-Options" class="headerlink" title="Data Source Options"></a>Data Source Options</h3><ol>
 <li>You can add data to an Amazon Kinesis Data Firehose delivery stream through:<ul>
