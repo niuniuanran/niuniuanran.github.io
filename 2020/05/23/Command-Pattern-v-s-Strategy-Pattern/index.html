@@ -11,9 +11,9 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        CompSci701 Lecture Journal - Alterability - Code on Anran!
+        Command Pattern v.s. Strategy Pattern - Code on Anran!
         
-    </title><meta name="robots" content="noindex">
+    </title>
 
     <!-- Custom CSS -->
     
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Assessing-Alterability"><span class="toc-text">Assessing Alterability</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Command-Pattern-“Encapsulating-Invocation”"><span class="toc-text">Command Pattern: “Encapsulating Invocation”</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Roles"><span class="toc-text">Roles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Benefits"><span class="toc-text">Benefits</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Strategy-Pattern"><span class="toc-text">Strategy Pattern:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Command-v-s-Strategy-Discussion"><span class="toc-text">Command v.s. Strategy Discussion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-the-differences-between-Command-and-Strategy-Patterns"><span class="toc-text">What are the differences between Command and Strategy Patterns?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In-terms-of-maintainability-what-are-the-benefits-and-consequences-of-applying-design-patterns-in-your-code"><span class="toc-text">In terms of maintainability, what are the benefits and consequences of applying design patterns in your code?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -127,11 +127,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        CompSci701 Lecture Journal - Alterability
+        Command Pattern v.s. Strategy Pattern
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-09-21 10:14:40</span></span>
+        <span class="attr">Post：<span>2020-05-23 10:08:32</span></span>
         
         <span class="attr">Tags：/
         
@@ -139,9 +139,6 @@
         <span>/</span>
         
         <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
-        <span>/</span>
-        
-        <a class="tag" href="/tags/#Private Blog" title="Private Blog">Private Blog</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#🚧 Work In Process" title="🚧 Work In Process">🚧 Work In Process</a>
@@ -154,7 +151,24 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Assessing-Alterability"><a href="#Assessing-Alterability" class="headerlink" title="Assessing Alterability"></a>Assessing Alterability</h1><!-- flag of hidden posts -->
+        <h1 id="Command-Pattern-“Encapsulating-Invocation”"><a href="#Command-Pattern-“Encapsulating-Invocation”" class="headerlink" title="Command Pattern: “Encapsulating Invocation”"></a>Command Pattern: “Encapsulating Invocation”</h1><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ul>
+<li>在某些场合，比如要对行为进行”记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。</li>
+<li>在这种情况下，如何将”<strong>行为请求者</strong>“与”<strong>行为实现者</strong>“解耦？</li>
+<li>将一组行为抽象为对象，可以实现二者之间的loose coupling。</li>
+</ul>
+<h2 id="Roles"><a href="#Roles" class="headerlink" title="Roles"></a>Roles</h2><p>Three key roles:</p>
+<ol>
+<li>Command</li>
+<li>Receiver: who the command works ON</li>
+<li>Invoker: the entry point of using the command.</li>
+</ol>
+<h2 id="Benefits"><a href="#Benefits" class="headerlink" title="Benefits"></a>Benefits</h2><ol>
+<li>Loose Coupling between invoker and receiver</li>
+<li>Easier to implement and add new commands</li>
+<li></li>
+</ol>
+<h1 id="Strategy-Pattern"><a href="#Strategy-Pattern" class="headerlink" title="Strategy Pattern:"></a>Strategy Pattern:</h1><h1 id="Command-v-s-Strategy-Discussion"><a href="#Command-v-s-Strategy-Discussion" class="headerlink" title="Command v.s. Strategy Discussion"></a>Command v.s. Strategy Discussion</h1><h2 id="What-are-the-differences-between-Command-and-Strategy-Patterns"><a href="#What-are-the-differences-between-Command-and-Strategy-Patterns" class="headerlink" title="What are the differences between Command and Strategy Patterns?"></a>What are the differences between Command and Strategy Patterns?</h2><h2 id="In-terms-of-maintainability-what-are-the-benefits-and-consequences-of-applying-design-patterns-in-your-code"><a href="#In-terms-of-maintainability-what-are-the-benefits-and-consequences-of-applying-design-patterns-in-your-code" class="headerlink" title="In terms of maintainability, what are the benefits and consequences of applying design patterns in your code?"></a>In terms of maintainability, what are the benefits and consequences of applying design patterns in your code?</h2><h3 id="Comprehensibility"><a href="#Comprehensibility" class="headerlink" title="Comprehensibility"></a>Comprehensibility</h3><p>If the command patterns are already in the Knowledge Base of the reader, it will be easy for the reader to </p>
+
         
         <br />
         <div id="comment-container">

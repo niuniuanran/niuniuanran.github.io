@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        Build my first application with AWS Serverless infrastructure - Code on Anran!
+        CompSci701 Assignment3 Reflection - Code on Anran!
         
     </title>
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cognito-User-Pool"><span class="toc-text">Cognito User Pool</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Serverless-Framework"><span class="toc-text">Serverless Framework</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DynamoDB-SDK"><span class="toc-text">DynamoDB SDK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-rights-to-the-Lambda-functions-by-IAM"><span class="toc-text">Add rights to the Lambda functions by IAM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cognito-Identity-Pool-v-s-Cognito-User-Pool"><span class="toc-text">Cognito Identity Pool v.s. Cognito User Pool</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -127,24 +127,24 @@
 
 <div class="post-container">
     <div class="post-title">
-        Build my first application with AWS Serverless infrastructure
+        CompSci701 Assignment3 Reflection
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-09-20 11:53:49</span></span>
+        <span class="attr">Post：<span>2020-05-25 10:03:47</span></span>
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Private Blog" title="Private Blog">Private Blog</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#🚧 Work In Process" title="🚧 Work In Process">🚧 Work In Process</a>
-        <span>/</span>
-        
-        <a class="tag" href="/tags/#Serverless" title="Serverless">Serverless</a>
         <span>/</span>
         
         
@@ -154,24 +154,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>Today (20 Sep 2020) I started working on my first full-stack Serverless app with the <a href="https://serverless-stack.com/" target="_blank" rel="noopener">Serverless Stack</a> project.</p>
-<h1 id="Cognito-User-Pool"><a href="#Cognito-User-Pool" class="headerlink" title="Cognito User Pool"></a>Cognito User Pool</h1><p>Created my first Cognito User Pool. There are two settings to be noted:</p>
-<ol>
-<li><strong>DISABLE client secret generation</strong>: user pool apps with a client secret are not supported by the JavaScript SDK. We need to un-select the option.</li>
-<li><strong>Enable username password auth for admin APIs for authentication</strong>: required by AWS CLI when managing the pool users via command line interface. We will be creating a test user through the command line interface in the next chapter.</li>
-</ol>
-<h1 id="Serverless-Framework"><a href="#Serverless-Framework" class="headerlink" title="Serverless Framework"></a>Serverless Framework</h1><p>The <a href="https://www.serverless.com/" target="_blank" rel="noopener">serverless framework</a> makes it easier for developers to make serverless applications locally.</p>
-<p>See <a href="https://serverless-stack.com/chapters/setup-the-serverless-framework.html" target="_blank" rel="noopener">here</a> for the detailed tutorial on setting up a node server from the serverless framework starter.</p>
-<h1 id="DynamoDB-SDK"><a href="#DynamoDB-SDK" class="headerlink" title="DynamoDB SDK"></a>DynamoDB SDK</h1><p>See <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html" target="_blank" rel="noopener">Class: AWS.DynamoDB documentation</a>. When configuring the Lambda handlers, you can configure the params as needed by the methods and call these DynamoDB methods. With <a href="https://www.serverless.com/framework/docs/providers/aws/guide/iam/" target="_blank" rel="noopener">Serverless Framework</a>, the Lambda is given the permission to work on DynamoDB in the <code>iamRoleStatements</code> section in <a href="https://github.com/niuniuanran/serverless-notes-api/blob/master/serverless.yml" target="_blank" rel="noopener">serverless.yml</a>. </p>
-<h2 id="Add-rights-to-the-Lambda-functions-by-IAM"><a href="#Add-rights-to-the-Lambda-functions-by-IAM" class="headerlink" title="Add rights to the Lambda functions by IAM"></a>Add rights to the Lambda functions by IAM</h2><p>To add specific rights to this service-wide Role, define statements in provider.iamRoleStatements which will be merged into the generated policy. As those statements will be merged into the CloudFormation template, you can use Join, Ref or any other CloudFormation method or feature.</p>
-<h1 id="Cognito-Identity-Pool-v-s-Cognito-User-Pool"><a href="#Cognito-Identity-Pool-v-s-Cognito-User-Pool" class="headerlink" title="Cognito Identity Pool v.s. Cognito User Pool"></a>Cognito Identity Pool v.s. Cognito User Pool</h1><img src="https://d33wubrfki0l68.cloudfront.net/4602d3b127c9b3f1dbe49f9fc77e8d8a4aff20a6/9c3a1/assets/cognito-user-pool-vs-identity-pool.png" alt="identity-pool-vs-user-pool" width="600px"/>
-
-<ul>
-<li>Cognito User Pool handles user registration, authentication, and account recovery</li>
-<li>Cognito Identity Pool provides authorization for users to use the various AWS services.</li>
-<li>The Cognito Identity Pool simply takes all your identity providers and puts them together (federates them). And with all of this it can now give your users secure access to your AWS services, regardless of where they come from.</li>
-</ul>
-
+        
         
         <br />
         <div id="comment-container">
