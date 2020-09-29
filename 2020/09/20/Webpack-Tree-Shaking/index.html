@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intention"><span class="toc-text">Intention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rationale"><span class="toc-text">Rationale</span></a></li></ol>
 </div>
     
 </div>
@@ -148,7 +148,19 @@
 </span>
     </div>
     <div class="post-content ">
-        
+        <h2 id="Intention"><a href="#Intention" class="headerlink" title="Intention"></a>Intention</h2><ul>
+<li>Dead-code elimination</li>
+<li>Bundle code written in ECMAScript dialects</li>
+</ul>
+<h2 id="Rationale"><a href="#Rationale" class="headerlink" title="Rationale"></a>Rationale</h2><ul>
+<li>For dynamic languages, all possible execution flows of a program can be represented as a tree of function calls.</li>
+<li>The popularity of tree shaking in JavaScript is based on the fact that in distinction from CommonJS modules, ECMAScript 6 module loading is static and thus the whole dependency tree can be deduced by statically parsing the syntax tree.</li>
+<li><blockquote>
+<p>In JavaScript, you have to add an entire library even if you only need it for one function, but thanks to tree shaking the Dart-derived JavaScript only includes the individual functions that you need from a library.    – Chris Buckett</p>
+</blockquote>
+</li>
+</ul>
+
         
         <br />
         <div id="comment-container">
