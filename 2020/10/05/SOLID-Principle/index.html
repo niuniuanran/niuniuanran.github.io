@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        SOLID Principle - Code on Anran!
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SOLID-Principle"><span class="toc-text">SOLID Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Static-a-bad-idea"><span class="toc-text">Static: a bad idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-R-Alterability-heuristic-revisited"><span class="toc-text">C&#x2F;R Alterability heuristic revisited</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Look-for-the-design-that-minimises-C"><span class="toc-text">Look for the design that minimises C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Look-for-designs-that"><span class="toc-text">Look for designs that</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Responsibility-Principle-SRP"><span class="toc-text">Single Responsibility Principle (SRP)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Responsibility-Driven-Design"><span class="toc-text">Responsibility-Driven Design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP-and-Alterability"><span class="toc-text">SRP and Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-two-designs"><span class="toc-text">Consider two designs:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-possible-change-cases"><span class="toc-text">Consider possible change cases:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP-and-Design-Patterns"><span class="toc-text">SRP and Design Patterns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP-Conclusion"><span class="toc-text">SRP Conclusion</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        SOLID Principle
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-05 09:31:41</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#🚧 Work In Process" title="🚧 Work In Process">🚧 Work In Process</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="SOLID-Principle"><a href="#SOLID-Principle" class="headerlink" title="SOLID Principle"></a>SOLID Principle</h1><blockquote>
+<p>Just <strong>consequences</strong> of doing OOB “properly”.</p>
+</blockquote>
+<h2 id="Static-a-bad-idea"><a href="#Static-a-bad-idea" class="headerlink" title="Static: a bad idea"></a>Static: a bad idea</h2><p>Reasons:</p>
+<h2 id="C-R-Alterability-heuristic-revisited"><a href="#C-R-Alterability-heuristic-revisited" class="headerlink" title="C/R Alterability heuristic revisited"></a>C/R Alterability heuristic revisited</h2><blockquote>
+<p>“Change Ratio” C/N varies by change cases, then how is the change ratio used to assess the overall alterability of the design?</p>
+</blockquote>
+<h3 id="Look-for-the-design-that-minimises-C"><a href="#Look-for-the-design-that-minimises-C" class="headerlink" title="Look for the design that minimises C"></a>Look for the design that minimises C</h3><p>“For likely and non-trivial impact change cases”</p>
+<h3 id="Look-for-designs-that"><a href="#Look-for-designs-that" class="headerlink" title="Look for designs that"></a>Look for designs that</h3><h2 id="Single-Responsibility-Principle-SRP"><a href="#Single-Responsibility-Principle-SRP" class="headerlink" title="Single Responsibility Principle (SRP)"></a>Single Responsibility Principle (SRP)</h2><h3 id="Responsibility-Driven-Design"><a href="#Responsibility-Driven-Design" class="headerlink" title="Responsibility-Driven Design"></a>Responsibility-Driven Design</h3><p>Responsibility = an obligation to perform a task <strong>or</strong> know information</p>
+<p>With this principle, you’ll have classes with multiple “responsibility”, because here the definition of “responsibility” is different to Martin’s SRP.</p>
+<h3 id="SRP-and-Alterability"><a href="#SRP-and-Alterability" class="headerlink" title="SRP and Alterability"></a>SRP and Alterability</h3><h4 id="Consider-two-designs"><a href="#Consider-two-designs" class="headerlink" title="Consider two designs:"></a>Consider two designs:</h4><p>Design A: A1, A2, A3, …. , AN<br>Design B: B1, A3, … , AN</p>
+<p>For Design B, B1 is the combo of A1 and A2.</p>
+<h4 id="Consider-possible-change-cases"><a href="#Consider-possible-change-cases" class="headerlink" title="Consider possible change cases:"></a>Consider possible change cases:</h4><ol>
+<li>Change case c1 requires Ai to change (i = 1…N)<ul>
+<li>Design A: CR = 1/N</li>
+<li>Design B: CR = 1/(N-1)</li>
+<li>For c1, A is more changeable than B</li>
+</ul>
+</li>
+<li>Change case ci requires Ai and Ak to change (i + k &gt; 3)<ul>
+<li>Design A: CR = 2/N</li>
+<li>Design B: CR = 2/(N-1)</li>
+<li>For c2, A is more changeable than B</li>
+</ul>
+</li>
+<li>Change case ci requires Ai and Ak to change (i + k = 3)<ul>
+<li>Design A: CR = 2/N</li>
+<li>Design B: CR = 1/(N-1)</li>
+<li>For c3, B is more changeable than A, when N &gt; 2.</li>
+</ul>
+</li>
+</ol>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><ul>
+<li>For <strong>most</strong> change cases, the C/N of Design A will be smaller than Design B.</li>
+<li>Therefore, Design A has a better overall alterability than Design B.</li>
+</ul>
+<h3 id="SRP-and-Design-Patterns"><a href="#SRP-and-Design-Patterns" class="headerlink" title="SRP and Design Patterns"></a>SRP and Design Patterns</h3><blockquote>
+<p>Many of the elements of a design pattern are there to do just one thing.</p>
+</blockquote>
+<p>Examples:</p>
+<ol>
+<li>Decorator: each decorator</li>
+<li>Composite: each leaf and composite</li>
+<li>Command: each concrete command</li>
+<li>Dependency Injection: each service, and the client</li>
+<li>Strategy: each concrete strategy</li>
+</ol>
+<h3 id="SRP-Conclusion"><a href="#SRP-Conclusion" class="headerlink" title="SRP Conclusion"></a>SRP Conclusion</h3><ul>
+<li>“One responsibility”: not actionable</li>
+<li>The “one reason to change” or “group things that change for the same reason together” definitions are </li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
