@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        Code on Anran!
+        What is Dependency Inversion Principle - Code on Anran!
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Dependency-Inversion-Principle-DIP"><span class="toc-text">What is Dependency Inversion Principle(DIP)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-“Modules”"><span class="toc-text">What are “Modules”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-“Dependency”"><span class="toc-text">What are “Dependency”</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,69 +123,56 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/What-is-RESTful-API/">
-                <h3>
-                    What is RESTful API
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        What is Dependency Inversion Principle
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-04 21:52:54</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/10/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <h1 id="What-is-Dependency-Inversion-Principle-DIP"><a href="#What-is-Dependency-Inversion-Principle-DIP" class="headerlink" title="What is Dependency Inversion Principle(DIP)"></a>What is Dependency Inversion Principle(DIP)</h1><p>1） High-level modules should not depend on low-level modules. Both should depend on abstractions. 高层模块不应该直接依赖低层模块，两者都应该依赖抽象层。<br>2） Abstractions should not depend on details. 抽象不能依赖细节，细节必须依赖抽象。</p>
+<h2 id="What-are-“Modules”"><a href="#What-are-“Modules”" class="headerlink" title="What are “Modules”"></a>What are “Modules”</h2><p>Can be varied based on the context:</p>
+<ul>
+<li>From the view of architecture, “modules” can be subsystem</li>
+<li>From the view of subsystem, “modules” can be components</li>
+<li>From the view of components, “modules” can be classes</li>
 </ul>
+<h2 id="What-are-“Dependency”"><a href="#What-are-“Dependency”" class="headerlink" title="What are “Dependency”"></a>What are “Dependency”</h2><p>Can also be varied based on the context:</p>
+<ul>
+<li>High-level modules should not “depend” on low-level modules: high-level modules should not <strong>call methods</strong> of low-level modules</li>
+<li>High-level modules “depend” on abstraction: high-level modules <strong>call methods</strong> of abstraction (interface/abstract class)</li>
+<li>Low-level modules “depend” on abstraction: low-level modules <strong>implement/extend</strong> abstraction (interface/abstract class)</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -232,7 +223,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
