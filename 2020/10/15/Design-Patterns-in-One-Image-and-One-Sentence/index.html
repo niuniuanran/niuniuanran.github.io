@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Patterns-in-One-Image-and-One-Sentence-and-Alterability"><span class="toc-text">Design Patterns in One Image and One Sentence, and Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Composite-Pattern"><span class="toc-text">Composite Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Pattern"><span class="toc-text">Command Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-1"><span class="toc-text">What it is</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Patterns-in-One-Image-and-One-Sentence-and-Alterability"><span class="toc-text">Design Patterns in One Image and One Sentence, and Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Composite-Pattern"><span class="toc-text">Composite Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Pattern"><span class="toc-text">Command Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-1"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Typical-examples"><span class="toc-text">Typical examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-1"><span class="toc-text">Alterability</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -159,6 +159,31 @@
 <li>To add a new composite class <code>Cm</code>: same.</li>
 </ol>
 <h2 id="Command-Pattern"><a href="#Command-Pattern" class="headerlink" title="Command Pattern"></a>Command Pattern</h2><h3 id="What-it-is-1"><a href="#What-it-is-1" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Pack some code to be executed into an object, so that the code can be executed at another class/time.</strong></p>
+<img src="command.png" alt="" width="500px"/>
+
+<h3 id="Typical-examples"><a href="#Typical-examples" class="headerlink" title="Typical examples"></a>Typical examples</h3><ul>
+<li>GUI action implementations: Action listener (Attaching a piece of code to a button by adding an event listener. Executed when someone clicks the button).</li>
+<li>Delaying command executing</li>
+<li>Record commands: “undo”</li>
+<li>Change location of command execution: have another computer execute the command (call the <code>execute()</code> method of the object.</li>
+</ul>
+<img src="expression.png" alt="" width="500px"/>
+
+<p>This is both Composite pattern and Command pattern.</p>
+<h3 id="Alterability-1"><a href="#Alterability-1" class="headerlink" title="Alterability"></a>Alterability</h3><p>Adding the new command does not add on to C. </p>
+<ol>
+<li>Adding a new possible behaviour of the receiver:<ul>
+<li>Add a new method to the Receiver</li>
+<li>Use the new command in the client</li>
+<li>C = 2</li>
+</ul>
+</li>
+<li>Add a new command that calls existing receiver behaviours:<ul>
+<li>Use the new command in the client</li>
+<li>C = 1</li>
+</ul>
+</li>
+</ol>
 
         
         <br />
