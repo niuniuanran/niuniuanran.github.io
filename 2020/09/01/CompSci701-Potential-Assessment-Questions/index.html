@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-1"><span class="toc-text">PAQ 3.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-2"><span class="toc-text">PAQ 3.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-1"><span class="toc-text">PAQ 4.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3"><span class="toc-text">PAQ 5.3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-1"><span class="toc-text">PAQ 3.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-2"><span class="toc-text">PAQ 3.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-1"><span class="toc-text">PAQ 4.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3"><span class="toc-text">PAQ 5.3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-2"><span class="toc-text">PAQ 6.2</span></a></li></ol>
 </div>
     
 </div>
@@ -135,7 +135,13 @@
         
         <span class="attr">Tags：/
         
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
         <a class="tag" href="/tags/#CompSci701" title="CompSci701">CompSci701</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#🚧 Work In Process" title="🚧 Work In Process">🚧 Work In Process</a>
         <span>/</span>
         
         
@@ -196,7 +202,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">calculateRentCharge</span><span class="params">(<span class="keyword">int</span> days, string memberType)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// calculate rent for different membership type </span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 <p>This method takes in two arguments, but they do not belong to the same concept. <code>days</code> is related to the one-off rent, while <code>memberType</code> is related to the member.<br> If we put them into an argument object, and call it something like <code>rentInformation</code>, the reader will not be able to map <code>rentInformation</code> with a concept in the context schema of a book renting store. Therefore, it is hard to register what this object means into Mental Model for quick access. Instead, the reader need to frequently look into External Representation for the two concepts that <code>rentInformation</code> contains, which is slower. As a result, having this argument object reduces the efficiency of comprehensibility.</p>
-<!-- flag of hidden posts -->
+<h1 id="PAQ-6-2"><a href="#PAQ-6-2" class="headerlink" title="PAQ 6.2"></a>PAQ 6.2</h1><!-- flag of hidden posts -->
         
         <br />
         <div id="comment-container">
