@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-1"><span class="toc-text">PAQ 3.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-2"><span class="toc-text">PAQ 3.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-1"><span class="toc-text">PAQ 4.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3"><span class="toc-text">PAQ 5.3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-1"><span class="toc-text">PAQ 7.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-2"><span class="toc-text">PAQ 7.2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-is-likely-to-have-Lower-C"><span class="toc-text">Design B is likely to have Lower C:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-Bigger-N"><span class="toc-text">Design B has Bigger N:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-lower-C-N-ratio"><span class="toc-text">Design B has lower C&#x2F;N ratio:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-8-1"><span class="toc-text">PAQ 8.1</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-1"><span class="toc-text">PAQ 3.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-2"><span class="toc-text">PAQ 3.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-1"><span class="toc-text">PAQ 4.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3"><span class="toc-text">PAQ 5.3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-1"><span class="toc-text">PAQ 7.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-2"><span class="toc-text">PAQ 7.2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-is-likely-to-have-Lower-C"><span class="toc-text">Design B is likely to have Lower C:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-Bigger-N"><span class="toc-text">Design B has Bigger N:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-lower-C-N-ratio"><span class="toc-text">Design B has lower C&#x2F;N ratio:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-8-1"><span class="toc-text">PAQ 8.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-8-2"><span class="toc-text">PAQ 8.2</span></a></li></ol>
 </div>
     
 </div>
@@ -227,8 +227,29 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface GrammarChecker&#123;</span><br><span class="line">    public void check (String content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
+<h1 id="PAQ-8-2"><a href="#PAQ-8-2" class="headerlink" title="PAQ 8.2"></a>PAQ 8.2</h1><blockquote>
+<p>Explain, in terms of C and N, why use of dependency injection generally improves the alterability of the design.</p>
+</blockquote>
+<p>Let’s examine a highly likely change case with big impact on the capacity of the programme - adding a new concrete service:</p>
+<ol>
+<li>C:</li>
+</ol>
+<ul>
+<li>In a design (A) that uses dependency injection, the Client (where the service is injected into) will only depend on the abstraction - service interface, instead of any specific concrete implementation of service. When the new concrete service needs to be added, only the Injector will need to be modified to construct the new service object and inject it, therefore C will be 1, which is the minimum possible value. </li>
+<li>In a design (B) without dependency injection, the number of classes being changed depends on how many clients depend on the concrete implementation of services that will have to be changed. </li>
+<li>Therefore, C(A) &lt;= C(B).</li>
+</ul>
+<ol start="2">
+<li>N:</li>
+</ol>
+<ul>
+<li>On the other hand, dependency injection adds extra service interface to design A, so N(A) &gt; C(B).</li>
+</ul>
+<ol start="3">
+<li>C/N:<br>Therefore, dependency injection reduces C/N of design A for this typical change case. </li>
+</ol>
+<p>The same argument will generally apply to other change cases too, as design injection makes classes less coupled with each other’s concrete implementation.</p>
+<p>Therefore, dependency injection generally improves the alterability of a design.</p>
 <!-- flag of hidden posts -->
         
         <br />
