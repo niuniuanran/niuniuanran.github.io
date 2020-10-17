@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Patterns-in-One-Image-and-One-Sentence-and-Alterability"><span class="toc-text">Design Patterns in One Image and One Sentence, and Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Composite-Pattern"><span class="toc-text">Composite Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Pattern"><span class="toc-text">Command Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-1"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Typical-examples"><span class="toc-text">Typical examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-1"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependency-Injection"><span class="toc-text">Dependency Injection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-2"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-2"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-Principles"><span class="toc-text">Related Principles</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Patterns-in-One-Image-and-One-Sentence-and-Alterability"><span class="toc-text">Design Patterns in One Image and One Sentence, and Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Composite-Pattern"><span class="toc-text">Composite Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-Principles"><span class="toc-text">Related Principles</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Pattern"><span class="toc-text">Command Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-1"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Typical-examples"><span class="toc-text">Typical examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-1"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependency-Injection"><span class="toc-text">Dependency Injection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-2"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-2"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-Principles-1"><span class="toc-text">Related Principles</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strategy-Pattern"><span class="toc-text">Strategy Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-3"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-3"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observer-Pattern"><span class="toc-text">Observer Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-4"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-4"><span class="toc-text">Alterability</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -158,6 +158,10 @@
 <li>To add a new kind of leaf class <code>L</code>: <code>L</code> is new code not counted in C; one class will be changed to construct from <code>L</code> -&gt; C = L.</li>
 <li>To add a new composite class <code>Cm</code>: same.</li>
 </ol>
+<h3 id="Related-Principles"><a href="#Related-Principles" class="headerlink" title="Related Principles"></a>Related Principles</h3><ul>
+<li>Open-Closed Principle</li>
+<li>Dependency Inversion: depend on the abstract component</li>
+</ul>
 <h2 id="Command-Pattern"><a href="#Command-Pattern" class="headerlink" title="Command Pattern"></a>Command Pattern</h2><h3 id="What-it-is-1"><a href="#What-it-is-1" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Pack some code to be executed into an object, so that the code can be executed at another class/time.</strong></p>
 <img src="command.png" alt="" width="500px"/>
 
@@ -188,8 +192,19 @@
 <img src="dependency-injection.png" width="300px" alt=""/>
 
 <h3 id="Alterability-2"><a href="#Alterability-2" class="headerlink" title="Alterability"></a>Alterability</h3><p>Add a new concrete service: C = 1 (Injector)</p>
-<h3 id="Related-Principles"><a href="#Related-Principles" class="headerlink" title="Related Principles"></a>Related Principles</h3><p>Dependency Inversion: Depend on Abstraction</p>
+<h3 id="Related-Principles-1"><a href="#Related-Principles-1" class="headerlink" title="Related Principles"></a>Related Principles</h3><p>Dependency Inversion: Depend on Abstraction</p>
+<h2 id="Strategy-Pattern"><a href="#Strategy-Pattern" class="headerlink" title="Strategy Pattern"></a>Strategy Pattern</h2><h3 id="What-it-is-3"><a href="#What-it-is-3" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Define a family of algorithms, encapsulate each one, and make them<br>  interchangeable.</strong></p>
+<img src="strategy.png" alt="" width="200px"/>
 
+<p>Relatable with Dependency Injection ⬆️</p>
+<h3 id="Alterability-3"><a href="#Alterability-3" class="headerlink" title="Alterability"></a>Alterability</h3><ul>
+<li>Adding a new strategy: C=1 (context change)</li>
+<li>Using a different strategy: C=1 (context change)</li>
+</ul>
+<h2 id="Observer-Pattern"><a href="#Observer-Pattern" class="headerlink" title="Observer Pattern"></a>Observer Pattern</h2><h3 id="What-it-is-4"><a href="#What-it-is-4" class="headerlink" title="What it is"></a>What it is</h3><p><strong>When one object (publisher) changes state, all its dependents (subscriber) are notified and updated automatically</strong></p>
+<img src="observer.png" alt="" width="400px"/>
+
+<h3 id="Alterability-4"><a href="#Alterability-4" class="headerlink" title="Alterability"></a>Alterability</h3>
         
         <br />
         <div id="comment-container">
