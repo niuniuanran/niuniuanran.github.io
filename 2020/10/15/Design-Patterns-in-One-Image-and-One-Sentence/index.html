@@ -189,7 +189,10 @@
 <img src="dependency-injection.png" width="300px" alt=""/>
 
 <h3 id="Alterability-2"><a href="#Alterability-2" class="headerlink" title="Alterability"></a>Alterability</h3><p>Add a new concrete service: C = 1 (Injector)</p>
-<h3 id="Related-Principles-1"><a href="#Related-Principles-1" class="headerlink" title="Related Principles"></a>Related Principles</h3><p>Dependency Inversion: Depend on Abstraction</p>
+<h3 id="Related-Principles-1"><a href="#Related-Principles-1" class="headerlink" title="Related Principles"></a>Related Principles</h3><ul>
+<li>Dependency Inversion: Depend on Abstraction</li>
+<li>Open-closed principle: abstract entities whose behaviour is extended by the concrete services supplied to it.</li>
+</ul>
 <h2 id="Strategy-Pattern"><a href="#Strategy-Pattern" class="headerlink" title="Strategy Pattern"></a>Strategy Pattern</h2><h3 id="What-it-is-3"><a href="#What-it-is-3" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Define a family of algorithms, encapsulate each one, and make them<br>  interchangeable.</strong></p>
 <img src="strategy.png" alt="" width="200px"/>
 
@@ -288,11 +291,11 @@
 <li>Collecting Parameter<ul>
 <li>We only want to record the failures, and get a highly condensed summary of the successes.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class TestResult extends Object &#123;</span><br><span class="line">    protected int fRunTests;</span><br><span class="line">    public TestResult() &#123;</span><br><span class="line">       fRunTests&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized void startTest(Test test) &#123;</span><br><span class="line">        fRunTests++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TestCase &#123;</span><br><span class="line">    public void run(TestResult result) &#123;</span><br><span class="line">        result.startTest(this);</span><br><span class="line">        setUp();</span><br><span class="line">        runTest();</span><br><span class="line">        tearDown();</span><br><span class="line">    &#125;</span><br><span class="line">    public TestResult run() &#123;</span><br><span class="line">        TestResult result&#x3D; createResult();</span><br><span class="line">        run(result);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    protected TestResult createResult() &#123;</span><br><span class="line">        return new TestResult();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
 </li>
 </ul>
 </li>
 </ol>
+<p>See <a href="http://junit.sourceforge.net/doc/cookstour/cookstour.htm" target="_blank" rel="noopener">JUnit A Cook’s Tour</a> for more details.</p>
 
         
         <br />
