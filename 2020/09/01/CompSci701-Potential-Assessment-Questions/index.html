@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-1"><span class="toc-text">PAQ 3.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-2"><span class="toc-text">PAQ 3.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-1"><span class="toc-text">PAQ 4.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3"><span class="toc-text">PAQ 5.3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-1"><span class="toc-text">PAQ 7.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-2"><span class="toc-text">PAQ 7.2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-is-likely-to-have-Lower-C"><span class="toc-text">Design B is likely to have Lower C:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-Bigger-N"><span class="toc-text">Design B has Bigger N:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-lower-C-N-ratio"><span class="toc-text">Design B has lower C&#x2F;N ratio:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-8-1"><span class="toc-text">PAQ 8.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-8-2"><span class="toc-text">PAQ 8.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-9-1"><span class="toc-text">PAQ 9.1</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-1"><span class="toc-text">PAQ 3.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-3-2"><span class="toc-text">PAQ 3.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-1"><span class="toc-text">PAQ 4.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-4-2"><span class="toc-text">PAQ 4.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-1"><span class="toc-text">PAQ 5.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-5-3"><span class="toc-text">PAQ 5.3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-6-1"><span class="toc-text">PAQ 6.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-1"><span class="toc-text">PAQ 7.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-7-2"><span class="toc-text">PAQ 7.2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-is-likely-to-have-Lower-C"><span class="toc-text">Design B is likely to have Lower C:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-Bigger-N"><span class="toc-text">Design B has Bigger N:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-B-has-lower-C-N-ratio"><span class="toc-text">Design B has lower C&#x2F;N ratio:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-8-1"><span class="toc-text">PAQ 8.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-8-2"><span class="toc-text">PAQ 8.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-9-1"><span class="toc-text">PAQ 9.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-9-2"><span class="toc-text">PAQ 9.2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-10-1"><span class="toc-text">PAQ 10.1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PAQ-10-2"><span class="toc-text">PAQ 10.2</span></a></li></ol>
 </div>
     
 </div>
@@ -267,6 +267,20 @@
 </ol>
 </li>
 </ul>
+<h1 id="PAQ-9-2"><a href="#PAQ-9-2" class="headerlink" title="PAQ 9.2"></a>PAQ 9.2</h1><blockquote>
+<p>Describe two SOLID Principles that Dependency Injection follows</p>
+</blockquote>
+<ol>
+<li>Dependency Inversion: The client depends on the abstract service interface, not the concrete service class.</li>
+<li>Open-Closed Principle: The client is closed for modification, but open for extension/variation of behaviours by injecting different concrete service instances into it.</li>
+</ol>
+<h1 id="PAQ-10-1"><a href="#PAQ-10-1" class="headerlink" title="PAQ 10.1"></a>PAQ 10.1</h1><blockquote>
+<p>Explain the code smell Refused Bequest in terms of violating one or more SOLID principles</p>
+</blockquote>
+<p>Liskov Substitution Principle:<br>Refused bequest means the child class does not inherit all the features/functionalities of the parent class. In a programme where such “refused” features of the parent class are used, we will not be able to replace the parent class with its child class. Therefore, Refused Bequest violates Liskov Substitution Principle, which flags an inappropriate inheritance.</p>
+<h1 id="PAQ-10-2"><a href="#PAQ-10-2" class="headerlink" title="PAQ 10.2"></a>PAQ 10.2</h1><blockquote>
+<p>Describe how following SRP will likely lead to lower coupling referring to the “one reason to change” version of the definition (not the “has one responsibility definition”)</p>
+</blockquote>
 <!-- flag of hidden posts -->
         
         <br />
