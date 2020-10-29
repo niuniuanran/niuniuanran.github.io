@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        CompSci701 Assignment2 Reflection - Code on Anran!
+        CompSci701 Test2 Reflection - Code on Anran!
         
     </title><meta name="robots" content="noindex">
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CompSci701-Assignment2-Reflection"><span class="toc-text">CompSci701 Assignment2 Reflection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Being-aware-of-how-useful-my-comments-are"><span class="toc-text">Being aware of how useful my comments are:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-meaningful-classes-interfaces"><span class="toc-text">Creating meaningful classes&#x2F;interfaces:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-of-refactoring"><span class="toc-text">Timing of refactoring?</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CompSci701-Test2-Reflection"><span class="toc-text">CompSci701 Test2 Reflection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-was-tested"><span class="toc-text">What was tested</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Impressive-questions"><span class="toc-text">Impressive questions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-C-N-a-metric-for-Alterability"><span class="toc-text">Is C&#x2F;N a metric for Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Counting-FAN-OUT"><span class="toc-text">Counting FAN-OUT</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -127,11 +127,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        CompSci701 Assignment2 Reflection
+        CompSci701 Test2 Reflection
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-10-01 16:42:52</span></span>
+        <span class="attr">Post：<span>2020-10-30 10:48:46</span></span>
         
         <span class="attr">Tags：/
         
@@ -148,17 +148,42 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="CompSci701-Assignment2-Reflection"><a href="#CompSci701-Assignment2-Reflection" class="headerlink" title="CompSci701 Assignment2 Reflection"></a>CompSci701 Assignment2 Reflection</h1><p>For assignment2, we conducted code review on two implementations of Kalah, from the perspective of comprehensibility. The two important takeaways are:</p>
-<h2 id="Being-aware-of-how-useful-my-comments-are"><a href="#Being-aware-of-how-useful-my-comments-are" class="headerlink" title="Being aware of how useful my comments are:"></a>Being aware of how useful my comments are:</h2><ul>
-<li>Provide valid alternatives. </li>
-<li>I am not re-implementing for the author. The code review could just include some comments pointing the author to the right direction.</li>
-<li>Be concise, but polite. </li>
+        <h1 id="CompSci701-Test2-Reflection"><a href="#CompSci701-Test2-Reflection" class="headerlink" title="CompSci701 Test2 Reflection"></a>CompSci701 Test2 Reflection</h1><h2 id="What-was-tested"><a href="#What-was-tested" class="headerlink" title="What was tested"></a>What was tested</h2><ul>
+<li>Design Patterns<ol>
+<li>what they look like in code</li>
+<li>where do they apply: not always necessary, not always leading to good design</li>
+<li>what they look like in frameworks/scenarios (e.g. MVC)</li>
+<li>how it improves alterability</li>
+<li>what design principles are related</li>
+</ol>
+</li>
+<li>Design Principles<ol>
+<li>how they enhance alterability</li>
+<li>what it looks like when a design breaks the principle</li>
+</ol>
+</li>
 </ul>
-<h2 id="Creating-meaningful-classes-interfaces"><a href="#Creating-meaningful-classes-interfaces" class="headerlink" title="Creating meaningful classes/interfaces:"></a>Creating meaningful classes/interfaces:</h2><ul>
-<li>No need to extract everything that “might” change in the future so early. However, decoupling components by letting each component encapsulate their implementation details will be very helpful.</li>
-<li><strong>Don’t choose not to create a class because it is “simple”</strong>. If it is a good match with a context concept, go for it. For example, the <code>Pit</code>, <code>Store</code> and <code>House</code> classes are such a good match with the context.</li>
+<h2 id="Impressive-questions"><a href="#Impressive-questions" class="headerlink" title="Impressive questions"></a>Impressive questions</h2><h3 id="Is-C-N-a-metric-for-Alterability"><a href="#Is-C-N-a-metric-for-Alterability" class="headerlink" title="Is C/N a metric for Alterability"></a>Is C/N a metric for Alterability</h3><p>I like this question because it helps me to examine:</p>
+<ol>
+<li>what exactly is a “metric”</li>
+<li>when are we “measuring” things and when are we just using heuristics</li>
+<li>definition of Alterability: we want to know the effectiveness and efficiency of making changes, not just the number of classes we worked on.</li>
+</ol>
+<h3 id="Counting-FAN-OUT"><a href="#Counting-FAN-OUT" class="headerlink" title="Counting FAN-OUT"></a>Counting FAN-OUT</h3><p>I was not expecting this coming, but it was a thought-invoking question.</p>
+<ol>
+<li>Do I cound <code>String</code>? <ul>
+<li>It is a class. But a java library class</li>
+<li>Counting it or not counting it does not change our assessment of coupling: it’s always available with Java any way.</li>
+<li>As long as I am consistent.</li>
 </ul>
-<h2 id="Timing-of-refactoring"><a href="#Timing-of-refactoring" class="headerlink" title="Timing of refactoring?"></a>Timing of refactoring?</h2><p>After looking at implementation one, I have more thoughts about when to refactor.<br>Before I think that big refactoring should happen immediately after I have implemented the code. I thought I should look at the code and think, what will need in the future, and how to prepare for them.<br>Now I think big refactoring might be more efficient <strong>before I need to extend or change</strong>.<br>Of course, I still should review and improve my code continuously, giving a better name and better structure etc., but major refactorings, such as extracting a new inheritance hierarchy, will be <strong>much more efficient when I have a realistic direction of how the code needs to be changed or extended</strong>.</p>
+</li>
+<li>Same number of FAN-OUT, different coupling<ul>
+<li>depending on <code>FinancialValue</code> and depending on <code>KiwiFinancialValue</code> are both FAN-OUT of 1</li>
+<li>depending on abstract <code>FinancialValue</code> allows flexibility in using different financial value and allows extention, but depending on <code>KiwiFinancialValue</code> tights us with the concrete implementation solidly. </li>
+<li>FAN-OUT is not a “metric” of coupling either.</li>
+</ul>
+</li>
+</ol>
 <!-- flag of hidden posts -->
         
         <br />
