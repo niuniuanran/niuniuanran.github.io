@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        AWS DVA Points - Code on Anran!
+        AWS SAP - AWS Best Practice Design Patterns - Code on Anran!
         
     </title>
 
@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-SAM-with-build-in-CodeDeploy-Deploying-serverless-applications-gradually"><span class="toc-text">AWS SAM with build-in CodeDeploy: Deploying serverless applications gradually</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-AWS-CloudFormation-StackSets-to-deploy-to-multiple-accounts-regions"><span class="toc-text">Use AWS CloudFormation StackSets to deploy to multiple accounts&#x2F;regions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Concepts"><span class="toc-text">Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StackSets"><span class="toc-text">StackSets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stack-Instance"><span class="toc-text">Stack Instance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Permissions-models-for-stack-sets"><span class="toc-text">Permissions models for stack sets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#self-managed-permissions"><span class="toc-text">self-managed permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service-managed-permissions"><span class="toc-text">service-managed permissions</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -127,18 +127,18 @@
 
 <div class="post-container">
     <div class="post-title">
-        AWS DVA Points
+        AWS SAP - AWS Best Practice Design Patterns
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-10-30 22:39:47</span></span>
+        <span class="attr">Post：<span>2021-01-04 14:50:00</span></span>
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#AWS DVA" title="AWS DVA">AWS DVA</a>
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#🚧 Work In Process" title="🚧 Work In Process">🚧 Work In Process</a>
+        <a class="tag" href="/tags/#AWS SAP" title="AWS SAP">AWS SAP</a>
         <span>/</span>
         
         
@@ -148,18 +148,21 @@
 </span>
     </div>
     <div class="post-content ">
-        <ul>
-<li>Network Load Balancers expose a public static IP, whereas an Application or Classic Load Balancer exposes a static DNS (URL).</li>
-<li>For Linux EC2 instance, you pay by seconds. Minimum 60 seconds.</li>
-<li>You cannot detach a primary ENI from an instance.</li>
-<li>Spot instance options you have:<ol>
-<li>Load balancing workloads: same size in any AZ. good for web services.</li>
-<li>Flexible Work loads: any size any AZ, good for batch and CI/CD</li>
-<li>Big data workloads: any size in single AZ, good for MapReduce</li>
-<li>Defined duration workloads: spot block.</li>
-</ol>
-</li>
-<li></li>
+        <h1 id="AWS-SAM-with-build-in-CodeDeploy-Deploying-serverless-applications-gradually"><a href="#AWS-SAM-with-build-in-CodeDeploy-Deploying-serverless-applications-gradually" class="headerlink" title="AWS SAM with build-in CodeDeploy: Deploying serverless applications gradually"></a>AWS SAM with build-in CodeDeploy: Deploying serverless applications gradually</h1><ul>
+<li>Deploys new versions of your Lambda function, and automatically creates aliases that point to the new version.</li>
+<li>Gradually shifts customer traffic to the new version until you’re satisfied that it’s working as expected, or you roll back the update.</li>
+<li>Defines pre-traffic and post-traffic test functions to verify that the newly deployed code is configured correctly and your application operates as expected.</li>
+<li>Rolls back the deployment if CloudWatch alarms are triggered.</li>
+</ul>
+<h1 id="Use-AWS-CloudFormation-StackSets-to-deploy-to-multiple-accounts-regions"><a href="#Use-AWS-CloudFormation-StackSets-to-deploy-to-multiple-accounts-regions" class="headerlink" title="Use AWS CloudFormation StackSets to deploy to multiple accounts/regions"></a>Use AWS CloudFormation <code>StackSets</code> to deploy to multiple accounts/regions</h1><h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><h3 id="StackSets"><a href="#StackSets" class="headerlink" title="StackSets"></a>StackSets</h3><p>A stack set lets you create stacks in AWS accounts across regions by using a single AWS CloudFormation template. </p>
+<h3 id="Stack-Instance"><a href="#Stack-Instance" class="headerlink" title="Stack Instance"></a>Stack Instance</h3><p>A stack instance is a reference to a stack in a target account within a Region.  </p>
+<h2 id="Permissions-models-for-stack-sets"><a href="#Permissions-models-for-stack-sets" class="headerlink" title="Permissions models for stack sets"></a>Permissions models for stack sets</h2><h3 id="self-managed-permissions"><a href="#self-managed-permissions" class="headerlink" title="self-managed permissions"></a><code>self-managed</code> permissions</h3><ul>
+<li>You create the IAM roles required by StackSets to deploy across accounts and Regions</li>
+<li>Need <strong>trusted relationship</strong> between the account you’re administering the stack set from and the account you’re deploying stack instances to.</li>
+</ul>
+<h3 id="service-managed-permissions"><a href="#service-managed-permissions" class="headerlink" title="service-managed permissions"></a><code>service-managed</code> permissions</h3><ul>
+<li>Deploy stacks into Organization.</li>
+<li>Supports automatic deployment.</li>
 </ul>
 
         
