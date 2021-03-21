@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Logstash"><span class="toc-text">Logstash</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Logstash"><span class="toc-text">Logstash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logstash-gt-Elasticsearch-gt-Kibana"><span class="toc-text">Logstash -&gt; Elasticsearch -&gt; Kibana</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grok-filter"><span class="toc-text">grok filter</span></a></li></ol>
 </div>
     
 </div>
@@ -153,6 +153,21 @@
 <blockquote>
 <p>A Logstash pipeline has two required elements, input and output, and one optional element, filter. The input plugins consume data from a source, the filter plugins modify the data as you specify, and the output plugins write the data to a destination.</p>
 </blockquote>
+<h2 id="Logstash-gt-Elasticsearch-gt-Kibana"><a href="#Logstash-gt-Elasticsearch-gt-Kibana" class="headerlink" title="Logstash -&gt; Elasticsearch -&gt; Kibana"></a>Logstash -&gt; Elasticsearch -&gt; Kibana</h2><ul>
+<li>In logstash, specify output as elasticsearch and specify the index</li>
+<li>In Kibana UI, specify index</li>
+<li>Kibana will retrieve the data with the correct index.</li>
+</ul>
+<h2 id="grok-filter"><a href="#grok-filter" class="headerlink" title="grok filter"></a>grok filter</h2><p>Reading:</p>
+<ul>
+<li><a href="https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Apx-GrokPatterns/GrokPatterns_title.html" target="_blank" rel="noopener">grok pattern syntax</a></li>
+<li><a href="https://logz.io/blog/logstash-grok/" target="_blank" rel="noopener">grok pattern examples</a></li>
+<li><a href="https://discuss.elastic.co/t/making-a-part-in-the-grok-expression-optional/43961" target="_blank" rel="noopener">optional parts in grok pattern</a><ul>
+<li>Look out for your spaces! If there is a space before the optional field and a space after, the filter will only match two spaces.</li>
+<li>If a field does not exist, it will break Kibana. See <a href="https://discuss.elastic.co/t/available-fields-not-showing-in-kibana-issue-resolved/31872/3" target="_blank" rel="noopener">Available fields not showing in kibana (Issue resolved)</a></li>
+</ul>
+</li>
+</ul>
 
         
         <br />

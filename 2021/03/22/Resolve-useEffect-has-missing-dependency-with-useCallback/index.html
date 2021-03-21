@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-original-problem-useEffect-missing-dependency"><span class="toc-text">The original problem: useEffect missing dependency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-this-problem-useEffect’s-skipping-effect-optimization"><span class="toc-text">Why this problem: useEffect’s skipping effect optimization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-fetchData-to-useEffect-dependency"><span class="toc-text">Add fetchData to useEffect dependency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memorize-the-callback"><span class="toc-text">Memorize the callback</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-original-problem-useEffect-missing-dependency"><span class="toc-text">The original problem: useEffect missing dependency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-this-problem-useEffect’s-skipping-effect-optimization"><span class="toc-text">Why this problem: useEffect’s skipping effect optimization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-fetchData-to-useEffect-dependency"><span class="toc-text">Add fetchData to useEffect dependency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memorize-the-callback"><span class="toc-text">Memorize the callback</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Readings"><span class="toc-text">Readings</span></a></li></ol>
 </div>
     
 </div>
@@ -167,6 +167,11 @@
 <li>The dependency chain is <code>useEffect</code> -&gt; <code>fetchData</code> -&gt; <code>url</code>.</li>
 <li><code>fetchData</code> will only be reloaded if <code>url</code> changes</li>
 <li><code>useEffect</code> will only be triggered if <code>fetchData</code> changes.</li>
+</ul>
+<h2 id="Readings"><a href="#Readings" class="headerlink" title="Readings"></a>Readings</h2><ul>
+<li><a href="https://github.com/facebook/create-react-app/issues/6903" target="_blank" rel="noopener">Github issue: React Hook useEffect has a missing dependency #6903</a></li>
+<li><a href="https://reactjs.org/docs/hooks-effect.html" target="_blank" rel="noopener">React docs: using the effect hook</a></li>
+<li><a href="https://reactjs.org/docs/hooks-reference.html#usecallback" target="_blank" rel="noopener">React docs: useCallback</a></li>
 </ul>
 
         
