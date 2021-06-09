@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        Anran&#39;s Coding Elephant
+        AWS Developer Associate Exam Preparation Note - Anran&#39;s Coding Elephant
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CodeDeploy-AppSpec-file"><span class="toc-text">CodeDeploy AppSpec file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-X-Ray"><span class="toc-text">AWS X-Ray</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda-function-invoking"><span class="toc-text">Lambda function invoking</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-invokes-Event"><span class="toc-text">Asynchronous invokes (Event)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Poll-based-invokes-Stream-Queue"><span class="toc-text">Poll-based invokes (Stream&#x2F;Queue)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronous-invokes-Push"><span class="toc-text">Synchronous invokes (Push)</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,69 +123,74 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-07</div>
-        <div class="post-info">
-            <a href="/2020/04/07/What-is-RESTful-API/">
-                <h3>
-                    What is RESTful API
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Developer Associate Exam Preparation Note
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-05-24 13:58:25</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS DVA" title="AWS DVA">AWS DVA</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/11/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <h2 id="CodeDeploy-AppSpec-file"><a href="#CodeDeploy-AppSpec-file" class="headerlink" title="CodeDeploy AppSpec file"></a>CodeDeploy AppSpec file</h2><ul>
+<li>AppSpec file should be placed in the root directory of the application’s source content’s directory structure.</li>
 </ul>
+<h2 id="AWS-X-Ray"><a href="#AWS-X-Ray" class="headerlink" title="AWS X-Ray"></a>AWS X-Ray</h2><p>AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization.</p>
+<h2 id="Lambda-function-invoking"><a href="#Lambda-function-invoking" class="headerlink" title="Lambda function invoking"></a>Lambda function invoking</h2><h3 id="Asynchronous-invokes-Event"><a href="#Asynchronous-invokes-Event" class="headerlink" title="Asynchronous invokes (Event)"></a>Asynchronous invokes (Event)</h3><p>Several AWS services invoke functions asynchronously to process events: </p>
+<ul>
+<li>Amazon Simple Storage Service</li>
+<li>Amazon Simple Notification Service</li>
+<li>Amazon Simple Email Service</li>
+<li>AWS CloudFormation</li>
+<li>Amazon CloudWatch Logs</li>
+<li>Amazon CloudWatch Events</li>
+<li>AWS CodeCommit</li>
+<li>AWS Config<br>Asynchronous invokes place your invoke request in Lambda service queue and we process the requests as they arrive. You should use AWS X-Ray to review how long your request spent in the service queue by checking the “dwell time” segment.</li>
+</ul>
+<h3 id="Poll-based-invokes-Stream-Queue"><a href="#Poll-based-invokes-Stream-Queue" class="headerlink" title="Poll-based invokes (Stream/Queue)"></a>Poll-based invokes (Stream/Queue)</h3><p>Lambda polls the queue/steam and invokes your Lambda function <strong>synchronously</strong> with an event that contains queue messages. </p>
+<ul>
+<li>SQS</li>
+<li>DynamoDB Stream</li>
+<li>Kinesis data stream </li>
+</ul>
+<h3 id="Synchronous-invokes-Push"><a href="#Synchronous-invokes-Push" class="headerlink" title="Synchronous invokes (Push)"></a>Synchronous invokes (Push)</h3><p>AWS executes your Lambda function and wait for the function to complete. When you perform a synchronous invoke, you are responsible for checking the response and determining if there was an error and if you should retry the invoke.</p>
+<ul>
+<li>Elastic Load Balancing (Application Load Balancer)</li>
+<li>Amazon Cognito</li>
+<li>Amazon Lex</li>
+<li>Amazon Alexa</li>
+<li>Amazon API Gateway</li>
+<li>Amazon CloudFront (Lambda@Edge)</li>
+<li>Amazon Kinesis Data Firehose</li>
+</ul>
+<img src="https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2019/06/27/Screen-Shot-2019-06-27-at-2.23.51-PM-1024x510.png" alt="lambda invoke models" width="400"/>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -232,7 +241,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
