@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Powerful Azure Database Tools - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#bcp"><span class="toc-text">bcp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-sqlcmd-utility-and-Cloud-Shell"><span class="toc-text">The sqlcmd utility and Cloud Shell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#psql-command-line-tool-for-PostgreSQL"><span class="toc-text">psql command line tool for PostgreSQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-System-Data-SqlClient-NET-library"><span class="toc-text">The System.Data.SqlClient .NET library</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Azure-CLI-az-webapp-command"><span class="toc-text">Azure CLI az webapp command</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Powerful Azure Database Tools
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-14 13:37:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Database" title="Database">Database</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Azure" title="Azure">Azure</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I was learning from the Microsoft Learn Module: [Develop and configure an ASP.NET application that queries an Azure SQL database] (<a href="https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/3-exercise-create-tables-bulk-import-query-data" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/3-exercise-create-tables-bulk-import-query-data</a>) and it offers some powerful tools for data import and query.</p>
+<h1 id="bcp"><a href="#bcp" class="headerlink" title="bcp"></a>bcp</h1><p><code>bcp</code> is a convenient tool to import bulk data from file to sql database.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcp [MSA-DB].dbo.MyTable format nul -c -f mytable.fmt -t , -S msa-anran.database.windows.net -U &lt;username&gt; -P &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<p>This generates a format file, <code>mytable.fmt</code>, that defines how data should be mapped to the columns of the table, <code>[MSA-DB].dbo.MyTable</code>.<br>Note that the square brackets are added because the database name, <code>[MSA-DB]</code>, contains the character <code>-</code>, so that the database name could be properly handled.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcp &quot;$DATABASE_NAME.dbo.studyplans&quot; in studyplans.csv -f studyplans.fmt -S &quot;$DATABASE_SERVER.database.windows.net&quot; -U $AZURE_USER -P $AZURE_PASSWORD -F 2</span><br></pre></td></tr></table></figure>
+<p>A command like this will import data from <code>studyplans.csv</code> to the table <code>$DATABASE_NAME.dbo.studyplans</code>, following the format defined in <code>studyplans.fmt</code>.</p>
+<h1 id="The-sqlcmd-utility-and-Cloud-Shell"><a href="#The-sqlcmd-utility-and-Cloud-Shell" class="headerlink" title="The sqlcmd utility and Cloud Shell"></a>The <code>sqlcmd</code> utility and Cloud Shell</h1><p>Through <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/using-the-shell-window" target="_blank" rel="noopener">Cloud Shell</a>, you could access your Azure resources from anywhere.<br>To use the <code>sqlcmd</code> utility, go to <a href="https://shell.azure.com/" target="_blank" rel="noopener">Cloud Shell</a> and run the following command. Replace <server> with the name of the database server that you created, <database> with the name of your database, and <user name> and <password> with your credentials.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlcmd -S &lt;server&gt;.database.windows.net -d &lt;database&gt; -U &lt;username&gt; -P &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<p>If the sign-in command succeeds, you’ll see a 1&gt; prompt. You can enter SQL commands on several lines and then type GO to run them:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1&gt; SELECT * FROM StudyPlans;  </span><br><span class="line">2&gt; GO</span><br></pre></td></tr></table></figure>
+
+<h1 id="psql-command-line-tool-for-PostgreSQL"><a href="#psql-command-line-tool-for-PostgreSQL" class="headerlink" title="psql command line tool for PostgreSQL"></a><code>psql</code> command line tool for PostgreSQL</h1><p>The command-line tool called psql is the PostgreSQL distributed interactive terminal for working with PostgreSQL servers and databases. </p>
+<h1 id="The-System-Data-SqlClient-NET-library"><a href="#The-System-Data-SqlClient-NET-library" class="headerlink" title="The System.Data.SqlClient .NET library"></a>The <code>System.Data.SqlClient</code> .NET library</h1><p>The System.Data.SqlClient library is a collection of types and methods that you can use to connect to a SQL Server database that’s running on-premises or in the cloud on SQL Database. </p>
+<h1 id="Azure-CLI-az-webapp-command"><a href="#Azure-CLI-az-webapp-command" class="headerlink" title="Azure CLI az webapp command"></a>Azure CLI <code>az webapp</code> command</h1><p>The <a href="https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest" target="_blank" rel="noopener">Azure CLI <code>az webapp</code> command</a> manages web apps.</p>
+<p>In order to build the connection between the course database and the app, the following files are modified, as instructed by the <a href="https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/5-exercise-connect-aspnet-to-azure-sql?source=learn" target="_blank" rel="noopener">microsoft learn unit: Connect an ASP.NET application to Azure SQL Database</a>:</p>
+<ul>
+<li><code>CoursesAndModules.cs</code><ul>
+<li>The model of the C# object.</li>
+<li>has <code>getter</code> and constructor for the fields</li>
+</ul>
+</li>
+<li><code>DataAccessController.cs</code><ul>
+<li>Responsible for the data access logic</li>
+<li>An <code>SqlConnection</code> object is created which, given the connection string, connects to the database.</li>
+<li>A method <code>GetAllCoursesAndModules</code> is created, using the connection object to obtain a list of courseAndModules.</li>
+</ul>
+</li>
+<li><code>Index.cshtml.cs</code><ul>
+<li>This file contains code that the <code>index.cshtml</code> runs when it’s displayed.</li>
+<li>It contains a class, <code>CoursesAndModulesModel : PageModel</code>. This class overrides <code>onGet</code> method to provide the model needed by the view.</li>
+<li>It depends on <code>DataAccessController.cs</code>: creates a <code>DataAccessController</code> object, and uses it to obtain the list of courseAndModules within <code>onGet</code> method.</li>
+</ul>
+</li>
+</ul>
+<p>#</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

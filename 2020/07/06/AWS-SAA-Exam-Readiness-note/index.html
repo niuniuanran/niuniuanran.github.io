@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS SAA Exam Readiness note - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-Breakdown"><span class="toc-text">Question Breakdown</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Resilient-Architectures"><span class="toc-text">Design Resilient Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Choose-reliable-resilient-storage"><span class="toc-text">Choose reliable&#x2F;resilient storage.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ephemeral-volumes"><span class="toc-text">Ephemeral volumes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EFS"><span class="toc-text">EFS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EFS-process"><span class="toc-text">EFS process:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3"><span class="toc-text">S3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consistency-model"><span class="toc-text">Consistency model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Storage-classes"><span class="toc-text">Storage classes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-rest"><span class="toc-text">Encryption at rest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption-at-transit"><span class="toc-text">Encryption at transit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Versioning"><span class="toc-text">Versioning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control"><span class="toc-text">Access Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multi-part-upload"><span class="toc-text">Multi-part upload</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Internet-API-accessible"><span class="toc-text">Internet-API accessible</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Regional-Availability"><span class="toc-text">Regional Availability</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Glacier"><span class="toc-text">Amazon Glacier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decouple"><span class="toc-text">Decouple</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQS-queue"><span class="toc-text">SQS queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decouple-from-Identity-e-g-IP-of-Components"><span class="toc-text">Decouple from Identity (e.g. IP) of Components</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mult-tier-architectures"><span class="toc-text">mult-tier architectures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#high-availability-and-fault-tolerance"><span class="toc-text">high availability and fault tolerance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fault-tolerance"><span class="toc-text">Fault tolerance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFormation"><span class="toc-text">CloudFormation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RTO-and-RPO"><span class="toc-text">RTO and RPO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Performant-Architectures"><span class="toc-text">Design Performant Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Storage-and-databases"><span class="toc-text">Storage and databases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS-1"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-1"><span class="toc-text">S3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Amazon-S3-Payment-Model"><span class="toc-text">Amazon S3 Payment Model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDS-or-NoSQL"><span class="toc-text">RDS or NoSQL?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-Amazon-RDS-when"><span class="toc-text">Use Amazon RDS when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Do-not-use-Amazon-RDS-when"><span class="toc-text">Do not use Amazon RDS when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDS-Read-Replicas"><span class="toc-text">RDS Read Replicas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DynamoDB-Provisioned-throughput"><span class="toc-text">DynamoDB: Provisioned throughput</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caching"><span class="toc-text">Caching</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront"><span class="toc-text">CloudFront</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElastiCache"><span class="toc-text">ElastiCache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Memcached-and-Redis"><span class="toc-text">Memcached and Redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Design-decision"><span class="toc-text">Design decision</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticity-and-Scalability"><span class="toc-text">Elasticity and Scalability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Horizontal-Scaling-vs-Vertical-Scaling"><span class="toc-text">Horizontal Scaling vs Vertical Scaling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Scaling"><span class="toc-text">Auto Scaling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-1"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shared-Responsibility-Model"><span class="toc-text">Shared Responsibility Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identities"><span class="toc-text">Identities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Secure-Data"><span class="toc-text">Secure Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-in-transit"><span class="toc-text">Data in transit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-transferring-in-and-out-of-AWS-infrastructure"><span class="toc-text">Data transferring in and out of AWS infrastructure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-sent-to-the-AWS-API"><span class="toc-text">Data sent to the AWS API</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-at-rest"><span class="toc-text">Data at rest</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Access-Control-1"><span class="toc-text">Access Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Where-to-store-keys"><span class="toc-text">Where to store keys</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Define-the-network-infrastructure-for-a-single-VPC-application"><span class="toc-text">Define the network infrastructure for a single VPC application</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Services-to-get-traffic-in-or-out-of-your-VPC"><span class="toc-text">Services to get traffic in or out of your VPC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-2"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cost-Optimisation"><span class="toc-text">Cost Optimisation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Pricing"><span class="toc-text">AWS Pricing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EC2-pricing"><span class="toc-text">EC2 pricing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-spot-instances"><span class="toc-text">Using spot instances</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-Pricing"><span class="toc-text">S3 Pricing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EBS-2"><span class="toc-text">EBS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#User-serverless-architecture-to-save-cost"><span class="toc-text">User serverless architecture to save cost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFront-1"><span class="toc-text">CloudFront</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront-Pricing"><span class="toc-text">CloudFront Pricing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-3"><span class="toc-text">Test Axioms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operational-Excellence"><span class="toc-text">Operational Excellence</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Operational-Excellence-Design-Principles"><span class="toc-text">Operational Excellence Design Principles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Services-for-Operational-Excellence"><span class="toc-text">AWS Services for Operational Excellence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Axioms-4"><span class="toc-text">Test Axioms</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Exam Readiness note
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-06 16:24:34</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>The new version of SAA test is based around the well-architectured framework.</p>
+<p>Validate the person’s ability to:</p>
+<ul>
+<li>Define a solution using architectual design principles, based on customer requirements</li>
+<li>Provide implementation guidance based on best practices to the organisation <strong>throughout the lifecycle of the project</strong>.</li>
+</ul>
+<h1 id="Question-Breakdown"><a href="#Question-Breakdown" class="headerlink" title="Question Breakdown"></a>Question Breakdown</h1><ul>
+<li>Resilient: 34%</li>
+<li>Performant: 24%</li>
+<li>Secure: 26%</li>
+<li>Cost-optimised: 10%</li>
+<li>Operationally Excellent: 6%</li>
+</ul>
+<h1 id="Design-Resilient-Architectures"><a href="#Design-Resilient-Architectures" class="headerlink" title="Design Resilient Architectures"></a>Design Resilient Architectures</h1><h2 id="Choose-reliable-resilient-storage"><a href="#Choose-reliable-resilient-storage" class="headerlink" title="Choose reliable/resilient storage."></a>Choose reliable/resilient storage.</h2><h3 id="Ephemeral-volumes"><a href="#Ephemeral-volumes" class="headerlink" title="Ephemeral volumes"></a>Ephemeral volumes</h3><p>instance storage is ephemeral</p>
+<ul>
+<li>only certain EC2 types</li>
+<li>fixed capacity</li>
+<li>disk type and capacity depends on EC2 instance</li>
+<li>application-level durability</li>
+<li>good for caching/temporary storage.<h3 id="EBS"><a href="#EBS" class="headerlink" title="EBS"></a>EBS</h3>attachable storage<br>connects to one EC2 instance at a time</li>
+<li>different types</li>
+<li>encryption</li>
+<li>snapshots</li>
+<li>provisioned capacity</li>
+<li>independent lifecycle than EC2 instance</li>
+<li>multiple volumes striped to create larger volumes<br>Think as EBS volume as durable, attachable storage for EC2 instance.<br>Four types of EBS:<br>SDD is good for random access and HDD is good for sequential access.</li>
+<li>gp2</li>
+<li>io1</li>
+<li>st1: throughput optimised HDD</li>
+<li>sc1: Cold HDD</li>
+</ul>
+<p>SDD is more expensive than HDD.</p>
+<p>Further reading: <a href="https://d1.awsstatic.com/whitepapers/Storage/AWS%20Storage%20Services%20Whitepaper-v9.pdf" target="_blank" rel="noopener">White Paper: AWS Storage Overview</a></p>
+<h3 id="EFS"><a href="#EFS" class="headerlink" title="EFS"></a>EFS</h3><ul>
+<li>Also mounted as a disk into EC2 instance like EBS, but could be shared among instances.</li>
+<li>PB scale.<br>Elastic capacity.<br>Supports NFS v4.0, v4.1 protocol.<br>Compatible with Linux-based AMIs for Amazon EC2. Not currently supported for windows.</li>
+</ul>
+<h4 id="EFS-process"><a href="#EFS-process" class="headerlink" title="EFS process:"></a>EFS process:</h4><p>You create an Amazon EFS volume and then create a mount point for it in a particular VPC. The EFS volume can only attach to a single VPC at a time.<br>Within the VPC, you get <strong>mount target</strong> that your EC2 instance can connect to.</p>
+<h3 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h3><h4 id="Consistency-model"><a href="#Consistency-model" class="headerlink" title="Consistency model"></a>Consistency model</h4><p>You always want to ask the consistency for a distributed model.</p>
+<ul>
+<li>Strong consistency for new objects</li>
+<li>Eventual consistency for updates: because it is a scalable, distributed system.<h4 id="Storage-classes"><a href="#Storage-classes" class="headerlink" title="Storage classes"></a>Storage classes</h4>S3 Standard<br>S3 Standard-IA<h4 id="Encryption-at-rest"><a href="#Encryption-at-rest" class="headerlink" title="Encryption at rest"></a>Encryption at rest</h4>SSE-S3: S3 manages keys<br>SSE-KMS: KMS managed enveloped keys<br>SSE-C: customer manage keys to encrypt on the server side<h4 id="Encryption-at-transit"><a href="#Encryption-at-transit" class="headerlink" title="Encryption at transit"></a>Encryption at transit</h4>HTTPS<h4 id="Versioning"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning</h4>Great way to protect from accidental delete and overwrite.<h4 id="Access-Control"><a href="#Access-Control" class="headerlink" title="Access Control"></a>Access Control</h4>Control S3 access through:</li>
+<li>IAM user policies</li>
+<li>bucket policies</li>
+<li>Amazon S3 access control lists (ACLs) enable you to manage access to <strong>buckets and objects</strong>.<h4 id="Multi-part-upload"><a href="#Multi-part-upload" class="headerlink" title="Multi-part upload"></a>Multi-part upload</h4><h4 id="Internet-API-accessible"><a href="#Internet-API-accessible" class="headerlink" title="Internet-API accessible"></a>Internet-API accessible</h4><h4 id="Regional-Availability"><a href="#Regional-Availability" class="headerlink" title="Regional Availability"></a>Regional Availability</h4>Regional scoped.<h3 id="Amazon-Glacier"><a href="#Amazon-Glacier" class="headerlink" title="Amazon Glacier"></a>Amazon Glacier</h3></li>
+<li>Encrypt data by default</li>
+<li>Regional</li>
+<li>Retrieval types: expedited( 1–5 minutes), standard(3-5 hours), bulk(5-12 hours)</li>
+<li>11 9’s durability</li>
+</ul>
+<h2 id="Decouple"><a href="#Decouple" class="headerlink" title="Decouple"></a>Decouple</h2><p>Ensures if one component fails, the others stay functional.</p>
+<h3 id="SQS-queue"><a href="#SQS-queue" class="headerlink" title="SQS queue"></a>SQS queue</h3><ul>
+<li>asynchronous interaction </li>
+<li>data persistence when service fails</li>
+<li>allow for scalability in individual component<h3 id="Decouple-from-Identity-e-g-IP-of-Components"><a href="#Decouple-from-Identity-e-g-IP-of-Components" class="headerlink" title="Decouple from Identity (e.g. IP) of Components"></a>Decouple from Identity (e.g. IP) of Components</h3></li>
+<li>Elastic IP address: EIP could be moved to the new server. </li>
+<li>Elastic Load Balancing</li>
+</ul>
+<h2 id="mult-tier-architectures"><a href="#mult-tier-architectures" class="headerlink" title="mult-tier architectures"></a>mult-tier architectures</h2><p>mult-tier architecture is naturally decoupled</p>
+<h2 id="high-availability-and-fault-tolerance"><a href="#high-availability-and-fault-tolerance" class="headerlink" title="high availability and fault tolerance"></a>high availability and fault tolerance</h2><p>“Everything fails, all the time”<br>Service failure should be treated as operational events. You want to design you system to be resilient to instance/code failures.</p>
+<h3 id="Fault-tolerance"><a href="#Fault-tolerance" class="headerlink" title="Fault tolerance"></a>Fault tolerance</h3><p>The more loosely your system is coupled, the more easily it scales and the more fault-tolerant it can be.<br>Fault tolerance means the user doe<br>s not experience any impact from a fault and the SLA is met. It is <strong>a higher requirement than high availability</strong> - HA means the service is up and available, but could be running in a degraded status. </p>
+<img src="high-a.png" alt="" width="800px"/>
+
+<img src="fault-tolerance.png" alt="" width="800px"/>
+
+<h2 id="CloudFormation"><a href="#CloudFormation" class="headerlink" title="CloudFormation"></a>CloudFormation</h2><p>Enhances resilience: you can re-launch your system whenever you want.</p>
+<ul>
+<li>Template (Declarative definition of resources to create) -&gt; Stack (Collection of AWS resources)</li>
+<li>Templates do not need to be region-specific.</li>
+<li>You can use <strong>mappings</strong> to specify the base AMI since AMI IDs are different in each region.</li>
+</ul>
+<h2 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h2><p>Provide stateless code for AWS to deploy and manage - not vulnerable to instance failure.<br>You pay for invocation.</p>
+<ul>
+<li>You can access Lambda print statement outputs through <strong>CloudWatch Logs</strong>.</li>
+</ul>
+<h2 id="RTO-and-RPO"><a href="#RTO-and-RPO" class="headerlink" title="RTO and RPO"></a>RTO and RPO</h2><ul>
+<li>RTO: recovery time objective, time taken for system to recover back to service.</li>
+<li>RPO: recovery point objective, how much data is lost if the system fails (can be measured either in MB/GB or time units).</li>
+</ul>
+<h2 id="Test-Axioms"><a href="#Test-Axioms" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>Expect “Single AZ” will never be a right answer.</li>
+<li>Using AWS managed services should always be preferred.</li>
+<li><strong>Fault tolerance and high availability are not the same thing</strong>: fault tolerant is a higher requirement, conceals the service from the user with <strong>no loss</strong></li>
+<li>Expect that everything will fail at some point and design accordingly.</li>
+</ul>
+<h1 id="Design-Performant-Architectures"><a href="#Design-Performant-Architectures" class="headerlink" title="Design Performant Architectures"></a>Design Performant Architectures</h1><h2 id="Storage-and-databases"><a href="#Storage-and-databases" class="headerlink" title="Storage and databases"></a>Storage and databases</h2><h3 id="EBS-1"><a href="#EBS-1" class="headerlink" title="EBS"></a>EBS</h3><ul>
+<li>EBS trade-offs between SSD (General purpose/ provisioned IOPS) and HDD (throughput-optimised/cold HDD)</li>
+<li>EBS volumes are automatically replicated within an Availability Zone.<h3 id="S3-1"><a href="#S3-1" class="headerlink" title="S3"></a>S3</h3></li>
+<li>You should <strong>offload static storage from your server instance to S3</strong>: This dramatically improves web server performance by freeing up the server to use all of the CPU/memory for serving dynamic content.</li>
+<li>Buckets are always tied to a region, although you do not need to specify the region in the URL (names are globally unique).</li>
+</ul>
+<h4 id="Amazon-S3-Payment-Model"><a href="#Amazon-S3-Payment-Model" class="headerlink" title="Amazon S3 Payment Model"></a>Amazon S3 Payment Model</h4><p>Pay for what you use, three components:</p>
+<ul>
+<li>GBs per month</li>
+<li>Transfer out of region</li>
+<li>PUT, COPY, POST, LIST, GET requests<br>Free for:</li>
+<li>Transfer into S3</li>
+<li>Transfer out from Amazon S3 to Amazon CloudFront</li>
+<li>Transfer out from S3 to the same region</li>
+</ul>
+<p>If you have higher availability requirement, use cross-region replication.</p>
+<p>Objects are immutable - the only way to change a single byte is to replace the object.</p>
+<h3 id="RDS-or-NoSQL"><a href="#RDS-or-NoSQL" class="headerlink" title="RDS or NoSQL?"></a>RDS or NoSQL?</h3><h4 id="Use-Amazon-RDS-when"><a href="#Use-Amazon-RDS-when" class="headerlink" title="Use Amazon RDS when:"></a>Use Amazon RDS when:</h4><ul>
+<li>Complex transactions or complex queries</li>
+<li>A medium-to-high query/write rate</li>
+<li>No more than a single worker node/shard</li>
+<li>High durability: won’t be lost from machine fails (Also with DynamoDB)<h4 id="Do-not-use-Amazon-RDS-when"><a href="#Do-not-use-Amazon-RDS-when" class="headerlink" title="Do not use Amazon RDS when:"></a>Do not use Amazon RDS when:</h4></li>
+<li>Massive read/write rates (eg. 150K write/second)</li>
+<li>Sharding: DynamoDB automatically shards your data into multiple servers. This is why is scales so well.</li>
+<li>Simple GET/PUT requests and queries -&gt; DynamoDB</li>
+<li>RDBMS customisation</li>
+</ul>
+<h4 id="RDS-Read-Replicas"><a href="#RDS-Read-Replicas" class="headerlink" title="RDS Read Replicas"></a>RDS Read Replicas</h4><p>Improve read performance, take workload off master instance.<br>Which RDS engines support Read Replica?<br>Read Replica is supported for all of the  engines, <strong>except</strong> Microsoft SQL Server and Oracle. So these are:</p>
+<ul>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>Aurora</li>
+<li>MariaDB</li>
+</ul>
+<h4 id="DynamoDB-Provisioned-throughput"><a href="#DynamoDB-Provisioned-throughput" class="headerlink" title="DynamoDB: Provisioned throughput"></a>DynamoDB: Provisioned throughput</h4><p>DynamoDB grows in size as your data footprint changes.<br>You do specify your <strong>throughput</strong></p>
+<p>The units to define DynamoDB capacity are RCU and WCU.</p>
+<ul>
+<li>Read capacity unit (for item up to 4KB in size).</li>
+<li>One strongly consistent read per second.</li>
+<li>Two eventually consistent reads per second. (If you don’t care about strong consistency, each RCU gives you two reads)</li>
+<li>Write capacity unit (for an item up to 1KB in size)</li>
+<li>One write per second.</li>
+</ul>
+<h2 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h2><p>You can cache data of your application at different levels.</p>
+<h3 id="CloudFront"><a href="#CloudFront" class="headerlink" title="CloudFront"></a>CloudFront</h3><p>When requested, the request gets directed to the optimal edge location. If the edge location does not have the content, the request goes to the origin, and the origin content is transferred to CloudFront edge location for caching.</p>
+<p>Protected with WAF and AWS Shield.</p>
+<h3 id="ElastiCache"><a href="#ElastiCache" class="headerlink" title="ElastiCache"></a>ElastiCache</h3><p>Use ElastiCache to cache what would have been repeatedly fetched from the database(DynamoDB/RDS/MongoDB)</p>
+<h4 id="Memcached-and-Redis"><a href="#Memcached-and-Redis" class="headerlink" title="Memcached and Redis"></a>Memcached and Redis</h4><ul>
+<li>Memcached: simpler, easier to set up, multi-thread, low maintenance, easy horizontal scalability with Auto Discovery.</li>
+<li>Redis: more sophisticated data structure support, atomic operations, pub/sub messaging, read replicas/failover, cluster mode/sharded clusters, persistence<h4 id="Design-decision"><a href="#Design-decision" class="headerlink" title="Design decision"></a>Design decision</h4>Good candidates to store in a cache:</li>
+<li>Session state</li>
+<li>shopping cart</li>
+<li>product catalog</li>
+</ul>
+<p>Do not cache data that needs to be as fresh as possible.</p>
+<h2 id="Elasticity-and-Scalability"><a href="#Elasticity-and-Scalability" class="headerlink" title="Elasticity and Scalability"></a>Elasticity and Scalability</h2><h3 id="Horizontal-Scaling-vs-Vertical-Scaling"><a href="#Horizontal-Scaling-vs-Vertical-Scaling" class="headerlink" title="Horizontal Scaling vs Vertical Scaling"></a>Horizontal Scaling vs Vertical Scaling</h3><p>might be tested on whether you want to scale up/down or scale out/in.</p>
+<h3 id="Auto-Scaling"><a href="#Auto-Scaling" class="headerlink" title="Auto Scaling"></a>Auto Scaling</h3><p>Auto Scaling, Elastic Load Balancer and CloudWatch work together to enable auto scaling of EC2 instances.</p>
+<p>Auto Scaling uses a <strong>Launch Configuration</strong> to launch a fully configured instance automatically. Contains:</p>
+<ul>
+<li>AMI ID, </li>
+<li>instance type, </li>
+<li>storage configuration,</li>
+<li>key pair, </li>
+<li>user data, </li>
+<li>security group</li>
+</ul>
+<p>Auto Scaling Group</p>
+<ul>
+<li>Points to the launch configuration</li>
+<li>Specifies min, max, desired size of Auto Scaling group</li>
+<li>May reference an ELB</li>
+<li>Health Check Type</li>
+</ul>
+<p>Auto Scaling policy</p>
+<ul>
+<li>Specifies how much to scale in/out</li>
+<li><strong>One or more</strong> policies could be attached to one group.</li>
+</ul>
+<p>CloudWatch Metrics<br>Can monitor:</p>
+<ul>
+<li>CPU</li>
+<li>Network</li>
+<li>Queue Size<br>Default EC2 metrics: CPU, network, disk<br>Memory is not a native CloudWatch event: CloudWatch does not have access to this level.</li>
+</ul>
+<img src="scaling.png" alt="" width="800px"/>
+
+<p>Remember: auto scaling takes time. If you know that a spike will happen at a known time, a <strong>scheduled</strong> auto scaling is better than scaling upon a CPU utilisation alarm. Here we assume that the new instances come up into full capacity in 20 minutes.</p>
+<img src="auto-scaling-az.png" width="800px" alt=""/>
+
+<p>“Must have at least 6 running instances to maintain minimally acceptable performance for a short period of time”:<br>It does not mean you want to scale down - 6 is the <strong>minimally acceptable</strong> number. It means you want your system to stay at least 6 when things fail!</p>
+<p>The health status of an Auto Scaling instance is either <strong>healthy or unhealthy</strong>. All instances in your Auto Scaling group start in the healthy state. <strong>Instances are assumed to be healthy unless Amazon EC2 Auto Scaling receives notification that they are unhealthy</strong>. This notification can come from one or more of the following sources: <strong>Amazon EC2, Elastic Load Balancing (ELB), or a custom health check</strong>.</p>
+<p>EBS is responsible for <strong>sending traffic to healthy instances</strong>. </p>
+<p>Increasing instance size will not increase availability. </p>
+<h2 id="Test-Axioms-1"><a href="#Test-Axioms-1" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>If data is unstructured, Amazon S3 is generally the storage solution.</li>
+<li>Use caching strategically to improve performance</li>
+<li>Know when and why to use Auto Scaling</li>
+<li>Choose the instance and database type that makes the most sense for your workload and performance need.</li>
+</ul>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><ul>
+<li><a href="https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf" target="_blank" rel="noopener">White paper: AWS Security Best Practices</a></li>
+<li><a href="https://d0.awsstatic.com/whitepapers/aws-security-whitepaper.pdf" target="_blank" rel="noopener">White paper: overview of security processes</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" target="_blank" rel="noopener">IAM best practices</a></li>
+</ul>
+<h2 id="Shared-Responsibility-Model"><a href="#Shared-Responsibility-Model" class="headerlink" title="Shared Responsibility Model"></a>Shared Responsibility Model</h2><p>Managed services move the line higher.<br>Both client-side and server-side data encryption configurations are responsibilities of customers.</p>
+<h2 id="Identities"><a href="#Identities" class="headerlink" title="Identities"></a>Identities</h2><p>IAM integrates with Microsoft Active Directory and AWS Directory Service using SAML identity federation.<br>Identities in AWS have the following forms:</p>
+<ul>
+<li>IAM users: Users created within an account</li>
+<li>Roles: Temporary identities used by EC2 instances, Lambdas, and <strong>external users</strong>.</li>
+<li>Federation: Users with Active Directory identities or other corporate credentials have role assigned in IAM</li>
+<li>Web Identity Federation: Users with web identities from Amazon.com or other Open ID provider have role assigned using Security Token Service (STS).</li>
+</ul>
+<p>It is impossible to put an IP restriction on root user logins.</p>
+<img src="IAM-policies.png" alt="" width="800px"/>
+
+<p>Policies control actions on AWS resources.</p>
+<h2 id="Secure-Data"><a href="#Secure-Data" class="headerlink" title="Secure Data"></a>Secure Data</h2><h3 id="Data-in-transit"><a href="#Data-in-transit" class="headerlink" title="Data in transit"></a>Data in transit</h3><h4 id="Data-transferring-in-and-out-of-AWS-infrastructure"><a href="#Data-transferring-in-and-out-of-AWS-infrastructure" class="headerlink" title="Data transferring in and out of AWS infrastructure"></a>Data transferring in and out of AWS infrastructure</h4><ul>
+<li>SSL over web</li>
+<li>IPsec for VPN</li>
+<li>IPsec over AWS Direct Connect</li>
+<li>Import/Export/Snowball<br>These are tampering-resistant and encrypted.<h4 id="Data-sent-to-the-AWS-API"><a href="#Data-sent-to-the-AWS-API" class="headerlink" title="Data sent to the AWS API"></a>Data sent to the AWS API</h4>AWS API calls use HTTPS/SSL by default<h3 id="Data-at-rest"><a href="#Data-at-rest" class="headerlink" title="Data at rest"></a>Data at rest</h3><h4 id="Access-Control-1"><a href="#Access-Control-1" class="headerlink" title="Access Control"></a>Access Control</h4>Data stored in Amazon S3 is private by default - requires AWS credentials for access.</li>
+<li>Access over HTTP or HTTPS</li>
+<li>Audit of access to all objects</li>
+<li>Supports ACL on:<ul>
+<li>Buckets</li>
+<li>Prefixes</li>
+<li>Objects</li>
+</ul>
+</li>
+</ul>
+<h4 id="Encryption"><a href="#Encryption" class="headerlink" title="Encryption"></a>Encryption</h4><ul>
+<li>Server side: SSE-S3, SSE-KMS, SSE-C</li>
+<li>Client side: encrypt the data before sending in to S3: CSE-KMS, CSE-C(customer managed master encryption keys)<br>In some cases, client-side encryption is required for compliance and regulations.<br>In general, server-side encryption has better performance and is easier.</li>
+</ul>
+<h4 id="Where-to-store-keys"><a href="#Where-to-store-keys" class="headerlink" title="Where to store keys"></a>Where to store keys</h4><ul>
+<li>Key Management Service<ul>
+<li>Customer software-based key management</li>
+<li>Integrated with many AWS services: EBS, S3, RDS, Redshift, Elastic Transcoder, WorkMail, EMR</li>
+<li>Use directly from application</li>
+</ul>
+</li>
+<li>AWS CloudHSM<ul>
+<li>Hardware-based key management</li>
+<li>Use directly from application</li>
+<li>FIPS 140-2 compliance</li>
+<li>Dedicated applicance for key management</li>
+</ul>
+</li>
+</ul>
+<h2 id="Define-the-network-infrastructure-for-a-single-VPC-application"><a href="#Define-the-network-infrastructure-for-a-single-VPC-application" class="headerlink" title="Define the network infrastructure for a single VPC application"></a>Define the network infrastructure for a single VPC application</h2><ul>
+<li>Use subnets to define Internet accessibility.</li>
+<li>Security Groups: Use security groups to control traffic in, out of and <strong>between</strong> resources.</li>
+</ul>
+<img src="sg-vs-nacl.png" alt="" width="800px"/>
+
+<p>Security groups are stateful. Therefore, to allow users to access your web server, you do not have to allow outbound access on port 80 for the security group. You do need to allow outbound traffic for the NACL.</p>
+<h3 id="Services-to-get-traffic-in-or-out-of-your-VPC"><a href="#Services-to-get-traffic-in-or-out-of-your-VPC" class="headerlink" title="Services to get traffic in or out of your VPC"></a>Services to get traffic in or out of your VPC</h3><ul>
+<li>Internet Gateway: Connect the Internet</li>
+<li>Virtual private gateway: VPN</li>
+<li>AWS Direct Connect: Dedicated pipe</li>
+<li>VPC peering: Connect to other VPCs</li>
+<li>NAT Gateway: allow internet traffic from private subnets</li>
+</ul>
+<h2 id="Test-Axioms-2"><a href="#Test-Axioms-2" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>Lock down the root user</li>
+<li>Security groups only allow. Network ACLs also deny.</li>
+<li>Prefer IAM Roles to access keys.</li>
+</ul>
+<h1 id="Cost-Optimisation"><a href="#Cost-Optimisation" class="headerlink" title="Cost Optimisation"></a>Cost Optimisation</h1><h2 id="AWS-Pricing"><a href="#AWS-Pricing" class="headerlink" title="AWS Pricing"></a>AWS Pricing</h2><ul>
+<li>Pay as you go</li>
+<li>Pay less per unit by using more</li>
+<li>Pay less when you reserve<br>You pay for:</li>
+<li>Compute</li>
+<li>Storage</li>
+<li>Data Transfer<h2 id="EC2-pricing"><a href="#EC2-pricing" class="headerlink" title="EC2 pricing"></a>EC2 pricing</h2></li>
+<li>Clock hours of server time</li>
+<li>Machine configuration</li>
+<li>Machine purchase type</li>
+<li>Number of instances</li>
+<li>Elastic Load balancing: charged by time</li>
+<li>Detailed monitoring</li>
+<li>Auto Scaling: AWS Auto Scaling is <strong>free</strong> to use, and allows you to optimize the costs of your AWS environment.</li>
+<li>Elastic IP addresses</li>
+<li>Operation systems and software package (marketplace)</li>
+<li><strong>instance storage is free but ephemeral.</strong></li>
+<li>EC2 instance pricing factors:<ul>
+<li>EC2 instance family</li>
+<li>Tenancy (default/dedicated)</li>
+<li>Pricing model (reserved/spot/on demand)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Using-spot-instances"><a href="#Using-spot-instances" class="headerlink" title="Using spot instances"></a>Using spot instances</h3><ul>
+<li>Use <strong><a href="https://aws.amazon.com/blogs/aws/new-hibernate-your-ec2-instances/" target="_blank" rel="noopener">hibernate</a></strong> to pause your instance (saves the in-memory data) and resume later.</li>
+<li><strong>Spot blocks</strong> allow you to request Amazon EC2 Spot instances for 1 to 6 hours at a time to avoid being interrupted while your job completes.</li>
+</ul>
+<h2 id="S3-Pricing"><a href="#S3-Pricing" class="headerlink" title="S3 Pricing"></a>S3 Pricing</h2><ul>
+<li>Storage class</li>
+<li>Storage</li>
+<li>Requests</li>
+<li>Data transfer</li>
+</ul>
+<p><strong>EFS does not support public files</strong></p>
+<h2 id="EBS-2"><a href="#EBS-2" class="headerlink" title="EBS"></a>EBS</h2><ul>
+<li>Volumes: Solid State Drives(SDD, more expensive, good for random access) and Hard Disk Drives(HDD, good for continuous access)</li>
+<li>Input/output operations per seconds</li>
+<li>Snapshots taken and restored</li>
+<li>Data transfer</li>
+</ul>
+<h2 id="User-serverless-architecture-to-save-cost"><a href="#User-serverless-architecture-to-save-cost" class="headerlink" title="User serverless architecture to save cost"></a>User serverless architecture to save cost</h2><p>Better utilisation of resources by paying only when you use:</p>
+<ul>
+<li>Lambda</li>
+<li>DynamoDB</li>
+<li>Amazon S3</li>
+<li>API Gateway: attache your REST endpoints to Lambda, so that you can invoke the Lambda from the browser or from any HTTP client.</li>
+</ul>
+<h2 id="CloudFront-1"><a href="#CloudFront-1" class="headerlink" title="CloudFront"></a>CloudFront</h2><p>Benefit on both cost and performance!<br>Use cases</p>
+<ul>
+<li>Content: static OR dynamic</li>
+<li>Origins: Amazon S3, EC2, Elastic Load Balancing, HTTP servers<br>Reduce data transfer cost with CloudFront</li>
+<li>There is no data transfer charge between S3 and CloudFront.</li>
+<li>You can also use CloudFront to offload the work for EC2 instances.</li>
+</ul>
+<h3 id="CloudFront-Pricing"><a href="#CloudFront-Pricing" class="headerlink" title="CloudFront Pricing"></a>CloudFront Pricing</h3><ul>
+<li>Traffic distribution</li>
+<li>Requests</li>
+<li>Data transfer out</li>
+</ul>
+<h2 id="Test-Axioms-3"><a href="#Test-Axioms-3" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>If you know it will be on, reserve</li>
+<li>Any unused CPU is a waste of money</li>
+<li>Use the most cost-effective data storage service and class</li>
+<li>Determine the most cost-effective EC2 pricing model and instance type for each workload.</li>
+</ul>
+<h1 id="Operational-Excellence"><a href="#Operational-Excellence" class="headerlink" title="Operational Excellence"></a>Operational Excellence</h1><p>Main idea: make the system automated and adapting to circumstance changes.</p>
+<p>Operational Excellence: The ability to run and monitor systems to deliver business value and continually improve supporting processes and procedures.<br>Key practices:</p>
+<ul>
+<li>Prepare</li>
+<li>Operate</li>
+<li>Evolve</li>
+</ul>
+<h2 id="Operational-Excellence-Design-Principles"><a href="#Operational-Excellence-Design-Principles" class="headerlink" title="Operational Excellence Design Principles"></a>Operational Excellence Design Principles</h2><ul>
+<li>Perform operations with code</li>
+<li>Annotate documentation</li>
+<li>Make frequent, small, reversible changes</li>
+<li>Refine operations procedure frequently</li>
+<li>Anticipate failure</li>
+<li>Learn from all operational failures</li>
+</ul>
+<h2 id="AWS-Services-for-Operational-Excellence"><a href="#AWS-Services-for-Operational-Excellence" class="headerlink" title="AWS Services for Operational Excellence"></a>AWS Services for Operational Excellence</h2><ul>
+<li>AWS Config: track resources such as EBS volumes and EC2 instances. verifies that resources comply to configuration rules.</li>
+<li>AWS Cloud Trail: logs API calls</li>
+<li>AWS CloudFormation: code -&gt; stack</li>
+<li>AWS Inspector: check EC2 instances for security vulnerabilities</li>
+<li>AWS Trusted Advisor: check account for best practices on security, reliability, cost, performance and service limits</li>
+<li>VPC Flow Logs: logs network traffic. <strong>capture layer 3 and layer 4 IP-level logs. could not do things about layer 7 errors like 404 errors.</strong></li>
+<li>AWS CloudWatch: can help extract patterns by converting log lines into metrics.</li>
+</ul>
+<h2 id="Test-Axioms-4"><a href="#Test-Axioms-4" class="headerlink" title="Test Axioms"></a>Test Axioms</h2><ul>
+<li>IAM roles and safer than keys and passwords.</li>
+<li>Monitor metrics across the system.</li>
+<li>Automate responses to metrics where appropriate.</li>
+<li>Provide alerts for anomalous conditions.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

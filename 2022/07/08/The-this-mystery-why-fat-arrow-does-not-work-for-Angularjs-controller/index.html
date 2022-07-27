@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        The this mystery - why fat arrow does not work for Angularjs controller - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Here’s-why"><span class="toc-text">Here’s why</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#There’s-no-this-binding-with-fat-arrow-function"><span class="toc-text">There’s no this binding with fat arrow function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#If-arrow-function-is-called-with-fn-apply-self-args-the-self-arg-will-be-ignored"><span class="toc-text">If arrow function is called with fn.apply(self, args) the self arg will be ignored</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular-uses-apply-to-define-the-scope-for-controller"><span class="toc-text">Angular uses apply to define the scope for controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Can-I-use-arrow-function-with-definition"><span class="toc-text">Can I use arrow function with . definition</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-takeaways"><span class="toc-text">Key takeaways</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Good-user-cases-of-arrow-function"><span class="toc-text">Good user cases of arrow function</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        The this mystery - why fat arrow does not work for Angularjs controller
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-07-08 16:46:12</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I was learning some Angular.js for Reactify migration and noticed that when I define a component with template and controller like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">phonecatApp.component(<span class="string">'phoneList'</span>, &#123;</span><br><span class="line">  templateUrl: <span class="string">`&lt;ul&gt;</span></span><br><span class="line"><span class="string">  &lt;li ng-repeat="phone in $ctrl.phones"&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt; &#123;&#123;phone.name&#125;&#125; &lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;&#123;&#123;phone.snippet&#125;&#125; &lt;/span&gt;</span></span><br><span class="line"><span class="string">  &lt;/li&gt;</span></span><br><span class="line"><span class="string">&lt;/ul&gt;</span></span><br><span class="line"><span class="string">`</span>,</span><br><span class="line">  controller: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.phones = [</span><br><span class="line">      &#123;</span><br><span class="line">        snippet: <span class="string">'Fast just got faster with Nexus S.'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">'Motorola XOOM™ with Wi-Fi'</span>,</span><br><span class="line">        snippet: <span class="string">'The Next, Next Generation tablet.'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">'MOTOROLA XOOM™'</span>,</span><br><span class="line">        snippet: <span class="string">'The Next, Next Generation tablet.'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>The phone list cannot be rendered. But this works:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">phonecatApp.component(<span class="string">'phoneList'</span>, &#123;</span><br><span class="line">  templateUrl: <span class="string">`&lt;ul&gt;</span></span><br><span class="line"><span class="string">  &lt;li ng-repeat="phone in $ctrl.phones"&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt; &#123;&#123;phone.name&#125;&#125; &lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;&#123;&#123;phone.snippet&#125;&#125; &lt;/span&gt;</span></span><br><span class="line"><span class="string">  &lt;/li&gt;</span></span><br><span class="line"><span class="string">&lt;/ul&gt;</span></span><br><span class="line"><span class="string">`</span>,</span><br><span class="line">  controller: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.phones = [</span><br><span class="line">      &#123;</span><br><span class="line">        snippet: <span class="string">'Fast just got faster with Nexus S.'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">'Motorola XOOM™ with Wi-Fi'</span>,</span><br><span class="line">        snippet: <span class="string">'The Next, Next Generation tablet.'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">'MOTOROLA XOOM™'</span>,</span><br><span class="line">        snippet: <span class="string">'The Next, Next Generation tablet.'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Here’s-why"><a href="#Here’s-why" class="headerlink" title="Here’s why"></a>Here’s why</h2><h3 id="There’s-no-this-binding-with-fat-arrow-function"><a href="#There’s-no-this-binding-with-fat-arrow-function" class="headerlink" title="There’s no this binding with fat arrow function"></a>There’s no <code>this</code> binding with fat arrow function</h3><p><a href="https://www.w3schools.com/js/js_arrow_function.asp#:~:text=In%20short%2C%20with%20arrow%20functions,that%20defined%20the%20arrow%20function" target="_blank" rel="noopener">https://www.w3schools.com/js/js_arrow_function.asp#:~:text=In%20short%2C%20with%20arrow%20functions,that%20defined%20the%20arrow%20function</a>.</p>
+<blockquote>
+<p>In regular functions the this keyword represented the object that called the function, which could be the window, the document, a button or whatever.</p>
+</blockquote>
+<blockquote>
+<p>With arrow functions the this keyword always represents the object that defined the arrow function.</p>
+</blockquote>
+<h3 id="If-arrow-function-is-called-with-fn-apply-self-args-the-self-arg-will-be-ignored"><a href="#If-arrow-function-is-called-with-fn-apply-self-args-the-self-arg-will-be-ignored" class="headerlink" title="If arrow function is called with fn.apply(self, args) the self arg will be ignored"></a>If arrow function is called with <code>fn.apply(self, args)</code> the <code>self</code> arg will be ignored</h3><p>If I define these two functions:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; arrowFn = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">&gt; fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">this</span>)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>If I call them directly:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&gt; fn()</span><br><span class="line">&lt;ref *<span class="number">1</span>&gt; <span class="built_in">Object</span> [global] &#123;</span><br><span class="line">  global: [Circular *<span class="number">1</span>],</span><br><span class="line">  clearInterval: [<span class="built_in">Function</span>: clearInterval],</span><br><span class="line">  clearTimeout: [<span class="built_in">Function</span>: clearTimeout],</span><br><span class="line">  setInterval: [<span class="built_in">Function</span>: setInterval],</span><br><span class="line">  setTimeout: [<span class="built_in">Function</span>: setTimeout] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;,</span><br><span class="line">  queueMicrotask: [<span class="built_in">Function</span>: queueMicrotask],</span><br><span class="line">  clearImmediate: [<span class="built_in">Function</span>: clearImmediate],</span><br><span class="line">  setImmediate: [<span class="built_in">Function</span>: setImmediate] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;,</span><br><span class="line">  arrowFn: [<span class="built_in">Function</span>: arrowFn],</span><br><span class="line">  fn: [<span class="built_in">Function</span>: fn]</span><br><span class="line">&#125;</span><br><span class="line">&gt; arrowFn()</span><br><span class="line">&lt;ref *<span class="number">1</span>&gt; <span class="built_in">Object</span> [global] &#123;</span><br><span class="line">  global: [Circular *<span class="number">1</span>],</span><br><span class="line">  clearInterval: [<span class="built_in">Function</span>: clearInterval],</span><br><span class="line">  clearTimeout: [<span class="built_in">Function</span>: clearTimeout],</span><br><span class="line">  setInterval: [<span class="built_in">Function</span>: setInterval],</span><br><span class="line">  setTimeout: [<span class="built_in">Function</span>: setTimeout] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;,</span><br><span class="line">  queueMicrotask: [<span class="built_in">Function</span>: queueMicrotask],</span><br><span class="line">  clearImmediate: [<span class="built_in">Function</span>: clearImmediate],</span><br><span class="line">  setImmediate: [<span class="built_in">Function</span>: setImmediate] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;,</span><br><span class="line">  arrowFn: [<span class="built_in">Function</span>: arrowFn],</span><br><span class="line">  fn: [<span class="built_in">Function</span>: fn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>I get the global scope for this.</p>
+<p>If I call <code>fn</code> with <code>apply</code>, I can change <code>this</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; fn.apply(<span class="string">"hello"</span>, [])</span><br><span class="line">[<span class="built_in">String</span>: <span class="string">'hello'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>If I call <code>arrowFn</code> with <code>apply</code>, <code>this</code> is still <code>global</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; arrowFn.apply(<span class="string">"hello"</span>, [])</span><br><span class="line">&lt;ref *<span class="number">1</span>&gt; <span class="built_in">Object</span> [global] &#123;</span><br><span class="line">  global: [Circular *<span class="number">1</span>],</span><br><span class="line">  clearInterval: [<span class="built_in">Function</span>: clearInterval],</span><br><span class="line">  clearTimeout: [<span class="built_in">Function</span>: clearTimeout],</span><br><span class="line">  setInterval: [<span class="built_in">Function</span>: setInterval],</span><br><span class="line">  setTimeout: [<span class="built_in">Function</span>: setTimeout] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;,</span><br><span class="line">  queueMicrotask: [<span class="built_in">Function</span>: queueMicrotask],</span><br><span class="line">  clearImmediate: [<span class="built_in">Function</span>: clearImmediate],</span><br><span class="line">  setImmediate: [<span class="built_in">Function</span>: setImmediate] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;,</span><br><span class="line">  arrowFn: [<span class="built_in">Function</span>: arrowFn],</span><br><span class="line">  fn: [<span class="built_in">Function</span>: fn]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Angular-uses-apply-to-define-the-scope-for-controller"><a href="#Angular-uses-apply-to-define-the-scope-for-controller" class="headerlink" title="Angular uses apply to define the scope for controller"></a>Angular uses <code>apply</code> to define the scope for controller</h3><blockquote>
+<p>Angular calls the controller function like this: fn.apply(self, args); where self (which becomes this in the invoked function) is an object that has the required fields</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/35176469/passing-scope-variables-to-an-angularjs-controller-using-fat-arrows" target="_blank" rel="noopener">https://stackoverflow.com/questions/35176469/passing-scope-variables-to-an-angularjs-controller-using-fat-arrows</a></p>
+<h3 id="Can-I-use-arrow-function-with-definition"><a href="#Can-I-use-arrow-function-with-definition" class="headerlink" title="Can I use arrow function with . definition"></a>Can I use arrow function with <code>.</code> definition</h3><p>Short answer: no.</p>
+<p>function definition works as expected:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">&gt; obj.fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">this</span>)&#125;</span><br><span class="line"></span><br><span class="line">&gt; obj.fn()</span><br><span class="line">&#123; <span class="attr">fn</span>: [<span class="built_in">Function</span> (anonymous)] &#125;</span><br></pre></td></tr></table></figure>
+
+<p>arrow function still only remembers <code>global</code> for <code>this</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; obj.arrowFn = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line"></span><br><span class="line">&gt; obj.arrowFn()</span><br><span class="line">&lt;ref *<span class="number">1</span>&gt; <span class="built_in">Object</span> [global] &#123;</span><br><span class="line">  global: [Circular *<span class="number">1</span>],</span><br><span class="line">  clearInterval: [<span class="built_in">Function</span>: clearInterval],</span><br><span class="line">  clearTimeout: [<span class="built_in">Function</span>: clearTimeout],</span><br><span class="line">  setInterval: [<span class="built_in">Function</span>: setInterval],</span><br><span class="line">  setTimeout: [<span class="built_in">Function</span>: setTimeout] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;,</span><br><span class="line">  queueMicrotask: [<span class="built_in">Function</span>: queueMicrotask],</span><br><span class="line">  clearImmediate: [<span class="built_in">Function</span>: clearImmediate],</span><br><span class="line">  setImmediate: [<span class="built_in">Function</span>: setImmediate] &#123;</span><br><span class="line">    [<span class="built_in">Symbol</span>(nodejs.util.promisify.custom)]: [Getter]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Key-takeaways"><a href="#Key-takeaways" class="headerlink" title="Key takeaways"></a>Key takeaways</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Invoked_through_call_or_apply" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Invoked_through_call_or_apply</a></p>
+<blockquote>
+<p>Arrow functions don’t have their own bindings to <code>this</code>, <code>arguments</code> or <code>super</code>, and should not be used as <code>methods</code>.</p>
+</blockquote>
+<blockquote>
+<p>Arrow functions aren’t suitable for <code>call</code>, <code>apply</code> and <code>bind</code> methods, which generally rely on establishing a <code>scope</code>.</p>
+</blockquote>
+<h3 id="Good-user-cases-of-arrow-function"><a href="#Good-user-cases-of-arrow-function" class="headerlink" title="Good user cases of arrow function"></a>Good user cases of arrow function</h3><ul>
+<li>More consise promise chains</li>
+<li>Easy array filter, mapping, reducing</li>
+<li>Immediately invoked function expression</li>
+<li>Parameterless functions as call back arguments that are easier for eyes</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

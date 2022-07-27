@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Distributed Denial of Service attack - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Denial-of-Service-Dos"><span class="toc-text">Denial of Service (Dos)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-a-denial-of-service-attack"><span class="toc-text">What is a denial-of-service attack?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-services-could-be-affected"><span class="toc-text">What services could be affected?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-is-Denial-of-service-condition-accomplished"><span class="toc-text">How is Denial-of-service condition accomplished?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-DoS-attack"><span class="toc-text">Common DoS attack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Smurf-Attack"><span class="toc-text">Smurf Attack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SYN-flood"><span class="toc-text">SYN flood</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Normal-three-way-handshake"><span class="toc-text">Normal three-way handshake</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SYN-flood-attack-sends-SYN-only"><span class="toc-text">SYN flood attack sends SYN only</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consequences"><span class="toc-text">Consequences</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Distributed-DoS-DDoS"><span class="toc-text">Distributed DoS (DDoS)</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Distributed Denial of Service attack
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-15 22:14:24</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Security" title="Security">Security</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Good to know" title="Good to know">Good to know</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Denial-of-Service-Dos"><a href="#Denial-of-Service-Dos" class="headerlink" title="Denial of Service (Dos)"></a>Denial of Service (Dos)</h1><h2 id="What-is-a-denial-of-service-attack"><a href="#What-is-a-denial-of-service-attack" class="headerlink" title="What is a denial-of-service attack?"></a>What is a denial-of-service attack?</h2><p>A denial-of-service (DoS) attack occurs when legitimate users are unable to access information systems, devices, or other network resources due to the actions of a malicious cyber threat actor. </p>
+<h2 id="What-services-could-be-affected"><a href="#What-services-could-be-affected" class="headerlink" title="What services could be affected?"></a>What services could be affected?</h2><p>Email, websites, online accounts (e.g., banking), or other services that rely on the affected computer or network. </p>
+<h2 id="How-is-Denial-of-service-condition-accomplished"><a href="#How-is-Denial-of-service-condition-accomplished" class="headerlink" title="How is Denial-of-service condition accomplished?"></a>How is Denial-of-service condition accomplished?</h2><p>A denial-of-service condition is accomplished by flooding the targeted host or network with traffic until the target cannot respond or simply crashes, preventing access for legitimate users. </p>
+<h2 id="Common-DoS-attack"><a href="#Common-DoS-attack" class="headerlink" title="Common DoS attack"></a>Common DoS attack</h2><h3 id="Smurf-Attack"><a href="#Smurf-Attack" class="headerlink" title="Smurf Attack"></a>Smurf Attack</h3><p>The attacker sends Internet Control Message Protocol broadcast packets to a number of hosts with a spoofed source Internet Protocol (IP) address that belongs to the target machine. The recipients of these spoofed packets will then respond, and the targeted host will be flooded with those responses.</p>
+<h3 id="SYN-flood"><a href="#SYN-flood" class="headerlink" title="SYN flood"></a>SYN flood</h3><h4 id="Normal-three-way-handshake"><a href="#Normal-three-way-handshake" class="headerlink" title="Normal three-way handshake"></a>Normal three-way handshake</h4><p>Normally when a client attempts to start a TCP connection to a server, the client and server exchange a series of messages which normally runs like this:</p>
+<ul>
+<li>The client requests a connection by sending a SYN (synchronize) message to the server.</li>
+<li>The server acknowledges this request by sending SYN-ACK back to the client.<br>The client responds with an ACK, and the connection is established.</li>
+<li>This is called the TCP three-way handshake, and is the foundation for every connection established using the TCP protocol.<h4 id="SYN-flood-attack-sends-SYN-only"><a href="#SYN-flood-attack-sends-SYN-only" class="headerlink" title="SYN flood attack sends SYN only"></a>SYN flood attack sends SYN only</h4>A SYN flood attack works by not responding to the server with the expected ACK code.<br>The malicious client can either simply <strong>not send the expected ACK</strong>, or by <strong>spoofing the source IP address in the SYN</strong>, causing the server to send the SYN-ACK to a falsified IP address – which will not send an ACK because it “knows” that it never sent a SYN.<h4 id="Consequences"><a href="#Consequences" class="headerlink" title="Consequences"></a>Consequences</h4>The server will wait for the acknowledgement for some time, as simple network congestion could also be the cause of the missing ACK. However, in an attack, the half-open connections created by the malicious client bind resources on the server and may eventually exceed the resources available on the server. At that point, the server cannot connect to any clients, whether legitimate or otherwise. This effectively denies service to legitimate clients. Some systems may also malfunction or crash when other operating system functions are starved of resources in this way.</li>
+</ul>
+<h1 id="Distributed-DoS-DDoS"><a href="#Distributed-DoS-DDoS" class="headerlink" title="Distributed DoS (DDoS)"></a>Distributed DoS (DDoS)</h1><p>In a DDoS attack, the incoming traffic flooding the victim originates from many<br>different sources. This effectively makes it impossible to stop the attack simply by<br>blocking a single source.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

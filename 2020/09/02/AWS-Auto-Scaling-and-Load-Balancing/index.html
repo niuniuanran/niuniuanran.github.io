@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS Auto Scaling and Load Balancing - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-EC2-Auto-Scaling-lifecycle-hooks"><span class="toc-text">Amazon EC2 Auto Scaling lifecycle hooks</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-Event-Bridge"><span class="toc-text">Amazon Event Bridge</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scaling-Policies-Scheduled-Actions"><span class="toc-text">Scaling Policies, Scheduled Actions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EC2-and-ELB-Health-Check"><span class="toc-text">EC2 and ELB Health Check</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Health-checks-provided-by-Elastic-Load-Balancing-ELB"><span class="toc-text">Health checks provided by Elastic Load Balancing (ELB)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ALB-Health-Check"><span class="toc-text">ALB Health Check</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NLB-Health-CHeck"><span class="toc-text">NLB Health CHeck</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Auto Scaling and Load Balancing
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-09-02 15:26:46</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Amazon-EC2-Auto-Scaling-lifecycle-hooks"><a href="#Amazon-EC2-Auto-Scaling-lifecycle-hooks" class="headerlink" title="Amazon EC2 Auto Scaling lifecycle hooks"></a>Amazon EC2 Auto Scaling lifecycle hooks</h1><p>Lifecycle hooks enable you to perform custom actions by <strong>pausing</strong> instances as an Auto Scaling group launches or terminates them.</p>
+<p>Each Auto Scaling group can have multiple lifecycle hooks. However, there is a limit on the number of hooks per Auto Scaling group.</p>
+<p>Lifecycle hooks per Auto Scaling group: 50</p>
+<h1 id="Amazon-Event-Bridge"><a href="#Amazon-Event-Bridge" class="headerlink" title="Amazon Event Bridge"></a>Amazon Event Bridge</h1><p>Amazon EventBridge is a serverless event bus service that makes it easy to connect your applications with data from a variety of sources. EventBridge delivers a stream of real-time data from your own applications, Software-as-a-Service (SaaS) applications, and AWS services and routes that data to targets like AWS Lambda. </p>
+<h1 id="Scaling-Policies-Scheduled-Actions"><a href="#Scaling-Policies-Scheduled-Actions" class="headerlink" title="Scaling Policies, Scheduled Actions"></a>Scaling Policies, Scheduled Actions</h1><p>Scaling policies per Auto Scaling group: 50<br>Scheduled actions per Auto Scaling group: 125</p>
+<p>These two can co-exist.</p>
+<h1 id="EC2-and-ELB-Health-Check"><a href="#EC2-and-ELB-Health-Check" class="headerlink" title="EC2 and ELB Health Check"></a>EC2 and ELB Health Check</h1><p>Amazon EC2 Auto Scaling can <strong>determine the health status of an instance</strong> using one or more of the following:</p>
+<ul>
+<li>Status checks provided by Amazon EC2 to identify hardware and software issues that may impair an instance. The default health checks for an Auto Scaling group are EC2 status checks only.</li>
+<li>Health checks provided by Elastic Load Balancing (ELB). These health checks are disabled by default but can be enabled.</li>
+<li>Your custom health checks.</li>
+</ul>
+<h2 id="Health-checks-provided-by-Elastic-Load-Balancing-ELB"><a href="#Health-checks-provided-by-Elastic-Load-Balancing-ELB" class="headerlink" title="Health checks provided by Elastic Load Balancing (ELB)"></a>Health checks provided by Elastic Load Balancing (ELB)</h2><p>ELB health check verifies if the instance responds to a certain request as expected (e.g. 200 status). Healthy indicates that an instance has passed the Load Balancer’s health check. This means that the Load Balancer will send traffic to the instance. </p>
+<h3 id="ALB-Health-Check"><a href="#ALB-Health-Check" class="headerlink" title="ALB Health Check"></a>ALB Health Check</h3><p>Protocols:</p>
+<ul>
+<li>HTTP</li>
+<li>HTTPS</li>
+</ul>
+<p>Examines the response code.</p>
+<h3 id="NLB-Health-CHeck"><a href="#NLB-Health-CHeck" class="headerlink" title="NLB Health CHeck"></a>NLB Health CHeck</h3><p>Protocols:</p>
+<ul>
+<li>TCP</li>
+<li>HTTP</li>
+<li>HTTPS</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS Developer Associate Exam Preparation Note - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CodeDeploy-AppSpec-file"><span class="toc-text">CodeDeploy AppSpec file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-X-Ray"><span class="toc-text">AWS X-Ray</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda-function-invoking"><span class="toc-text">Lambda function invoking</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-invokes-Event"><span class="toc-text">Asynchronous invokes (Event)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Poll-based-invokes-Stream-Queue"><span class="toc-text">Poll-based invokes (Stream&#x2F;Queue)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronous-invokes-Push"><span class="toc-text">Synchronous invokes (Push)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Cognito-Sync"><span class="toc-text">AWS Cognito Sync</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Cognito-Push-Sync"><span class="toc-text">AWS Cognito Push Sync</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-long-polling-vs-short-polling"><span class="toc-text">SQS long polling vs short polling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Caching-strategy"><span class="toc-text">Caching strategy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lazy-loading-cache-aside"><span class="toc-text">Lazy loading &#x2F; cache aside</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Write-through"><span class="toc-text">Write through</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Decouple-RDS-instance-with-beanstalk"><span class="toc-text">Decouple RDS instance with beanstalk</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API-Gateway-cache"><span class="toc-text">API Gateway cache</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda-tmp-storage"><span class="toc-text">Lambda &#x2F;tmp storage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda-logs"><span class="toc-text">Lambda logs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Requiring-HTTPS-for-Cloudfront"><span class="toc-text">Requiring HTTPS for Cloudfront</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Origin-Protocol-Policy"><span class="toc-text">Origin Protocol Policy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Viewer-Protocol-Policy"><span class="toc-text">Viewer Protocol Policy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DynamoDB-Read-Capacity-Units"><span class="toc-text">DynamoDB Read Capacity Units</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-EC2-Query-API-toubleshooting"><span class="toc-text">Amazon EC2 Query API toubleshooting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Deploy-lambda-function-via-CloudFormation"><span class="toc-text">Deploy lambda function via CloudFormation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Run-X-Ray-with-ECS"><span class="toc-text">Run X-Ray with ECS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Large-message-in-SQS"><span class="toc-text">Large message in SQS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DynamoDB-random-number-partition-key-to-distribute-loads-more-evenly"><span class="toc-text">DynamoDB random number partition key to distribute loads more evenly</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A-namespace-is-a-container-for-CloudWatch-metrics"><span class="toc-text">A namespace is a container for CloudWatch metrics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web-identity-federation"><span class="toc-text">web identity federation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#X-Ray-annotation-and-metadata"><span class="toc-text">X-Ray annotation and metadata</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Credentials"><span class="toc-text">Git Credentials</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API-Gateway-Lambda-Authorizor"><span class="toc-text">API Gateway Lambda Authorizor</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MFA-GetSessionToken-API"><span class="toc-text">MFA - GetSessionToken API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cognito-user-pool-vs-identity-pool"><span class="toc-text">Cognito user pool vs identity pool</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cognito-user-pool-API-gateway-authorizor"><span class="toc-text">Cognito user pool API gateway authorizor</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Service-role"><span class="toc-text">Service role</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API-Gateway-usage-plan"><span class="toc-text">API Gateway usage plan</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CLI-command-put-metrics-data-and-put-metrics-alarm"><span class="toc-text">CLI command: put-metrics-data and put-metrics-alarm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis-read-replica"><span class="toc-text">Redis read replica</span></a>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Developer Associate Exam Preparation Note
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-05-24 13:58:25</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS DVA" title="AWS DVA">AWS DVA</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="CodeDeploy-AppSpec-file"><a href="#CodeDeploy-AppSpec-file" class="headerlink" title="CodeDeploy AppSpec file"></a>CodeDeploy AppSpec file</h2><ul>
+<li>AppSpec file should be placed in the root directory of the application’s source content’s directory structure.</li>
+</ul>
+<h2 id="AWS-X-Ray"><a href="#AWS-X-Ray" class="headerlink" title="AWS X-Ray"></a>AWS X-Ray</h2><p>AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization.</p>
+<h2 id="Lambda-function-invoking"><a href="#Lambda-function-invoking" class="headerlink" title="Lambda function invoking"></a>Lambda function invoking</h2><h3 id="Asynchronous-invokes-Event"><a href="#Asynchronous-invokes-Event" class="headerlink" title="Asynchronous invokes (Event)"></a>Asynchronous invokes (Event)</h3><p>Several AWS services invoke functions asynchronously to process events: </p>
+<ul>
+<li>Amazon Simple Storage Service</li>
+<li>Amazon Simple Notification Service</li>
+<li>Amazon Simple Email Service</li>
+<li>AWS CloudFormation</li>
+<li>Amazon CloudWatch Logs</li>
+<li>Amazon CloudWatch Events</li>
+<li>AWS CodeCommit</li>
+<li>AWS Config<br>Asynchronous invokes place your invoke request in Lambda service queue and we process the requests as they arrive. You should use AWS X-Ray to review how long your request spent in the service queue by checking the “dwell time” segment.</li>
+</ul>
+<h3 id="Poll-based-invokes-Stream-Queue"><a href="#Poll-based-invokes-Stream-Queue" class="headerlink" title="Poll-based invokes (Stream/Queue)"></a>Poll-based invokes (Stream/Queue)</h3><p>Lambda polls the queue/steam and invokes your Lambda function <strong>synchronously</strong> with an event that contains queue messages. </p>
+<ul>
+<li>SQS</li>
+<li>DynamoDB Stream</li>
+<li>Kinesis data stream </li>
+</ul>
+<h3 id="Synchronous-invokes-Push"><a href="#Synchronous-invokes-Push" class="headerlink" title="Synchronous invokes (Push)"></a>Synchronous invokes (Push)</h3><p>AWS executes your Lambda function and wait for the function to complete. When you perform a synchronous invoke, you are responsible for checking the response and determining if there was an error and if you should retry the invoke.</p>
+<ul>
+<li>Elastic Load Balancing (Application Load Balancer)</li>
+<li>Amazon Cognito</li>
+<li>Amazon Lex</li>
+<li>Amazon Alexa</li>
+<li>Amazon API Gateway</li>
+<li>Amazon CloudFront (Lambda@Edge)</li>
+<li>Amazon Kinesis Data Firehose</li>
+</ul>
+<img src="https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2019/06/27/Screen-Shot-2019-06-27-at-2.23.51-PM-1024x510.png" alt="lambda invoke models" width="400"/>
+
+<h1 id="AWS-Cognito-Sync"><a href="#AWS-Cognito-Sync" class="headerlink" title="AWS Cognito Sync"></a>AWS Cognito Sync</h1><p>Amazon Cognito lets you save end user data in datasets containing key-value pairs. This data is associated with an Amazon Cognito identity, so that it can be accessed across logins and devices.<br><strong>Amazon Cognito Sync</strong> is an AWS service and <strong>client library</strong> that enables cross-device syncing of application-related user data. </p>
+<h1 id="AWS-Cognito-Push-Sync"><a href="#AWS-Cognito-Push-Sync" class="headerlink" title="AWS Cognito Push Sync"></a>AWS Cognito Push Sync</h1><p>Amazon Cognito automatically tracks the association between identity and devices. </p>
+<p>Push sync ensures that, whenever the sync store data changes for a particular identity, all devices associated with that identity receive a silent push notification informing them of the change. Note that you need to grant AWS Cognito the right permission to send an SNS notification.</p>
+<h1 id="SQS-long-polling-vs-short-polling"><a href="#SQS-long-polling-vs-short-polling" class="headerlink" title="SQS long polling vs short polling"></a>SQS long polling vs short polling</h1><p> If you used long polling, the <strong>connection stays open</strong> to SQS until a message has been found in SQS, <strong>or</strong> until the timeout (e.g. max 20s) is reached. </p>
+<ul>
+<li>With short polling, the <code>ReceiveMessage</code> request queries only a subset of the servers (based on a weighted random distribution) to find messages that are available to include in the response. Amazon SQS sends the response right away, even if the query found no messages.<ul>
+<li>With long polling, the <code>ReceiveMessage</code> request queries all of the servers for messages. Amazon SQS sends a response after it collects at least one available message, up to the maximum number of messages specified in the request. Amazon SQS sends an empty response only if the polling wait time expires.</li>
+</ul>
+</li>
+</ul>
+<p>Short polling occurs when the <code>WaitTimeSeconds</code> parameter of a <code>ReceiveMessage</code> request is set to <code>0</code> in one of two ways:</p>
+<ul>
+<li>The <code>ReceiveMessage</code> call sets <code>WaitTimeSeconds</code> to 0.</li>
+<li>The <code>ReceiveMessage</code> call doesn’t set WaitTimeSeconds, but the queue attribute <code>ReceiveMessageWaitTimeSeconds</code> is set to <code>0</code>.</li>
+</ul>
+<h1 id="Caching-strategy"><a href="#Caching-strategy" class="headerlink" title="Caching strategy"></a>Caching strategy</h1><h2 id="Lazy-loading-cache-aside"><a href="#Lazy-loading-cache-aside" class="headerlink" title="Lazy loading / cache aside"></a>Lazy loading / cache aside</h2><p>A disadvantage when using cache-aside as the only caching pattern is that because the data is loaded into the cache only after a cache miss, some overhead is added to the initial response time because additional roundtrips to the cache and database are needed.</p>
+<h2 id="Write-through"><a href="#Write-through" class="headerlink" title="Write through"></a>Write through</h2><ul>
+<li>A disadvantage of the write-through approach is that infrequently-requested data is also written to the cache, resulting in a larger and more expensive cache.</li>
+</ul>
+<h1 id="Decouple-RDS-instance-with-beanstalk"><a href="#Decouple-RDS-instance-with-beanstalk" class="headerlink" title="Decouple RDS instance with beanstalk"></a>Decouple RDS instance with beanstalk</h1><ul>
+<li>Use an Elastic Beanstalk blue (environment A)/green (environment B) deployment to decouple an RDS DB instance from environment A.</li>
+<li>Create a new Elastic Beanstalk environment (environment B) with the necessary information to connect to the RDS DB instance.</li>
+</ul>
+<h1 id="API-Gateway-cache"><a href="#API-Gateway-cache" class="headerlink" title="API Gateway cache"></a>API Gateway cache</h1><ul>
+<li>For better performance and faster API execution, you can optionally provision a dedicated cache for each stage of your APIs.</li>
+<li>Cache is far more important than calls. Use caching in dev and test environment only when needed.</li>
+</ul>
+<h1 id="Lambda-tmp-storage"><a href="#Lambda-tmp-storage" class="headerlink" title="Lambda /tmp storage"></a>Lambda <code>/tmp</code> storage</h1><p><code>/tmp</code> directory storage quota: <code>512 MB</code>, CANNOT be changed.</p>
+<h1 id="Lambda-logs"><a href="#Lambda-logs" class="headerlink" title="Lambda logs"></a>Lambda logs</h1><p>AWS Lambda automatically monitors Lambda functions on your behalf, reporting metrics through Amazon CloudWatch. To help you troubleshoot failures in a function, Lambda logs all requests handled by your function and also automatically stores logs generated by your code through Amazon CloudWatch Logs.</p>
+<h1 id="Requiring-HTTPS-for-Cloudfront"><a href="#Requiring-HTTPS-for-Cloudfront" class="headerlink" title="Requiring HTTPS for Cloudfront"></a>Requiring HTTPS for Cloudfront</h1><h2 id="Origin-Protocol-Policy"><a href="#Origin-Protocol-Policy" class="headerlink" title="Origin Protocol Policy"></a>Origin Protocol Policy</h2><p>Change the Origin Protocol Policy for the applicable origins in your distribution:</p>
+<ul>
+<li>HTTPS Only – CloudFront uses only HTTPS to communicate with your custom origin.</li>
+<li>Choose Match Viewer only if you specify Redirect HTTP to HTTPS or HTTPS Only for Viewer Protocol Policy.</li>
+</ul>
+<h2 id="Viewer-Protocol-Policy"><a href="#Viewer-Protocol-Policy" class="headerlink" title="Viewer Protocol Policy"></a>Viewer Protocol Policy</h2><p>Choose the protocol policy that you want viewers to use to access your content in CloudFront edge locations:</p>
+<ul>
+<li>HTTP and HTTPS: Viewers can use both protocols.</li>
+<li>Redirect HTTP to HTTPS: Viewers can use both protocols, but HTTP requests are automatically redirected to HTTPS requests.</li>
+<li>HTTPS Only: Viewers can only access your content if they’re using HTTPS.</li>
+</ul>
+<h1 id="DynamoDB-Read-Capacity-Units"><a href="#DynamoDB-Read-Capacity-Units" class="headerlink" title="DynamoDB Read Capacity Units"></a>DynamoDB Read Capacity Units</h1><ul>
+<li>A read capacity unit represents one strongly consistent read per second, or two eventually consistent reads per second, for an item up to <code>4 KB</code> in size.</li>
+<li>Reading an item larger than 4 KB consumes more read capacity units. For example, a strongly consistent read of an item that is 8 KB (4 KB × 2) consumes 2 read capacity units. An eventually consistent read on that same item consumes only 1 read capacity unit. Item sizes for reads are rounded up to the next 4 KB multiple. For example, reading a 3,500-byte item consumes the same throughput as reading a 4 KB item.</li>
+</ul>
+<h1 id="Amazon-EC2-Query-API-toubleshooting"><a href="#Amazon-EC2-Query-API-toubleshooting" class="headerlink" title="Amazon EC2 Query API toubleshooting"></a>Amazon EC2 Query API toubleshooting</h1><p>If an API request exceeds the API request rate for its category, the request returns the <code>RequestLimitExceeded</code> error code.<br>To prevent this error, ensure that your application doesn’t retry API requests at a high rate.<br>You can do this by using care when polling and by using <strong>exponential backoff retries</strong>.</p>
+<h1 id="Deploy-lambda-function-via-CloudFormation"><a href="#Deploy-lambda-function-via-CloudFormation" class="headerlink" title="Deploy lambda function via CloudFormation"></a>Deploy lambda function via CloudFormation</h1><ul>
+<li>Write the code directly in CloudFormation</li>
+<li>Upload zip to S3 and refer to it in CloudFormation</li>
+</ul>
+<h1 id="Run-X-Ray-with-ECS"><a href="#Run-X-Ray-with-ECS" class="headerlink" title="Run X-Ray with ECS"></a>Run X-Ray with ECS</h1><ul>
+<li>Create a docker image that runs X-Ray daemon</li>
+<li>Instrument the code</li>
+<li>Create a role for the task</li>
+</ul>
+<h1 id="Large-message-in-SQS"><a href="#Large-message-in-SQS" class="headerlink" title="Large message in SQS"></a>Large message in SQS</h1><p>To manage large Amazon Simple Queue Service (Amazon SQS) messages, you can use Amazon Simple Storage Service (Amazon S3) and the Amazon SQS Extended Client Library for Java. This is especially useful for storing and consuming messages up to 2 GB. </p>
+<h1 id="DynamoDB-random-number-partition-key-to-distribute-loads-more-evenly"><a href="#DynamoDB-random-number-partition-key-to-distribute-loads-more-evenly" class="headerlink" title="DynamoDB random number partition key to distribute loads more evenly"></a>DynamoDB random number partition key to distribute loads more evenly</h1><p>One strategy for distributing loads more evenly across a partition key space is to add a random number to the end of the partition key values. Then you randomize the writes across the larger space.</p>
+<h1 id="A-namespace-is-a-container-for-CloudWatch-metrics"><a href="#A-namespace-is-a-container-for-CloudWatch-metrics" class="headerlink" title="A namespace is a container for CloudWatch metrics"></a>A namespace is a container for CloudWatch metrics</h1><ul>
+<li>A dimension is a name/value pair that is part of the identity of a metric. You can assign up to 10 dimensions to a metric.</li>
+<li>A namespace is a container for CloudWatch metrics. Metrics in different namespaces are isolated from each other, so that metrics from different applications are not mistakenly aggregated into the same statistics.</li>
+</ul>
+<h1 id="web-identity-federation"><a href="#web-identity-federation" class="headerlink" title="web identity federation"></a>web identity federation</h1><p>With web identity federation, you don’t need to create custom sign-in code or manage your own user identities. Instead, users of your app can sign in using a well-known external identity provider (IdP), such as Login with Amazon, Facebook, Google, or any other OpenID Connect (OIDC)-compatible IdP.</p>
+<h1 id="X-Ray-annotation-and-metadata"><a href="#X-Ray-annotation-and-metadata" class="headerlink" title="X-Ray annotation and metadata"></a>X-Ray annotation and metadata</h1><ul>
+<li>Annotations are simple key-value pairs that are <strong>indexed for use with filter expressions</strong>. Use annotations to record data that you want to use to group traces in the console, or when calling the GetTraceSummaries API. X-Ray indexes up to 50 annotations per trace.</li>
+<li>Metadata are key-value pairs with values of any type, including objects and lists, but that are not indexed. Use metadata to record data you want to store in the trace but don’t need to use for searching traces.</li>
+</ul>
+<h1 id="Git-Credentials"><a href="#Git-Credentials" class="headerlink" title="Git Credentials"></a>Git Credentials</h1><p>With Git credentials, you can generate a static user name and password in the Identity and Access Management (IAM) console that you can use to access AWS CodeCommit repositories from the command line, Git CLI, or any Git tool that supports HTTPS authentication.</p>
+<h1 id="API-Gateway-Lambda-Authorizor"><a href="#API-Gateway-Lambda-Authorizor" class="headerlink" title="API Gateway Lambda Authorizor"></a>API Gateway Lambda Authorizor</h1><p>A Lambda authorizer (formerly known as a custom authorizer) is an API Gateway feature that uses a Lambda function to control access to your API.</p>
+<p>A Lambda authorizer is useful if you want to implement a custom authorization scheme that uses a bearer token authentication strategy such as OAuth or SAML, or that uses request parameters to determine the caller’s identity.</p>
+<p>When a client makes a request to one of your API’s methods, API Gateway calls your Lambda authorizer, which takes the caller’s identity as input and returns an IAM policy as output.</p>
+<p>There are two types of Lambda authorizers:</p>
+<ul>
+<li>A token-based Lambda authorizer (also called a TOKEN authorizer) receives the caller’s identity in a bearer token, such as a JSON Web Token (JWT) or an OAuth token.</li>
+<li>A request parameter-based Lambda authorizer (also called a REQUEST authorizer) receives the caller’s identity in a combination of headers, query string parameters, stageVariables, and $context variables.</li>
+</ul>
+<p>For WebSocket APIs, only request parameter-based authorizers are supported.</p>
+<h1 id="MFA-GetSessionToken-API"><a href="#MFA-GetSessionToken-API" class="headerlink" title="MFA - GetSessionToken API"></a>MFA - GetSessionToken API</h1><p>The primary occasion for calling the GetSessionToken API operation or the get-session-token CLI command is when a user must be authenticated with multi-factor authentication (MFA).</p>
+<h1 id="Cognito-user-pool-vs-identity-pool"><a href="#Cognito-user-pool-vs-identity-pool" class="headerlink" title="Cognito user pool vs identity pool"></a>Cognito user pool vs identity pool</h1><ul>
+<li>User pools are for authentication (identify verification). With a user pool, your app users can sign in through the user pool or federate through a third-party identity provider (IdP). </li>
+<li>Identity pools are for authorization (access control).</li>
+</ul>
+<h1 id="Cognito-user-pool-API-gateway-authorizor"><a href="#Cognito-user-pool-API-gateway-authorizor" class="headerlink" title="Cognito user pool API gateway authorizor"></a>Cognito user pool API gateway authorizor</h1><p>After the API is deployed, the client must first sign the user in to the user pool, obtain an identity or access token for the user, and then call the API method with one of the tokens, which are typically set to the request’s Authorization header.</p>
+<h1 id="Service-role"><a href="#Service-role" class="headerlink" title="Service role"></a>Service role</h1><p>A role that a service assumes to perform actions on your behalf is called a service role.</p>
+<h1 id="API-Gateway-usage-plan"><a href="#API-Gateway-usage-plan" class="headerlink" title="API Gateway usage plan"></a>API Gateway usage plan</h1><p>After you create, test, and deploy your APIs, you can use API Gateway usage plans to make them available as product offerings for your customers. You can configure usage plans and API keys to allow customers to access selected APIs at agreed-upon request rates and quotas that meet their business requirements and budget constraints. </p>
+<h1 id="CLI-command-put-metrics-data-and-put-metrics-alarm"><a href="#CLI-command-put-metrics-data-and-put-metrics-alarm" class="headerlink" title="CLI command: put-metrics-data and put-metrics-alarm"></a>CLI command: <code>put-metrics-data</code> and <code>put-metrics-alarm</code></h1><ul>
+<li><code>put-metrics-data</code> publishes metric data points to Amazon CloudWatch. </li>
+<li><code>put-metrics-alarm</code> creates or updates an alarm and associates it with the specified metric, metric math expression, or anomaly detection model.</li>
+</ul>
+<h1 id="Redis-read-replica"><a href="#Redis-read-replica" class="headerlink" title="Redis read replica"></a>Redis read replica</h1><p>A Redis (cluster mode disabled) cluster has a single shard, inside of which is a collection of Redis nodes; one primary read/write node and up to five secondary, read-only replica nodes. Each read replica maintains a copy of the data from the cluster’s primary node. </p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

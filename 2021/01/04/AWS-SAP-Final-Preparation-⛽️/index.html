@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS SAP - AWS Best Practice Design Patterns - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-SAM-with-build-in-CodeDeploy-Deploying-serverless-applications-gradually"><span class="toc-text">AWS SAM with build-in CodeDeploy: Deploying serverless applications gradually</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-AWS-CloudFormation-StackSets-to-deploy-to-multiple-accounts-regions"><span class="toc-text">Use AWS CloudFormation StackSets to deploy to multiple accounts&#x2F;regions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Concepts"><span class="toc-text">Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StackSets"><span class="toc-text">StackSets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stack-Instance"><span class="toc-text">Stack Instance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Permissions-models-for-stack-sets"><span class="toc-text">Permissions models for stack sets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#self-managed-permissions"><span class="toc-text">self-managed permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service-managed-permissions"><span class="toc-text">service-managed permissions</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-Kinesis-Video-Streams"><span class="toc-text">Amazon Kinesis Video Streams</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kinesis-Video-Streams-Producer-libraries"><span class="toc-text">Kinesis Video Streams Producer libraries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Consumer"><span class="toc-text">Consumer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Associating-an-Amazon-VPC-and-a-private-hosted-zone-from-different-AWS-accounts"><span class="toc-text">Associating an Amazon VPC and a private hosted zone from different AWS accounts</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-Lambda-Edge-to-authorize-request-before-it-reaches-origin-infrastructure"><span class="toc-text">Use Lambda@Edge to authorize request before it reaches origin infrastructure</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sources-and-Targets-of-DMS"><span class="toc-text">Sources and Targets of DMS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sources"><span class="toc-text">Sources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Targets"><span class="toc-text">Targets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cross-Region-Snapshot-Copy-for-RDS-and-EBS"><span class="toc-text">Cross-Region Snapshot Copy for RDS and EBS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stop-and-Re-start-Elastic-Beanstalk-on-a-schedule"><span class="toc-text">Stop and Re-start Elastic Beanstalk on a schedule</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-object-level-logging-with-CloudTrail"><span class="toc-text">S3 object-level logging with CloudTrail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-event-notifications"><span class="toc-text">S3 event notifications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Targets-1"><span class="toc-text">Targets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Limitation"><span class="toc-text">Limitation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Filtering"><span class="toc-text">Filtering</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Real-time-Processing-of-Log-Data-with-Subscriptions"><span class="toc-text">Real-time Processing of Log Data with Subscriptions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Batch-user-case-Digital-Media"><span class="toc-text">AWS Batch user case: Digital Media</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Single-Sign-On"><span class="toc-text">AWS Single Sign-On</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Directory-Service-for-AD-Trust-Relationship"><span class="toc-text">AWS Directory Service for AD - Trust Relationship</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-self-created-authentication-and-IAM-for-authorization"><span class="toc-text">Use self-created authentication and IAM for authorization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Moving-an-EC2-instance-into-a-placement-group"><span class="toc-text">Moving an EC2 instance into a placement group</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFormation-Change-Set"><span class="toc-text">CloudFormation Change Set</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFormation-DeletePolicy-attribute"><span class="toc-text">CloudFormation DeletePolicy attribute</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Deploy-new-AMI-to-resources-defined-with-CloudFormation"><span class="toc-text">Deploy new AMI to resources defined with CloudFormation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stand-alone-EC2-instance"><span class="toc-text">Stand-alone EC2 instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Let-Auto-Scaling-Group-use-a-new-AMI"><span class="toc-text">Let Auto-Scaling Group use a new AMI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Event-Notification"><span class="toc-text">RDS Event Notification</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DataSync-v-s-Fire-Gateway-configuration-of-AWS-Storage-Gateway"><span class="toc-text">DataSync v.s. Fire Gateway configuration of AWS Storage Gateway</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Receiving-CloudTrail-logs-from-Multiple-Accounts-into-a-single-S3-bucket"><span class="toc-text">Receiving CloudTrail logs from Multiple Accounts into a single S3 bucket</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Systems-Manager"><span class="toc-text">AWS Systems Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Session-Manager"><span class="toc-text">Session Manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-Command"><span class="toc-text">Run Command</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Certificate-Manager-Regions"><span class="toc-text">AWS Certificate Manager - Regions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Routing-traffic-to-CloudFront"><span class="toc-text">Routing traffic to CloudFront</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora-cross-region-replication-Logical-vs-Physical-replication"><span class="toc-text">Aurora cross-region replication: Logical vs Physical replication</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Physical-Replication-Aurora-Global-Database"><span class="toc-text">Physical Replication &#x3D; Aurora Global Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logical-Replication"><span class="toc-text">Logical Replication</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECS-Service-Load-Balancing-with-ALB"><span class="toc-text">ECS Service Load Balancing with ALB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fargate-Task-Storage"><span class="toc-text">Fargate Task Storage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CodeBuild-CodePipeline-CodeDeploy"><span class="toc-text">CodeBuild, CodePipeline, CodeDeploy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-CodeDeploy-works"><span class="toc-text">How CodeDeploy works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Real-Example-Automated-AMI-Builder"><span class="toc-text">Real Example: Automated AMI Builder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CodeBuild"><span class="toc-text">CodeBuild</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-CodeBuild"><span class="toc-text">Running CodeBuild</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeBuild-as-a-build-or-test-action-of-a-CodePipeline-pipeline"><span class="toc-text">CodeBuild as a build or test action of a CodePipeline pipeline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CodePipeline"><span class="toc-text">CodePipeline</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-IoT-Core"><span class="toc-text">AWS IoT Core</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ELB-Routing-algorithm"><span class="toc-text">ELB Routing algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ALB"><span class="toc-text">ALB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Routing-ALgorithms-supported-by-ALB"><span class="toc-text">Routing ALgorithms supported by ALB</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Round-Robin"><span class="toc-text">Round Robin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Least-Outstanding-Requests"><span class="toc-text">Least Outstanding Requests</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLB"><span class="toc-text">NLB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Classic-Load-Balancer"><span class="toc-text">Classic Load Balancer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Batch-Scheduling"><span class="toc-text">AWS Batch Scheduling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DynamoDB-Continuous-Backup"><span class="toc-text">DynamoDB Continuous Backup</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Secrets-Manager-rotating-RDS-password"><span class="toc-text">Secrets Manager - rotating RDS password</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAP - AWS Best Practice Design Patterns
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-04 14:50:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAP" title="AWS SAP">AWS SAP</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="AWS-SAM-with-build-in-CodeDeploy-Deploying-serverless-applications-gradually"><a href="#AWS-SAM-with-build-in-CodeDeploy-Deploying-serverless-applications-gradually" class="headerlink" title="AWS SAM with build-in CodeDeploy: Deploying serverless applications gradually"></a>AWS SAM with build-in CodeDeploy: Deploying serverless applications gradually</h1><ul>
+<li>Deploys new versions of your Lambda function, and automatically creates aliases that point to the new version.</li>
+<li>Gradually shifts customer traffic to the new version until you’re satisfied that it’s working as expected, or you roll back the update.</li>
+<li>Defines pre-traffic and post-traffic test functions to verify that the newly deployed code is configured correctly and your application operates as expected.</li>
+<li>Rolls back the deployment if CloudWatch alarms are triggered.</li>
+</ul>
+<h1 id="Use-AWS-CloudFormation-StackSets-to-deploy-to-multiple-accounts-regions"><a href="#Use-AWS-CloudFormation-StackSets-to-deploy-to-multiple-accounts-regions" class="headerlink" title="Use AWS CloudFormation StackSets to deploy to multiple accounts/regions"></a>Use AWS CloudFormation <code>StackSets</code> to deploy to multiple accounts/regions</h1><h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><h3 id="StackSets"><a href="#StackSets" class="headerlink" title="StackSets"></a>StackSets</h3><p>A stack set lets you create stacks in AWS accounts across regions by using a single AWS CloudFormation template. </p>
+<h3 id="Stack-Instance"><a href="#Stack-Instance" class="headerlink" title="Stack Instance"></a>Stack Instance</h3><p>A stack instance is a reference to a stack in a target account within a Region.  </p>
+<h2 id="Permissions-models-for-stack-sets"><a href="#Permissions-models-for-stack-sets" class="headerlink" title="Permissions models for stack sets"></a>Permissions models for stack sets</h2><h3 id="self-managed-permissions"><a href="#self-managed-permissions" class="headerlink" title="self-managed permissions"></a><code>self-managed</code> permissions</h3><ul>
+<li>You create the IAM roles required by StackSets to deploy across accounts and Regions</li>
+<li>Need <strong>trusted relationship</strong> between the account you’re administering the stack set from and the account you’re deploying stack instances to.</li>
+</ul>
+<h3 id="service-managed-permissions"><a href="#service-managed-permissions" class="headerlink" title="service-managed permissions"></a><code>service-managed</code> permissions</h3><ul>
+<li>Deploy stacks into Organization.</li>
+<li>Supports automatic deployment.</li>
+</ul>
+<h1 id="Amazon-Kinesis-Video-Streams"><a href="#Amazon-Kinesis-Video-Streams" class="headerlink" title="Amazon Kinesis Video Streams"></a>Amazon Kinesis Video Streams</h1><img src="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/acuity-arch-3a.png" alt="" width="600px"/>
+
+<h2 id="Kinesis-Video-Streams-Producer-libraries"><a href="#Kinesis-Video-Streams-Producer-libraries" class="headerlink" title="Kinesis Video Streams Producer libraries"></a>Kinesis Video Streams Producer libraries</h2><p>A set of easy-to-use software and libraries that you can install and configure on your devices. These libraries make it easy to securely connect and reliably stream video in different ways, including in real time, after buffering it for a few seconds, or as after-the-fact media uploads.</p>
+<h2 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h2><ul>
+<li>Gets data, such as fragments and frames, from a Kinesis video stream to view, process, or analyze it. Generally these consumers are called Kinesis Video Streams applications. </li>
+<li>You can write applications that consume and process data in Kinesis video streams in real time, or after the data is durably stored and time-indexed when low latency processing is not required.</li>
+<li>Kinesis Video Streams does not support putting data into S3 “out-of-the-box”.</li>
+</ul>
+<h1 id="Associating-an-Amazon-VPC-and-a-private-hosted-zone-from-different-AWS-accounts"><a href="#Associating-an-Amazon-VPC-and-a-private-hosted-zone-from-different-AWS-accounts" class="headerlink" title="Associating an Amazon VPC and a private hosted zone from different AWS accounts"></a>Associating an Amazon VPC and a private hosted zone from different AWS accounts</h1><ul>
+<li>You need to use CLI, SDK or Route 53 API.</li>
+<li>To associate a Route 53 private hosted zone in one AWS account (Account A) with a virtual private cloud that belongs to another AWS account (Account B):<ol>
+<li>Connect to an EC2 instance in Account A.</li>
+<li>Update CLI version.</li>
+<li>Run this command to list the available hosted zones in Account A. Note the hosted zone ID in Account A that you will associate with Account B.  <code>aws route53 list-hosted-zones</code></li>
+<li>Run the following command to authorize the association between the private hosted zone in Account A and the virtual private cloud in Account B. Use the hosted zone ID from the previous step, as well as the Region and ID of the virtual private cloud in Account B. <code>aws route53 create-vpc-association-authorization --hosted-zone-id &lt;hosted-zone-id&gt; --vpc VPCRegion=&lt;region&gt;,VPCId=&lt;vpc-id&gt;</code></li>
+<li>Connect to an EC2 instance in Account B.</li>
+<li>Run the following command to create the association between the private hosted zone in Account A and the virtual private cloud in Account B. Use the hosted zone ID from step #3, as well as the Region and ID of the virtual private cloud in Account B. <code>aws route53 associate-vpc-with-hosted-zone --hosted-zone-id &lt;hosted-zone-id&gt; --vpc VPCRegion=&lt;region&gt;,VPCId=&lt;vpc-id&gt;</code></li>
+<li>It’s a best practice to delete the association authorization after the association is created. Doing this prevents you from recreating the same association later. To delete the authorization, reconnect to an EC2 instance in Account A. Then, run this command: <code>aws route53 delete-vpc-association-authorization --hosted-zone-id &lt;hosted-zone-id&gt;  --vpc VPCRegion=&lt;region&gt;,VPCId=&lt;vpc-id&gt;</code></li>
+</ol>
+</li>
+</ul>
+<h1 id="Use-Lambda-Edge-to-authorize-request-before-it-reaches-origin-infrastructure"><a href="#Use-Lambda-Edge-to-authorize-request-before-it-reaches-origin-infrastructure" class="headerlink" title="Use Lambda@Edge to authorize request before it reaches origin infrastructure"></a>Use Lambda@Edge to authorize request before it reaches origin infrastructure</h1><p>You cannot cache authorization.</p>
+<img src="https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2018/01/24/Capture.png" alt=""/>
+5. Lambda@Edge decodes the JWT and checks if the user belongs to the correct Cognito User Pool. It also verifies the cryptographic signature using the public RSA key for Cognito User Pool. Crypto verification ensures that JWT was created by the trusted party.
+
+<p>More detaiils see <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/authorizationedge-how-to-use-lambdaedge-and-json-web-tokens-to-enhance-web-application-security/" target="_blank" rel="noopener">Authorization@Edge – How to Use Lambda@Edge and JSON Web Tokens to Enhance Web Application Security</a>.</p>
+<h1 id="Sources-and-Targets-of-DMS"><a href="#Sources-and-Targets-of-DMS" class="headerlink" title="Sources and Targets of DMS"></a>Sources and Targets of DMS</h1><h2 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h2><ul>
+<li>Cannot be ElasticSearch</li>
+<li>Can be S3<h2 id="Targets"><a href="#Targets" class="headerlink" title="Targets"></a>Targets</h2></li>
+<li>Can be ElasticSearch</li>
+<li>Can be DynamoDB</li>
+</ul>
+<h1 id="Cross-Region-Snapshot-Copy-for-RDS-and-EBS"><a href="#Cross-Region-Snapshot-Copy-for-RDS-and-EBS" class="headerlink" title="Cross-Region Snapshot Copy for RDS and EBS"></a>Cross-Region Snapshot Copy for RDS and EBS</h1><p>There is no charge for the copy operation itself; you pay only for the <strong>data transfer out</strong> of the source region and for the <strong>data storage</strong> in the destination region. </p>
+<h1 id="Stop-and-Re-start-Elastic-Beanstalk-on-a-schedule"><a href="#Stop-and-Re-start-Elastic-Beanstalk-on-a-schedule" class="headerlink" title="Stop and Re-start Elastic Beanstalk on a schedule"></a>Stop and Re-start Elastic Beanstalk on a schedule</h1><ol>
+<li>Lambda<ul>
+<li>Need the Elastic Beanstalk ID</li>
+<li>Need to assume a role with <code>AWSElasticBeanstalkFullAcces</code> policy</li>
+</ul>
+</li>
+<li>CloudWatch Event on a cron schedule</li>
+</ol>
+<h2 id="S3-object-level-logging-with-CloudTrail"><a href="#S3-object-level-logging-with-CloudTrail" class="headerlink" title="S3 object-level logging with CloudTrail"></a>S3 object-level logging with CloudTrail</h2><p>CloudTrail supports logging Amazon S3 object-level API operations such as GetObject, DeleteObject, and PutObject. </p>
+<h2 id="S3-event-notifications"><a href="#S3-event-notifications" class="headerlink" title="S3 event notifications"></a>S3 event notifications</h2><h3 id="Targets-1"><a href="#Targets-1" class="headerlink" title="Targets"></a>Targets</h3><ul>
+<li>SNS</li>
+<li>SQS</li>
+<li>Lambda</li>
+</ul>
+<p>CloudWatch Events is not supported.</p>
+<h3 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h3><p>Does not act on failed operations.</p>
+<h3 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h3><p>Can filter based on key suffix/prefix</p>
+<h2 id="Real-time-Processing-of-Log-Data-with-Subscriptions"><a href="#Real-time-Processing-of-Log-Data-with-Subscriptions" class="headerlink" title="Real-time Processing of Log Data with Subscriptions"></a>Real-time Processing of Log Data with Subscriptions</h2><ul>
+<li>Subscriptions </li>
+<li>Real-time feed of log events from CloudWatch Logs</li>
+<li>Delivered to:<ol>
+<li>Amazon Kinesis stream, </li>
+<li>Amazon Kinesis Data Firehose stream, </li>
+<li>AWS Lambda </li>
+</ol>
+</li>
+<li>Steps:<ol>
+<li>Create the receiving resource</li>
+<li>Create a subscription filter: what log events get delivered and where to send them</li>
+</ol>
+</li>
+<li>Each log group can have up to two subscription filters associated with it.</li>
+</ul>
+<h1 id="AWS-Batch-user-case-Digital-Media"><a href="#AWS-Batch-user-case-Digital-Media" class="headerlink" title="AWS Batch user case: Digital Media"></a>AWS Batch user case: Digital Media</h1><img src="https://d1.awsstatic.com/Test%20Images/Kate%20Test%20Images/Dilithium-Diagrams_Visual-Effects-Rendering.ad9c0479c3772c67953e96ef8ae76a5095373d81.png" alt="" width="600px"/>
+
+<ul>
+<li>AWS Batch provides content producers and post-production houses with tools to automate content rendering workloads and reduces the need for human intervention due to execution dependencies or resource scheduling. </li>
+<li>This includes the scaling of <strong>compute cores</strong> in a render farm, utilizing <strong>Spot Instances</strong>, and coordinating the execution of disparate steps in the process.</li>
+</ul>
+<h1 id="AWS-Single-Sign-On"><a href="#AWS-Single-Sign-On" class="headerlink" title="AWS Single Sign-On"></a>AWS Single Sign-On</h1><ul>
+<li>Simplifies managing SSO access to AWS accounts and business applications. </li>
+<li>Across AWS accounts in AWS Organizations. </li>
+</ul>
+<h1 id="AWS-Directory-Service-for-AD-Trust-Relationship"><a href="#AWS-Directory-Service-for-AD-Trust-Relationship" class="headerlink" title="AWS Directory Service for AD - Trust Relationship"></a>AWS Directory Service for AD - Trust Relationship</h1><ul>
+<li>One or two-way</li>
+<li>External or forest trust</li>
+<li>Between your AWS Directory Service for Microsoft Active Directory and on-premises directories</li>
+<li>Between multiple AWS Managed Microsoft AD directories in the AWS cloud</li>
+</ul>
+<h1 id="Use-self-created-authentication-and-IAM-for-authorization"><a href="#Use-self-created-authentication-and-IAM-for-authorization" class="headerlink" title="Use self-created authentication and IAM for authorization"></a>Use self-created authentication and IAM for authorization</h1><ul>
+<li>Create SAML 2.0 based authentication and use AWS Organizations SSO for authorization</li>
+<li>Adding OIDC (Open ID Connect) Identity Providers to a Cognito User Pool </li>
+</ul>
+<h1 id="Moving-an-EC2-instance-into-a-placement-group"><a href="#Moving-an-EC2-instance-into-a-placement-group" class="headerlink" title="Moving an EC2 instance into a placement group"></a>Moving an EC2 instance into a placement group</h1><ol>
+<li>Stop the instance using the <code>stop-instances</code> command.</li>
+<li>Use the <code>modify-instance-placement</code> command and specify the name of the placement group to which to move the instance: <code>aws ec2 modify-instance-placement --instance-id i-0123a456700123456 --group-name MySpreadGroup</code></li>
+<li>Start the instance using the start-instances command.</li>
+</ol>
+<h1 id="CloudFormation-Change-Set"><a href="#CloudFormation-Change-Set" class="headerlink" title="CloudFormation Change Set"></a>CloudFormation Change Set</h1><ul>
+<li><strong>Preview</strong> how proposed changes to a stack might impact your running resources.</li>
+<li>AWS CloudFormation makes the changes to your stack only when you decide to <strong>execute</strong> the change set.</li>
+</ul>
+<h1 id="CloudFormation-DeletePolicy-attribute"><a href="#CloudFormation-DeletePolicy-attribute" class="headerlink" title="CloudFormation DeletePolicy attribute"></a>CloudFormation <code>DeletePolicy</code> attribute</h1><p>Allowed values:</p>
+<ul>
+<li>Retain: resource retains but not in the CloudFormation’s scope.</li>
+<li>Snapshot: supports EC2 volume, ElastiCache, Neptune, RDS, Redshift</li>
+<li>Delete (default, except for <code>AWS::RDS::DBCluster</code> and <code>AWS::RDS::DBInstance</code>)</li>
+</ul>
+<h1 id="Deploy-new-AMI-to-resources-defined-with-CloudFormation"><a href="#Deploy-new-AMI-to-resources-defined-with-CloudFormation" class="headerlink" title="Deploy new AMI to resources defined with CloudFormation"></a>Deploy new AMI to resources defined with CloudFormation</h1><h2 id="Stand-alone-EC2-instance"><a href="#Stand-alone-EC2-instance" class="headerlink" title="Stand-alone EC2 instance"></a>Stand-alone EC2 instance</h2><ol>
+<li>Create your new AMIs containing your application or operating system changes.</li>
+<li>Update your template to incorporate the new AMI IDs.</li>
+<li>Update the stack, either from the AWS Management Console or by using the AWS command <code>aws cloudformation update-stack</code>.</li>
+<li>When you update the stack, AWS CloudFormation detects that the AMI ID has changed. It launches a new instance with the new AMI, point the other resources to the new instance, and remove the old instance.</li>
+</ol>
+<h2 id="Let-Auto-Scaling-Group-use-a-new-AMI"><a href="#Let-Auto-Scaling-Group-use-a-new-AMI" class="headerlink" title="Let Auto-Scaling Group use a new AMI"></a>Let Auto-Scaling Group use a new AMI</h2><ul>
+<li>Instance type and AMI info are encapsulated in the Auto Scaling launch configuration.</li>
+<li>Edit the <code>AWS::AutoScaling::LaunchConfiguration</code> resource in the template.</li>
+<li>Changing the launch configuration does not impact any of the running Amazon EC2 instances in the Auto Scaling group. An updated launch configuration applies only to new instances that are created after the update.</li>
+<li>If you want to propagate the change to your launch configuration across all the instances in your Auto Scaling group, you can use an <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html" target="_blank" rel="noopener"><code>UpdatePolicy</code> attribute</a>. </li>
+</ul>
+<h1 id="RDS-Event-Notification"><a href="#RDS-Event-Notification" class="headerlink" title="RDS Event Notification"></a>RDS Event Notification</h1><p><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html" target="_blank" rel="noopener">Amazon RDS uses the <strong>Amazon Simple Notification Service (Amazon SNS)</strong> to provide notification when an Amazon RDS event occurs. </a><br>The event includes RDS failure. Therefore you can:</p>
+<blockquote>
+<p>Configure an Amazon RDS event notification to react to the failure of the database in us-east-1(Aurora master region) by invoking an AWS Lambda function that promotes a read replica in another region.</p>
+</blockquote>
+<h1 id="DataSync-v-s-Fire-Gateway-configuration-of-AWS-Storage-Gateway"><a href="#DataSync-v-s-Fire-Gateway-configuration-of-AWS-Storage-Gateway" class="headerlink" title="DataSync v.s. Fire Gateway configuration of AWS Storage Gateway"></a>DataSync v.s. Fire Gateway configuration of AWS Storage Gateway</h1><ul>
+<li>Use AWS DataSync to migrate existing data to Amazon S3</li>
+<li>Subsequently use the File Gateway configuration of AWS Storage Gateway to retain access to the migrated data and for ongoing updates from your on-premises file-based applications.</li>
+</ul>
+<h1 id="Receiving-CloudTrail-logs-from-Multiple-Accounts-into-a-single-S3-bucket"><a href="#Receiving-CloudTrail-logs-from-Multiple-Accounts-into-a-single-S3-bucket" class="headerlink" title="Receiving CloudTrail logs from Multiple Accounts into a single S3 bucket"></a>Receiving CloudTrail logs from Multiple Accounts into a single S3 bucket</h1><ol>
+<li>Turn on CloudTrail in account A, where the destination bucket will belong. Do not turn on CloudTrail in any other accounts yet.</li>
+<li>Update the bucket policy on your destination bucket to grant <strong>cross-account permissions to CloudTrail</strong>.</li>
+<li>Turn on CloudTrail in the other accounts you want CloudTrail logs delivered. Configure CloudTrail in these accounts to use the same bucket belonging to account that A you specified in step 1.</li>
+</ol>
+<h1 id="AWS-Systems-Manager"><a href="#AWS-Systems-Manager" class="headerlink" title="AWS Systems Manager"></a>AWS Systems Manager</h1><h2 id="Session-Manager"><a href="#Session-Manager" class="headerlink" title="Session Manager"></a>Session Manager</h2><ul>
+<li>Supports Port Forwarding</li>
+<li>browser-based</li>
+<li>Log commands to S3 or Amazon CloudWatch logs using CloudTrail</li>
+</ul>
+<h2 id="Run-Command"><a href="#Run-Command" class="headerlink" title="Run Command"></a>Run Command</h2><ul>
+<li>Do not need to log into servers</li>
+<li>Replaces SSH - No SSH</li>
+<li>Simply send commands</li>
+<li>All actions recorded by CloudTrail</li>
+</ul>
+<h1 id="AWS-Certificate-Manager-Regions"><a href="#AWS-Certificate-Manager-Regions" class="headerlink" title="AWS Certificate Manager - Regions"></a>AWS Certificate Manager - Regions</h1><ul>
+<li>To use a certificate with Elastic Load Balancing for the same fully qualified domain name (FQDN) or set of FQDNs in more than one AWS region, you must request or import a certificate for <strong>each region</strong>. </li>
+<li>To use an ACM certificate with Amazon CloudFront, you must request or import the certificate in the <strong>US East</strong> (N. Virginia) region. </li>
+</ul>
+<h1 id="Routing-traffic-to-CloudFront"><a href="#Routing-traffic-to-CloudFront" class="headerlink" title="Routing traffic to CloudFront"></a>Routing traffic to CloudFront</h1><p>Use alias record.</p>
+<h1 id="Aurora-cross-region-replication-Logical-vs-Physical-replication"><a href="#Aurora-cross-region-replication-Logical-vs-Physical-replication" class="headerlink" title="Aurora cross-region replication: Logical vs Physical replication"></a>Aurora cross-region replication: Logical vs Physical replication</h1><p>You can set up cross-region Aurora replicas using either physical or logical replication.</p>
+<h2 id="Physical-Replication-Aurora-Global-Database"><a href="#Physical-Replication-Aurora-Global-Database" class="headerlink" title="Physical Replication = Aurora Global Database"></a>Physical Replication = Aurora Global Database</h2><ul>
+<li>Dedicated infrastructure</li>
+<li>Low-latency global reads</li>
+<li>Disaster recovery</li>
+<li>Replicate to up to five secondary regions with typical latency of under a second.</li>
+</ul>
+<h2 id="Logical-Replication"><a href="#Logical-Replication" class="headerlink" title="Logical Replication"></a>Logical Replication</h2><ul>
+<li>Replicate to Aurora and non-Aurora databases, even across regions</li>
+<li>Based on single threaded MySQL binlog replication</li>
+<li>The replication lag will be influenced by the change/apply rate and delays in network communication between the specific regions selected.</li>
+</ul>
+<h1 id="ECS-Service-Load-Balancing-with-ALB"><a href="#ECS-Service-Load-Balancing-with-ALB" class="headerlink" title="ECS Service Load Balancing with ALB"></a>ECS Service Load Balancing with ALB</h1><p>Application Load Balancers offer several features that make them attractive for use with Amazon ECS services:</p>
+<ul>
+<li>Each service can serve traffic from multiple load balancers and expose multiple load balanced ports by specifying multiple target groups.</li>
+<li>They are supported by tasks using both the <strong>Fargate</strong> and EC2 launch types.</li>
+<li>Application Load Balancers allow containers to use <strong>dynamic host port mapping</strong> (so that <strong>multiple tasks</strong> from the same service are allowed per container instance).</li>
+<li>Application Load Balancers support <strong>path-based</strong> routing and <strong>priority rules</strong> (so that <em>multiple services</em> can use the <em>same listener port</em> on a single Application Load Balancer).</li>
+</ul>
+<h1 id="Fargate-Task-Storage"><a href="#Fargate-Task-Storage" class="headerlink" title="Fargate Task Storage"></a>Fargate Task Storage</h1><p>For Fargate tasks, the following storage types are supported:</p>
+<ul>
+<li>Amazon EFS volumes for persistent storage.</li>
+<li>Ephemeral storage for nonpersistent storage.</li>
+</ul>
+<h1 id="CodeBuild-CodePipeline-CodeDeploy"><a href="#CodeBuild-CodePipeline-CodeDeploy" class="headerlink" title="CodeBuild, CodePipeline, CodeDeploy"></a>CodeBuild, CodePipeline, CodeDeploy</h1><h2 id="How-CodeDeploy-works"><a href="#How-CodeDeploy-works" class="headerlink" title="How CodeDeploy works"></a>How CodeDeploy works</h2><p>AWS CodeDeploy is a fully managed deployment service that <strong>automates software deployments</strong> to a variety of compute services such as:</p>
+<ul>
+<li>Amazon EC2, </li>
+<li>AWS Fargate, </li>
+<li>AWS Lambda, and </li>
+<li>your on-premises servers. </li>
+</ul>
+<img src="https://docs.aws.amazon.com/codedeploy/latest/userguide/images/sds_architecture.png" alt="" width="600px"/>
+
+<ul>
+<li>Deploys to <strong>any instance</strong>, including EC2.</li>
+<li>The CodeDeploy agent must be <strong>installed</strong> and running on each instance.</li>
+<li>How it works:<ol>
+<li>First, you create deployable content on your local development machine or similar environment</li>
+<li>You add an application specification file (AppSpec file). The <strong>AppSpec file</strong> is unique to CodeDeploy. It defines the deployment actions you want CodeDeploy to execute. </li>
+<li>You bundle your deployable content and the AppSpec file into an <strong>archive file</strong>, and then upload it to an <strong>Amazon S3 bucket or a GitHub repository</strong>. This archive file is called an application revision (or simply a revision).</li>
+<li>You provide CodeDeploy with information about your deployment, such as which Amazon S3 bucket or GitHub repository to pull the revision from and to which set of Amazon EC2 instances to deploy its contents. </li>
+<li>CodeDeploy calls a set of Amazon EC2 instances a <strong>deployment group</strong>. A deployment group contains individually tagged Amazon EC2 instances, Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or both.</li>
+<li>Each time you successfully upload a new application revision that you want to deploy to the deployment group, that bundle is set as the target revision for the deployment group. In other words, the application revision that is currently targeted for deployment is the target revision. This is also the revision that is pulled for automatic deployments.</li>
+<li>Next, the CodeDeploy agent on each instance polls CodeDeploy to determine what and when to <strong>pull</strong> from the specified Amazon S3 bucket or GitHub repository.</li>
+<li>Finally, the CodeDeploy <strong>agent</strong> on each instance pulls the target revision from the Amazon S3 bucket or GitHub repository and, using the instructions in the <strong>AppSpec</strong> file, deploys the contents to the instance.</li>
+</ol>
+</li>
+</ul>
+<h2 id="Real-Example-Automated-AMI-Builder"><a href="#Real-Example-Automated-AMI-Builder" class="headerlink" title="Real Example: Automated AMI Builder"></a>Real Example: Automated AMI Builder</h2><img src="https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2017/06/21/ami-builder-diagram.png" alt="" width="600px"/>
+
+<h2 id="CodeBuild"><a href="#CodeBuild" class="headerlink" title="CodeBuild"></a>CodeBuild</h2><p>AWS CodeBuild is a fully managed <strong>continuous integration</strong> service that:</p>
+<ul>
+<li>compiles source code, </li>
+<li>runs tests, and </li>
+<li>produces software packages</li>
+</ul>
+<h3 id="Running-CodeBuild"><a href="#Running-CodeBuild" class="headerlink" title="Running CodeBuild"></a>Running CodeBuild</h3><p>AWS CodePipeline is a fully managed <strong>continuous delivery</strong> service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. </p>
+<img src="https://docs.aws.amazon.com/codebuild/latest/userguide/images/overview.png" alt="" width="500px"/>
+
+<ul>
+<li>CodeBuild Console</li>
+<li>CodePipeline Console</li>
+<li>CLI or SDK</li>
+</ul>
+<h3 id="CodeBuild-as-a-build-or-test-action-of-a-CodePipeline-pipeline"><a href="#CodeBuild-as-a-build-or-test-action-of-a-CodePipeline-pipeline" class="headerlink" title="CodeBuild as a build or test action of a CodePipeline pipeline"></a>CodeBuild as a build or test action of a CodePipeline pipeline</h3><img src="https://docs.aws.amazon.com/codebuild/latest/userguide/images/pipeline.png" alt="" width="400px"/>
+
+<h2 id="CodePipeline"><a href="#CodePipeline" class="headerlink" title="CodePipeline"></a>CodePipeline</h2><img src="https://d1.awsstatic.com/product-marketing/CodePipeline/CodePipeline_Elements.1390531beabe7fd38b2414c39800136eed24e9c8.png" alt="" width="400px"/>
+
+<p>AWS CodePipeline integrates with AWS services such as:</p>
+<ul>
+<li>AWS CodeCommit, </li>
+<li>Amazon S3, </li>
+<li>AWS CodeBuild, </li>
+<li>AWS CodeDeploy, </li>
+<li>AWS Elastic Beanstalk, </li>
+<li>AWS CloudFormation, </li>
+<li>AWS OpsWorks, </li>
+<li>Amazon ECS,</li>
+<li>AWS Lambda</li>
+</ul>
+<h1 id="AWS-IoT-Core"><a href="#AWS-IoT-Core" class="headerlink" title="AWS IoT Core"></a>AWS IoT Core</h1><p>AWS IoT Core provides secure, bi-directional communication for Internet-connected devices (such as sensors, actuators, embedded devices, wireless devices, and smart appliances) to connect to the AWS Cloud over <strong>MQTT, HTTPS, and LoRaWAN</strong>.</p>
+<h1 id="ELB-Routing-algorithm"><a href="#ELB-Routing-algorithm" class="headerlink" title="ELB Routing algorithm"></a>ELB Routing algorithm</h1><h2 id="ALB"><a href="#ALB" class="headerlink" title="ALB"></a>ALB</h2><p>The load balancer node that receives the request uses the following process:</p>
+<ol>
+<li>Evaluates the listener rules in <strong>priority</strong> order to determine which rule to apply.</li>
+<li>Selects a target from the target group for the rule action, using the routing algorithm configured for the target group. <ul>
+<li>The default routing algorithm is round robin. </li>
+<li>Routing is performed independently for each target group, even when a target is registered with multiple target groups.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Routing-ALgorithms-supported-by-ALB"><a href="#Routing-ALgorithms-supported-by-ALB" class="headerlink" title="Routing ALgorithms supported by ALB"></a>Routing ALgorithms supported by ALB</h3><h4 id="Round-Robin"><a href="#Round-Robin" class="headerlink" title="Round Robin"></a>Round Robin</h4><p>Round robin load balancing is a simple way to distribute client requests across a group of servers. A client request is forwarded to each server in turn. The algorithm instructs the load balancer to go back to the top of the list and repeats again.</p>
+<h4 id="Least-Outstanding-Requests"><a href="#Least-Outstanding-Requests" class="headerlink" title="Least Outstanding Requests"></a>Least Outstanding Requests</h4><p>A “least outstanding requests routing algorithm” is an algorithm that choses which instance receives the next request by selecting the instance that, at that moment, has the <strong>lowest number of outstanding (pending, unfinished) requests</strong>.</p>
+<h2 id="NLB"><a href="#NLB" class="headerlink" title="NLB"></a>NLB</h2><ol>
+<li>Selects a target from the target group for the default rule using a <strong>flow hash algorithm</strong>. It bases the algorithm on:<ul>
+<li>The protocol</li>
+<li>The source IP address and source port</li>
+<li>The destination IP address and destination port</li>
+<li>The TCP sequence number</li>
+</ul>
+</li>
+<li>Routes each individual TCP connection to a single target <strong>for the life of the connection</strong>. The TCP connections from a client have different source ports and sequence numbers, and can be routed to different targets.</li>
+</ol>
+<h2 id="Classic-Load-Balancer"><a href="#Classic-Load-Balancer" class="headerlink" title="Classic Load Balancer"></a>Classic Load Balancer</h2><ul>
+<li>Uses the <strong>round robin routing algorithm</strong> for TCP listeners</li>
+<li>Uses the <strong>least outstanding requests routing algorithm</strong> for HTTP and HTTPS listeners</li>
+</ul>
+<h1 id="AWS-Batch-Scheduling"><a href="#AWS-Batch-Scheduling" class="headerlink" title="AWS Batch Scheduling"></a>AWS Batch Scheduling</h1><p>The AWS Batch scheduler evaluates when, where, and how to run jobs that have been submitted to a job queue. Jobs run in approximately the order in which they are submitted as long as all dependencies on other jobs have been met.</p>
+<h1 id="DynamoDB-Continuous-Backup"><a href="#DynamoDB-Continuous-Backup" class="headerlink" title="DynamoDB Continuous Backup"></a>DynamoDB Continuous Backup</h1><ul>
+<li>You can enable continuous backups with a single click in the AWS Management Console, a simple API call, or with the AWS Command Line Interface (CLI). </li>
+<li>DynamoDB can back up your data with per-second granularity and restore to any single second from the time PITR was enabled up to the prior 35 days. </li>
+</ul>
+<h1 id="Secrets-Manager-rotating-RDS-password"><a href="#Secrets-Manager-rotating-RDS-password" class="headerlink" title="Secrets Manager - rotating RDS password"></a>Secrets Manager - rotating RDS password</h1><ul>
+<li>Because each service or database can have a unique way of configuring secrets, Secrets Manager uses a <strong>Lambda</strong> function you can customize to work with a selected database or service. You <strong>customize</strong> the Lambda function to implement the service-specific details of rotating a secret.</li>
+<li>The <code>AWS::SecretsManager::RotationSchedule</code> resource configures rotation for a secret. </li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        What is gRPC - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-gRPC-works"><span class="toc-text">How gRPC works</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Four-types-of-class-from-gRPC"><span class="toc-text">Four types of class from gRPC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unity-calls"><span class="toc-text">Unity calls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-and-client-streaming"><span class="toc-text">Server and client streaming</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Full-bidirectional-streaming"><span class="toc-text">Full bidirectional streaming</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Protocol-Buffers"><span class="toc-text">Protocol Buffers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-Side"><span class="toc-text">Server Side</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Server-side-StartUp"><span class="toc-text">Server side StartUp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client-Side"><span class="toc-text">Client Side</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gRPC-is-an-opinionated-protocol"><span class="toc-text">gRPC is an opinionated protocol</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        What is gRPC
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-01 13:16:23</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Distributed Algorithms" title="Distributed Algorithms">Distributed Algorithms</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>RPC: Remote Procedure Calls</p>
+<p>Open sourced on <a href="https://github.com/grpc/grpc" target="_blank" rel="noopener">github</a>.</p>
+<blockquote>
+<p>In gRPC, a client application can directly <strong>call</strong> a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services.</p>
+</blockquote>
+<h1 id="How-gRPC-works"><a href="#How-gRPC-works" class="headerlink" title="How gRPC works"></a>How gRPC works</h1><ul>
+<li>As in many RPC systems, gRPC is based around the idea of <strong>defining a service</strong>, specifying the methods that can be called remotely with their parameters and return types.</li>
+<li>On the server side, the server implements this interface and runs <strong>a gRPC server</strong> to handle client calls.</li>
+<li>On the client side, the client has a <strong>stub</strong> (referred to as just a client in some languages) that <strong>provides the same methods as the server</strong>.</li>
+<li>gRPC clients and servers can run and talk to each other in a variety of environments - from servers inside Google to your own desktop - and can be written in any of gRPC’s supported languages.</li>
+</ul>
+<h1 id="Four-types-of-class-from-gRPC"><a href="#Four-types-of-class-from-gRPC" class="headerlink" title="Four types of class from gRPC"></a>Four types of class from gRPC</h1><h2 id="Unity-calls"><a href="#Unity-calls" class="headerlink" title="Unity calls"></a>Unity calls</h2><p>Send request as a client, get a single response.</p>
+<h2 id="Server-and-client-streaming"><a href="#Server-and-client-streaming" class="headerlink" title="Server and client streaming"></a>Server and client streaming</h2><ul>
+<li>Send as many request as I want, and get one final response from the server; </li>
+<li>Send one initial request and get multiple responses from the server<h2 id="Full-bidirectional-streaming"><a href="#Full-bidirectional-streaming" class="headerlink" title="Full bidirectional streaming"></a>Full bidirectional streaming</h2>both directions are streaming (multiple messages)</li>
+</ul>
+<h1 id="Protocol-Buffers"><a href="#Protocol-Buffers" class="headerlink" title="Protocol Buffers"></a>Protocol Buffers</h1><p><strong>Protobuf is the IDL, Interface Definition Language, used by gRPC.</strong></p>
+<h2 id="Server-Side"><a href="#Server-Side" class="headerlink" title="Server Side"></a>Server Side</h2><p>This is the <code>greet.proto</code> file built by <code>.NET</code>‘s gRPC <strong>service</strong> template:</p>
+<img src="grpc-proto.png" alt="" width="400px"/>
+
+<p><code>service Greeter</code> defines what service is available. <code>rpc</code> defines the “process” and the request/reply that the process takes in and returns.</p>
+<p>Proto will generate C# code for services.</p>
+<h3 id="Server-side-StartUp"><a href="#Server-side-StartUp" class="headerlink" title="Server side StartUp"></a>Server side <code>StartUp</code></h3><ul>
+<li><code>configureServices</code> makes a call to <code>AddGrpc</code></li>
+<li><code>configure</code> builds the app’s routing endpoints.<ul>
+<li>in here you should <strong>register</strong> all of your services. </li>
+</ul>
+</li>
+</ul>
+<h2 id="Client-Side"><a href="#Client-Side" class="headerlink" title="Client Side"></a>Client Side</h2><p>For the client side we need a <code>using var channel = GrpcChannel.ForAddress(&quot;https://localhost:5001&quot;);</code><br>Then we create a client with <code>var client = new GreeterClient(channel);</code><br>Now we can involve the task that is available from the server, and pass it the request: <code>var request = new HellowRequest {Name = &quot;anran&quot; };</code> <code>var response = await client.SayHellowAsync(request);</code><br>To print the message we can now do:  <code>Console.WriteLine(response.Message);</code></p>
+<h2 id="gRPC-is-an-opinionated-protocol"><a href="#gRPC-is-an-opinionated-protocol" class="headerlink" title="gRPC is an opinionated protocol"></a>gRPC is an opinionated protocol</h2><p>Many things are built in into the protocol. e.g. You don’t need to write down the start path of the Service, as long as the Client knows the existence of the endpoint.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

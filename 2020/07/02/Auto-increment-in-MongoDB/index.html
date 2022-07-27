@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Auto-increment in MongoDB - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-the-data-structure-looks-like"><span class="toc-text">What the data structure looks like</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-achieve-incrementation"><span class="toc-text">How to achieve incrementation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-insert-the-initial-doc"><span class="toc-text">How to insert the initial doc</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Auto-increment in MongoDB
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-02 12:23:30</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#MongoDB" title="MongoDB">MongoDB</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Mongoose" title="Mongoose">Mongoose</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I’m working on the <a href="https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/url-shortener-microservice" target="_blank" rel="noopener">URL Shortener API project by freeCodeCamp</a>. To get a robustly unique auto-increment shortened URL, I want to implement auto-increment at MongoDB.</p>
+<p>My implementation could be find at <a href="https://github.com/niuniuanran/boilerplate-project-urlshortener" target="_blank" rel="noopener">this GitHub repository</a>.</p>
+<h1 id="What-the-data-structure-looks-like"><a href="#What-the-data-structure-looks-like" class="headerlink" title="What the data structure looks like"></a>What the data structure looks like</h1><p>The <code>UrlPair</code> is the model to store the pairing between original URL and the short URL.<br>The <code>Counter</code> is the model to keep track of auto-incrementation. Each counter has a <code>for</code> value stating what it is counting for. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Schema = mongoose.Schema;</span><br><span class="line"><span class="keyword">const</span> urlPairSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    <span class="string">"original"</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">    <span class="string">"short"</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">unique</span>: <span class="literal">true</span>&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> UrlPair = mongoose.model(<span class="string">"URL_Pair"</span>, urlPairSchema);</span><br><span class="line"><span class="keyword">const</span> counterSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    <span class="string">"for"</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">unique</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">    <span class="string">"counter"</span>: &#123;<span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">default</span>: <span class="number">0</span>, <span class="attr">required</span>: <span class="literal">true</span>&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> Counter = mongoose.model(<span class="string">"Counter"</span>, counterSchema);</span><br></pre></td></tr></table></figure>
+<h1 id="How-to-achieve-incrementation"><a href="#How-to-achieve-incrementation" class="headerlink" title="How to achieve incrementation"></a>How to achieve incrementation</h1><p>The query looks as follows:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Counter.findOneAndUpdate(&#123;<span class="string">"for"</span>: <span class="string">"URL_Pair"</span>&#125;, &#123;<span class="attr">$inc</span>: &#123;<span class="string">"counter"</span>: <span class="number">1</span>&#125;&#125;, &#123;<span class="attr">upsert</span>: <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate" target="_blank" rel="noopener"><code>findOneAndUpdate</code></a> takes three argument, the condition, the update and the options (and then the callback).<br><code>$inc</code> is the query to increment the specified value.</p>
+<h1 id="How-to-insert-the-initial-doc"><a href="#How-to-insert-the-initial-doc" class="headerlink" title="How to insert the initial doc"></a>How to insert the initial doc</h1><p><code>{upsert:true}</code> option instructs <code>findOneAndUpdate</code> to insert a new doc if the queried doc does not exist.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

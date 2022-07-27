@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Solving React State Hook setter not working - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Solving React State Hook setter not working
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-05-18 09:16:22</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Javascript" title="Javascript">Javascript</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Let me put the <a href="https://stackoverflow.com/questions/54163796/react-usestate-hook-setter-has-no-result-with-array-variable" target="_blank" rel="noopener">Stack Overflow post</a> that solved my problem here first.</p>
+<p>I was doing essentially the same thing, but with activity editing. This is a function that I provided in the <code>TripContext</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** src/spa/contexts/TripContext.js **/</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">updateOneActivity</span>(<span class="params">activityPatch, activityId</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> tripID = router.query.id;</span><br><span class="line">    axios</span><br><span class="line">      .patch(<span class="string">`<span class="subst">$&#123;hostName&#125;</span>/api/trip/<span class="subst">$&#123;tripID&#125;</span>/activities`</span>, &#123;</span><br><span class="line">        id: activityId,</span><br><span class="line">        ...activityPatch,</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        setActivities(</span><br><span class="line">          activities.map(<span class="function"><span class="params">activity</span> =&gt;</span></span><br><span class="line">            activityId === activity.id ? res.data.activity : activity,</span><br><span class="line">          ),</span><br><span class="line">        );</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        setDialogError(&#123;</span><br><span class="line">          title: <span class="string">'Activity Update Failed'</span>,</span><br><span class="line">          message: <span class="string">`Sorry, we failed to update the activity <span class="subst">$&#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">            activityPatch.name</span></span></span><br><span class="line"><span class="string"><span class="subst">          &#125;</span> because: <span class="subst">$&#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">            err.response &amp;&amp; err.response.data &amp;&amp; err.response.data.message</span></span></span><br><span class="line"><span class="string"><span class="subst">              ? err.response.data.message</span></span></span><br><span class="line"><span class="string"><span class="subst">              : <span class="string">'An internal error happened'</span></span></span></span><br><span class="line"><span class="string"><span class="subst">          &#125;</span>`</span>,</span><br><span class="line">        &#125;);</span><br><span class="line">        setDialogErrorDisplay(<span class="literal">true</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Note that I was trying to update activity by passing an array to <code>setActivities</code>.</p>
+<p>This is how I used it in <code>ActivityCard</code>:</p>
+<ul>
+<li>Component:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** src/spa/components/cards/ActivityCard.js, part of return statement **/</span></span><br><span class="line">&lt;DateTimePicker</span><br><span class="line">     value=&#123;activity.start&#125;</span><br><span class="line">     ampm=&#123;<span class="literal">false</span>&#125;</span><br><span class="line">     onChange=&#123;start =&gt;</span><br><span class="line">       handleEdit(&#123; start &#125;, updateOneActivity)</span><br><span class="line">     &#125;</span><br><span class="line">     open=&#123;startChanging&#125;</span><br><span class="line">     onClose=&#123;() =&gt; setStartChanging(<span class="literal">false</span>)&#125;</span><br><span class="line">     TextFieldComponent=&#123;() =&gt; <span class="literal">null</span>&#125;</span><br><span class="line">     showTodayButton</span><br><span class="line">   /&gt;</span><br></pre></td></tr></table></figure></li>
+<li>Handler:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** src/spa/components/cards/ActivityCard.js **/</span></span><br><span class="line">  <span class="keyword">const</span> handleEdit = <span class="function">(<span class="params">activityPatch, updateOneActivity</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (checkTimeValid(activityPatch)) &#123;</span><br><span class="line">      updateOneActivity(activityPatch, activityID);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      setTimeErrorDisplay(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>When I edit the activity, the database is updated but I dont get a page update.<br>If I log the <code>activities</code> in the console after the <code>setActivity</code> is called, I can see that the <code>activities</code> array remain the old value.</p>
+<p>It is to be kept in mind that the setter defined with <code>useState</code> has the same behaviour as <code>setState</code> in class components. Have a look at the <a href="https://reactjs.org/docs/react-component.html#setstate" target="_blank" rel="noopener">setState documentation</a>.</p>
+<blockquote>
+<p>setState() enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state.</p>
+</blockquote>
+<blockquote>
+<p>Think of setState() as a request rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. React does not guarantee that the state changes are applied immediately.</p>
+</blockquote>
+<blockquote>
+<p><strong>setState() does not always immediately update the component. It may batch or defer the update until later</strong>. This makes reading this.state right after calling setState() a potential pitfall. Instead, use componentDidUpdate or <strong>a setState callback (setState(updater, callback))</strong>, either of which are guaranteed to fire after the update has been applied. If you need to set the state based on the previous state, read about the updater argument below.</p>
+</blockquote>
+<p>So my solution would be to pass <code>setActivity</code> with an updater function<code>(state, props) =&gt; stateChange</code>.</p>
+<p>Here’s my updated code in the <code>TripContext</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** src/spa/contexts/TripContext.js **/</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">updateOneActivity</span>(<span class="params">activityPatch, activityId</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> tripID = router.query.id;</span><br><span class="line">    axios</span><br><span class="line">      .patch(<span class="string">`<span class="subst">$&#123;hostName&#125;</span>/api/trip/<span class="subst">$&#123;tripID&#125;</span>/activities`</span>, &#123;</span><br><span class="line">        id: activityId,</span><br><span class="line">        ...activityPatch,</span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        setActivities(</span><br><span class="line">         activities=&gt; activities.map(<span class="function"><span class="params">activity</span> =&gt;</span></span><br><span class="line">            activityId === activity.id ? res.data.activity : activity,</span><br><span class="line">          ),</span><br><span class="line">        );</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        setDialogError(&#123;</span><br><span class="line">          title: <span class="string">'Activity Update Failed'</span>,</span><br><span class="line">          message: <span class="string">`Sorry, we failed to update the activity <span class="subst">$&#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">            activityPatch.name</span></span></span><br><span class="line"><span class="string"><span class="subst">          &#125;</span> because: <span class="subst">$&#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">            err.response &amp;&amp; err.response.data &amp;&amp; err.response.data.message</span></span></span><br><span class="line"><span class="string"><span class="subst">              ? err.response.data.message</span></span></span><br><span class="line"><span class="string"><span class="subst">              : <span class="string">'An internal error happened'</span></span></span></span><br><span class="line"><span class="string"><span class="subst">          &#125;</span>`</span>,</span><br><span class="line">        &#125;);</span><br><span class="line">        setDialogErrorDisplay(<span class="literal">true</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Works smooth like silk. Now when I update activities in <code>ActivityCard</code> or anywhere else, the Timeline of the trip will be updated.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

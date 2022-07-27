@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Design Patterns in One Image and One Sentence, and Alterability - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Patterns-in-One-Image-and-One-Sentence-and-Alterability"><span class="toc-text">Design Patterns in One Image and One Sentence, and Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Composite-Pattern"><span class="toc-text">Composite Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-Principles"><span class="toc-text">Related Principles</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Pattern"><span class="toc-text">Command Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-1"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Typical-examples"><span class="toc-text">Typical examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-1"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependency-Injection"><span class="toc-text">Dependency Injection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-2"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-2"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-Principles-1"><span class="toc-text">Related Principles</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strategy-Pattern"><span class="toc-text">Strategy Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-3"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-3"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observer-Pattern"><span class="toc-text">Observer Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-4"><span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-4"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decorator-Pattern"><span class="toc-text">Decorator Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-5"><span class="toc-text">What it is</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Factory-Method"><span class="toc-text">Factory Method</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-it-is-6"><span class="toc-text">What it is</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Template-Method"><span class="toc-text">Template Method</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC-and-Design-Patterns"><span class="toc-text">MVC and Design Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-Alterability"><span class="toc-text">MVC Alterability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JUnit-and-Design-Patterns"><span class="toc-text">JUnit and Design Patterns</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Design Patterns in One Image and One Sentence, and Alterability
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-15 20:33:53</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#OOP" title="OOP">OOP</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Design-Patterns-in-One-Image-and-One-Sentence-and-Alterability"><a href="#Design-Patterns-in-One-Image-and-One-Sentence-and-Alterability" class="headerlink" title="Design Patterns in One Image and One Sentence, and Alterability"></a>Design Patterns in One Image and One Sentence, and Alterability</h1><h2 id="Composite-Pattern"><a href="#Composite-Pattern" class="headerlink" title="Composite Pattern"></a>Composite Pattern</h2><h3 id="What-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Treat parts and wholes in the same way.</strong></p>
+<img src="composite.png" alt="" width="200px"/>
+
+<h3 id="Alterability"><a href="#Alterability" class="headerlink" title="Alterability"></a>Alterability</h3><ol>
+<li>To add a new kind of leaf class <code>L</code>: <code>L</code> is new code not counted in C; one class will be changed to construct from <code>L</code> -&gt; C = L.</li>
+<li>To add a new composite class <code>Cm</code>: same.</li>
+</ol>
+<h3 id="Related-Principles"><a href="#Related-Principles" class="headerlink" title="Related Principles"></a>Related Principles</h3><ul>
+<li>Open-Closed Principle</li>
+<li>Dependency Inversion: depend on the abstract component</li>
+</ul>
+<h2 id="Command-Pattern"><a href="#Command-Pattern" class="headerlink" title="Command Pattern"></a>Command Pattern</h2><h3 id="What-it-is-1"><a href="#What-it-is-1" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Pack some code to be executed into an object, so that the code can be executed at another class/time.</strong></p>
+<img src="command.png" alt="" width="500px"/>
+
+<h3 id="Typical-examples"><a href="#Typical-examples" class="headerlink" title="Typical examples"></a>Typical examples</h3><ul>
+<li>GUI action implementations: Action listener (Attaching a piece of code to a button by adding an event listener. Executed when someone clicks the button).</li>
+<li>Delaying command executing</li>
+<li>Record commands: “undo”</li>
+<li>Change location of command execution: have another computer execute the command (call the <code>execute()</code> method of the object.</li>
+</ul>
+<img src="expression.png" alt="" width="500px"/>
+
+<p>This is both Composite pattern and Command pattern.</p>
+<h3 id="Alterability-1"><a href="#Alterability-1" class="headerlink" title="Alterability"></a>Alterability</h3><p>Adding the new command does not add on to C. </p>
+<ol>
+<li>Adding a new possible behaviour of the receiver:<ul>
+<li>Add a new method to the Receiver</li>
+<li>Use the new command in the client</li>
+<li>C = 2</li>
+</ul>
+</li>
+<li>Add a new command that calls existing receiver behaviours:<ul>
+<li>Use the new command in the client</li>
+<li>C = 1</li>
+</ul>
+</li>
+</ol>
+<h2 id="Dependency-Injection"><a href="#Dependency-Injection" class="headerlink" title="Dependency Injection"></a>Dependency Injection</h2><h3 id="What-it-is-2"><a href="#What-it-is-2" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Separates the use of service objects from the construction of service objects</strong></p>
+<img src="dependency-injection.png" width="300px" alt=""/>
+
+<h3 id="Alterability-2"><a href="#Alterability-2" class="headerlink" title="Alterability"></a>Alterability</h3><p>Add a new concrete service: C = 1 (Injector)</p>
+<h3 id="Related-Principles-1"><a href="#Related-Principles-1" class="headerlink" title="Related Principles"></a>Related Principles</h3><ul>
+<li>Dependency Inversion: Depend on Abstraction</li>
+<li>Open-closed principle: abstract entities whose behaviour is extended by the concrete services supplied to it.</li>
+</ul>
+<h2 id="Strategy-Pattern"><a href="#Strategy-Pattern" class="headerlink" title="Strategy Pattern"></a>Strategy Pattern</h2><h3 id="What-it-is-3"><a href="#What-it-is-3" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Define a family of algorithms, encapsulate each one, and make them<br>  interchangeable.</strong></p>
+<img src="strategy.png" alt="" width="200px"/>
+
+<p>Relatable with Dependency Injection ⬆️</p>
+<h3 id="Alterability-3"><a href="#Alterability-3" class="headerlink" title="Alterability"></a>Alterability</h3><ul>
+<li>Adding a new strategy: C=1 (context change)</li>
+<li>Using a different strategy: C=1 (context change)</li>
+</ul>
+<h2 id="Observer-Pattern"><a href="#Observer-Pattern" class="headerlink" title="Observer Pattern"></a>Observer Pattern</h2><h3 id="What-it-is-4"><a href="#What-it-is-4" class="headerlink" title="What it is"></a>What it is</h3><p><strong>When one object (publisher) changes state, all its dependents (subscriber) are notified and updated automatically</strong></p>
+<img src="observer.png" alt="" width="400px"/>
+
+<h3 id="Alterability-4"><a href="#Alterability-4" class="headerlink" title="Alterability"></a>Alterability</h3><ul>
+<li>Adding a new concrete observer: C=1 (class doing the registration)</li>
+<li>Adding a new concrete subject: C=1 (class using the subject)</li>
+</ul>
+<h2 id="Decorator-Pattern"><a href="#Decorator-Pattern" class="headerlink" title="Decorator Pattern"></a>Decorator Pattern</h2><h3 id="What-it-is-5"><a href="#What-it-is-5" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Extend functionality by subclassing</strong></p>
+<img src="decorator.png" width="500px" alt=""/>
+
+<h2 id="Factory-Method"><a href="#Factory-Method" class="headerlink" title="Factory Method"></a>Factory Method</h2><h3 id="What-it-is-6"><a href="#What-it-is-6" class="headerlink" title="What it is"></a>What it is</h3><p><strong>Let subclassed factories decide which class to instantiate.</strong></p>
+<img src="factory.png" alt="" width="300px"/>
+
+<h2 id="Template-Method"><a href="#Template-Method" class="headerlink" title="Template Method"></a>Template Method</h2><p><strong>Let subclasses redefine certain steps of an algorithm without changing the algorithm’s structure</strong></p>
+<img src="template.png" width="150" alt=""/>
+
+
+<h1 id="MVC-and-Design-Patterns"><a href="#MVC-and-Design-Patterns" class="headerlink" title="MVC and Design Patterns"></a>MVC and Design Patterns</h1><ol>
+<li>Observer pattern<ul>
+<li>UI components need to show the state of the system, and get updated when state changes</li>
+</ul>
+</li>
+<li>Composite pattern<ul>
+<li>Some UI components are supposed to behave the same way as their parents/the whole user interface</li>
+</ul>
+</li>
+<li>Decorator pattern<ul>
+<li>Some UI components must be associated with another element, and modifies some aspects of the element</li>
+</ul>
+</li>
+<li>Strategy pattern <ul>
+<li>Some UI elements provide a way for the user to interact with the UI</li>
+<li>Exactly how a user performs a specific action may differ</li>
+</ul>
+</li>
+<li>Factory method<ul>
+<li>The exact action/behaviour of some elements may change for different users</li>
+<li>Decision deferred and constructed through a template method</li>
+</ul>
+</li>
+</ol>
+<img src="mvc.png" alt="" width="350px"/>
+
+<h2 id="MVC-Alterability"><a href="#MVC-Alterability" class="headerlink" title="MVC Alterability"></a>MVC Alterability</h2><p>MVC allows a number of change cases to be implemented with only the minimum number of existing classes needing to change (C). Let’s examine four change cases:</p>
+<ol>
+<li>Adding new functionality<ul>
+<li>New classes, usually not by changing existing classes </li>
+</ul>
+</li>
+<li>Change what state of the system has to be shown<ul>
+<li>Change the model (if needed)</li>
+<li>Change ONLY the view affected (possibly only adding new view component class)</li>
+<li>No change on controllers</li>
+</ul>
+</li>
+<li>Change how the state of the system is shown<ul>
+<li>Change the relevant view class(s)</li>
+<li>No need to change model</li>
+<li>No need to change controller</li>
+</ul>
+</li>
+<li>Change how the user performs actions in the system<ul>
+<li>Change (or add) only the relevant controllers</li>
+<li>Usually no need to <em>change</em> any controllers</li>
+</ul>
+</li>
+</ol>
+<h1 id="JUnit-and-Design-Patterns"><a href="#JUnit-and-Design-Patterns" class="headerlink" title="JUnit and Design Patterns"></a>JUnit and Design Patterns</h1><ol>
+<li>Composite pattern<ul>
+<li><code>Test</code> is the Component, <code>TestSuite</code> is the Composite, and <code>TestCase</code> is the leaf. </li>
+</ul>
+</li>
+<li>Command pattern<ul>
+<li><code>TestCase</code> is the command</li>
+<li>Command relies on a single method to invoke it. Here it is <code>TestCase.run()</code>. </li>
+<li>This simple interface allows us to invoke different implementations of a command through the same interface.</li>
+</ul>
+</li>
+<li>Template Method<ul>
+<li><code>run</code> is the template method, <code>setUp</code>, <code>runTest</code> and <code>tearDown</code> are the hook methods.</li>
+</ul>
+</li>
+<li>Adapter pattern<ul>
+<li>Make all the test cases look the same from the point of view of the invoker of the test.</li>
+<li>Convert the interface of a class into another interface clients expect.</li>
+</ul>
+</li>
+<li>Collecting Parameter<ul>
+<li>We only want to record the failures, and get a highly condensed summary of the successes.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class TestResult extends Object &#123;</span><br><span class="line">    protected int fRunTests;</span><br><span class="line">    public TestResult() &#123;</span><br><span class="line">       fRunTests&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized void startTest(Test test) &#123;</span><br><span class="line">        fRunTests++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TestCase &#123;</span><br><span class="line">    public void run(TestResult result) &#123;</span><br><span class="line">        result.startTest(this);</span><br><span class="line">        setUp();</span><br><span class="line">        runTest();</span><br><span class="line">        tearDown();</span><br><span class="line">    &#125;</span><br><span class="line">    public TestResult run() &#123;</span><br><span class="line">        TestResult result&#x3D; createResult();</span><br><span class="line">        run(result);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    protected TestResult createResult() &#123;</span><br><span class="line">        return new TestResult();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<p>See <a href="http://junit.sourceforge.net/doc/cookstour/cookstour.htm" target="_blank" rel="noopener">JUnit A Cook’s Tour</a> for more details.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

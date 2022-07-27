@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Null-Coalescing Operator ?? in C sharp - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">??</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-1"><span class="toc-text">??&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Right-Associative"><span class="toc-text">Right-Associative</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Usage"><span class="toc-text">Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Giving-a-default-value-when-null-conditional-operations-evaluate-to-null"><span class="toc-text">Giving a default value when null-conditional operations evaluate to null</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Work-with-nullable-value-types"><span class="toc-text">Work with nullable value types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Throw-exception-on-null-values"><span class="toc-text">Throw exception on null values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Assign-value-if-null"><span class="toc-text">Assign value if null</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Null-Coalescing Operator ?? in C sharp
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-08 13:50:11</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#C#" title="C#">C#</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I was taking the <a href="https://www.udemy.com/course/the-ultimate-linq-with-csharp-masterclass-basics-to-advanced/learn/lecture/9475736#overview" target="_blank" rel="noopener">LINQ course on Udemy</a> and I came across new operators: <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator" target="_blank" rel="noopener">?? and ??=</a>.</p>
+<h1 id=""><a href="#" class="headerlink" title="??"></a>??</h1><blockquote>
+<p>The null-coalescing operator ?? returns the value of its left-hand operand if it isn’t null; otherwise, it evaluates the right-hand operand and returns its result. The ?? operator doesn’t evaluate its right-hand operand if the left-hand operand evaluates to non-null.</p>
+</blockquote>
+<h1 id="-1"><a href="#-1" class="headerlink" title="??="></a>??=</h1><blockquote>
+<p>Available in C# 8.0 and later, the null-coalescing assignment operator ??= assigns the value of its right-hand operand to its left-hand operand only if the left-hand operand evaluates to null. The ??= operator doesn’t evaluate its right-hand operand if the left-hand operand evaluates to non-null.</p>
+</blockquote>
+<h1 id="Right-Associative"><a href="#Right-Associative" class="headerlink" title="Right-Associative"></a>Right-Associative</h1><p>The null-coalescing operators are right-associative. That is, expressions of the form</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a ?? b ?? c</span><br><span class="line">d ??&#x3D; e ??&#x3D; f</span><br></pre></td></tr></table></figure>
+
+<p>Are evaluated as</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a ?? (b ?? c)</span><br><span class="line">d ??&#x3D; (e ??&#x3D; f)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><h2 id="Giving-a-default-value-when-null-conditional-operations-evaluate-to-null"><a href="#Giving-a-default-value-when-null-conditional-operations-evaluate-to-null" class="headerlink" title="Giving a default value when null-conditional operations evaluate to null"></a>Giving a default value when null-conditional operations evaluate to null</h2><p>In expressions with the null-conditional operators <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-" target="_blank" rel="noopener">?. and ?[]</a>, you can use the ?? operator to provide an alternative expression to evaluate in case the result of the expression with null-conditional operations is null.</p>
+<p>This is how the Udemy course uses it:</p>
+<img src="coalesce.png" alt="" width="700px"/>
+
+<p>Another example from <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator#examples" target="_blank" rel="noopener">Microsoft Docs</a>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">double SumNumbers(List&lt;double[]&gt; setsOfNumbers, int indexOfSetToSum)</span><br><span class="line">&#123;</span><br><span class="line">    return setsOfNumbers?[indexOfSetToSum]?.Sum() ?? double.NaN; &#x2F;&#x2F;?[] will get null if setOfNumbers is null </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var sum &#x3D; SumNumbers(null, 0);</span><br><span class="line">Console.WriteLine(sum);  &#x2F;&#x2F; output: NaN</span><br></pre></td></tr></table></figure>
+
+<h2 id="Work-with-nullable-value-types"><a href="#Work-with-nullable-value-types" class="headerlink" title="Work with nullable value types"></a>Work with nullable value types</h2><p>When you work with nullable value types (<code>T?</code>) and need to provide a value of an underlying value type, use the ?? operator to specify the value to provide in case a nullable type value is null:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int? a &#x3D; null;</span><br><span class="line">int b &#x3D; a ?? -1;</span><br><span class="line">Console.WriteLine(b);  &#x2F;&#x2F; output: -1</span><br></pre></td></tr></table></figure>
+
+<h2 id="Throw-exception-on-null-values"><a href="#Throw-exception-on-null-values" class="headerlink" title="Throw exception on null values"></a>Throw exception on null values</h2><p>Beginning with C# 7.0, you can use a throw expression as the right-hand operand of the ?? operator to make the argument-checking code more concise:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public string Name</span><br><span class="line">&#123;</span><br><span class="line">    get &#x3D;&gt; name;</span><br><span class="line">    set &#x3D;&gt; name &#x3D; value ?? throw new ArgumentNullException(nameof(value), &quot;Name cannot be null&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Assign-value-if-null"><a href="#Assign-value-if-null" class="headerlink" title="Assign value if null"></a>Assign value if null</h2><p>Beginning with C# 8.0, you can use the ??= operator to replace the code of the form</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (variable is null)</span><br><span class="line">&#123;</span><br><span class="line">    variable &#x3D; expression;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>By:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable ??&#x3D; expression;</span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

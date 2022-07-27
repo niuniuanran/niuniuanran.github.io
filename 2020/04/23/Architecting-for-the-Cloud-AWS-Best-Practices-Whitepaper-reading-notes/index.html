@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Architecting for the Cloud: AWS Best Practices (Whitepaper reading notes) - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Cloud-Design-Principles"><span class="toc-text">AWS Cloud Design Principles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scalability"><span class="toc-text">Scalability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaling-Vertically-vs-Scaling-Horizontally"><span class="toc-text">Scaling Vertically vs Scaling Horizontally</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scaling-Vertically"><span class="toc-text">Scaling Vertically</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scaling-Horizontally"><span class="toc-text">Scaling Horizontally</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stateless-Applications"><span class="toc-text">Stateless Applications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Distribute-Load-to-Multiple-Nodes"><span class="toc-text">Distribute Load to Multiple Nodes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#push-model"><span class="toc-text">push model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pull-model"><span class="toc-text">pull model</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stateless-Component"><span class="toc-text">Stateless Component</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-HTTP-cookies-to-store-session-information"><span class="toc-text">Using HTTP cookies to store session information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server-side-session-storage"><span class="toc-text">Server side session storage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-step-workflow"><span class="toc-text">Multi-step workflow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stateful-Components"><span class="toc-text">Stateful Components</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-Affinity"><span class="toc-text">Session Affinity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Limitations-of-Session-Affinity"><span class="toc-text">Limitations of Session Affinity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Implement-Session-Affinity-Option-1"><span class="toc-text">Implement Session Affinity Option 1</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-client-side-load-balancing"><span class="toc-text">Use client-side load balancing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributed-Processing"><span class="toc-text">Distributed Processing</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Disposable-Resources-instead-of-Fixed-Servers"><span class="toc-text">Disposable Resources instead of Fixed Servers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Immutable-infrastructure-pattern"><span class="toc-text">Immutable infrastructure pattern</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Instantiating-Compute-Resources"><span class="toc-text">Instantiating Compute Resources</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrapping"><span class="toc-text">Bootstrapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Golden-Image"><span class="toc-text">Golden Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Containers"><span class="toc-text">Containers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Docker"><span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes-and-Amazon-EKS"><span class="toc-text">Kubernetes and Amazon EKS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hybrid"><span class="toc-text">Hybrid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Infrastructure-as-Code"><span class="toc-text">Infrastructure as Code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CloudFormation"><span class="toc-text">AWS CloudFormation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Automation"><span class="toc-text">Automation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Serverless-Management-and-Deployment"><span class="toc-text">Serverless Management and Deployment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Infrastructure-Management-and-Deployment"><span class="toc-text">Infrastructure Management and Deployment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alarms-and-Events"><span class="toc-text">Alarms and Events</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Loose-Coupling"><span class="toc-text">Loose Coupling</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Well-Defined-Interfaces"><span class="toc-text">Well-Defined Interfaces</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#microservices-architecture"><span class="toc-text">microservices architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-API-Gateway"><span class="toc-text">Amazon API Gateway</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-Discovery"><span class="toc-text">Service Discovery</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Elastic-Load-Balancing"><span class="toc-text">Elastic Load Balancing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-and-private-Amazon-Route-53-zones"><span class="toc-text">DNS and private Amazon Route 53 zones</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Route-53-auto-naming"><span class="toc-text">Amazon Route 53 auto naming</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronous-Integration"><span class="toc-text">Asynchronous Integration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributed-Systems-Best-Practices"><span class="toc-text">Distributed Systems Best Practices</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Services-Not-Servers"><span class="toc-text">Services, Not Servers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Managed-Services"><span class="toc-text">Managed Services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Serverless-Architectures"><span class="toc-text">Serverless Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-serverless-application"><span class="toc-text">Create a serverless application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Authentication-and-Access-Control"><span class="toc-text">Authentication and Access Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-IoT"><span class="toc-text">AWS IoT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Responsive-services-at-edge-locations"><span class="toc-text">Responsive services at edge locations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Analytics"><span class="toc-text">Data Analytics</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Databases"><span class="toc-text">Databases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Relational-Database"><span class="toc-text">Relational Database</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scalability-1"><span class="toc-text">Scalability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#High-Availability"><span class="toc-text">High Availability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anti-Patterns"><span class="toc-text">Anti-Patterns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NoSQL-Databases"><span class="toc-text">NoSQL Databases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scalability-2"><span class="toc-text">Scalability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#High-Availability-1"><span class="toc-text">High Availability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anti-patterns"><span class="toc-text">Anti-patterns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Warehouse"><span class="toc-text">Data Warehouse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scalability-3"><span class="toc-text">Scalability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#High-Availability-2"><span class="toc-text">High Availability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anti-patterns-1"><span class="toc-text">Anti-patterns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Search"><span class="toc-text">Search</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scalability-4"><span class="toc-text">Scalability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#High-Availability-3"><span class="toc-text">High Availability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph-Databases"><span class="toc-text">Graph Databases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scalability-5"><span class="toc-text">Scalability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#High-Availability-4"><span class="toc-text">High Availability</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Managing-Increasing-Volumes-of-Data"><span class="toc-text">Managing Increasing Volumes of Data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Removing-Single-Points-of-Failure-High-Availability"><span class="toc-text">Removing Single Points of Failure (High Availability)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introducing-Redundancy"><span class="toc-text">Introducing Redundancy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Standby-Redundancy"><span class="toc-text">Standby Redundancy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Active-Redundancy"><span class="toc-text">Active Redundancy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Detect-Failure"><span class="toc-text">Detect Failure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-Good-Health-Checks"><span class="toc-text">Design Good Health Checks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Durable-Data-Storage"><span class="toc-text">Durable Data Storage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronous-replication"><span class="toc-text">Synchronous replication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Asynchronous-Replication"><span class="toc-text">Asynchronous Replication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quorum-based-replication"><span class="toc-text">Quorum-based replication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPO-and-RTO"><span class="toc-text">RPO and RTO</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Automated-Multi-Data-Centre-Resilience"><span class="toc-text">Automated Multi-Data Centre Resilience</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Infrastructure"><span class="toc-text">Infrastructure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Active-Redundancy-1"><span class="toc-text">Active Redundancy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-services-that-are-inherently-designed-according-to-the-multiple-Availability-Zone-multi-AZ-principle"><span class="toc-text">AWS services that are inherently designed according to the multiple Availability Zone (multi-AZ) principle:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fault-Isolation-and-Traditional-Horizontal-Scaling"><span class="toc-text">Fault Isolation and Traditional Horizontal Scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shuffle-Sharding"><span class="toc-text">Shuffle Sharding</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimize-for-Cost"><span class="toc-text">Optimize for Cost</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Right-Sizing"><span class="toc-text">Right Sizing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticity"><span class="toc-text">Elasticity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Scaling"><span class="toc-text">Auto Scaling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Automate-turning-off-non-productive-workloads"><span class="toc-text">Automate turning off non-productive workloads</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Consider-which-compute-workloads-you-could-implement-on-AWS-Lambda"><span class="toc-text">Consider which compute workloads you could implement on AWS Lambda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace-EC2-workload-with-AWS-managed-services"><span class="toc-text">Replace EC2 workload with AWS managed services</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Take-Advantage-of-the-Variety-of-Purchasing-Options"><span class="toc-text">Take Advantage of the Variety of Purchasing Options</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reserved-Instances"><span class="toc-text">Reserved Instances</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spot-Instances"><span class="toc-text">Spot Instances</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Caching"><span class="toc-text">Caching</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-Data-Caching"><span class="toc-text">Application Data Caching</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Edge-Caching"><span class="toc-text">Edge Caching</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-AWS-features-for-Defense-in-Depth"><span class="toc-text">Use AWS features for Defense in Depth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Share-Security-Responsibility-with-AWS"><span class="toc-text">Share Security Responsibility with AWS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reduce-Privileged-Access"><span class="toc-text">Reduce Privileged Access</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-as-Code"><span class="toc-text">Security as Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Real-time-Auditing"><span class="toc-text">Real-time Auditing</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Architecting for the Cloud: AWS Best Practices (Whitepaper reading notes)
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-23 13:49:35</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a href="https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf" target="_blank" rel="noopener">Architecting for the Cloud: AWS Best Practices</a> is the whitepaper recommended to read for AWS Solution Architect Associate Certificate Test.</p>
+<h1 id="AWS-Cloud-Design-Principles"><a href="#AWS-Cloud-Design-Principles" class="headerlink" title="AWS Cloud Design Principles"></a>AWS Cloud Design Principles</h1><h1 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h1><p>There are generally two ways to scale an IT architecture: vertically and horizontally.</p>
+<h2 id="Scaling-Vertically-vs-Scaling-Horizontally"><a href="#Scaling-Vertically-vs-Scaling-Horizontally" class="headerlink" title="Scaling Vertically vs Scaling Horizontally"></a>Scaling Vertically vs Scaling Horizontally</h2><h3 id="Scaling-Vertically"><a href="#Scaling-Vertically" class="headerlink" title="Scaling Vertically"></a>Scaling Vertically</h3><p>Increase the specification of an individual resource. For example, upgrading a server with larger hard drive or better I/O capacity.<br>Not always cost-effective.<br>Will reach the limit.<br>Not always highly available.<br>Easy to implement and can be sufficient for many user cases especially in the short ter,.</p>
+<h3 id="Scaling-Horizontally"><a href="#Scaling-Horizontally" class="headerlink" title="Scaling Horizontally"></a>Scaling Horizontally</h3><p>Scaling horizontally takes place through an increase in the number of resources, such as adding more hard drives to a storage array or adding more servers to support an application.<br>A great way to build internet-scale applications that leverage the elasticity of cloud computing.</p>
+<p>Now let’s examine some possible horizontal scaling scenarios.</p>
+<h2 id="Stateless-Applications"><a href="#Stateless-Applications" class="headerlink" title="Stateless Applications"></a>Stateless Applications</h2><p>A stateless application is an application that does not need knowledge of previous interactions and does not store session information: given the same input, produces the same response to any end user.<br>Stateless Applications can be scaled horizontally:</p>
+<ul>
+<li>Any of the available compute resource (EC2/Lambda) can serve the request.</li>
+<li>Each resource do not need to be aware of their peers: all that is required is a way to <strong>distribute workload</strong> to them.<h3 id="Distribute-Load-to-Multiple-Nodes"><a href="#Distribute-Load-to-Multiple-Nodes" class="headerlink" title="Distribute Load to Multiple Nodes"></a>Distribute Load to Multiple Nodes</h3>To distribute the workload to multiple nodes, you can use either a push or pull model.<h4 id="push-model"><a href="#push-model" class="headerlink" title="push model"></a>push model</h4>With a push model, you can use <strong>Elastic Load Balancing</strong> to distribute the workload. </li>
+<li>A  Network Load Balancer operates at level 4 of the open systems interconnection model.</li>
+<li>WIth container-based services, you can also use Application Load Balancer.</li>
+<li>You can use Amazon Route 53 to implement a DNS round robin.<br>In this case, DNS responses return an IP address from a list of valid hosts in a round-robin fashion. While easy to use, this approach does not always work with with the elasticity of cloud computing, because even if you can set low time to live (TTL) values for your DNS records, caching DNS resolvers are outside the control of Amazon Route 53 and might not always respect your settings.<h4 id="pull-model"><a href="#pull-model" class="headerlink" title="pull model"></a>pull model</h4>Instead of a load balancing solution, you can implement a pull model for asynchronous, event-driven workloads.<br>In a pull model, tasks that need to be performed or data that needs to be processed can be stored as messages in a queue using Amazon Simple Queue Service (Amazon SQS) or as a streaming data solution such as Amazon Kinesis.<br>Multiple compute resources can then pull and consume those messages, processing them in a distributed fashion.</li>
+</ul>
+<h2 id="Stateless-Component"><a href="#Stateless-Component" class="headerlink" title="Stateless Component"></a>Stateless Component</h2><p>In practice, most applications maintain some kind of state information. You can still make a portion of your architecture stateless by not storing anything that needs to persist to more than a single request in the local file system.</p>
+<h3 id="Using-HTTP-cookies-to-store-session-information"><a href="#Using-HTTP-cookies-to-store-session-information" class="headerlink" title="Using HTTP cookies to store session information"></a>Using HTTP cookies to store session information</h3><p>Consider only storing a unique session identifier in an HTTP cookie, and store more detailed session information on the server side. Most programming platforms provide a native session management mechanism.</p>
+<h3 id="Server-side-session-storage"><a href="#Server-side-session-storage" class="headerlink" title="Server side session storage"></a>Server side session storage</h3><p>User session information is often stored on the local file system by default, and result in a stateful architecture.</p>
+<ul>
+<li>A common solution is to store information in database. <strong>Amazon DynamoDB is a great choice</strong> to store the server side user session information.</li>
+<li>When larger files is required to be stored, you can place those files in a <strong>shared storage layer</strong>, such as Amazon S3 or Amazon EFS, and you can still avoid the introduction of stateful components, i.e. the workload can be picked up by another EC2 instance when needed.<h3 id="Multi-step-workflow"><a href="#Multi-step-workflow" class="headerlink" title="Multi-step workflow"></a>Multi-step workflow</h3>You can use <strong>AWS Step Functions</strong> to centrally store execution history and make these workloads stateless.</li>
+</ul>
+<h2 id="Stateful-Components"><a href="#Stateful-Components" class="headerlink" title="Stateful Components"></a>Stateful Components</h2><p>Examples of inevitably stateful components:</p>
+<ul>
+<li>database</li>
+<li>many legacy applications were designed to run on a single server by relying on local compote resources</li>
+<li>User cases that require client devices to maintain a connection to a specific server for prolonged periods, for example: real-time multiplayer gaming, much easier to achieve a non-distributed implementation where participants are connected to the same server.<br>You might still be able to scale those components horizontally by distributing the load to multiple nodes with <strong>session affinity</strong>: you <strong>bind all the transactions of a session to a specific compute resource</strong>.<h3 id="Session-Affinity"><a href="#Session-Affinity" class="headerlink" title="Session Affinity"></a>Session Affinity</h3>session affinity(会话保持)是在负载均衡器上的一种机制，在完成负载均衡任务的同时，还负责<strong>一系列相关连的访问请求会分配到一台服务器上</strong>｡<h4 id="Limitations-of-Session-Affinity"><a href="#Limitations-of-Session-Affinity" class="headerlink" title="Limitations of Session Affinity"></a>Limitations of Session Affinity</h4></li>
+<li>Existing sessions won’t benefit from the introduction of newly launched compute nodes</li>
+<li>If a compute node is terminated, users bound to them will lose their session-specific data.<h4 id="Implement-Session-Affinity-Option-1"><a href="#Implement-Session-Affinity-Option-1" class="headerlink" title="Implement Session Affinity Option 1"></a>Implement Session Affinity Option 1</h4>For HTTP/HTTPS traffic, you can use sticky session feature of an <strong>Application Load Balancer</strong> to bind a user’s session to specific instance.<br>With this feature, an Application Load Balancer will try to use the same server for that user for the duration of the session.</li>
+</ul>
+<h2 id="Use-client-side-load-balancing"><a href="#Use-client-side-load-balancing" class="headerlink" title="Use client-side load balancing"></a>Use client-side load balancing</h2><p>In this model, the clients need a way of discovering valid server endpoints to directly connect to. You can use DNS for that, or you can build a simple discovery API to provide that information to the software running on the client.<br>Health checking mechanism also needs to be implemented on the client side.</p>
+<h2 id="Distributed-Processing"><a href="#Distributed-Processing" class="headerlink" title="Distributed Processing"></a>Distributed Processing</h2><p>By dividing a task and its data into many small fragments of work, you can execute them in parallel across a set of compute resources.</p>
+<ul>
+<li>Offline batch jobs can be horizontally scaled by using distributed data processing engines such as <strong>AWS Batch, AWS Glue, and Apache Hadoop</strong>.</li>
+<li>On AWS, you can use <strong>Amazon EMR(Amazon Elastic MapReduce)</strong> to run Hadoop workloads on top of a fleet of EC2 instances without the operational complexity. </li>
+<li>For real-time processing of streaming data, <strong>Amazon Kinesis</strong> partitions data in multiple shards that can then be consumed by multiple Amazon EC2 or AWS Lambda resources to achieve elasticity.</li>
+</ul>
+<h1 id="Disposable-Resources-instead-of-Fixed-Servers"><a href="#Disposable-Resources-instead-of-Fixed-Servers" class="headerlink" title="Disposable Resources instead of Fixed Servers"></a>Disposable Resources instead of Fixed Servers</h1><p>When designing for AWS, you can take advantage of the dynamically provisioned nature of cloud computing.<br>You can think of servers and other components as temporary resources.</p>
+<h2 id="Immutable-infrastructure-pattern"><a href="#Immutable-infrastructure-pattern" class="headerlink" title="Immutable infrastructure pattern"></a>Immutable infrastructure pattern</h2><p>It solves the <strong>configuration drift</strong> issue with fixed, long running servers.</p>
+<blockquote>
+<p>Configuration drift: Changes and software patches applied through time can result in untested and heterogeneous configurations across different environments</p>
+</blockquote>
+<p>Immutable infrastructure pattern: a server—once launched—is never updated. Instead, when there is a problem or need for an update, the problem server is replaced with a new server that has the latest configuration.<br>This enables resources to always be in a consistent (and tested) state, and makes rollbacks easier to perform. This is more easily supported with stateless architectures.</p>
+<h2 id="Instantiating-Compute-Resources"><a href="#Instantiating-Compute-Resources" class="headerlink" title="Instantiating Compute Resources"></a>Instantiating Compute Resources</h2><p>Make the creation and configuration of new compute note/other components an automated and repeatable process, so that you can dispose resources and launch new ones swiftly.</p>
+<h3 id="Bootstrapping"><a href="#Bootstrapping" class="headerlink" title="Bootstrapping"></a>Bootstrapping</h3><p>Execute automated bootstrapping actions: scripts that install software/copy data to bring that resource to a particular state.</p>
+<ul>
+<li>Set up EC2 instances with user data scripts and cloud-init directives</li>
+<li>Script and configuration management tools such as <strong>Chef</strong> or <strong>Puppet</strong></li>
+<li>With custom scripts and the AWS APIs, or with AWS CloudFormation support for AWS Lambda-backed custom resources, you can write provisioning logic that acts on almost any AWS resource.<h3 id="Golden-Image"><a href="#Golden-Image" class="headerlink" title="Golden Image"></a>Golden Image</h3>Golden image is a snapshot of a particular state of the resource.<br>Resources can be launched from a golder image:</li>
+<li>EC2 instances (AMI)</li>
+<li>Amazon RDS DB instances (instantiating it from a Amazon RDS snapshot)</li>
+<li>Amazon Elastic BLock Store (Amazon EBS) volumes (EBS snapshot)<br>When compared to the bootstrapping approach, a golden image results in faster start times and removes dependencies to configuration services or third-party repositories. <strong>This is important in auto-scaled environments where you want to be able to quickly and reliably launch additional resources as a response to demand changes.</strong></li>
+</ul>
+<h3 id="Containers"><a href="#Containers" class="headerlink" title="Containers"></a>Containers</h3><h4 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h4><p>Docker allows you to package a piece of software in a Docker image, which is a standarised unit for software development.<br>These services allow you to deploy and manage multiple containers across a cluster of EC2 instances:</p>
+<ul>
+<li>AWS Elastic Beanstalk</li>
+<li>Amazon Elastic Container Service (ECS)</li>
+<li>AWS Fargate<br>You can build <strong>golden Docker images</strong> and use the ECS Container  <h4 id="Kubernetes-and-Amazon-EKS"><a href="#Kubernetes-and-Amazon-EKS" class="headerlink" title="Kubernetes and Amazon EKS"></a>Kubernetes and Amazon EKS</h4>With Kubernetes and Amazon Elastic Container Service for Kubernetes, you can easily deploy, manage and scale containerized applications.</li>
+</ul>
+<h3 id="Hybrid"><a href="#Hybrid" class="headerlink" title="Hybrid"></a>Hybrid</h3><p>You can use a combination of Golden Images and Bootstrapping.<br>Items that do not change often or that introduce external dependencies will typically be part of your golden image. An example of a good candidate is your web server software that would otherwise have to be downloaded by a third-party repository each time you launch an instance.<br>Items that change often or differ between your various environments can be set up dynamically through bootstrapping actions.</p>
+<p>Elastic Beanstalk follows the Hybrid model. It provides preconfigured run time environments - each initiated from its AMI, but allows you to run bootstrap actions through .ebextensions configuration files, and configure environmental variables to parameterize the environment differences.</p>
+<h2 id="Infrastructure-as-Code"><a href="#Infrastructure-as-Code" class="headerlink" title="Infrastructure as Code"></a>Infrastructure as Code</h2><p>Applications of the disposable resources principles are not limited to the individual resource level. AWS assets are programmable, and you can use code to make your whole infrastructure reusable, maintainable, extensible, and testable:</p>
+<h3 id="AWS-CloudFormation"><a href="#AWS-CloudFormation" class="headerlink" title="AWS CloudFormation"></a>AWS CloudFormation</h3><p>AWS CloudFormation templates give you an easy way to create and manage a collection of related AWS resources.<br><strong>Your CloudFormation templates can live with your application in your version control repository, which allows you to reuse architectures and reliably clone production environments for testing.</strong></p>
+<h1 id="Automation"><a href="#Automation" class="headerlink" title="Automation"></a>Automation</h1><p>Consider introducing one or more of these types of automation into your application architecture to ensure more resiliency, scalability, and performance.</p>
+<h2 id="Serverless-Management-and-Deployment"><a href="#Serverless-Management-and-Deployment" class="headerlink" title="Serverless Management and Deployment"></a>Serverless Management and Deployment</h2><p>Deployment pipeline</p>
+<ul>
+<li>AWS CodePipeline</li>
+<li>AWS CodeBuild</li>
+<li>AWS CodeDeploy</li>
+</ul>
+<h2 id="Infrastructure-Management-and-Deployment"><a href="#Infrastructure-Management-and-Deployment" class="headerlink" title="Infrastructure Management and Deployment"></a>Infrastructure Management and Deployment</h2><ul>
+<li>AWS Elastic Beanstalk</li>
+<li>Amazon EC2 auto recovery: create an Amazon CloudWatch alarm that monitors an EC2 instance and automatically recovers it if it becomes impaired. (but you lose your in-memory data)</li>
+<li>AWS Systems Manager: automatically collect software inventory, apply OS patches, create a system image to configure Windows and Linux operating systems</li>
+<li>Auto Scaling: maintain application availability and scale your Amazon EC2, Amazon DynamoDB, Amazon ECS, Amazon Elastic Container Service for Kubernetes (Amazon EKS) capacity.<br>You can use Auto Scaling to help make sure that you are running the desired number of <strong>healthy</strong> EC2 instances across multiple Availability Zones.</li>
+</ul>
+<h2 id="Alarms-and-Events"><a href="#Alarms-and-Events" class="headerlink" title="Alarms and Events"></a>Alarms and Events</h2><ul>
+<li>Amazon CloudWatch alarms -&gt; Amazon Simple Notification Service</li>
+<li>Amazon CloudWatch events: a near real-time stream of system events that describe changes in AWS resources. You can route events to one/more targets, such as<ul>
+<li>Lambda Functions</li>
+<li>Kinesis Streams</li>
+<li>SNS topic</li>
+</ul>
+</li>
+<li>AWS Lambda scheduled events: configure a Lambda function that execute on a regular schedule.</li>
+<li>AWS WAF security automations: you can administer AWS Web Application Firewall completely through APIs, which makes security automation easy, enabling rapid rule propagation and fast incident response.</li>
+</ul>
+<h1 id="Loose-Coupling"><a href="#Loose-Coupling" class="headerlink" title="Loose Coupling"></a>Loose Coupling</h1><p>As application complexity increases, a desirable attribute of an IT system is that it can be broken into smaller, loosely coupled components.<br>Reduce dependencies.<br>A change or a failure in one component should not cascade to other components.</p>
+<h2 id="Well-Defined-Interfaces"><a href="#Well-Defined-Interfaces" class="headerlink" title="Well-Defined Interfaces"></a>Well-Defined Interfaces</h2><p>Components interact only through specific, technology-agnostic（技术不可知） interfaces, such as RESTful APIs.</p>
+<h3 id="microservices-architecture"><a href="#microservices-architecture" class="headerlink" title="microservices architecture"></a>microservices architecture</h3><p>This granular design pattern of decoupling components with interfaces is commonly referred to as a <strong>microservices architecture</strong>.</p>
+<h3 id="Amazon-API-Gateway"><a href="#Amazon-API-Gateway" class="headerlink" title="Amazon API Gateway"></a>Amazon API Gateway</h3><p>A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.</p>
+<ul>
+<li>traffic management, </li>
+<li>authorization and access control, </li>
+<li>monitoring, and</li>
+<li>API version management.</li>
+</ul>
+<h2 id="Service-Discovery"><a href="#Service-Discovery" class="headerlink" title="Service Discovery"></a>Service Discovery</h2><p><strong>Loose coupling is a crucial element if you want to take advantage of the elasticity of cloud computing, where new resources can be launched or terminated at any point in time.</strong><br>Those compute resources running smaller services need a way to be addressed/discovered.</p>
+<h3 id="Elastic-Load-Balancing"><a href="#Elastic-Load-Balancing" class="headerlink" title="Elastic Load Balancing"></a>Elastic Load Balancing</h3><p>each load balancer gets its own hostname, you can consume a service through a stable endpoint.</p>
+<h3 id="DNS-and-private-Amazon-Route-53-zones"><a href="#DNS-and-private-Amazon-Route-53-zones" class="headerlink" title="DNS and private Amazon Route 53 zones"></a>DNS and private Amazon Route 53 zones</h3><p>The particular load balancer’s endpoint can be abstracted and modified at any time.</p>
+<h3 id="Amazon-Route-53-auto-naming"><a href="#Amazon-Route-53-auto-naming" class="headerlink" title="Amazon Route 53 auto naming"></a>Amazon Route 53 auto naming</h3><p>Auto naming lets you automatically create DNS records based on a configuration you define.</p>
+<h2 id="Asynchronous-Integration"><a href="#Asynchronous-Integration" class="headerlink" title="Asynchronous Integration"></a>Asynchronous Integration</h2><p>Suitable for any interaction that does not need an immediate response and where an acknowledgement that a request has been registered will suffice.<br>It involves </p>
+<ul>
+<li>one component that generates events </li>
+<li>another component that consumes them</li>
+</ul>
+<p>The two components do not integrate through direct point-to-point interaction, but usually through an intermediate durable storage layer, such as:</p>
+<ul>
+<li>an SQS(Simple Queueing Service) queue </li>
+<li>a streaming data platform such as Amazon Kinesis</li>
+<li>Cascading Lambda events</li>
+<li>AWS Step functions</li>
+<li>Amazon Simple Workflow Service</li>
+</ul>
+<blockquote>
+<p>This approach decouples the two components and introduces additional resiliency. So, for example, if a process that is reading messages from the queue fails, messages can still be added to the queue and processed when the system recovers. </p>
+</blockquote>
+<h2 id="Distributed-Systems-Best-Practices"><a href="#Distributed-Systems-Best-Practices" class="headerlink" title="Distributed Systems Best Practices"></a>Distributed Systems Best Practices</h2><p><strong>build applications that handle component failure in a graceful manner.</strong></p>
+<p>A request that fails can be retried with an exponential backoff and Jitter strategy, or it can be stored in a queue for later processing. For front-end interfaces, it might be possible to provide alternative or cached content instead of failing completely when, for example, your database server becomes unavailable.</p>
+<p>The <strong>Amazon Route 53 DNS failover feature</strong> also gives you the ability to monitor your website and automatically route your visitors to a backup site if your primary site becomes unavailable. You can host your backup site as a static website on Amazon S3 or as a separate dynamic environment.</p>
+<h1 id="Services-Not-Servers"><a href="#Services-Not-Servers" class="headerlink" title="Services, Not Servers"></a>Services, Not Servers</h1><h2 id="Managed-Services"><a href="#Managed-Services" class="headerlink" title="Managed Services"></a>Managed Services</h2><p>AWS managed services provide building blocks that developers can consume to power their applications. Examples of managed services that power your applications:</p>
+<ul>
+<li>SQS for messaging cluster</li>
+<li>S3 for storage of as much data as you need (5T each individual object)</li>
+<li>Amazon CloudFront for content delivery</li>
+<li>ELB for load balancing</li>
+<li>Amazon DynamoDB for NoSQL databased</li>
+<li>Amazon CloudSearch for search workloads</li>
+<li>Amazon Elastic Transcoder for video encoding</li>
+<li>Amazon Simple Email Service (SES) for sending and receiving emails</li>
+</ul>
+<h2 id="Serverless-Architectures"><a href="#Serverless-Architectures" class="headerlink" title="Serverless Architectures"></a>Serverless Architectures</h2><p>It is possible to build both event-driven and synchronous services for mobile, web, analytics, CDN business logic, and IoT without managing any server infrastructure.</p>
+<h3 id="Create-a-serverless-application"><a href="#Create-a-serverless-application" class="headerlink" title="Create a serverless application"></a>Create a serverless application</h3><ul>
+<li>By using <strong>Amazon API Gateway</strong>, you can develop virtually infinitely scalable synchronous APIs powered by <strong>AWS Lambda</strong>. </li>
+<li>When combined with <strong>Amazon S3</strong> for serving static content assets, this pattern can deliver a complete web application.<h3 id="Authentication-and-Access-Control"><a href="#Authentication-and-Access-Control" class="headerlink" title="Authentication and Access Control"></a>Authentication and Access Control</h3></li>
+<li>You can use <strong>Amazon Cognito</strong> so that you don’t have to manage a back-end solution to handle user authentication, network state, storage, and sync.</li>
+<li>Amazon Cognito provides temporary AWS credentials to your users, allowing the mobile application running on the device to interact directly with <strong>IAM</strong>-protected AWS services.<h3 id="AWS-IoT"><a href="#AWS-IoT" class="headerlink" title="AWS IoT"></a>AWS IoT</h3></li>
+<li>AWS IoT provides a fully managed device gateway that scales automatically with your usage without any operational overhead.<h3 id="Responsive-services-at-edge-locations"><a href="#Responsive-services-at-edge-locations" class="headerlink" title="Responsive services at edge locations"></a>Responsive services at edge locations</h3></li>
+</ul>
+<p><strong>AWS Lambda@Edge</strong> lets you run Lambda functions at <strong>Amazon CloudFront edge locations</strong> in response to CloudFront events.</p>
+<h3 id="Data-Analytics"><a href="#Data-Analytics" class="headerlink" title="Data Analytics"></a>Data Analytics</h3><ul>
+<li><strong>Amazon Athena</strong> is an interactive query service that makes it easy for you to analyze data in Amazon S3 using standard SQL. Serverless, you pay for the queries that you run.</li>
+</ul>
+<h1 id="Databases"><a href="#Databases" class="headerlink" title="Databases"></a>Databases</h1><p>On AWS, constraints to choose database technologies are removed.</p>
+<h2 id="Relational-Database"><a href="#Relational-Database" class="headerlink" title="Relational Database"></a>Relational Database</h2><h3 id="Scalability-1"><a href="#Scalability-1" class="headerlink" title="Scalability"></a>Scalability</h3><ul>
+<li><p>Scale vertically by upgrading to a larger Amazon RDS DB instances; also consider using Amazon Aurora, supports higher throughput.</p>
+</li>
+<li><p>For read-heavy applications, you can also scale horizontally by adding <strong>read replicas</strong>.</p>
+<blockquote>
+<p>Read Replicas separate database instances that are replicated asynchronously. As a result, they are subject to replication lag and might be missing some of the latest transactions.<br>Application designers need to consider which queries have tolerance to slightly stale data. Those queries can be executed on a read replica, while the remainder should run on the primary node. Read replicas can also not accept any write queries.</p>
+</blockquote>
+</li>
+<li><p>Relational database workloads that need to scale their <strong>write</strong> capacity beyond the constraints of a single DB instance require a different approach called data partitioning or sharding.</p>
+<blockquote>
+<p>The application’s data access layer needs to be modified to have awareness of how data is split so that it can direct queries to the right instance. In addition, schema changes must be performed across multiple database schemas, so it is worth investing some effort to automate this process.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h3><ul>
+<li>Direct Connection(DX) is highly available when there are two ports open.  </li>
+<li>ElastiCache is highly available when you group 2 to 6 nodes into a cluster with replicas where 1 to 5 read-only nodes contain replicate data of the group’s single read/write primary node.</li>
+<li>RedShift is highly available when you build multi-region or multi-availability zone (AZ) clusters</li>
+</ul>
+<p>For any production relational database, we recommend using the <strong>Amazon RDS MultiAZ deployment</strong> feature, which creates a synchronously replicated standby instance in a different Availability Zone.</p>
+<blockquote>
+<p>Resilient applications can be designed for <strong>Graceful Failure</strong> by offering reduced functionality, such as read-only mode by using read replicas.</p>
+</blockquote>
+<h3 id="Anti-Patterns"><a href="#Anti-Patterns" class="headerlink" title="Anti-Patterns"></a>Anti-Patterns</h3><p>Consider a NoSQL database if:</p>
+<ul>
+<li>Your application primarily indexes and queries data with no need for joins or complex transactions</li>
+<li>If you expect a write throughput beyond the constraints of a single instance<br>If you have large binary files:</li>
+<li>Consider using Amazon S3 to hold the actual files</li>
+<li>Only hold the metadata for the files in your database.</li>
+</ul>
+<h2 id="NoSQL-Databases"><a href="#NoSQL-Databases" class="headerlink" title="NoSQL Databases"></a>NoSQL Databases</h2><p>NoSQL databases trade some of the query and transaction capabilities of relational databases for a more flexible data model that seamlessly scales horizontally.</p>
+<blockquote>
+<p>Amazon DynamoDB is a fast and flexible NoSQL database service for applications that need consistent, single-digit, millisecond latency at any scale. It is a fully managed cloud database and supports both <strong>document</strong> and <strong>key-value store</strong> models.</p>
+</blockquote>
+<h3 id="Scalability-2"><a href="#Scalability-2" class="headerlink" title="Scalability"></a>Scalability</h3><blockquote>
+<p>NoSQL database engines will typically perform data partitioning and replication to scale both the reads and the writes in a horizontal fashion. They do this transparently, and don’t need the data partitioning logic implemented in the data access layer of your application.</p>
+</blockquote>
+<ul>
+<li>Amazon Dynamo DB manages <strong>table partitioning</strong> automatically, adding new partitions as your table grows in size or read-provisioned and write-provisioned capacity changes.</li>
+<li>Amazon DynamoDB Accelerator (DAX) is a managed, highly available, in-memory cache for DynamoDB to leverage significant performance improvements.<h3 id="High-Availability-1"><a href="#High-Availability-1" class="headerlink" title="High Availability"></a>High Availability</h3></li>
+<li>Amazon DynamoDB synchronously replicates data across <strong>three</strong> facilitates in an AWS Region.</li>
+<li><strong>Global Tables</strong> are replicated across your selected AWS Regions.<h3 id="Anti-patterns"><a href="#Anti-patterns" class="headerlink" title="Anti-patterns"></a>Anti-patterns</h3></li>
+<li>If your schema cannot be denormalized, and your application requires joins or complex transactions, consider a relational database instead.</li>
+<li>If you have large binary files (audio, video, and image), consider storing the files in Amazon S3 and storing the metadata for the files in your database.</li>
+</ul>
+<h2 id="Data-Warehouse"><a href="#Data-Warehouse" class="headerlink" title="Data Warehouse"></a>Data Warehouse</h2><p>A data warehouse is a specialized type of <strong>relational database</strong>, which is optimized for analysis and reporting of large amounts of data.</p>
+<blockquote>
+<p>It can be used to combine transactional data from disparate sources (such as user behavior in a web application, data from your finance and billing system, or customer relationship management or CRM) to make them available for analysis and decision-making.</p>
+</blockquote>
+<p>On AWS, you can leverage <strong>Amazon Redshift</strong>, a managed data warehouse service that is designed to operate at less than a tenth the cost of traditional solutions</p>
+<h3 id="Scalability-3"><a href="#Scalability-3" class="headerlink" title="Scalability"></a>Scalability</h3><p>Amazon Redshift achieves efficient storage and optimum query performance through a combination of </p>
+<ul>
+<li>massively parallel processing (MPP), </li>
+<li>columnar data storage, and</li>
+<li>targeted data compression encoding schemas.</li>
+</ul>
+<p>The <strong>Amazon Redshift MPP architecture</strong> enables you to increase performance by increasing the number of nodes in your data warehouse cluster.<br><strong>Amazon Redshift Spectrum</strong> enables Amazon Redshift SQL queries against exabytes of data in Amazon S3</p>
+<h3 id="High-Availability-2"><a href="#High-Availability-2" class="headerlink" title="High Availability"></a>High Availability</h3><ul>
+<li>We recommend that you deploy production workloads in <strong>multi-node clusters</strong>, so that data that is written to a node is automatically replicated to other nodes within the cluster.</li>
+<li>Data is also continuously backed up to Amazon S3.</li>
+<li>Amazon Redshift continuously monitors the health of the cluster and automatically rereplicates data from failed drives and replaces nodes as necessary.</li>
+</ul>
+<h3 id="Anti-patterns-1"><a href="#Anti-patterns-1" class="headerlink" title="Anti-patterns"></a>Anti-patterns</h3><p>Because Amazon Redshift is an SQL-based relational database management system (RDBMS), it is compatible with other RDBMS applications and business intelligence tools.<br>Although Amazon Redshift provides the functionality of a typical RDBMS, including online transaction processing (OLTP) functions, it is not designed for these workloads. If you expect a high concurrency workload that generally involves reading and writing all of the columns for a small number of records at a time, you should instead consider using Amazon RDS or Amazon DynamoDB.</p>
+<h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><blockquote>
+<p>A query is a formal database query, which is addressed in formal terms to a specific data set. Search enables datasets to be queried that are not precisely structured.<br>For this reason, applications that require sophisticated search functionality will typically outgrow the capabilities of relational or NoSQL databases.</p>
+</blockquote>
+<p>On AWS, you can choose between <strong>Amazon CloudSearch</strong> and <strong>Amazon Elasticsearch Service (Amazon ES)</strong></p>
+<ul>
+<li>Amazon CloudSearch is a managed service that requires little configuration and will scale automatically.</li>
+<li>Amazon Elasticsearch offers an open-source API and gives you more control over the configuration details. Amazon ES has also evolved to become more than just a search solution. Often used as an analytics engine for use cases such as:<ul>
+<li>log analytics</li>
+<li>real-time application monitoring</li>
+<li>click stream analytics.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Scalability-4"><a href="#Scalability-4" class="headerlink" title="Scalability"></a>Scalability</h3><p>Both Amazon CloudSearch and Amazon ES use <strong>data partitioning</strong> and <strong>replication</strong> to scale horizontally.</p>
+<p>The difference is that with <strong>Amazon CloudSearch</strong>, you don’t need to worry about how many partitions and replicas you need because the service automatically handles that.</p>
+<h3 id="High-Availability-3"><a href="#High-Availability-3" class="headerlink" title="High Availability"></a>High Availability</h3><p>Both Amazon CloudSearch and Amazon ES include features that store data redundantly across <strong>Availability Zones</strong>.</p>
+<h2 id="Graph-Databases"><a href="#Graph-Databases" class="headerlink" title="Graph Databases"></a>Graph Databases</h2><p>A graph database uses <strong>graph structures for queries</strong>. </p>
+<ul>
+<li>A graph is defined as consisting of <strong>edges (relationships)</strong>, which directly relate to nodes (data entities) in the store. </li>
+<li>The relationships enable data in the store to be linked together directly, which allows the fast retrieval of hierarchical structures in relational systems.</li>
+<li>Graph databases are purposefully built in user cases like:<ul>
+<li>social networking</li>
+<li>recommendation engines</li>
+<li>fraud detection</li>
+</ul>
+</li>
+</ul>
+<p><strong>Amazon Neptune</strong> is a fully managed graph database service.</p>
+<h3 id="Scalability-5"><a href="#Scalability-5" class="headerlink" title="Scalability"></a>Scalability</h3><p>Amazon Neptune is a purpose-built, high-performance graph database optimized for processing graph queries.</p>
+<h3 id="High-Availability-4"><a href="#High-Availability-4" class="headerlink" title="High Availability"></a>High Availability</h3><p>Amazon Neptune has:</p>
+<ul>
+<li>read replicas</li>
+<li>point-in-time recovery</li>
+<li>continuous backup to Amazon S3</li>
+<li>replication across Availability Zones</li>
+<li>support for encryption at rest and in transit</li>
+</ul>
+<h1 id="Managing-Increasing-Volumes-of-Data"><a href="#Managing-Increasing-Volumes-of-Data" class="headerlink" title="Managing Increasing Volumes of Data"></a>Managing Increasing Volumes of Data</h1><blockquote>
+<p>A data lake is an architectural approach that allows you to store massive amounts of data in a central location so that it’s readily available to be categorized, processed, analyzed, and consumed by diverse groups within your organization.</p>
+</blockquote>
+<blockquote>
+<p>Since data can be stored as-is, you do not have to convert it to a predefined schema, and you no longer need to know what questions to ask about your data beforehand. This enables you to select the correct technology to meet your specific analytical requirements.</p>
+</blockquote>
+<img src="data-lake.png" width="800px" alt="aws data lake solution"/>
+
+<blockquote>
+<p><strong>AWS Glue</strong> is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics. Useful for data lakes where data in the central lake gets extracted, transformed and loaded.</p>
+</blockquote>
+<h1 id="Removing-Single-Points-of-Failure-High-Availability"><a href="#Removing-Single-Points-of-Failure-High-Availability" class="headerlink" title="Removing Single Points of Failure (High Availability)"></a>Removing Single Points of Failure (High Availability)</h1><blockquote>
+<p>Production systems typically come with defined or implicit objectives for <strong>uptime</strong>.<br>A system is highly available when it can <strong>withstand the failure</strong> of an individual component<br>  or multiple components, such as hard disks, servers, and network links. </p>
+</blockquote>
+<p>To attain high availability:</p>
+<ul>
+<li>automate recovery</li>
+<li>reduce disruption at every layer of architecture</li>
+</ul>
+<h2 id="Introducing-Redundancy"><a href="#Introducing-Redundancy" class="headerlink" title="Introducing Redundancy"></a>Introducing Redundancy</h2><p>Remove single points of failure with redundancy: have multiple resources for the same task.</p>
+<h3 id="Standby-Redundancy"><a href="#Standby-Redundancy" class="headerlink" title="Standby Redundancy"></a>Standby Redundancy</h3><p>In standby redundancy, when a resource fails, functionality is recovered on a secondary resource with the failover process.<br>Failover process requires some time. During the failover process the resource remains unavailable. The secondary resource can either be:</p>
+<ul>
+<li>launched automatically only when needed (reduce cost)</li>
+<li>running idle (to accelerate failover and minimize disruption)</li>
+</ul>
+<p>Standby redundancy is often used for stateful components such as relational databases.</p>
+<h3 id="Active-Redundancy"><a href="#Active-Redundancy" class="headerlink" title="Active Redundancy"></a>Active Redundancy</h3><p>Requests are distributed to multiple redundant compute resources. When one of them fails, the rest can simply absorb a larger share of the workload. Compared to standby redundancy, active redundancy can achieve better usage and affect a smaller population when there is a failure.</p>
+<h2 id="Detect-Failure"><a href="#Detect-Failure" class="headerlink" title="Detect Failure"></a>Detect Failure</h2><p>You should aim to build as much <strong>automation</strong> as possible in both detecting and reacting to failure.</p>
+<ul>
+<li>You can use services such as <strong>ELB</strong> and <strong>Amazon Route 53</strong> to configure <strong>health checks</strong> and <strong>mask failure by routing traffic to healthy endpoints</strong>.</li>
+<li>You can replace unhealthy nodes automatically using <strong>Auto Scaling</strong> or by using the <strong>Amazon EC2 auto-recovery feature</strong> or services such as <strong>AWS Elastic Beanstalk</strong>.</li>
+</ul>
+<h2 id="Design-Good-Health-Checks"><a href="#Design-Good-Health-Checks" class="headerlink" title="Design Good Health Checks"></a>Design Good Health Checks</h2><ul>
+<li>In a typical three-tier application, you configure health checks on <strong>ELB</strong>. Design your health checks with the objective of reliably assessing the health of the back-end nodes.<ul>
+<li>Not a simple TCP health check: won’t be able to tell if the instance itself is healthy but the web server process has crashed. Instead, you should assess whether the web server can return an HTTP 200 response for some simple request. </li>
+<li>Not a deep health check (a test that depends on other layers of your application) at this layer. </li>
+<li>A layered approach is often the best.</li>
+</ul>
+</li>
+<li>A deep health check might be appropriate at the <strong>Amazon Route 53</strong> level.<ul>
+<li>By running a more holistic check that determines if that environment is able to actually provide the required functionality, you can configure Amazon Route 53 to failover to a static version of your website until your database is up and running again.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Durable-Data-Storage"><a href="#Durable-Data-Storage" class="headerlink" title="Durable Data Storage"></a>Durable Data Storage</h2><p>Data replication is the technique that introduces redundant copies of data. It can happen in a few different modes.</p>
+<h3 id="Synchronous-replication"><a href="#Synchronous-replication" class="headerlink" title="Synchronous replication"></a>Synchronous replication</h3><p>Only acknowledges a transaction after it has been durably stored in both the primary location and its replicas. </p>
+<ul>
+<li>Synchronous replication redundantly stores all updates to your data.</li>
+<li>For Amazon S3 objects, you can use <strong>versioning</strong> to preserve, retrieve, and restore their versions.<h3 id="Asynchronous-Replication"><a href="#Asynchronous-Replication" class="headerlink" title="Asynchronous Replication"></a>Asynchronous Replication</h3>Decouples the primary node from its replicas at the expense of introducing replication lag:  changes on the primary node are not immediately reflected on its replicas.</li>
+<li>Asynchronous replicas are used to horizontally scale the system’s read capacity for queries that can tolerate that replication lag. </li>
+<li>It can also be used to increase data durability when some loss of recent transactions can be tolerated during a failover.  For example, you can maintain an asynchronous replica of a database in a separate AWS Region as a disaster recovery solution.</li>
+</ul>
+<h3 id="Quorum-based-replication"><a href="#Quorum-based-replication" class="headerlink" title="Quorum-based replication"></a>Quorum-based replication</h3><p>Combines synchronous and asynchronous replication.<br>Replication to multiple nodes can be managed by <strong>defining a minimum number of nodes that must participate in a successful write operation</strong>. </p>
+<h3 id="RPO-and-RTO"><a href="#RPO-and-RTO" class="headerlink" title="RPO and RTO"></a>RPO and RTO</h3><p>It is important to understand where each technology you are using fits in these data storage models. Their behavior during various failover or backup/restore scenarios should align to your <strong>recovery point objective (RPO)</strong> and your <strong>recovery time objective (RTO)</strong>.</p>
+<h2 id="Automated-Multi-Data-Centre-Resilience"><a href="#Automated-Multi-Data-Centre-Resilience" class="headerlink" title="Automated Multi-Data Centre Resilience"></a>Automated Multi-Data Centre Resilience</h2><h3 id="Infrastructure"><a href="#Infrastructure" class="headerlink" title="Infrastructure"></a>Infrastructure</h3><p>Each AWS Region contains multiple distinct locations, or Availability Zones. Each Availability Zone is engineered to be independent from failures in other Availability Zones. An Availability Zone is a data center, and in some cases, an Availability Zone consists of multiple data centers. Availability Zones within a Region provide inexpensive, low-latency network connectivity to other zones in the same Region. This allows you to replicate your data across data centers in a synchronous manner so that failover can be automated and be transparent for your users.</p>
+<h3 id="Active-Redundancy-1"><a href="#Active-Redundancy-1" class="headerlink" title="Active Redundancy"></a>Active Redundancy</h3><ul>
+<li>A fleet of application servers can be distributed across multiple Availability Zones and be attached to ELB. When the EC2 instances of a particular Availability Zone fail their health checks, ELB stops sending traffic to those nodes.</li>
+<li>AWS Auto Scaling ensures that the correct number of EC2 instances are available to run your application, launching and terminating instances based on demand and defined by your scaling policies.<h3 id="AWS-services-that-are-inherently-designed-according-to-the-multiple-Availability-Zone-multi-AZ-principle"><a href="#AWS-services-that-are-inherently-designed-according-to-the-multiple-Availability-Zone-multi-AZ-principle" class="headerlink" title="AWS services that are inherently designed according to the multiple Availability Zone (multi-AZ) principle:"></a>AWS services that are inherently designed according to the multiple Availability Zone (multi-AZ) principle:</h3></li>
+<li>Amazon RDS</li>
+<li>Amazon S3 (except for Amazon S3 One Zone-Infrequent Access)</li>
+<li>Amazon DynamoDB synchronously replicates data across <strong>three</strong> facilitates in an AWS Region.</li>
+</ul>
+<h2 id="Fault-Isolation-and-Traditional-Horizontal-Scaling"><a href="#Fault-Isolation-and-Traditional-Horizontal-Scaling" class="headerlink" title="Fault Isolation and Traditional Horizontal Scaling"></a>Fault Isolation and Traditional Horizontal Scaling</h2><p>What if every instance is affected?</p>
+<blockquote>
+<p>If a particular request happens to trigger a bug that causes the system to fail over, then the caller may trigger a cascading failure by repeatedly trying the same request against all instances. You need to ISOLATE the fault.</p>
+</blockquote>
+<h3 id="Shuffle-Sharding"><a href="#Shuffle-Sharding" class="headerlink" title="Shuffle Sharding"></a>Shuffle Sharding</h3><p>For example, if you have eight instances for your service, you might create four shards of two instances each (two instances for some redundancy within each shard) and distribute each customer to a specific shard.<br>You can thus reduce the impact on customers in direct proportion to the number of shards you have.</p>
+<blockquote>
+<p>Route 53 Infima’s Shuffle Sharding takes this pattern of rapidly diminishing likelihood for an increasing number of matches.</p>
+</blockquote>
+<p>You get many shard combinations if each shard randomly pick a certain “hand” of instances.<br>There will be instance overlaps in the shuffled shards, but we can make the client fault tolerance:<br>By having simple retry logic in the client that causes it to try every endpoint in a Shuffle Shard, until one succeeds, we get a dramatic bulkhead effect.</p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead" target="_blank" rel="noopener">The Bulkhead pattern</a> is a type of application design that is tolerant of failure. In a bulkhead architecture, elements of an application are isolated into pools so that if one fails, the others will continue to function.</p>
+</blockquote>
+<h1 id="Optimize-for-Cost"><a href="#Optimize-for-Cost" class="headerlink" title="Optimize for Cost"></a>Optimize for Cost</h1><h2 id="Right-Sizing"><a href="#Right-Sizing" class="headerlink" title="Right Sizing"></a>Right Sizing</h2><p>Choose the right instance types for:</p>
+<ul>
+<li>Amazon EC2</li>
+<li>Amazon RDS</li>
+<li>Amazon Redshift</li>
+<li>Amazon ES<br>Choose the right storage solution:</li>
+<li>Select the right Amazon S3 storage class</li>
+<li>Select the right EBS volume type (magnetic, general purpose SSD, provisioned IOSP SSD) for:<ul>
+<li>Amazon EC2</li>
+<li>Amazon RDS</li>
+<li>Amazon ES<br>AWS provides tools to help you identify cost-saving opportunities and keep your resources right-sized:</li>
+</ul>
+</li>
+<li>Cost Explorer (graphs)</li>
+<li>AWS Budgets (alerts)</li>
+<li>AWS Cost and Usage Reports (detailed line items)</li>
+<li>Map your AWS costs and usage into meaningful categories with <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html" target="_blank" rel="noopener">Cost Categories</a></li>
+<li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html" target="_blank" rel="noopener">Cost Allocation Tags</a>: After you or AWS applies tags to your AWS resources (such as Amazon EC2 instances or Amazon S3 buckets) and you activate the tags in the Billing and Cost Management console, AWS generates a cost allocation report as a comma-separated value (CSV file) with your usage and costs grouped by your active tags. </li>
+<li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html" target="_blank" rel="noopener">AWS Price List API and AWS Price List Service API</a> lets you query prices of AWS services via JSON(AWS Price List Service API) or HTML(AWS Price List API). You can also subscribe to Amazon Simple Notification Service (Amazon SNS) notifications to get alerts when prices for the services change. </li>
+<li>Logging Billing and Cost Management API calls with AWS CloudTrail</li>
+</ul>
+<h2 id="Elasticity"><a href="#Elasticity" class="headerlink" title="Elasticity"></a>Elasticity</h2><h3 id="Auto-Scaling"><a href="#Auto-Scaling" class="headerlink" title="Auto Scaling"></a>Auto Scaling</h3><p> Plan to implement Auto Scaling for as many Amazon EC2 workloads as possible, so that you horizontally scale up when needed and scale down and automatically reduce your spending when you don’t need that capacity anymore.</p>
+<h3 id="Automate-turning-off-non-productive-workloads"><a href="#Automate-turning-off-non-productive-workloads" class="headerlink" title="Automate turning off non-productive workloads"></a>Automate turning off non-productive workloads</h3><p>Using Amazon CloudWatch alarm actions, you can create alarms that automatically stop, terminate, reboot, or recover your EC2 instances. </p>
+<h3 id="Consider-which-compute-workloads-you-could-implement-on-AWS-Lambda"><a href="#Consider-which-compute-workloads-you-could-implement-on-AWS-Lambda" class="headerlink" title="Consider which compute workloads you could implement on AWS Lambda"></a>Consider which compute workloads you could implement on AWS Lambda</h3><p> so that you never pay for idle or redundant resources.</p>
+<h3 id="Replace-EC2-workload-with-AWS-managed-services"><a href="#Replace-EC2-workload-with-AWS-managed-services" class="headerlink" title="Replace EC2 workload with AWS managed services"></a>Replace EC2 workload with AWS managed services</h3><p>Where possible, replace Amazon EC2 workloads with AWS managed services that either don’t require you to make any capacity decisions. such as:</p>
+<ul>
+<li>ELB (elastic load balancing)</li>
+<li>Amazon CloudFront </li>
+<li>Amazon SQS, (simple queue service)</li>
+<li>Amazon Kinesis Firehose (reliably load streaming data into data lakes, data stores and analytics tools)</li>
+<li>AWS Lambda, </li>
+<li>Amazon SES, (simple email service)</li>
+<li>Amazon CloudSearch</li>
+<li>Amazon EFS (elastic file storage)</li>
+</ul>
+<p>Or AWS managed services that enable you to easily modify capacity as and when need, such as:</p>
+<ul>
+<li>Amazon DynamoDB</li>
+<li>Amazon RDS</li>
+<li>Amazon ES</li>
+</ul>
+<h2 id="Take-Advantage-of-the-Variety-of-Purchasing-Options"><a href="#Take-Advantage-of-the-Variety-of-Purchasing-Options" class="headerlink" title="Take Advantage of the Variety of Purchasing Options"></a>Take Advantage of the Variety of Purchasing Options</h2><h3 id="Reserved-Instances"><a href="#Reserved-Instances" class="headerlink" title="Reserved Instances"></a>Reserved Instances</h3><p>Ideal for applications with predictable minimum capacity requirements.<br>You can take advantage of tools such as <strong>AWS Trusted Advisor</strong> or <strong>Amazon EC2 usage reports</strong> to identify the compute resources that you use most often and that you should consider reserving.<br>Other services have reserved capacity options too:</p>
+<ul>
+<li>Amazon Redshift,</li>
+<li>Amazon RDS</li>
+<li>Amazon DynamoDB</li>
+<li>Amazon CloudFront<h3 id="Spot-Instances"><a href="#Spot-Instances" class="headerlink" title="Spot Instances"></a>Spot Instances</h3>The hourly price for a Spot instance (of each instance type in each Availability Zone) is set by Amazon EC2, and adjusted gradually based on the long-term supply of, and demand for, Spot instances.<br>Your Spot instance runs whenever capacity is available and the maximum price per hour for your request (bid price) exceeds the <strong>Spot price</strong>. </li>
+</ul>
+<p>See <a href="https://niuniuanran.github.io/2020/04/20/AWS-Billing-and-Pricing/#Spot-instance-pricing">here</a> for details for spot instance pricing when interrupted.</p>
+<h1 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h1><p>Caching is a technique that stores previously calculated data for future use.</p>
+<h2 id="Application-Data-Caching"><a href="#Application-Data-Caching" class="headerlink" title="Application Data Caching"></a>Application Data Caching</h2><p>Applications can be designed so that they store and retrieve information from fast, managed, in-memory caches.</p>
+<ul>
+<li><strong>Amazon ElasticCache</strong> is a web service that makes it easy to deploy, operate and scale an in-memory cache in the cloud. Supports two in-memory cache engines:<ul>
+<li>Memcached</li>
+<li>Redis</li>
+</ul>
+</li>
+<li>**Amazon DynamoDB Accelerator(DAX) is a fully managed, highly available, in-memory cache for DynamoDB for high through-put.<br>DAX adds in-memory acceleration to your DynamoDB tables without requiring you to manage cache invalidation, data population, or cluster management.<h2 id="Edge-Caching"><a href="#Edge-Caching" class="headerlink" title="Edge Caching"></a>Edge Caching</h2>Copies of static content (images, CSS files, or streaming pre-recorded video) and dynamic content (responsive HTML, live video) can be cached at an <strong>Amazon CloudFront edge location</strong>, which is a CDN with multiple points of presence around the world.</li>
+</ul>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><h2 id="Use-AWS-features-for-Defense-in-Depth"><a href="#Use-AWS-features-for-Defense-in-Depth" class="headerlink" title="Use AWS features for Defense in Depth"></a>Use AWS features for Defense in Depth</h2><ul>
+<li>You can build a VPC topology that isolates parts of the infrastructure through the use of subnets, security groups, and routing controls.</li>
+<li>Services like AWS WAF, a web application firewall, can help protect your web applications from SQL injection and other vulnerabilities in your application code.</li>
+<li>For access control, you can use IAM to define a granular set of policies and assign them to users, groups, and AWS resources.</li>
+<li>The AWS Cloud offers many options to protect your data, whether it is in transit or at rest with encryption.</li>
+</ul>
+<h2 id="Share-Security-Responsibility-with-AWS"><a href="#Share-Security-Responsibility-with-AWS" class="headerlink" title="Share Security Responsibility with AWS"></a>Share Security Responsibility with AWS</h2><ul>
+<li>AWS is responsible for the security of the underlying cloud infrastructure</li>
+<li>you are responsible for securing the workloads you deploy in AWS.<br>For example, when you use services such as Amazon RDS and Amazon ElastiCache, security patches are applied automatically to your configuration settings. This not only reduces operational overhead for your team, but it could also reduce your exposure to vulnerabilities.</li>
+</ul>
+<h2 id="Reduce-Privileged-Access"><a href="#Reduce-Privileged-Access" class="headerlink" title="Reduce Privileged Access"></a>Reduce Privileged Access</h2><ul>
+<li><p>In a traditional environment, service accounts are often assigned long-term credentials that are stored in a configuration file. On AWS, you can instead use <strong>IAM roles</strong> to grant permissions to applications running on EC2 instances through the use of short-term credentials, which are automatically distributed and rotated.</p>
+</li>
+<li><p>For mobile applications, you can use <strong>Amazon Cognito</strong> to allow client devices to access AWS resources through temporary tokens with fine-grained permissions.</p>
+<h2 id="Security-as-Code"><a href="#Security-as-Code" class="headerlink" title="Security as Code"></a>Security as Code</h2></li>
+<li><p><strong>Golden Environment</strong>: capture security frameworks, regulations, and organizational policies in a template. This template is used by AWS CloudFormation and deploys your resources in alignment with your security policy. You can reuse security best practices among multiple projects, as a part of your continuous integration pipeline.</p>
+</li>
+<li><p>For greater control and security, AWS CloudFormation templates can be imported as products into <strong>AWS Service Catalog</strong>. This allows you to centrally manage your resources to support consistent governance, security, and compliance requirements, while enabling your users to quickly deploy only the approved IT services they need.</p>
+</li>
+</ul>
+<h2 id="Real-time-Auditing"><a href="#Real-time-Auditing" class="headerlink" title="Real-time Auditing"></a>Real-time Auditing</h2><p>On AWS, you can implement continuous monitoring and automation of controls to minimize exposure to security risks. Services to provide tis real-time auditing:</p>
+<ul>
+<li>AWS Config</li>
+<li>Amazon Inspector</li>
+<li>AWS Trusted Advisor</li>
+</ul>
+<p>With <strong>AWS Config</strong> rules you also know if a resource was out of compliance even for a brief period of time, making both point-in-time and period-in-time audits very effective.</p>
+<p>You can implement extensive logging for your applications (using <strong>Amazon CloudWatch Logs</strong>) and for the actual AWS API calls by enabling <strong>AWS CloudTrail</strong></p>
+<p>AWS CloudTrail is a web service that records API calls to supported AWS services in your AWS account and delivers a log file to your S3 bucket.</p>
+<p>You can use <strong>AWS Lambda, Amazon EMR (Amazon Elastic MapReduce), Amazon ES, Amazon Athena</strong>, or third-party tools from AWS Marketplace to scan log data to detect events such as unused permissions, privileged account overuse, key usage, anomalous logins, policy violations, and system abuse.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

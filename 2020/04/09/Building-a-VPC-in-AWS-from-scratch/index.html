@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Building a VPC in AWS from scratch - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-VPC"><span class="toc-text">Create a VPC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-Subnets"><span class="toc-text">Create Subnets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-Gateways"><span class="toc-text">Create Gateways</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-and-Associate-Route-tables"><span class="toc-text">Create and Associate Route tables</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-EC2-instances"><span class="toc-text">Create EC2 instances</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Append-Security-Groups"><span class="toc-text">Append Security Groups</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Associating-an-Elastic-IP-with-web-servers"><span class="toc-text">Associating an Elastic IP with web servers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH-into-my-web-servers"><span class="toc-text">SSH into my web servers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Next-Steps"><span class="toc-text">Next Steps</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Building a VPC in AWS from scratch
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-09 09:33:10</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Today I will build a VPC with two public and two private subnets, and host web and database servers inside them, without using the wizard.</p>
+<h1 id="Create-a-VPC"><a href="#Create-a-VPC" class="headerlink" title="Create a VPC"></a>Create a VPC</h1><p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html" target="_blank" rel="noopener">Here’s the aws VPC document</a>.<br>Go to the VPC service page, create a VPC called AnranVPC, and specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block: 10.0.0.0/16.<br><img src="create-vpc.gif" alt="create-vpc" width="800px"><br>There is a default Route Table and a default Network ACL (access control list) attached to my VPC already.<br><img src="vpc-defaults.gif" alt="vpc-defaults" width="800px"><br>The default Network ACL allows all traffic.</p>
+<blockquote>
+<p>A network ACL contains a numbered list of rules. We evaluate the rules in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL. </p>
+</blockquote>
+<p>The default Route Table directs network traffic with the IP address within the range 10.0.0.0/16 to local nodes.</p>
+<h1 id="Create-Subnets"><a href="#Create-Subnets" class="headerlink" title="Create Subnets"></a>Create Subnets</h1><blockquote>
+<p>A VPC spans all of the Availability Zones in the Region. You can create subnets in multiple AZs in your VPC to enhance availability and redundancy.</p>
+</blockquote>
+<img src="create-subnets.gif" alt="create-subnets" width="800px">
+
+<p>I created 2 public subnets in 2 availability zones, and 2 private ones in 2 availability zones.<br><img src="subnets.jpg" alt="create-subnets" width="800px"></p>
+<p>Each subnet has 251 availability IPv4 addresses, because although there are 8 free digits for each subnets, there are five reserved IP addresses:</p>
+<ul>
+<li>10.0.0.0: Network address.</li>
+<li>10.0.0.1: Reserved by AWS for the VPC router.</li>
+<li>10.0.0.2: Reserved by AWS. The IP address of the DNS server is the base of the VPC network range plus two. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR. We also reserve the base of each subnet range plus two for all CIDR blocks in the VPC. For more information, see Amazon DNS Server.</li>
+<li>10.0.0.3: Reserved by AWS for future use.</li>
+<li>10.0.0.255: Network broadcast address. We do not support broadcast in a VPC, therefore we reserve this address.</li>
+</ul>
+<p>By default, each subnet is attached with the VPC default Network ACL and the VPC default route table.<br><img src="subnet-default.gif" alt="subnet-default" width="800px"></p>
+<p>Here I did not modify the Network ACL and leave it as default (allows all inbound/outbound traffic), but there are things good to know about Network ACL:</p>
+<ul>
+<li>Each network ACL includes a default rule whose rule number is an asterisk. This rule ensures that if a packet doesn’t match any of the other rules, it’s denied. You can’t modify or remove this rule.</li>
+<li>You can create a custom network ACL for your VPC. By default, a network ACL that you create blocks all inbound and outbound traffic until you add rules, and is not associated with a subnet until you explicitly associate it with one.</li>
+<li>A network ACL contains a numbered list of rules. We evaluate the rules in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL. </li>
+<li>A network ACL has separate inbound and outbound rules, and each rule can either allow or deny traffic. (while security group only allows traffic)</li>
+<li>You might set up network ACLs with rules similar to your security groups in order to add an additional layer of security to your VPC. </li>
+<li>Network ACL acts at subnet level, and one Network ACL can be attached to one or more subnets. Each subnet has to have one Network ACL, and by default is attached to the Default VPC Network ACL that allows all traffic.</li>
+</ul>
+<h1 id="Create-Gateways"><a href="#Create-Gateways" class="headerlink" title="Create Gateways"></a>Create Gateways</h1><img src="create-gateways.gif" alt="create-gateways" width="800px">
+
+<p>I create an Internet Gateway, and give it an identifiable name.<br>We allocate an Elastic IP address, create a NAT gateway, put it in a public subnet, and associate the Elastic IP address with it.<br><strong>The Internet Gateway has to be created first before the NAT gateway!</strong><br>I created the NAT gateway first and put it into the PublicSubnet1 of AnranVPC, but it failed and was deleted automatically, because AnranVPC did not have an Internet Gateway attached at that time.</p>
+<h1 id="Create-and-Associate-Route-tables"><a href="#Create-and-Associate-Route-tables" class="headerlink" title="Create and Associate Route tables"></a>Create and Associate Route tables</h1><blockquote>
+<p>A subnet can only be associated with one route table at a time, but you can associate multiple subnets with the same subnet route table. </p>
+</blockquote>
+<img src="create-public-route-table.gif" alt="create-public-route-table" width="800px">
+
+<p>The Internet Gateway needs to be attached to the AnranVPC before the route table can link to it.</p>
+<p>Once the route table linking the Internet traffic to the Internet Gateway is created, both public subnets can be associated with it.</p>
+<img src="create-private-route-table.gif" alt="create-private-route-table" width="800px">
+
+<p>The private route table direct Internet-bound traffic to the NAT Gateway. </p>
+<img src="append-private-route-table.gif" alt="associate-private-route-table" width="800px">
+
+<p>Now I associate the private route table with the two private subnets.</p>
+<h1 id="Create-EC2-instances"><a href="#Create-EC2-instances" class="headerlink" title="Create EC2 instances"></a>Create EC2 instances</h1><img src="create-EC2-instance.gif" alt="create-EC2-instance" width="800px">
+
+<p>I created four EC2 instances, one web server in each public subnet, and one database server in each private subnet.</p>
+<h2 id="Append-Security-Groups"><a href="#Append-Security-Groups" class="headerlink" title="Append Security Groups"></a>Append Security Groups</h2><blockquote>
+<p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. When you launch an instance in a VPC, you can assign up to five security groups to the instance. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet in your VPC can be assigned to a different set of security groups.<br>You can specify allow rules, but not deny rules.<br>Traffic need to be explicitly allowed by the security group. </p>
+</blockquote>
+<p>My web servers allow SSH and HTTP/HTTPS inbound traffic from the Internet.<br>My database servers allow all TCP inbound traffic from within AnranVPC.</p>
+<h1 id="Associating-an-Elastic-IP-with-web-servers"><a href="#Associating-an-Elastic-IP-with-web-servers" class="headerlink" title="Associating an Elastic IP with web servers"></a>Associating an Elastic IP with web servers</h1><img src="give-web-server-elastic-IP.gif" alt="associate-elastic-IP" width="800px">
+
+<p>I allocated two Elastic IP addresses and associated them with the two web servers.</p>
+<h1 id="SSH-into-my-web-servers"><a href="#SSH-into-my-web-servers" class="headerlink" title="SSH into my web servers"></a>SSH into my web servers</h1><p>The public IPv4 address (as assigned by Elastic IP) of WebServer1 is now 3.234.133.181.<br>Now I can SSH into WebServer1 with the saved key file.</p>
+<img src="ssh-to-web-server-1.gif" alt="ssh-to-web-server-1" width="800px">
+
+<p>The first attempt failed because of the access permission of my private key file webserver.pem is too open.<br><a href="https://www.linuxtopia.org/online_books/introduction_to_linux/linux_The_chmod_command.html" target="_blank" rel="noopener">The chmod command</a> changes the access right of files.<br><code>chmod 400 webserver.pem</code> sets permissions so that, User / owner can read, can’t write and can’t execute.<br>After this command, I can now ssh to WebServer1 with my key file.</p>
+<img src="set-web-server.gif" alt="set-web-server" width="800px">
+
+<p>Now I am in the shell of my web server 1 virtual machine.<br>I can go to the root shell with :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su -</span><br></pre></td></tr></table></figure>
+<p>And then I ran these commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Install Apache Web Server and PHP</span><br><span class="line">yum install -y httpd mysql php</span><br><span class="line"># Download Lab files</span><br><span class="line">wget https:&#x2F;&#x2F;aws-tc-largeobjects.s3.amazonaws.com&#x2F;AWS-TC-AcademyACF&#x2F;acf-lab3-vpc&#x2F;lab-app.zip</span><br><span class="line">unzip lab-app.zip -d &#x2F;var&#x2F;www&#x2F;html&#x2F;</span><br><span class="line"># Turn on web server</span><br><span class="line">chkconfig httpd on</span><br><span class="line">service httpd start</span><br></pre></td></tr></table></figure>
+<p>Now if I go to <a href="http://3.234.133.181/" target="_blank" rel="noopener">http://3.234.133.181/</a> in my browser, I can see the web page:<br><img src="webpage.png" alt="webpage" width="800px"></p>
+<p>Although I cannot access database servers in the private subnets directly from my local PC, I can SSH into my web server and then SSH into my database server from there.<br>To do this, I need to create a copy of the database key file on my web server machine. I can open the dbserver.pem from Atom and copied the key string, and executed the following command on my web server bash:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-214 ~]$ mkdir key</span><br><span class="line">[ec2-user@ip-10-0-0-214 ~]$ cd key</span><br><span class="line">[ec2-user@ip-10-0-0-214 key]$ touch webserver2.pem</span><br><span class="line">[ec2-user@ip-10-0-0-214 key]$ echo &quot;-----BEGIN RSA PRIVATE KEY-----(a long block of key string here) -----END RSA PRIVATE KEY-----&quot; &gt;&gt; webserver2.pem</span><br><span class="line">[ec2-user@ip-10-0-0-214 key]$ chmod 400 webserver2.pem</span><br><span class="line">[ec2-user@ip-10-0-0-214 key]$ ssh -i webserver2.pem ec2-user@10.0.2.197</span><br><span class="line">Last login: Thu Apr  9 00:49:04 2020 from 10.0.0.214</span><br><span class="line"></span><br><span class="line">       __|  __|_  )</span><br><span class="line">       _|  (     &#x2F;   Amazon Linux 2 AMI</span><br><span class="line">      ___|\___|___|</span><br><span class="line"></span><br><span class="line">https:&#x2F;&#x2F;aws.amazon.com&#x2F;amazon-linux-2&#x2F;</span><br><span class="line">1 package(s) needed for security, out of 7 available</span><br><span class="line">Run &quot;sudo yum update&quot; to apply all updates.</span><br><span class="line">[ec2-user@ip-10-0-2-197 ~]$</span><br></pre></td></tr></table></figure>
+<p>So these are the steps of creating the VPC, subnets, security groups, route tables, Network ACLs from scratch.</p>
+<h1 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h1><p>Host my app onto AWS</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS SAA Practice Exam 1 Review - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront-Access-Control-options"><span class="toc-text">CloudFront Access Control options</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront-signed-URLs"><span class="toc-text">CloudFront signed URLs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFront-signed-cookies"><span class="toc-text">CloudFront signed cookies</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aurora-Read-Replica"><span class="toc-text">Aurora Read Replica</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VPC-Endpoints"><span class="toc-text">VPC Endpoints</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VPC-endpoint-types"><span class="toc-text">VPC endpoint types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-an-Interface-VPC-Endpoint"><span class="toc-text">Creating an Interface VPC Endpoint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-PrivateLink"><span class="toc-text">AWS PrivateLink</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API-Gateway"><span class="toc-text">API Gateway</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#API-Types"><span class="toc-text">API Types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECS-Types-and-Pricing"><span class="toc-text">ECS Types and Pricing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#S3-and-S3TA-Pricing"><span class="toc-text">S3 and S3TA Pricing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQS-Processing-Capacity"><span class="toc-text">SQS Processing Capacity</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Messages-in-Queue"><span class="toc-text">Messages in Queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Message-Size"><span class="toc-text">Message Size</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Snowball"><span class="toc-text">AWS Snowball</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Snowball-Edge-Storage-Optimized"><span class="toc-text">Snowball Edge Storage Optimized</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Snowball-Edge-Compute-Optimized"><span class="toc-text">Snowball Edge Compute Optimized</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Into-S3"><span class="toc-text">Into S3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-s-Direct-Connect"><span class="toc-text">v.s. Direct Connect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-s-Site-to-Site-VPN"><span class="toc-text">v.s. Site-to-Site VPN</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-Multi-AZ"><span class="toc-text">RDS Multi-AZ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upgrade-Downtime"><span class="toc-text">Upgrade Downtime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HA-amp-Failover"><span class="toc-text">HA &amp; Failover</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Writing-to-Amazon-Kinesis-Data-Streams-Using-Kinesis-Agent"><span class="toc-text">Writing to Amazon Kinesis Data Streams Using Kinesis Agent</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-data-to-Kinesis-Data-Firehose"><span class="toc-text">Add data to Kinesis Data Firehose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-source-for-Firehose"><span class="toc-text">What is a source for Firehose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-record-for-Firehose"><span class="toc-text">What is a record for Firehose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-record-for-Kinesis-Data-Stream"><span class="toc-text">What is a record for Kinesis Data Stream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Source-Options"><span class="toc-text">Data Source Options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Can-I-still-add-data-to-delivery-stream-through-Kinesis-Agent-or-Firehose’s-PutRecord-and-PutRecordBatch-operations-when-my-Kinesis-data-stream-is-configured-as-source"><span class="toc-text">Can I still add data to delivery stream through Kinesis Agent or Firehose’s PutRecord and PutRecordBatch operations when my Kinesis data stream is configured as source?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Secrets-Manager"><span class="toc-text">AWS Secrets Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#v-s-KMS"><span class="toc-text">v.s. KMS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Systems-Manager-SSM-Parameter-Store"><span class="toc-text">AWS Systems Manager (SSM) Parameter Store</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Encrypt-an-RDS-instance"><span class="toc-text">Encrypt an RDS instance</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#S3-Cross-origin-resource-sharing-CORS"><span class="toc-text">S3 Cross-origin resource sharing (CORS)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#S3-pre-signed-URLs"><span class="toc-text">S3 pre-signed URLs</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Practice Exam 1 Review
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-09-10 18:36:18</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS SAA" title="AWS SAA">AWS SAA</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="CloudFront-Access-Control-options"><a href="#CloudFront-Access-Control-options" class="headerlink" title="CloudFront Access Control options"></a>CloudFront Access Control options</h1><p>Many companies that distribute content over the internet want to restrict access to documents, business data, media streams, or content that is intended for selected users, for example, users who have paid a fee.</p>
+<p>To securely serve this private content by using CloudFront, you can do the following:<br>Require that your users access your private content by using special CloudFront signed URLs or signed cookies.</p>
+<h3 id="CloudFront-signed-URLs"><a href="#CloudFront-signed-URLs" class="headerlink" title="CloudFront signed URLs"></a>CloudFront signed URLs</h3><p>A signed URL includes additional information, for example, expiration date and time, that gives you more control over access to your content. So this is a correct option.</p>
+<h2 id="CloudFront-signed-cookies"><a href="#CloudFront-signed-cookies" class="headerlink" title="CloudFront signed cookies"></a>CloudFront signed cookies</h2><p>CloudFront signed cookies allow you to control who can access your content when you don’t want to change your current URLs or when you want to provide access to multiple restricted files, for example, all of the files in the subscribers’ area of a website. </p>
+<h1 id="Aurora-Read-Replica"><a href="#Aurora-Read-Replica" class="headerlink" title="Aurora Read Replica"></a>Aurora Read Replica</h1><ul>
+<li>Amazon Aurora features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 64TB per database instance. </li>
+<li>It delivers high performance and availability with up to 15 low-latency read replicas, point-in-time recovery, continuous backup to Amazon S3, and replication across <strong>three Availability Zones (AZs)</strong>.</li>
+<li>If two or more replicas have the same priority, RDS will promote the one that is the <strong>same size as the previous primary instance</strong>.</li>
+<li>If two or more Aurora Replicas share the same priority and size, then Amazon RDS promotes an arbitrary replica in the same promotion tier.</li>
+</ul>
+<h1 id="VPC-Endpoints"><a href="#VPC-Endpoints" class="headerlink" title="VPC Endpoints"></a>VPC Endpoints</h1><ul>
+<li>Endpoints are virtual devices. </li>
+<li>They are horizontally scaled, redundant, and highly available <strong>VPC components</strong>. </li>
+<li>They allow communication between <strong>instances in your VPC</strong> and <strong>services</strong> without imposing availability risks or bandwidth constraints on your network traffic.</li>
+<li>Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.</li>
+</ul>
+<h2 id="VPC-endpoint-types"><a href="#VPC-endpoint-types" class="headerlink" title="VPC endpoint types"></a>VPC endpoint types</h2><p>There are two types of VPC endpoints: interface endpoints and gateway endpoints. </p>
+<ul>
+<li>An interface endpoint is an <strong>elastic network interface</strong> with a <strong>private IP address</strong> from the IP address range of your subnet that serves as an <strong>entry point</strong> for traffic destined to a supported service.</li>
+<li>A gateway endpoint is a gateway that you specify as a <strong>target for a route</strong> in your route table for traffic destined to a supported AWS service. The following AWS services are supported by gateway endpoints:<ol>
+<li>Amazon S3</li>
+<li>DynamoDB</li>
+</ol>
+</li>
+<li>Neither S3 nor DynamoDB supports interface endpoints.</li>
+</ul>
+<h2 id="Creating-an-Interface-VPC-Endpoint"><a href="#Creating-an-Interface-VPC-Endpoint" class="headerlink" title="Creating an Interface VPC Endpoint"></a>Creating an Interface VPC Endpoint</h2><ol>
+<li>Choose the VPC in which to create the interface endpoint, and provide the name of the AWS service, endpoint service, or AWS Marketplace service to which you’re connecting.</li>
+<li>Choose a subnet in your VPC to use the interface endpoint. We create an endpoint network interface in the subnet. </li>
+<li>You can specify more than one subnet in different Availability Zones (as supported by the service) to help ensure that your interface endpoint is resilient to Availability Zone failures. In that case, we create an endpoint network interface in each subnet that you specify.</li>
+</ol>
+<h1 id="AWS-PrivateLink"><a href="#AWS-PrivateLink" class="headerlink" title="AWS PrivateLink"></a>AWS PrivateLink</h1><ul>
+<li>To use AWS PrivateLink, create an <strong>interface VPC endpoint</strong> for a service in your VPC. </li>
+<li>This creates an Elastic Network Interface (ENI) in your subnet with a private IP address that serves as an <strong>entry point</strong> for <strong>traffic destined to the service</strong>. </li>
+<li>Service endpoints available over AWS PrivateLink will appear as ENIs with private IPs in your VPCs.</li>
+</ul>
+<h1 id="API-Gateway"><a href="#API-Gateway" class="headerlink" title="API Gateway"></a>API Gateway</h1><ul>
+<li>A fully managed service.</li>
+<li>API Gateway supports <strong>containerized</strong> and <strong>serverless</strong> workloads, as well as <strong>web applications</strong>.</li>
+</ul>
+<img src="https://d1.awsstatic.com/serverless/New-API-GW-Diagram.c9fc9835d2a9aa00ef90d0ddc4c6402a2536de0d.png" alt="" width="600px"/>
+
+<h2 id="API-Types"><a href="#API-Types" class="headerlink" title="API Types"></a>API Types</h2><ol>
+<li>RESTful API<ul>
+<li>Build RESTful APIs optimized for <strong>serverless, stateless</strong> workloads and HTTP backends using HTTP APIs. </li>
+</ul>
+</li>
+<li>WebSocket API<ul>
+<li>API Gateway maintains a persistent connection to handle message transfer between your backend service and your clients. <strong>Stateful</strong>.</li>
+<li>Route incoming messages based on message content.</li>
+<li>Adhere to the WebSocket protocol, which enables stateful, full-duplex communication between client and server. </li>
+</ul>
+</li>
+</ol>
+<h1 id="ECS-Types-and-Pricing"><a href="#ECS-Types-and-Pricing" class="headerlink" title="ECS Types and Pricing"></a>ECS Types and Pricing</h1><img src="https://d1.awsstatic.com/diagrams/product-page-diagrams/product-page-diagram_ECS_1.86ebd8c223ec8b55aa1903c423fbe4e672f3daf7.png" alt="ecs" width="600px"/>
+
+<p>2 launch types on ECS: EC2 and Fargate.</p>
+<ul>
+<li>With the EC2 launch type, there is no additional charge for the ECS. You pay for AWS resources (e.g. EC2 instances or EBS volumes) you create to store and run your application.</li>
+<li>With the Fargate launch type, you pay for the <strong>amount of vCPU and memory resources</strong> that your containerized application requests. vCPU and memory resources are calculated <strong>from the time your container images are pulled until the Amazon ECS Task terminates</strong>, rounded up to the nearest second. </li>
+</ul>
+<h1 id="S3-and-S3TA-Pricing"><a href="#S3-and-S3TA-Pricing" class="headerlink" title="S3 and S3TA Pricing"></a>S3 and S3TA Pricing</h1><ul>
+<li>There are no S3 data transfer charges when data is transferred in from the internet. </li>
+<li>With S3TA, you pay only for transfers that are accelerated. </li>
+</ul>
+<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q40-i1.jpg" alt="" width="600px"/>
+
+<h1 id="SQS-Processing-Capacity"><a href="#SQS-Processing-Capacity" class="headerlink" title="SQS Processing Capacity"></a>SQS Processing Capacity</h1><ol>
+<li>Standard queues support a nearly unlimited number of API calls per second, per API action (SendMessage, ReceiveMessage, or DeleteMessage).</li>
+<li>If you use batching, FIFO queues support up to 3,000 transactions per second, per API method (SendMessageBatch, ReceiveMessage, or DeleteMessageBatch). The 3000 transactions represent <strong>300 API calls, each with a batch of 10 messages</strong>. </li>
+<li>Without batching, FIFO queues support up to 300 API calls per second, per API method (SendMessage, ReceiveMessage, or DeleteMessage).</li>
+</ol>
+<h2 id="Messages-in-Queue"><a href="#Messages-in-Queue" class="headerlink" title="Messages in Queue"></a>Messages in Queue</h2><ul>
+<li>A single Amazon SQS message queue can contain an <strong>unlimited</strong> number of messages. </li>
+<li>However, there is a 120,000 quota for the <strong>number of inflight messages</strong> for a standard queue and 20,000 for a FIFO queue.</li>
+</ul>
+<h2 id="Message-Size"><a href="#Message-Size" class="headerlink" title="Message Size"></a>Message Size</h2><p>SQS supports a maximum message size of 256kb.</p>
+<h1 id="AWS-Snowball"><a href="#AWS-Snowball" class="headerlink" title="AWS Snowball"></a>AWS Snowball</h1><ul>
+<li>AWS Snowball is a data migration and edge computing device that comes in two device options: Compute Optimized and Storage Optimized.</li>
+<li>Snowball is intended to serve as a data transport solution for moving high volumes of data into and out of <strong>a designated AWS services region</strong>.</li>
+<li>Snowball encrypts all data with 256-bit encryption. Your keys are never sent to or stored on the device.</li>
+</ul>
+<h2 id="Snowball-Edge-Storage-Optimized"><a href="#Snowball-Edge-Storage-Optimized" class="headerlink" title="Snowball Edge Storage Optimized"></a>Snowball Edge Storage Optimized</h2><p>Snowball Edge Storage Optimized devices provide 40 vCPUs of compute capacity coupled with <strong>80TB</strong> of usable block or Amazon S3-compatible object storage. It is well-suited for local storage and large-scale data transfer. </p>
+<h2 id="Snowball-Edge-Compute-Optimized"><a href="#Snowball-Edge-Compute-Optimized" class="headerlink" title="Snowball Edge Compute Optimized"></a>Snowball Edge Compute Optimized</h2><p>Snowball Edge Compute Optimized devices provide 52 vCPUs, <strong>42TB</strong> of usable block or object storage, and an optional GPU for use cases such as advanced machine learning and full motion video analysis in disconnected environments. </p>
+<h2 id="Into-S3"><a href="#Into-S3" class="headerlink" title="Into S3"></a>Into S3</h2><p>The data stored on the Snowball Edge device can be copied into the S3 bucket and later transitioned into AWS Glacier via a lifecycle policy. <strong>You can’t directly copy data from Snowball Edge devices into AWS Glacier</strong>.</p>
+<h2 id="v-s-Direct-Connect"><a href="#v-s-Direct-Connect" class="headerlink" title="v.s. Direct Connect"></a>v.s. Direct Connect</h2><p>Direct Connect involves significant monetary investment and takes more than a month to set up.<br>Suitable if you have on-going big transfer needs.</p>
+<h2 id="v-s-Site-to-Site-VPN"><a href="#v-s-Site-to-Site-VPN" class="headerlink" title="v.s. Site-to-Site VPN"></a>v.s. Site-to-Site VPN</h2><p>AWS Site-to-Site VPN enables you to securely connect your on-premises network or branch office site to your Amazon Virtual Private Cloud (Amazon VPC). VPN Connections are a good solution if you have an immediate need, and have low to modest bandwidth requirements. </p>
+<h1 id="RDS-Multi-AZ"><a href="#RDS-Multi-AZ" class="headerlink" title="RDS Multi-AZ"></a>RDS Multi-AZ</h1><h2 id="Upgrade-Downtime"><a href="#Upgrade-Downtime" class="headerlink" title="Upgrade Downtime"></a>Upgrade Downtime</h2><p>Upgrades to the database engine level require downtime. Even if your RDS DB instance uses a Multi-AZ deployment, both the primary and standby DB instances are upgraded <strong>at the same time</strong>. This causes <strong>downtime</strong> until the upgrade is complete, and the duration of the downtime varies based on the size of your DB instance.</p>
+<img src="https://media.datacumulus.com/aws-saa-pt/assets/pt1-q58-i1.jpg" width="600px"/>
+
+<h2 id="HA-amp-Failover"><a href="#HA-amp-Failover" class="headerlink" title="HA &amp; Failover"></a>HA &amp; Failover</h2><ul>
+<li>Nothing to do with scalability.</li>
+<li>One Hostname. </li>
+<li>Only database engine on primary instance is active.</li>
+<li>If one AZ goes down, the failover will occur, and the standby slave will be promoted to master.</li>
+<li>Automated backups are taken from standby.</li>
+<li>AWS automatically synchronizes changes in the database over to the standby copy: sync communication.</li>
+</ul>
+<img src="http://localhost:4000/2020/06/06/AWS-SAA-Test-prep-RDS/multiaz-replica.png" alt="" width="700px"/>
+
+<h1 id="Writing-to-Amazon-Kinesis-Data-Streams-Using-Kinesis-Agent"><a href="#Writing-to-Amazon-Kinesis-Data-Streams-Using-Kinesis-Agent" class="headerlink" title="Writing to Amazon Kinesis Data Streams Using Kinesis Agent"></a>Writing to Amazon Kinesis Data Streams Using Kinesis Agent</h1><ul>
+<li>Kinesis Agent is a stand-alone Java software application that offers an easy way to collect and send data to <strong>Kinesis Data Streams</strong> OR <strong>Kinesis Data Firehose</strong>. </li>
+<li>The agent continuously <strong>monitors</strong> a set of files and sends new data to your stream. </li>
+<li>The agent handles file rotation, checkpointing, and retry upon failures. </li>
+<li>It delivers all of your data in a reliable, timely, and simple manner. </li>
+<li>It also emits <strong>Amazon CloudWatch metrics</strong> to help you better monitor and troubleshoot the streaming process.</li>
+<li>You can install the agent on <strong>Linux-based</strong> server environments such as web servers, log servers, and database servers. </li>
+<li>After installing the agent, configure it by specifying the <strong>files to monitor</strong> and the stream for the data. After the agent is configured, it durably collects data from the files and reliably sends it to the stream.</li>
+</ul>
+<h2 id="Add-data-to-Kinesis-Data-Firehose"><a href="#Add-data-to-Kinesis-Data-Firehose" class="headerlink" title="Add data to Kinesis Data Firehose"></a>Add data to Kinesis Data Firehose</h2><img src="https://d1.awsstatic.com/Products/product-name/diagrams/product-page-diagram_Amazon-Kinesis-Data-Firehose.9340b812ab86518341c47b24316995b3792bf6e1.png" alt="" width="600px"/>
+
+<h3 id="What-is-a-source-for-Firehose"><a href="#What-is-a-source-for-Firehose" class="headerlink" title="What is a source for Firehose"></a>What is a source for Firehose</h3><p>A source is where your streaming data is continuously generated and captured. For example, a source can be a logging server running on Amazon EC2 instances, an application running on mobile devices, a sensor on an IoT device, or a Kinesis stream.</p>
+<h3 id="What-is-a-record-for-Firehose"><a href="#What-is-a-record-for-Firehose" class="headerlink" title="What is a record for Firehose"></a>What is a record for Firehose</h3><p>A record is the data of interest your data producer sends to a delivery stream. The maximum size of a record (before Base64-encoding) is <strong>1024 KB</strong>. </p>
+<h3 id="What-is-a-record-for-Kinesis-Data-Stream"><a href="#What-is-a-record-for-Kinesis-Data-Stream" class="headerlink" title="What is a record for Kinesis Data Stream"></a>What is a record for Kinesis Data Stream</h3><ul>
+<li>A record is the unit of data stored in an Amazon Kinesis data stream. </li>
+<li>A record is composed of a <strong>sequence number, partition key, and data blob</strong>. </li>
+<li>Data blob is the data of interest your data producer adds to a data stream. The maximum size of a data blob (the data payload before Base64-encoding) is 1 megabyte (MB).</li>
+</ul>
+<h3 id="Data-Source-Options"><a href="#Data-Source-Options" class="headerlink" title="Data Source Options"></a>Data Source Options</h3><ol>
+<li>You can add data to an Amazon Kinesis Data Firehose delivery stream through:<ul>
+<li>Amazon Kinesis Agent, or </li>
+<li>Firehose’s <code>PutRecord</code> and <code>PutRecordBatch</code> operations.</li>
+</ul>
+</li>
+<li>Kinesis Data Firehose is also integrated with other AWS data sources such as:<ul>
+<li>Kinesis Data Streams, </li>
+<li>AWS IoT, </li>
+<li>Amazon CloudWatch Logs, and </li>
+<li>Amazon CloudWatch Events.</li>
+</ul>
+</li>
+</ol>
+<p>You can optionally configure an AWS Lambda function in your delivery stream to prepare and transform the raw data before loading the data.</p>
+<h3 id="Can-I-still-add-data-to-delivery-stream-through-Kinesis-Agent-or-Firehose’s-PutRecord-and-PutRecordBatch-operations-when-my-Kinesis-data-stream-is-configured-as-source"><a href="#Can-I-still-add-data-to-delivery-stream-through-Kinesis-Agent-or-Firehose’s-PutRecord-and-PutRecordBatch-operations-when-my-Kinesis-data-stream-is-configured-as-source" class="headerlink" title="Can I still add data to delivery stream through Kinesis Agent or Firehose’s PutRecord and PutRecordBatch operations when my Kinesis data stream is configured as source?"></a>Can I still add data to delivery stream through Kinesis Agent or Firehose’s PutRecord and PutRecordBatch operations when my Kinesis data stream is configured as source?</h3><ul>
+<li>When a Kinesis Data Stream is configured as the source of a Firehose delivery stream, Firehose’s <code>PutRecord</code> and <code>PutRecordBatch</code> operations are disabled.</li>
+<li>Data needs to be added to the Kinesis Data Stream through the Kinesis Data Streams <code>PutRecord</code> and <code>PutRecords</code> operations instead. </li>
+</ul>
+<h1 id="AWS-Secrets-Manager"><a href="#AWS-Secrets-Manager" class="headerlink" title="AWS Secrets Manager"></a>AWS Secrets Manager</h1><ul>
+<li>AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources. </li>
+<li>The service enables you to easily <strong>rotate</strong>, manage, and retrieve <em>database credentials, API keys, and other secrets</em> throughout their lifecycle. </li>
+<li>Users and applications retrieve secrets with a call to <strong>Secrets Manager APIs</strong>, eliminating the need to hardcode sensitive information in plain text. </li>
+<li>Secrets Manager offers secret rotation with built-in integration for <strong>Amazon RDS, Amazon Redshift, and Amazon DocumentDB</strong>.</li>
+<li>Your secret information is <strong>encrypted</strong> using encryption keys that you can manage by using <strong>AWS KMS</strong>. </li>
+</ul>
+<h2 id="v-s-KMS"><a href="#v-s-KMS" class="headerlink" title="v.s. KMS"></a>v.s. KMS</h2><p>KMS is an <strong>encryption</strong> service, it’s not a secret store that stores your credentials for you.  </p>
+<h2 id="AWS-Systems-Manager-SSM-Parameter-Store"><a href="#AWS-Systems-Manager-SSM-Parameter-Store" class="headerlink" title="AWS Systems Manager (SSM) Parameter Store"></a>AWS Systems Manager (SSM) Parameter Store</h2><ul>
+<li>AWS Systems Manager Parameter Store (aka SSM Parameter Store) provides secure, hierarchical storage for <strong>configuration data management and secrets management</strong>. </li>
+<li>You can store data such as passwords, database strings, EC2 instance IDs, Amazon Machine Image (AMI) IDs, and license codes as parameter values. </li>
+<li>You can store values as plain text <strong>or</strong> encrypted data. </li>
+<li>You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter.</li>
+<li>SSM Parameter Store can serve as a secrets store, but <strong>you must rotate the secrets yourself</strong>.</li>
+</ul>
+<h1 id="Encrypt-an-RDS-instance"><a href="#Encrypt-an-RDS-instance" class="headerlink" title="Encrypt an RDS instance"></a>Encrypt an RDS instance</h1><ul>
+<li>You can only enable encryption for an Amazon RDS DB instance when you create it, not after the DB instance is created. </li>
+<li>However, because you can encrypt a copy of an unencrypted DB snapshot, you can effectively add encryption to an unencrypted DB instance. That is, you can create a snapshot of your DB instance, and then create an encrypted copy of that snapshot. </li>
+</ul>
+<h1 id="S3-Cross-origin-resource-sharing-CORS"><a href="#S3-Cross-origin-resource-sharing-CORS" class="headerlink" title="S3 Cross-origin resource sharing (CORS)"></a>S3 Cross-origin resource sharing (CORS)</h1><p>Web browsers will block the execution of a script that originates from a server with a different domain name than the webpage. Amazon S3 can be configured with CORS to send HTTP headers that allow the script execution. </p>
+<ul>
+<li>Cross-origin resource sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. </li>
+<li>With CORS support, you can build rich client-side web applications with Amazon S3 and selectively allow cross-origin access to your Amazon S3 resources.</li>
+</ul>
+<h1 id="S3-pre-signed-URLs"><a href="#S3-pre-signed-URLs" class="headerlink" title="S3 pre-signed URLs"></a>S3 pre-signed URLs</h1><ul>
+<li>A presigned URL gives you access to the object identified in the URL, provided that the creator of the presigned URL has permissions to access that object. </li>
+<li>All objects and buckets by default are private. </li>
+<li>The presigned URLs are useful if you want your user/customer to be able to upload a specific object to your bucket, but you don’t require them to have AWS security credentials or permissions. </li>
+<li>The object owner can optionally share objects with others by creating a presigned URL, using their own security credentials, to grant time-limited permission to download the objects.</li>
+</ul>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

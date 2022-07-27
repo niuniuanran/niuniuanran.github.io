@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS SAA Test Question notes - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Data-transfer-pricing"><span class="toc-text">1 (Data transfer pricing)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-transfer-cost"><span class="toc-text">Data transfer cost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Free-transfer-in-Internet-gt-AWS-regions"><span class="toc-text">Free transfer in: Internet -&gt; AWS regions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Charged-transfer-out-AWS-regions-gt-Internet"><span class="toc-text">Charged transfer out: AWS regions -&gt; Internet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Charged-across-regions-AWS-Region-gt-Another-AWS-Region"><span class="toc-text">Charged across regions: AWS Region -&gt; Another AWS Region</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-transfer-via-On-site-gt-AWS-Region-free-AWS-gt-site-charged"><span class="toc-text">Data transfer via: On site -&gt; AWS Region free, AWS-&gt;site charged</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Services-with-free-transfer-within-same-region"><span class="toc-text">Services with free transfer within same region</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Services-with-a-charge-across-availability-zones"><span class="toc-text">Services with a charge across availability zones</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-Data-Transfer-Cost"><span class="toc-text">S3 Data Transfer Cost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Edge-location-data-transfer"><span class="toc-text">Edge location data transfer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-Mesh"><span class="toc-text">App Mesh</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-S3-Versioning-MFA-Deletion"><span class="toc-text">2: S3 Versioning&#x2F;MFA Deletion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-Versioning"><span class="toc-text">S3 Versioning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-MFA-Deletion"><span class="toc-text">S3 MFA Deletion</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-ALB-Dynamic-Port-Mapping"><span class="toc-text">3 (ALB Dynamic Port Mapping)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dynamic-Port-Mapping"><span class="toc-text">Dynamic Port Mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-based-routing"><span class="toc-text">Path-based routing</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-ELB-and-ASG"><span class="toc-text">4 (ELB and ASG)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CLB-Connection-Draining-in-NLB-and-ALB-deregistration-delay"><span class="toc-text">CLB Connection Draining (in NLB and ALB, deregistration delay)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaling-cooldowns-for-Amazon-EC2-Auto-Scaling"><span class="toc-text">Scaling cooldowns for Amazon EC2 Auto Scaling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Target-Group-Deregistration-delay"><span class="toc-text">Target Group Deregistration delay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ALB-Target-Group-Sticky-sessions"><span class="toc-text">ALB Target Group Sticky sessions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Answer-to-this-question"><span class="toc-text">Answer to this question</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-KMS"><span class="toc-text">5 (KMS)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cryptographic-Keys-on-KMS"><span class="toc-text">Cryptographic Keys on KMS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KMS-Customer-Master-Key"><span class="toc-text">KMS Customer Master Key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-of-KMS"><span class="toc-text">Security of KMS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#You-cannot-export-a-key-from-KMS"><span class="toc-text">You cannot export a key from KMS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-KMS-requests-logging-in-CloudTrail"><span class="toc-text">AWS KMS requests logging in CloudTrail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KMS-v-s-CloudHSM"><span class="toc-text">KMS v.s. CloudHSM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Envelope-Encryption"><span class="toc-text">Envelope Encryption</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Firewall-Services"><span class="toc-text">6 (Firewall Services)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Firewall-Manager"><span class="toc-text">AWS Firewall Manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-WAF-Web-Application-Firewall"><span class="toc-text">AWS WAF (Web Application Firewall)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Shield"><span class="toc-text">AWS Shield</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-Spot-Instance-Request-Lifecycle"><span class="toc-text">7 (Spot Instance&#x2F;Request Lifecycle)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-S3-lifecycle"><span class="toc-text">8 (S3 lifecycle)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-S3-performance"><span class="toc-text">9 (S3 performance)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multipart-Uploads"><span class="toc-text">Multipart Uploads</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-CLI-S3-upload-high-low-level"><span class="toc-text">AWS CLI S3 upload: high&#x2F;low level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-S3-console"><span class="toc-text">AWS S3 console</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer"><span class="toc-text">The answer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-AWS-FSx-for-Windows-File-Server"><span class="toc-text">10 (AWS FSx for Windows File Server)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-FSx-for-Windows-File-Server"><span class="toc-text">Amazon FSx for Windows File Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Choosing-between-EFS-and-FSx"><span class="toc-text">Choosing between EFS and FSx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-1"><span class="toc-text">The answer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-SQS-vs-Kinesis"><span class="toc-text">11 (SQS vs Kinesis)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQS-FIFO-queue"><span class="toc-text">SQS FIFO queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Kinesis"><span class="toc-text">Amazon Kinesis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Streams"><span class="toc-text">Data Streams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kinesis-Data-Firehose"><span class="toc-text">Kinesis Data Firehose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kinesis-Data-Stream-v-s-SQS"><span class="toc-text">Kinesis Data Stream v.s. SQS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Kinesis-Data-Streams-Recommended-User-Case"><span class="toc-text">Amazon Kinesis Data Streams Recommended User Case</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-SQS-Recommended-User-Case"><span class="toc-text">Amazon SQS Recommended User Case</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BMW-car-as-a-sensor-Service-with-SQS"><span class="toc-text">BMW car-as-a-sensor Service with SQS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kinesis-Data-Streams-concepts"><span class="toc-text">Kinesis Data Streams concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shard"><span class="toc-text">Shard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Record"><span class="toc-text">Record</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition-key"><span class="toc-text">Partition key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kinesis-is-not-so-good-at-scalability"><span class="toc-text">Kinesis is not so good at scalability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQS-is-not-suited-for-multiple-consumers"><span class="toc-text">SQS is not suited for multiple consumers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reliability-Ensure-messages-eventually-gets-processed"><span class="toc-text">Reliability: Ensure messages eventually gets processed</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kinesis-Data-Streams"><span class="toc-text">Kinesis Data Streams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQS"><span class="toc-text">SQS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Answer"><span class="toc-text">The Answer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-AWS-Cognito"><span class="toc-text">12 (AWS Cognito)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Active-Directory-Enterprise-Identify-Provider"><span class="toc-text">Active Directory: Enterprise Identify Provider</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户服务"><span class="toc-text">用户服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算机管理"><span class="toc-text">计算机管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资源管理"><span class="toc-text">资源管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用系统的支持"><span class="toc-text">应用系统的支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端桌面管理"><span class="toc-text">客户端桌面管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Cognito"><span class="toc-text">Amazon Cognito</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Cognito-User-Pools"><span class="toc-text">Amazon Cognito User Pools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Social-and-Enterprise-identify-federation"><span class="toc-text">Social and Enterprise identify federation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-Cognito"><span class="toc-text">The answer: Cognito</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-DynamoDB-Accelerator"><span class="toc-text">13 (DynamoDB Accelerator)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DynamoDB-Accelerator"><span class="toc-text">DynamoDB Accelerator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-Transfer-Acceleration"><span class="toc-text">S3 Transfer Acceleration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-DynamoDB-with-DynamoDB-Accelerator"><span class="toc-text">The answer: DynamoDB with DynamoDB Accelerator</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-VPC-and-SG-best-practices"><span class="toc-text">14 (VPC and SG best practices)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#API-Gateway-private-integrations"><span class="toc-text">API Gateway private integrations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-2"><span class="toc-text">The answer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-VPC-security-practices"><span class="toc-text">15 (VPC security practices)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-3"><span class="toc-text">The answer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-Serverless-Microservices"><span class="toc-text">16 (Serverless, Microservices)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-B"><span class="toc-text">The answer: B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-Target-Tracing-Auto-Scaling"><span class="toc-text">17 (Target Tracing Auto Scaling)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#EC2-Auto-Scaling-based-on-Amazon-SQS"><span class="toc-text">EC2 Auto Scaling based on Amazon SQS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQS-Queue-attributes"><span class="toc-text">SQS Queue attributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-target-tracking-with-the-right-metric"><span class="toc-text">Using target tracking with the right metric</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Scaling-Policies"><span class="toc-text">Auto Scaling Policies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Target-Tracking-Scaling"><span class="toc-text">Target Tracking Scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-configure-Target-Tracking"><span class="toc-text">How to configure Target Tracking</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Limited-available-metrics-on-AWS-Console"><span class="toc-text">Limited available metrics on AWS Console</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Scaling"><span class="toc-text">Simple Scaling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-Scaling"><span class="toc-text">Step Scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ASG-Warm-up-period-available-for-Step-and-Target-Tracking-scaling"><span class="toc-text">ASG Warm up period (available for Step and Target Tracking scaling)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Load-Balancer-Slow-Start-v-s-ASG-Instance-Warm-Up"><span class="toc-text">Load Balancer Slow Start v.s. ASG Instance Warm Up</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ALB-Slow-Start"><span class="toc-text">ALB Slow Start</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASG-Instance-Warm-up"><span class="toc-text">ASG Instance Warm up</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-Scalable-and-Available-services"><span class="toc-text">18 (Scalable and Available services)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Fargate"><span class="toc-text">AWS Fargate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aurora-Serverless"><span class="toc-text">Aurora Serverless</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-serverless"><span class="toc-text">The answer: serverless</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-IAM-best-practice"><span class="toc-text">19 (IAM best practice)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IAM-Role-Trust-Policy"><span class="toc-text">IAM Role Trust Policy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Permissions-policy"><span class="toc-text">Permissions policy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Role-chaining"><span class="toc-text">Role chaining</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delegation"><span class="toc-text">Delegation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-IAM-role-Delegation"><span class="toc-text">The answer: IAM role, Delegation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-High-Availability-with-multi-AZ"><span class="toc-text">20 (High Availability with multi-AZ)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-answer-D"><span class="toc-text">The answer: D</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-Storage-Gateway"><span class="toc-text">21 - Storage Gateway</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Storage-Gateway"><span class="toc-text">Storage Gateway</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#File-Gateway"><span class="toc-text">File Gateway</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volume-Gateway"><span class="toc-text">Volume Gateway</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tape-Gateway"><span class="toc-text">Tape Gateway</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-ENI"><span class="toc-text">22 - ENI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Elastic-Network-Interface"><span class="toc-text">Elastic Network Interface</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DHCP-Dynamic-Host-Configuration-Protocol"><span class="toc-text">DHCP(Dynamic Host Configuration Protocol)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23-SQS-times"><span class="toc-text">23 - SQS times</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Long-Polling"><span class="toc-text">Long Polling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Differences-between-long-and-short-polling"><span class="toc-text">Differences between long and short polling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Message-Retention-Period"><span class="toc-text">Message Retention Period</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dead-Letter-Queue"><span class="toc-text">Dead Letter Queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visibility-Timeout"><span class="toc-text">Visibility Timeout</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GuardDuty"><span class="toc-text">GuardDuty</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cancelling-Spot-instance-request"><span class="toc-text">Cancelling Spot instance request</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-Start-spot-instance"><span class="toc-text">Stop&#x2F;Start spot instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spot-Instance-interruptions"><span class="toc-text">Spot Instance interruptions</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS SAA Test Question notes
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-05-21 10:21:03</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS SAA" title="AWS SAA">AWS SAA</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="1-Data-transfer-pricing"><a href="#1-Data-transfer-pricing" class="headerlink" title="1 (Data transfer pricing)"></a>1 (Data transfer pricing)</h1><img src="1.png" alt="" width="800px"/>
+
+<p>C. Using private IP address will make transfer within the same AZ free. No impact on across-AZ transfer.</p>
+<img src="https://miro.medium.com/max/1400/1*qzQrOLD7_y_cpwWWIE8U7A.png" width="800px" alt=""/>
+
+<h2 id="Data-transfer-cost"><a href="#Data-transfer-cost" class="headerlink" title="Data transfer cost"></a>Data transfer cost</h2><p>Data transferred between EC2 instances or containers, or Elastic Network Interfaces in the same availability zone and same VPC via <strong>public or Elastic IPv4 addresses</strong> are charged at $0.01 per GB for egress traffic and $0.01 per GB for ingress traffic.<br>Data transferred between EC2 instances or containers, or Elastic Network Interfaces in the same availability zone and same VPC over <strong>private IPv4 or IPv6 addresses</strong> are free.</p>
+<img src="https://miro.medium.com/max/1400/1*EWbdP6GTByHg8nPT-aXMTA.png" alt="" width="800px"/>
+
+<img src="https://miro.medium.com/max/1400/1*as65Ih1vXU27wQZgIoB9Wg.png" alt="" width="800px"/>
+
+<p>Data transferred between EC2 instances or containers, or Elastic Network Interfaces across availability zones or VPC peering connections via public, private or Elastic IPv4, or IPv6 addresses is charged at $0.01 per GB for egress traffic and $0.01 per GB for ingress traffic.</p>
+<h2 id="Free-transfer-in-Internet-gt-AWS-regions"><a href="#Free-transfer-in-Internet-gt-AWS-regions" class="headerlink" title="Free transfer in: Internet -&gt; AWS regions"></a>Free transfer in: Internet -&gt; AWS regions</h2><p>Data transfer into all AWS regions from the Internet is free.</p>
+<h2 id="Charged-transfer-out-AWS-regions-gt-Internet"><a href="#Charged-transfer-out-AWS-regions-gt-Internet" class="headerlink" title="Charged transfer out: AWS regions -&gt; Internet"></a>Charged transfer out: AWS regions -&gt; Internet</h2><p>Data transfer out to the Internet from all AWS regions is billed at region-specific, tiered data transfer rates.</p>
+<h2 id="Charged-across-regions-AWS-Region-gt-Another-AWS-Region"><a href="#Charged-across-regions-AWS-Region-gt-Another-AWS-Region" class="headerlink" title="Charged across regions: AWS Region -&gt; Another AWS Region"></a>Charged across regions: AWS Region -&gt; Another AWS Region</h2><p>Data transfer out from the local AWS region to another AWS region is charged at source region-specific data transfer rates. These costs are typically labeled as InterRegion Inbound or InterRegion Outbound transfer type in the monthly AWS bills.</p>
+<h2 id="Data-transfer-via-On-site-gt-AWS-Region-free-AWS-gt-site-charged"><a href="#Data-transfer-via-On-site-gt-AWS-Region-free-AWS-gt-site-charged" class="headerlink" title="Data transfer via: On site -&gt; AWS Region free, AWS-&gt;site charged"></a>Data transfer via: On site -&gt; AWS Region free, AWS-&gt;site charged</h2><p>AWS Direct Connect is an AWS network service that provides an alternative to using the Internet to connect customer’s on-premise sites to AWS. Customers connect their pre-existing data center or office network to AWS via an AWS Direct Connect location.<br>Data transfer into AWS regions through AWS Direct Connect locations is free.</p>
+<p>Data transfer out of AWS regions through AWS Direct Connect is charged.</p>
+<img src="https://miro.medium.com/max/1400/1*f0Mt5dt0alKwoUp3doeEeQ.png" alt="transfer through dx" width="600px"/>
+
+<h2 id="Services-with-free-transfer-within-same-region"><a href="#Services-with-free-transfer-within-same-region" class="headerlink" title="Services with free transfer within same region"></a>Services with free transfer within same region</h2><p>Data transferred between services in the same AWS Region is free</p>
+<ul>
+<li>Amazon S3, Amazon Glacier, </li>
+<li>Amazon DynamoDB, </li>
+<li>Amazon SES, Amazon SQS, </li>
+<li>Amazon Kinesis, </li>
+<li>Amazon ECR, </li>
+<li>Amazon SNS or </li>
+<li>Amazon SimpleDB and </li>
+<li>Amazon EC2 </li>
+</ul>
+<p>Data transferred “in” to and “out” from Amazon Classic and Application Elastic Load Balancers using private IP addresses, between EC2 instances and the load balancer in the same AWS Region is free.</p>
+<h2 id="Services-with-a-charge-across-availability-zones"><a href="#Services-with-a-charge-across-availability-zones" class="headerlink" title="Services with a charge across availability zones"></a>Services with a charge across availability zones</h2><p>Data transferred “in” to and “out” from </p>
+<ul>
+<li>Amazon EC2, </li>
+<li>Amazon RDS, </li>
+<li>Amazon Redshift, </li>
+<li>Amazon DynamoDB Accelerator (DAX), and </li>
+<li>Amazon ElastiCache instances or </li>
+<li>Elastic Network Interfaces </li>
+</ul>
+<p>across Availability Zones or VPC Peering connections in the same AWS Region is charged at $0.01/GB in each direction.</p>
+<p>Data transferred between </p>
+<ul>
+<li>Amazon EC2, </li>
+<li>Amazon RDS, </li>
+<li>Amazon Redshift, </li>
+<li>Amazon ElastiCache instances and </li>
+<li>Elastic Network Interfaces </li>
+</ul>
+<p>in the same Availability Zone is free. </p>
+<h2 id="S3-Data-Transfer-Cost"><a href="#S3-Data-Transfer-Cost" class="headerlink" title="S3 Data Transfer Cost"></a>S3 Data Transfer Cost</h2><ul>
+<li><p>Free for:</p>
+<ul>
+<li>Transfer into S3</li>
+<li>Transfer out from Amazon S3 to Amazon CloudFront</li>
+<li>Data transferred out to an Amazon Elastic Compute Cloud (Amazon EC2) instance, when the instance is in the same AWS Region as the S3 bucket.</li>
+</ul>
+</li>
+<li><p>Charges for:</p>
+<ul>
+<li>PUT, COPY, POST, LIST, GET requests</li>
+<li>Storage, per GB per month</li>
+<li>Transfer across region</li>
+</ul>
+</li>
+</ul>
+<h2 id="Edge-location-data-transfer"><a href="#Edge-location-data-transfer" class="headerlink" title="Edge location data transfer"></a>Edge location data transfer</h2><p>Data transfer out of AWS edge locations to the Internet is billed at region-specific, tiered data transfer rates.</p>
+<p>Into edge location is free.</p>
+<h2 id="App-Mesh"><a href="#App-Mesh" class="headerlink" title="App Mesh"></a>App Mesh</h2><p>Application-level networking for all your services.</p>
+<p>AWS App Mesh is a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure. App Mesh standardizes how your services communicate, giving you end-to-end visibility and ensuring high-availability for your applications.</p>
+<h1 id="2-S3-Versioning-MFA-Deletion"><a href="#2-S3-Versioning-MFA-Deletion" class="headerlink" title="2: S3 Versioning/MFA Deletion"></a>2: S3 Versioning/MFA Deletion</h1><img src="2.png" alt="" width="800px"/>
+
+<p>B. With versioning, you can easily recover from both unintended user actions and application failures. </p>
+<h2 id="S3-Versioning"><a href="#S3-Versioning" class="headerlink" title="S3 Versioning"></a>S3 Versioning</h2><p>When you enable versioning for a bucket, if Amazon S3 receives multiple write requests for the same object simultaneously, it stores all of the objects.<br>If you enable versioning for a bucket, Amazon S3 automatically generates a unique version ID for the object being stored. In one bucket, for example, you can have two objects with the <strong>same key</strong>, but <strong>different version IDs</strong>, such as photo.gif (version 111111) and photo.gif (version 121212).</p>
+<h2 id="S3-MFA-Deletion"><a href="#S3-MFA-Deletion" class="headerlink" title="S3 MFA Deletion"></a>S3 MFA Deletion</h2><p>Needs to have versioning enabled.<br>Applies to a bucket.</p>
+<h1 id="3-ALB-Dynamic-Port-Mapping"><a href="#3-ALB-Dynamic-Port-Mapping" class="headerlink" title="3 (ALB Dynamic Port Mapping)"></a>3 (ALB Dynamic Port Mapping)</h1><img src="3.png" alt="" width="800px"/>
+
+<h2 id="Dynamic-Port-Mapping"><a href="#Dynamic-Port-Mapping" class="headerlink" title="Dynamic Port Mapping"></a>Dynamic Port Mapping</h2><ul>
+<li>The Classic Load Balancer doesn’t allow you to run multiple copies of a task on the same instance. Instead, with the Classic Load Balancer, you must statically map port numbers on a container instance. </li>
+<li>However, an Application Load Balancer uses <strong>dynamic port mapping</strong>, so you can run multiple tasks from a single service on the same container instance.</li>
+</ul>
+<p>This image from <a href="https://medium.com/faun/understanding-dynamic-port-mapping-in-amazon-ecs-with-application-load-balancer-bf705ee0ca8e" target="_blank" rel="noopener">this blog</a> relly helps:</p>
+<img src="https://miro.medium.com/max/1400/1*XQxxE91pq43nOkF58LEmvA.png" alt="port-mapping" width="600px"/>
+
+<h2 id="Path-based-routing"><a href="#Path-based-routing" class="headerlink" title="Path-based routing"></a>Path-based routing</h2><p>You can create a listener with rules to forward requests based on the URL path. This is known as path-based routing. If you are running microservices, you can route traffic to multiple back-end services using path-based routing. For example, you can route general requests to one target group and requests to render images to another target group.</p>
+<h1 id="4-ELB-and-ASG"><a href="#4-ELB-and-ASG" class="headerlink" title="4 (ELB and ASG)"></a>4 (ELB and ASG)</h1><img src="4.png" alt="" width="800px"/>
+
+<h2 id="CLB-Connection-Draining-in-NLB-and-ALB-deregistration-delay"><a href="#CLB-Connection-Draining-in-NLB-and-ALB-deregistration-delay" class="headerlink" title="CLB Connection Draining (in NLB and ALB, deregistration delay)"></a>CLB Connection Draining (in NLB and ALB, deregistration delay)</h2><ul>
+<li>In order to provide a first-class use experience, you’d like to avoid breaking open network connections while taking an instance out of service, updating its software, or replacing it with a fresh instance that contains updated software.</li>
+<li>Connection Draining is enabled by default for load balancers that are created using the Console.</li>
+<li>When Connection Draining is enabled and configured, the process of deregistering an instance from an Elastic Load Balancer gains an additional step. </li>
+<li>For the duration of the configured timeout, the load balancer will <strong>allow existing, in-flight requests made to an instance to complete</strong>, but it will <strong>not send any new requests to the instance</strong>.</li>
+<li>During this time, the API will report the status of the instance as <code>InService</code>, along with a message stating that “Instance deregistration currently in progress.” Once the timeout is reached, any remaining connections will be forcibly closed.</li>
+</ul>
+<img src="https://media.amazonwebservices.com/blog/2014/elb_connection_drain_configure_2.png" alt="connection-draining-timeout"/>
+
+<h2 id="Scaling-cooldowns-for-Amazon-EC2-Auto-Scaling"><a href="#Scaling-cooldowns-for-Amazon-EC2-Auto-Scaling" class="headerlink" title="Scaling cooldowns for Amazon EC2 Auto Scaling"></a>Scaling cooldowns for Amazon EC2 Auto Scaling</h2><ul>
+<li>A scaling cooldown helps you prevent your Auto Scaling group from launching or terminating additional instances before the effects of previous activities are visible.</li>
+<li>By default, all simple scaling policies use the default cooldown period associated with your Auto Scaling group, but you can configure a different cooldown period for certain policies, as described in the following sections. </li>
+<li>When you use simple scaling, after the Auto Scaling group scales using a simple scaling policy, it waits for a cooldown period to complete before any further scaling activities due to simple scaling policies can start. </li>
+<li>An adequate cooldown period helps to <strong>prevent the initiation of an additional scaling activity based on stale metrics</strong>.</li>
+</ul>
+<h2 id="Target-Group-Deregistration-delay"><a href="#Target-Group-Deregistration-delay" class="headerlink" title="Target Group Deregistration delay"></a>Target Group Deregistration delay</h2><ul>
+<li>Elastic Load Balancing stops sending requests to targets that are deregistering. </li>
+<li>By default, Elastic Load Balancing waits 300 seconds before completing the deregistration process, which can help in-flight requests to the target to complete.</li>
+<li>The initial state of a deregistering target is <code>draining</code>. After the deregistration delay elapses, the deregistration process completes and the state of the target is <code>unused</code>. If the target is part of an Auto Scaling group, it can be terminated and replaced.</li>
+</ul>
+<h2 id="ALB-Target-Group-Sticky-sessions"><a href="#ALB-Target-Group-Sticky-sessions" class="headerlink" title="ALB Target Group Sticky sessions"></a>ALB Target Group Sticky sessions</h2><ul>
+<li>Sticky sessions are a mechanism to route requests to the same target in a target group. This is useful for servers that maintain state information in order to provide a continuous experience to clients. To use sticky sessions, the clients must support cookies.</li>
+<li>If you enable sticky sessions, this overrides the routing algorithm of the target group after the initial target selection.</li>
+<li>If you are using multiple layers of Application Load Balancers, you can enable sticky sessions on one layer only, because the load balancers would use the same cookie name.</li>
+<li>WebSockets connections are inherently sticky. If the client requests a connection upgrade to WebSockets, the target that returns an HTTP 101 status code to accept the connection upgrade is the target used in the WebSockets connection. After the WebSockets upgrade is complete, cookie-based stickiness is not used.</li>
+<li><strong>You enable sticky sessions at the target group level</strong>. You can also set the duration for the stickiness of the load balancer-generated cookie, in seconds.</li>
+<li>The duration is set with each request. Therefore, if the client sends a request before each duration period expires, the sticky session continues.</li>
+</ul>
+<h2 id="Answer-to-this-question"><a href="#Answer-to-this-question" class="headerlink" title="Answer to this question"></a>Answer to this question</h2><p>B. Enable Connection Draining on the ALB.</p>
+<ul>
+<li>Connection Draining: Happens when ASG <strong>scales in</strong>. It is an attribute of ELB.</li>
+<li>Deregistration Delay: Happens when a target is <strong>deregistered</strong> from a target group. It is an attribute of a target group.</li>
+</ul>
+<h1 id="5-KMS"><a href="#5-KMS" class="headerlink" title="5 (KMS)"></a>5 (KMS)</h1><img src="5.png" alt="" width="800px"/>
+
+<h2 id="Cryptographic-Keys-on-KMS"><a href="#Cryptographic-Keys-on-KMS" class="headerlink" title="Cryptographic Keys on KMS"></a>Cryptographic Keys on KMS</h2><p>AWS Key Management Service (AWS KMS) provides cryptographic keys and operations secured by FIPS 140-2 certified hardware security modules (HSMs) scaled for the cloud. </p>
+<h2 id="KMS-Customer-Master-Key"><a href="#KMS-Customer-Master-Key" class="headerlink" title="KMS Customer Master Key"></a>KMS Customer Master Key</h2><ul>
+<li>Customer master keys are the primary resources in AWS KMS.</li>
+<li>A customer master key (CMK) is a logical representation of a master key. </li>
+<li>The CMK includes metadata, such as the key ID, creation date, description, and key state. </li>
+<li>The CMK also contains the key material used to encrypt and decrypt data.</li>
+<li>CMKs are created in AWS KMS. Symmetric CMKs and the private keys of asymmetric CMKs never leave AWS KMS unencrypted. </li>
+</ul>
+<h2 id="Security-of-KMS"><a href="#Security-of-KMS" class="headerlink" title="Security of KMS"></a>Security of KMS</h2><ul>
+<li>AWS KMS is designed so that no one, including AWS employees, can retrieve your plaintext CMKs from the service.</li>
+<li>All CMKs regardless of their creation date or origin are automatically protected using HSMs that have been validated under FIPS 140-2, or are in the process of being validated. No action is required on your part to use the FIPS 140-2 validated HSMs.</li>
+</ul>
+<h2 id="You-cannot-export-a-key-from-KMS"><a href="#You-cannot-export-a-key-from-KMS" class="headerlink" title="You cannot export a key from KMS"></a>You cannot export a key from KMS</h2><p>CMKs are created and used <strong>only within the service</strong> to:</p>
+<ul>
+<li>help ensure their security, </li>
+<li>enable your policies to be consistently enforced, </li>
+<li>provide a centralized <strong>log of their use</strong>.</li>
+</ul>
+<h2 id="AWS-KMS-requests-logging-in-CloudTrail"><a href="#AWS-KMS-requests-logging-in-CloudTrail" class="headerlink" title="AWS KMS requests logging in CloudTrail"></a>AWS KMS requests logging in CloudTrail</h2><p>Logs in <strong>AWS CloudTrail</strong> will show all AWS KMS API requests, including both <strong>management requests</strong> (e.g. create, rotate, disable, policy edits) and <strong>cryptographic requests</strong> (e.g. encrypt/decrypt). Turn on AWS CloudTrail in your account to view these logs.</p>
+<h2 id="KMS-v-s-CloudHSM"><a href="#KMS-v-s-CloudHSM" class="headerlink" title="KMS v.s. CloudHSM"></a>KMS v.s. CloudHSM</h2><ul>
+<li>AWS Key Management Service (KMS) is a <strong>multi-tenant</strong>, managed service that allows you to use and manage encryption keys. </li>
+<li>AWS CloudHSM provides a <strong>dedicated, FIPS 140-2 Level 3 HSM</strong> <strong>under your exclusive control</strong>, directly in your Amazon Virtual Private Cloud (<strong>VPC</strong>).</li>
+</ul>
+<p>=&gt; You choose CloudHSM when you need an isolated hardware module to comply to FIPS 140-2 Level 3.</p>
+<h2 id="Envelope-Encryption"><a href="#Envelope-Encryption" class="headerlink" title="Envelope Encryption"></a>Envelope Encryption</h2><ul>
+<li>AWS KMS facilitates a Two-tiered envelope encryption operational model using Master Key (Customer Managed Key or AWS Managed Key – Default Key) and Data Keys. </li>
+<li>AWS KMS helps you to protect your master keys by storing and managing them securely. Master keys stored in AWS KMS, known as customer master keys (CMKs), never leave the AWS KMS FIPS validated hardware security modules unencrypted. To use an AWS KMS CMK, you must call AWS KMS.</li>
+</ul>
+<h1 id="6-Firewall-Services"><a href="#6-Firewall-Services" class="headerlink" title="6 (Firewall Services)"></a>6 (Firewall Services)</h1><img src="6.png" alt="" width="800px"/>
+
+<h2 id="AWS-Firewall-Manager"><a href="#AWS-Firewall-Manager" class="headerlink" title="AWS Firewall Manager"></a>AWS Firewall Manager</h2><p>AWS Firewall Manager is a security management service which allows you to centrally configure and manage firewall rules across your accounts and applications in AWS Organization. </p>
+<ul>
+<li>Using AWS Firewall Manager, you can easily roll out <strong>AWS WAF rules</strong> for your Application Load Balancers, API Gateways, and Amazon CloudFront distributions. </li>
+<li>Similarly, you can create <strong>AWS Shield Advanced</strong> protections for your Application Load Balancers, ELB Classic Load Balancers, Elastic IP Addresses and CloudFront distributions. </li>
+<li>Finally, with AWS Firewall Manager, you can enable <strong>security groups</strong> for your Amazon EC2 and ENI resource types in Amazon VPCs.</li>
+</ul>
+<h2 id="AWS-WAF-Web-Application-Firewall"><a href="#AWS-WAF-Web-Application-Firewall" class="headerlink" title="AWS WAF (Web Application Firewall)"></a>AWS WAF (Web Application Firewall)</h2><ul>
+<li>You can filter any part of the web request, such as IP addresses, HTTP headers, HTTP body, or URI strings. </li>
+<li>This allows you to block common attack patterns, such as <strong>SQL injection or cross-site scripting</strong>.</li>
+<li>AWS WAF is easy to deploy and protect applications deployed on either <strong>Amazon CloudFront</strong> as part of your CDN solution, the <strong>Application Load Balancer</strong> that fronts all your origin servers, or <strong>Amazon API Gateway</strong> for your APIs. </li>
+<li>With <strong>AWS Firewall Manager integration</strong>, you can <em>centrally define and manage your rules</em>, and reuse them across all the web applications that you need to protect. </li>
+<li>The pricing is based on how many <strong>rules</strong> you deploy and how many <strong>web requests</strong> your application receives. There are no upfront commitments.</li>
+</ul>
+<h2 id="AWS-Shield"><a href="#AWS-Shield" class="headerlink" title="AWS Shield"></a>AWS Shield</h2><ul>
+<li>When you use AWS Shield Standard with <strong>Amazon CloudFront and Amazon Route 53</strong>, you receive comprehensive availability protection against all known infrastructure (Layer 3 and 4) attacks.</li>
+<li>For higher levels of protection against attacks targeting your applications running on <strong>Amazon Elastic Compute Cloud (EC2)</strong>, <strong>Elastic Load Balancing (ELB)</strong>, <strong>Amazon CloudFront</strong>, <strong>AWS Global Accelerator</strong> and <strong>Amazon Route 53</strong> resources, you can subscribe to AWS Shield Advanced. </li>
+<li>Free always-on AWS Shield Standard</li>
+<li>With AWS Shield Advanced, customers get <strong>AWS WAF and AWS Firewall Manager at no additional cost</strong> for usage on resources protected by AWS Shield Advanced.</li>
+<li>Additionally,  you get <strong>“DDoS cost protection for scaling”</strong>, a feature that protects your AWS bill from usage spikes on your AWS Shield Advanced protected EC2, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Amazon Route 53 resources as a result of a DDoS attack.</li>
+</ul>
+<h1 id="7-Spot-Instance-Request-Lifecycle"><a href="#7-Spot-Instance-Request-Lifecycle" class="headerlink" title="7 (Spot Instance/Request Lifecycle)"></a>7 (Spot Instance/Request Lifecycle)</h1><p>You must first cancel a Spot Request, and then terminate the associated Spot Instances. See <a href="https://niuniuanran.github.io/2020/09/06/AWS-SAA-Preparation-The-final-week/#Spot-Instance-Lifecycle">Spot instance lifecycle and requirements</a> for details.</p>
+<ul>
+<li><p>A one-time Spot Instance request remains active until Amazon EC2 launches the Spot Instance, the request expires, or you cancel the request. If the Spot price exceeds your maximum price or capacity is not available, your Spot Instance is terminated and the Spot Instance request is closed. Your one-time request will have already been inactive when you have the instance, so you can just terminate it.</p>
+</li>
+<li><p>A persistent Spot Instance request remains active until it expires or you cancel it, even if the request is fulfilled. </p>
+</li>
+<li><p>Cancelling a persistent spot instance request does not automatically terminate the spot instance.</p>
+</li>
+</ul>
+<h1 id="8-S3-lifecycle"><a href="#8-S3-lifecycle" class="headerlink" title="8 (S3 lifecycle)"></a>8 (S3 lifecycle)</h1><img src="8.png" alt="" width="800px"/>
+
+<p>Keyword: Rarely accessed, need to be durable, available immediately upon request</p>
+<h1 id="9-S3-performance"><a href="#9-S3-performance" class="headerlink" title="9 (S3 performance)"></a>9 (S3 performance)</h1><img src="9.png" alt="" width="800px"/>
+
+<h2 id="Multipart-Uploads"><a href="#Multipart-Uploads" class="headerlink" title="Multipart Uploads"></a>Multipart Uploads</h2><ul>
+<li>When you upload large files to Amazon S3, it’s a best practice to leverage multipart uploads. </li>
+<li>If you’re using the AWS Command Line Interface (AWS CLI), all high-level aws s3 commands automatically perform a multipart upload when the object is large. These high-level commands include <code>aws s3 cp</code> and aws <code>s3 sync</code>.</li>
+<li>Multipart upload allows you to upload a single object as a set of parts. Each part is a contiguous portion of the object’s data. You can upload these object parts independently and in any order. If transmission of any part fails, you can <strong>retransmit that part without affecting other parts</strong>. </li>
+<li>After all parts of your object are uploaded, Amazon S3 assembles these parts and creates the object.</li>
+<li>In general, when your object size reaches 100 MB, you should consider using multipart uploads instead of uploading the object in a single operation.</li>
+<li>Multipart uploading is a three-step process: <ol>
+<li>You initiate the upload, </li>
+<li>you upload the object parts, </li>
+<li>after you have uploaded all the parts, you complete the multipart upload.</li>
+</ol>
+</li>
+<li>Upon receiving the complete multipart upload request, Amazon S3 constructs the object from the uploaded parts, and you can then access the object just as you would any other object in your bucket.</li>
+<li>When uploading a part, in addition to the upload ID, you must specify a part number. You can choose any part number between 1 and 10,000. A part number uniquely identifies a part and its position in the object you are uploading. </li>
+</ul>
+<h2 id="AWS-CLI-S3-upload-high-low-level"><a href="#AWS-CLI-S3-upload-high-low-level" class="headerlink" title="AWS CLI S3 upload: high/low level"></a>AWS CLI S3 upload: high/low level</h2><p>You can upload large files to Amazon S3 using the AWS CLI with either aws s3 commands (high level) or aws s3api commands (low level).</p>
+<ol>
+<li>The recommended method is to use <strong>aws s3 commands (such as aws s3 cp) for multipart uploads and downloads</strong>, because these aws s3 commands automatically perform multipart uploading and downloading based on the file size. </li>
+<li>By comparison, aws s3api commands, such as aws s3api create-multipart-upload, should be used only when aws s3 commands don’t support a specific upload need, such as when the multipart upload involves multiple servers, a multipart upload is manually stopped and resumed later, or when the aws s3 command doesn’t support a required request parameter.</li>
+</ol>
+<h2 id="AWS-S3-console"><a href="#AWS-S3-console" class="headerlink" title="AWS S3 console"></a>AWS S3 console</h2><ul>
+<li>The maximum size of a file that you can upload by using the Amazon S3 console is 160 GB. </li>
+<li>To upload a file larger than 160 GB, use the AWS CLI, AWS SDK, or Amazon S3 REST API. </li>
+</ul>
+<img src="S3-classes.png" alt="" width="700px"/>
+
+<ul>
+<li>You specify storage class <strong>per object</strong>.</li>
+<li>A per-object monitoring/automation fee applies for Intelligent-Tiering</li>
+<li>A per-GB retrieval fee applies for Standard-IA, One Zone-IA, Glacier, Glacier Deep Archive.</li>
+</ul>
+<h2 id="The-answer"><a href="#The-answer" class="headerlink" title="The answer"></a>The answer</h2><p>The answer here is therefore b: <code>aws s3 cp</code> command. Using the high-level command automatically takes care of multi-part upload based on file size.</p>
+<h1 id="10-AWS-FSx-for-Windows-File-Server"><a href="#10-AWS-FSx-for-Windows-File-Server" class="headerlink" title="10 (AWS FSx for Windows File Server)"></a>10 (AWS FSx for Windows File Server)</h1><img src="10.png" alt="" width="800px"/>
+
+<h2 id="Amazon-FSx-for-Windows-File-Server"><a href="#Amazon-FSx-for-Windows-File-Server" class="headerlink" title="Amazon FSx for Windows File Server"></a>Amazon FSx for Windows File Server</h2><ul>
+<li>Amazon FSx for Windows File Server provides <strong>fully managed</strong>, highly reliable, and scalable file storage that is accessible over the industry-standard <strong>Server Message Block (SMB)</strong> protocol. </li>
+<li>It is built on Windows Server, delivering a wide range of administrative features such as user quotas, end-user file restore, and <strong>Microsoft Active Directory (AD)</strong> integration.</li>
+<li>It offers single-AZ and multi-AZ deployment options, fully managed backups, and encryption of data at rest and in transit.</li>
+<li>Amazon FSx file storage is accessible from Windows, Linux, and MacOS compute instances and devices running on <strong>AWS or on premises</strong>. </li>
+</ul>
+<h2 id="Choosing-between-EFS-and-FSx"><a href="#Choosing-between-EFS-and-FSx" class="headerlink" title="Choosing between EFS and FSx"></a>Choosing between EFS and FSx</h2><ul>
+<li>The particular scenarios for each primarily differ in how much the applications rely upon native Windows features, as opposed to being able to operate with a generic, OS-agnostic network file system. </li>
+<li>Because FSx runs on Windows, it is compatible with any server application designed for <strong>on-premises Windows Server environments</strong>.</li>
+<li>Applications that require Windows-specific features will do better with FSx. </li>
+<li>EFS is better for applications designed for heterogeneous environments and those that run on Linux system.</li>
+<li>Key attribute of EFS is that it uses <strong>NFS</strong>, one of the first network file sharing protocols native to Unix and Linux.</li>
+<li>EFS is more expensive</li>
+<li>Both support encryption in transit/at rest</li>
+<li>Both support on-promise and cloud access</li>
+<li>2012 Windows Server update + later implementations of SMB include features that are not available on most NFS implementations, including EFS:<ol>
+<li>end-to-end data encryption, </li>
+<li>remote direct memory access support, </li>
+<li>VSS snapshot backups, </li>
+<li>support for Windows New Technology File System (NTFS) metadata</li>
+<li>Active Directory (AD) security policies</li>
+</ol>
+</li>
+</ul>
+<h2 id="The-answer-1"><a href="#The-answer-1" class="headerlink" title="The answer"></a>The answer</h2><p>B. An Amazon FSx for Windows File Server file system joined to the existing AD Domain</p>
+<h1 id="11-SQS-vs-Kinesis"><a href="#11-SQS-vs-Kinesis" class="headerlink" title="11 (SQS vs Kinesis)"></a>11 (SQS vs Kinesis)</h1><img src="11.png" alt="" width="800px"/>
+
+<h2 id="SQS-FIFO-queue"><a href="#SQS-FIFO-queue" class="headerlink" title="SQS FIFO queue"></a>SQS FIFO queue</h2><ul>
+<li>FIFO (First-In-First-Out) queues are designed to enhance messaging between applications when the <strong>order</strong> of operations and events is critical, or where <strong>duplicates can’t be tolerated</strong></li>
+<li>FIFO queues also provide <strong>exactly-once processing</strong> but have a limited number of transactions per second (TPS): up to 3,000 messages per second with batching, or up to 300 messages per second (300 send, receive, or delete operations per second) without batching.</li>
+<li>The <strong>order</strong> in which messages are sent and received is strictly preserved and a message is <strong>delivered once</strong> and remains available until a consumer processes and deletes it.</li>
+<li>Duplicates aren’t introduced into the queue.</li>
+</ul>
+<h2 id="Amazon-Kinesis"><a href="#Amazon-Kinesis" class="headerlink" title="Amazon Kinesis"></a>Amazon Kinesis</h2><p>When you need <strong>real-time</strong> consider Kinesis.</p>
+<h3 id="Data-Streams"><a href="#Data-Streams" class="headerlink" title="Data Streams"></a>Data Streams</h3><p>Pay per shard, data persists after consuming</p>
+<h3 id="Kinesis-Data-Firehose"><a href="#Kinesis-Data-Firehose" class="headerlink" title="Kinesis Data Firehose"></a>Kinesis Data Firehose</h3><p>Pay per data, data disappears right after processing</p>
+<h2 id="Kinesis-Data-Stream-v-s-SQS"><a href="#Kinesis-Data-Stream-v-s-SQS" class="headerlink" title="Kinesis Data Stream v.s. SQS"></a>Kinesis Data Stream v.s. SQS</h2><ul>
+<li>Amazon Kinesis Data Streams enables <strong>real-time</strong> processing of <strong>streaming big data</strong>. </li>
+<li>It provides ordering of records, as well as the ability to read and/or replay records in the same order to multiple Amazon Kinesis Applications. </li>
+<li>The Amazon Kinesis Client Library (KCL) delivers all records for a given partition key to the same record processor, making it easier to build multiple applications reading from the same Amazon Kinesis data stream (for example, to perform counting, aggregation, and filtering).</li>
+<li>Amazon Simple Queue Service (Amazon SQS) offers a reliable, highly scalable <strong>hosted queue</strong> for storing messages as they travel between computers. </li>
+<li>Amazon SQS lets you easily move data between <strong>distributed application components</strong> and helps you build applications in which messages are processed <strong>independently</strong> (with message-level ack/fail semantics), such as automated workflows.</li>
+</ul>
+<h2 id="Amazon-Kinesis-Data-Streams-Recommended-User-Case"><a href="#Amazon-Kinesis-Data-Streams-Recommended-User-Case" class="headerlink" title="Amazon Kinesis Data Streams Recommended User Case"></a>Amazon Kinesis Data Streams Recommended User Case</h2><ul>
+<li><strong>Routing</strong> related records to the same record processor (as in streaming MapReduce). For example, counting and aggregation are simpler when all records for a given key are routed to the same record processor.</li>
+<li><strong>Ordering</strong> of records. For example, you want to transfer log data from the application host to the processing/archival host while maintaining the order of log statements.</li>
+<li>Ability for multiple applications to consume the same stream <strong>concurrently</strong>. For example, you have one application that updates a real-time dashboard and another that archives data to Amazon Redshift. You want both applications to consume data from the <strong>same stream</strong> concurrently and independently.</li>
+<li>Ability to consume records <strong>in the same order a few hours later</strong>. For example, you have a billing application and an audit application that runs a few hours behind the billing application. </li>
+<li>Because Amazon Kinesis Data Streams stores data for up to 7 days, you can run the audit application up to 7 days behind the billing application.</li>
+</ul>
+<h2 id="Amazon-SQS-Recommended-User-Case"><a href="#Amazon-SQS-Recommended-User-Case" class="headerlink" title="Amazon SQS Recommended User Case"></a>Amazon SQS Recommended User Case</h2><ul>
+<li><strong>Messaging semantics</strong> (such as message-level ack/fail) and <strong>visibility timeout</strong>. </li>
+<li>For example, you have a queue of work items and want to track the successful completion of each item independently. </li>
+<li>Amazon SQS tracks the ack/fail (消息容错机制), so the application does not have to maintain a persistent checkpoint/cursor. </li>
+<li>Amazon SQS will <strong>delete acked messages</strong> and <strong>redeliver failed messages</strong> after a configured visibility timeout.</li>
+<li><strong>Individual message delay</strong>. For example, you have a job queue and need to schedule individual jobs with a delay. With Amazon SQS, you can configure individual messages to have a delay of up to 15 minutes.</li>
+<li>Dynamically increasing concurrency/throughput <strong>at read time</strong>. For example, you have a work queue and want to add more readers until the backlog is cleared.</li>
+<li>With Amazon Kinesis Data Streams, you can scale up to a sufficient number of shards (note, however, that you’ll need to provision enough shards <strong>ahead of time</strong>).</li>
+<li>Leveraging Amazon SQS’s ability to scale transparently. For example, you buffer requests and the load changes as a result of occasional load spikes or the natural growth of your business. Because each buffered request can be processed independently, Amazon SQS can scale transparently to handle the load without any provisioning instructions from you.</li>
+</ul>
+<h2 id="BMW-car-as-a-sensor-Service-with-SQS"><a href="#BMW-car-as-a-sensor-Service-with-SQS" class="headerlink" title="BMW car-as-a-sensor Service with SQS"></a>BMW car-as-a-sensor Service with SQS</h2><p>BMW built its new car-as-a-sensor (CARASSO) service in only six months leveraging Amazon Simple Storage Service (Amazon S3), Amazon Simple Queue Service (Amazon SQS), Amazon DynamoDB, Amazon Relational Database Service (Amazon RDS), and AWS Elastic Beanstalk. </p>
+<h2 id="Kinesis-Data-Streams-concepts"><a href="#Kinesis-Data-Streams-concepts" class="headerlink" title="Kinesis Data Streams concepts"></a>Kinesis Data Streams concepts</h2><h3 id="Shard"><a href="#Shard" class="headerlink" title="Shard"></a>Shard</h3><p>Shard is the base throughput unit of an Amazon Kinesis data stream. One shard provides a capacity of <strong>1MB/sec data input and 2MB/sec data output</strong>. One shard can support up to <strong>1000 PUT records per second</strong>. You will specify the number of shards needed when you <strong>create</strong> a data stream.  (While SQS can scale in the fly)</p>
+<h3 id="Record"><a href="#Record" class="headerlink" title="Record"></a>Record</h3><p>A record is the unit of data stored in an Amazon Kinesis data stream. A record is composed of a sequence number, partition key, and data blob. Data blob is the data of interest your data producer adds to a data stream. The maximum size of a data blob (the data payload before Base64-encoding) is <strong>1 megabyte (MB)</strong>8.</p>
+<h3 id="Partition-key"><a href="#Partition-key" class="headerlink" title="Partition key"></a>Partition key</h3><p>Partition key is used to <strong>segregate and route records to different shards of a data stream</strong>. A partition key is <strong>specified by your data producer</strong> while adding data to an Amazon Kinesis data stream. </p>
+<h2 id="Kinesis-is-not-so-good-at-scalability"><a href="#Kinesis-is-not-so-good-at-scalability" class="headerlink" title="Kinesis is not so good at scalability"></a>Kinesis is not so good at scalability</h2><ul>
+<li>Kinesis is less helpful than SNS and SQS in scaling.</li>
+<li>A Kinesis Stream’s scale relates to the number of “shards” it has. More shards, more scale. Each shard has a limit of 1 MiB and <strong>1,000 messages per second</strong>.</li>
+<li>So, if the expected throughput is 9,500 messages per second, you can confidently provision ten shards to avoid a bottleneck. However, if the throughput is likely to change, the number of shards required must change with it.</li>
+</ul>
+<h2 id="SQS-is-not-suited-for-multiple-consumers"><a href="#SQS-is-not-suited-for-multiple-consumers" class="headerlink" title="SQS is not suited for multiple consumers"></a>SQS is not suited for multiple consumers</h2><p>Because SQS is a queuing service (not a streaming service), it is not suited to multiple consumers. It is specially designed for <strong>“once only” delivery</strong>.</p>
+<p>By contrary, Kinesis Data Streams supports up to 20 discrete consumers per stream (using enhanced fan-out)</p>
+<h2 id="Reliability-Ensure-messages-eventually-gets-processed"><a href="#Reliability-Ensure-messages-eventually-gets-processed" class="headerlink" title="Reliability: Ensure messages eventually gets processed"></a>Reliability: Ensure messages eventually gets processed</h2><h3 id="Kinesis-Data-Streams"><a href="#Kinesis-Data-Streams" class="headerlink" title="Kinesis Data Streams"></a>Kinesis Data Streams</h3><ul>
+<li>Kinesis is a stream, not a queue. Once a message has been successfully processed, it remains on the stream. The message is not deleted.</li>
+<li>Because Kinesis retains all messages, regardless of their successfully processed status, it offers an option which neither SQS or SNS offers — replay.</li>
+</ul>
+<h3 id="SQS"><a href="#SQS" class="headerlink" title="SQS"></a>SQS</h3><ul>
+<li>Very reliable, With visibility time-out and re-deliver. No “Replay” option.</li>
+</ul>
+<h2 id="The-Answer"><a href="#The-Answer" class="headerlink" title="The Answer"></a>The Answer</h2><p>The answer is therefore D. SQS FIFO queue de-duplicates messages.</p>
+<h1 id="12-AWS-Cognito"><a href="#12-AWS-Cognito" class="headerlink" title="12 (AWS Cognito)"></a>12 (AWS Cognito)</h1><img src="12.png" alt="" width="800px"/>
+
+<h2 id="Active-Directory-Enterprise-Identify-Provider"><a href="#Active-Directory-Enterprise-Identify-Provider" class="headerlink" title="Active Directory: Enterprise Identify Provider"></a>Active Directory: Enterprise Identify Provider</h2><ul>
+<li>Microsoft Active Directory is a collection of services that help you <strong>manage users and devices on a network</strong>. </li>
+<li>Microsoft Active Directory is used by <strong>Windows applications</strong> to <strong>manage access and enable single sign-on (SSO)</strong>.</li>
+</ul>
+<p>Active Directory（活动目录）是微软Windows Server中，负责架构中大型网路环境的集中式目录管理服务（Directory Services），Windows 2000 Server开始内建于Windows Server产品中，它处理了在组织中的网路物件，物件可以是 <strong>计算机，用户，群组，组织单元（OU）</strong> 等等，只要是在Active Directory结构定义档（schema）中定义的物件，就可以储存在Active Directory资料档中，并利用Active Directory Service Interface来存取。</p>
+<h3 id="用户服务"><a href="#用户服务" class="headerlink" title="用户服务"></a>用户服务</h3><p>管理用户的域账号、用户信息、企业通信录（与电子邮箱系统集成）、用户组管理、用户身份认证、用户授权管理、按需实施组管理策略等。这里不单单指某些线上的应用更多的是指真实的计算机，服务器等。</p>
+<h3 id="计算机管理"><a href="#计算机管理" class="headerlink" title="计算机管理"></a>计算机管理</h3><p>管理服务器及客户端计算机账户、所有服务器及客户端计算机加入域管理并按需实施组策略。</p>
+<h3 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h3><p>管理打印机、文件共享服务、网络资源等实施组策略。</p>
+<h3 id="应用系统的支持"><a href="#应用系统的支持" class="headerlink" title="应用系统的支持"></a>应用系统的支持</h3><p>对于电子邮件（Exchange）、在线及时通讯（Lync）、企业信息管理（SharePoint）、微软CRM,ERP等业务系统提供数据认证（身份认证、数据集成、组织规则等）。这里不单是微软产品的集成，其它的业务系统根据公用接口的方式一样可以嵌入进来。</p>
+<h3 id="客户端桌面管理"><a href="#客户端桌面管理" class="headerlink" title="客户端桌面管理"></a>客户端桌面管理</h3><p>系统管理员可以集中的配置各种桌面配置策略，如：用户适用域中资源权限限制、界面功能的限制、应用程序执行特征的限制、网络连接限制、安全配置限制等。</p>
+<img src="ad-example-enterprise.png" alt="active directory example"/>
+
+<h2 id="Amazon-Cognito"><a href="#Amazon-Cognito" class="headerlink" title="Amazon Cognito"></a>Amazon Cognito</h2><h3 id="Amazon-Cognito-User-Pools"><a href="#Amazon-Cognito-User-Pools" class="headerlink" title="Amazon Cognito User Pools"></a>Amazon Cognito User Pools</h3><ul>
+<li>Fully managed service</li>
+<li>User directory that scales up to hundreds of millions of users</li>
+</ul>
+<h3 id="Social-and-Enterprise-identify-federation"><a href="#Social-and-Enterprise-identify-federation" class="headerlink" title="Social and Enterprise identify federation"></a>Social and Enterprise identify federation</h3><p>With Amazon Cognito, your users can sign in through:</p>
+<ul>
+<li>Social identity providers such as Google, Facebook, and Amazon, </li>
+<li>Enterprise identity providers such as <strong>Microsoft Active Directory via SAML</strong>.</li>
+</ul>
+<h2 id="The-answer-Cognito"><a href="#The-answer-Cognito" class="headerlink" title="The answer: Cognito"></a>The answer: Cognito</h2><p>Key words:</p>
+<ul>
+<li>Internal and external users (rules out IAM and AD)</li>
+<li>One central source (Cognito user pools, support social and enterprise identify federation, including AD)</li>
+<li>Mobile web application (AD is for SSO on Windows applications)</li>
+</ul>
+<h1 id="13-DynamoDB-Accelerator"><a href="#13-DynamoDB-Accelerator" class="headerlink" title="13 (DynamoDB Accelerator)"></a>13 (DynamoDB Accelerator)</h1><img src="13.png" alt="" width="800px"/>
+
+<h2 id="DynamoDB-Accelerator"><a href="#DynamoDB-Accelerator" class="headerlink" title="DynamoDB Accelerator"></a>DynamoDB Accelerator</h2><ul>
+<li>Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, <strong>in-memory cache</strong> for Amazon DynamoDB that delivers up to a 10 times performance improvement—from milliseconds to <strong>microseconds</strong>—even at millions of requests per second.</li>
+<li>DAX does all the heavy lifting required to <strong>add in-memory acceleration</strong> to your DynamoDB tables, without requiring developers to manage cache invalidation, data population, or cluster management.</li>
+</ul>
+<h2 id="S3-Transfer-Acceleration"><a href="#S3-Transfer-Acceleration" class="headerlink" title="S3 Transfer Acceleration"></a>S3 Transfer Acceleration</h2><ul>
+<li>Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket. </li>
+<li><strong>Bucket</strong> level feature (S3 classes apply to objects. Versioning and MFA delete are both bucket level).</li>
+<li>Both to and from your bucket.</li>
+<li>Transfer Acceleration takes advantage of <strong>Amazon CloudFront’s globally distributed edge locations</strong>. </li>
+<li>As the data arrives at an <em>edge location</em>, data is <em>routed to Amazon S3 over an optimized network path</em>.</li>
+</ul>
+<h2 id="The-answer-DynamoDB-with-DynamoDB-Accelerator"><a href="#The-answer-DynamoDB-with-DynamoDB-Accelerator" class="headerlink" title="The answer: DynamoDB with DynamoDB Accelerator"></a>The answer: DynamoDB with DynamoDB Accelerator</h2><p>Key words:</p>
+<ul>
+<li>Key-value model</li>
+<li>Microsecond</li>
+<li>Scale</li>
+</ul>
+<h1 id="14-VPC-and-SG-best-practices"><a href="#14-VPC-and-SG-best-practices" class="headerlink" title="14 (VPC and SG best practices)"></a>14 (VPC and SG best practices)</h1><img src="14.png" alt="" width="800px"/>
+
+<h2 id="API-Gateway-private-integrations"><a href="#API-Gateway-private-integrations" class="headerlink" title="API Gateway private integrations"></a>API Gateway private integrations</h2><ul>
+<li>With the API Gateway private integration, you can enable access to HTTP/HTTPS resources within a VPC without detailed knowledge of private network configurations or technology-specific appliances.</li>
+<li>The private integration uses an API Gateway resource of <code>VpcLink</code> to encapsulate connections between API Gateway and targeted VPC resources. </li>
+<li>As an owner of a VPC resource, you are responsible for creating a <strong>Network Load Balancer</strong> in your VPC and adding a VPC resource as a target of a Network Load Balancer’s listener. </li>
+<li>As an API developer, to set up an API with the private integration, you are responsible for creating a <code>VpcLink</code> targeting the specified Network Load Balancer and then treating the <code>VpcLink</code> as an <strong>effective integration endpoint</strong>.</li>
+</ul>
+<h2 id="The-answer-2"><a href="#The-answer-2" class="headerlink" title="The answer"></a>The answer</h2><p>B, D<br>Key word:</p>
+<ul>
+<li>web tier needs to be accessible from the Internet using HTTPS -&gt; B</li>
+<li>most secure: don’t want to expose application tier unnecessarily</li>
+</ul>
+<h1 id="15-VPC-security-practices"><a href="#15-VPC-security-practices" class="headerlink" title="15 (VPC security practices)"></a>15 (VPC security practices)</h1><img src="15.png" alt="" width="800px"/>
+
+<h2 id="The-answer-3"><a href="#The-answer-3" class="headerlink" title="The answer"></a>The answer</h2><p>A, E</p>
+<p>Key words:</p>
+<ul>
+<li>only accessible from the application tier -&gt; E</li>
+<li>cannot be accessible from the Internet -&gt; A. Only private subnets in the RDS’s subnet group.</li>
+</ul>
+<h1 id="16-Serverless-Microservices"><a href="#16-Serverless-Microservices" class="headerlink" title="16 (Serverless, Microservices)"></a>16 (Serverless, Microservices)</h1><img src="16.png" alt="" width="800px"/>
+
+<h2 id="The-answer-B"><a href="#The-answer-B" class="headerlink" title="The answer: B"></a>The answer: B</h2><p>Keyword:</p>
+<ul>
+<li>Without the operational overhead of managing infrastructure</li>
+<li>scale quickly</li>
+</ul>
+<h1 id="17-Target-Tracing-Auto-Scaling"><a href="#17-Target-Tracing-Auto-Scaling" class="headerlink" title="17 (Target Tracing Auto Scaling)"></a>17 (Target Tracing Auto Scaling)</h1><img src="17.png" alt="" width="800px"/>
+
+<h2 id="EC2-Auto-Scaling-based-on-Amazon-SQS"><a href="#EC2-Auto-Scaling-based-on-Amazon-SQS" class="headerlink" title="EC2 Auto Scaling based on Amazon SQS"></a>EC2 Auto Scaling based on Amazon SQS</h2><h3 id="SQS-Queue-attributes"><a href="#SQS-Queue-attributes" class="headerlink" title="SQS Queue attributes"></a>SQS Queue attributes</h3><p><code>ApproximateNumberOfMessages</code>  – Returns the approximate number of messages available for retrieval from the queue.</p>
+<h3 id="Using-target-tracking-with-the-right-metric"><a href="#Using-target-tracking-with-the-right-metric" class="headerlink" title="Using target tracking with the right metric"></a>Using target tracking with the right metric</h3><p>If you use a <strong>target tracking scaling policy</strong> based on a custom Amazon SQS queue metric, dynamic scaling can adjust to the demand curve of your application more effectively. You have to configure this target tracking scaling policy from SDK or CLI. Only four pre-defined metrics are available from Console.</p>
+<ul>
+<li>You should use a <strong>backlog per instance metric</strong> with the target value being the acceptable backlog per instance to maintain. You can calculate these numbers as follows:<ol>
+<li><strong>Backlog per instance</strong>: To calculate your backlog per instance, start with the <code>ApproximateNumberOfMessages</code> queue attribute to determine the length of the SQS queue (number of messages available for retrieval from the queue). Divide that number by the fleet’s running capacity, which for an Auto Scaling group is the number of instances in the <code>InService</code> state, to get the backlog per instance.</li>
+<li><strong>Acceptable backlog per instance</strong>: To calculate your target value, first determine what your application can accept in terms of latency. Then, <strong>take the acceptable latency value and divide it by the average time that an EC2 instance takes to process a message</strong>.</li>
+</ol>
+</li>
+<li>You then create a <strong>target tracking policy</strong> that configures your Auto Scaling group to scale based on the custom metric and a set <strong>target value</strong>.</li>
+</ul>
+<h2 id="Auto-Scaling-Policies"><a href="#Auto-Scaling-Policies" class="headerlink" title="Auto Scaling Policies"></a>Auto Scaling Policies</h2><p>You can optionally add scaling policies if you want to adjust the size (number of instances) of your group automatically.<br>A scaling policy is a set of instructions for making such adjustments in response to an Amazon CloudWatch alarm that you assign to it. </p>
+<img src="scaling-policy.png" alt="" width="700px"/>
+
+<h3 id="Target-Tracking-Scaling"><a href="#Target-Tracking-Scaling" class="headerlink" title="Target Tracking Scaling"></a>Target Tracking Scaling</h3><p>We strongly recommend that you use a <strong>target tracking scaling policy</strong> to scale on a metric.</p>
+<h4 id="How-to-configure-Target-Tracking"><a href="#How-to-configure-Target-Tracking" class="headerlink" title="How to configure Target Tracking"></a>How to configure Target Tracking</h4><ul>
+<li>With target tracking scaling policies, you <strong>select a scaling metric</strong> and <strong>set a target value</strong>. </li>
+<li>Amazon EC2 Auto Scaling creates and manages the <strong>CloudWatch alarms</strong> that trigger the scaling policy and <strong>calculates the scaling adjustment</strong> based on the metric and the target value. </li>
+</ul>
+<img src="target-tracking.png" width="400px" alt=""/>
+
+<h4 id="Limited-available-metrics-on-AWS-Console"><a href="#Limited-available-metrics-on-AWS-Console" class="headerlink" title="Limited available metrics on AWS Console"></a>Limited available metrics on AWS Console</h4><p>The following predefined metrics are available from AWS Console:</p>
+<ul>
+<li><code>ASGAverageCPUUtilization</code>—Average CPU utilization of the Auto Scaling group.</li>
+<li><code>ASGAverageNetworkIn</code>—Average number of bytes received on all network interfaces by the Auto Scaling group.</li>
+<li><code>ASGAverageNetworkOut</code>—Average number of bytes sent out on all network interfaces by the Auto Scaling group.</li>
+<li><code>ALBRequestCountPerTarget</code>—Number of requests completed per target in an Application Load Balancer target group.</li>
+</ul>
+<p>You can choose other available Amazon CloudWatch metrics or your own metrics in CloudWatch by specifying a customized metric. <strong>You must use the AWS CLI or an AWS SDK to create a target tracking policy with a customized metric</strong>.</p>
+<h3 id="Simple-Scaling"><a href="#Simple-Scaling" class="headerlink" title="Simple Scaling"></a>Simple Scaling</h3><img src="simple-scaling.png" alt="" width="400px"/>
+
+<p>Look for the “Wait for __ seconds before allowing another scaling activity”, which is the <strong>cool down period</strong>.</p>
+<ul>
+<li>Simple scaling—Increase or decrease the current capacity of the group based on a single scaling adjustment.</li>
+<li>The main issue with simple scaling is that after a scaling activity is started, the policy must wait for the scaling activity or health check replacement to complete and the <strong>cooldown period</strong> to expire before responding to additional alarms. </li>
+<li>Cooldown periods help to prevent the initiation of additional scaling activities before the effects of previous activities are visible.</li>
+</ul>
+<h3 id="Step-Scaling"><a href="#Step-Scaling" class="headerlink" title="Step Scaling"></a>Step Scaling</h3><img src="step-scaling.png" alt="" width="400px"/>
+
+<ul>
+<li>Note there is no <code>cool-down</code> setting. If a new alarm in another threshold is triggered, the policy will start a new action. However, same alarm will not cause a new launching. By contrast, cool-down period means no scaling will happen at all.</li>
+</ul>
+<h4 id="ASG-Warm-up-period-available-for-Step-and-Target-Tracking-scaling"><a href="#ASG-Warm-up-period-available-for-Step-and-Target-Tracking-scaling" class="headerlink" title="ASG Warm up period (available for Step and Target Tracking scaling)"></a>ASG Warm up period (available for Step and Target Tracking scaling)</h4><ul>
+<li>With step scaling policies, you can specify the number of seconds that it takes for a newly launched instance to warm up. </li>
+<li>Until its specified warm-up time has expired, an instance is not counted toward the aggregated metrics of the Auto Scaling group. While scaling out, AWS also does not consider instances that are warming up as part of the current capacity of the group. Therefore, <strong>multiple alarm breaches that fall in the range of the same step adjustment result in a single scaling activity</strong>. This ensures that we don’t add more instances than you need.</li>
+<li>With step scaling the policy can <strong>continue to respond to additional alarms</strong>, even while a scaling activity or health check replacement is in progress. Therefore, all alarms that are breached are evaluated by Amazon EC2 Auto Scaling as it receives the alarm messages.</li>
+<li>In most cases, step scaling policies are a better choice than simple scaling policies, even if you have only a single scaling adjustment.</li>
+</ul>
+<h2 id="Load-Balancer-Slow-Start-v-s-ASG-Instance-Warm-Up"><a href="#Load-Balancer-Slow-Start-v-s-ASG-Instance-Warm-Up" class="headerlink" title="Load Balancer Slow Start v.s. ASG Instance Warm Up"></a>Load Balancer Slow Start v.s. ASG Instance Warm Up</h2><h3 id="ALB-Slow-Start"><a href="#ALB-Slow-Start" class="headerlink" title="ALB Slow Start"></a>ALB Slow Start</h3><ul>
+<li>Avoid over-flooding instance before its ready</li>
+<li>Linearly increase requests to the new target after it is <strong>registered</strong>.</li>
+</ul>
+<h3 id="ASG-Instance-Warm-up"><a href="#ASG-Instance-Warm-up" class="headerlink" title="ASG Instance Warm up"></a>ASG Instance Warm up</h3><ul>
+<li>Avoid launching more instances than you need</li>
+<li>Until the newly <strong>launched</strong> instance’s specified warm-up time has expired, an instance is not counted toward the aggregated metrics of the Auto Scaling group.</li>
+</ul>
+<h1 id="18-Scalable-and-Available-services"><a href="#18-Scalable-and-Available-services" class="headerlink" title="18 (Scalable and Available services)"></a>18 (Scalable and Available services)</h1><img src="18.png" alt="" width="800px"/>
+
+<h2 id="AWS-Fargate"><a href="#AWS-Fargate" class="headerlink" title="AWS Fargate"></a>AWS Fargate</h2><ul>
+<li>AWS Fargate is a <strong>serverless</strong> compute engine for containers that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). </li>
+<li>Fargate allocates the right amount of compute, eliminating the need to choose instances and scale cluster capacity. </li>
+<li>You <strong>only pay for the resources required to run your containers</strong>, so there is no over-provisioning and paying for additional servers. </li>
+<li>Fargate runs each task or pod in its own kernel providing the tasks and pods their own isolated compute environment. This enables your application to have <strong>workload isolation</strong> and <strong>improved security</strong> by design. </li>
+</ul>
+<img src="fargate-process.png" alt="" width="500px"/>
+
+<h2 id="Aurora-Serverless"><a href="#Aurora-Serverless" class="headerlink" title="Aurora Serverless"></a>Aurora Serverless</h2><ul>
+<li>Amazon Aurora Serverless is an <strong>on-demand, auto-scaling</strong> configuration for Amazon Aurora (MySQL-compatible and PostgreSQL-compatible editions)</li>
+<li>The database will automatically start up, shut down, and scale capacity up or down based on your application’s needs.</li>
+<li>It’s a simple, cost-effective option for <strong>infrequent, intermittent, or unpredictable</strong> workloads. </li>
+</ul>
+<h2 id="The-answer-serverless"><a href="#The-answer-serverless" class="headerlink" title="The answer: serverless"></a>The answer: serverless</h2><ul>
+<li>AWS Fargate for serverless application layer</li>
+<li>Aurora Serverless for database layer.</li>
+<li>Both highly available and cost-effective because you pay what you use.</li>
+</ul>
+<h1 id="19-IAM-best-practice"><a href="#19-IAM-best-practice" class="headerlink" title="19 (IAM best practice)"></a>19 (IAM best practice)</h1><img src="19.png" alt="" width="800px"/>
+
+<h2 id="IAM-Role-Trust-Policy"><a href="#IAM-Role-Trust-Policy" class="headerlink" title="IAM Role Trust Policy"></a>IAM Role Trust Policy</h2><ul>
+<li>A JSON policy document in which you define the principals that you <strong>trust to assume the role</strong>. </li>
+<li>You cannot use wildcard(*) for principles when you create a trust policy.</li>
+<li>A role trust policy is a <strong>required resource-based policy</strong> that is attached to a role in IAM (The role is the resource here). </li>
+<li>The principals that you can specify in the trust policy include <strong>users, roles, accounts, and services</strong> (The role is the principle here).</li>
+</ul>
+<h2 id="Permissions-policy"><a href="#Permissions-policy" class="headerlink" title="Permissions policy"></a>Permissions policy</h2><p>A permissions document in JSON format in which you define <strong>what actions and resources the role can use</strong>. The document is written according to the rules of the IAM policy language.</p>
+<h2 id="Role-chaining"><a href="#Role-chaining" class="headerlink" title="Role chaining"></a>Role chaining</h2><ul>
+<li>Role chaining occurs when you use a role to assume a second role through the AWS CLI or API. </li>
+<li>Role chaining limits your AWS CLI or AWS API role session to a maximum of one hour. </li>
+</ul>
+<h2 id="Delegation"><a href="#Delegation" class="headerlink" title="Delegation"></a>Delegation</h2><ul>
+<li>Delegation is the granting of permissions to someone to allow access to resources that you control. </li>
+<li>Delegation involves setting up a trust <strong>between two accounts</strong>. <ol>
+<li>The first is the account that owns the resource (the trusting account). </li>
+<li>The second is the account that contains the users that need to access the resource (the trusted account).</li>
+</ol>
+</li>
+<li>The trusted and trusting accounts can be any of the following:<ol>
+<li>The same account.</li>
+<li>Separate accounts that are both under your organization’s control.</li>
+<li>Two accounts owned by different organizations.</li>
+</ol>
+</li>
+<li>To delegate permission to access a resource, you create an IAM role in the trusting account that has <strong>two policies</strong> attached. <ol>
+<li>The permissions policy grants the user of the role the needed permissions to carry out the intended tasks on the <strong>resource</strong>.<ol start="2">
+<li>The trust policy specifies which <strong>trusted account members</strong> are allowed to assume the role.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="The-answer-IAM-role-Delegation"><a href="#The-answer-IAM-role-Delegation" class="headerlink" title="The answer: IAM role, Delegation"></a>The answer: IAM role, Delegation</h2><p>Role is assumable and can be claimed back after security group finishes their auditing. User is long-living.</p>
+<h1 id="20-High-Availability-with-multi-AZ"><a href="#20-High-Availability-with-multi-AZ" class="headerlink" title="20 (High Availability with multi-AZ)"></a>20 (High Availability with multi-AZ)</h1><img src="20.png" alt="" width="800px"/>
+
+<h2 id="The-answer-D"><a href="#The-answer-D" class="headerlink" title="The answer: D"></a>The answer: D</h2><h1 id="21-Storage-Gateway"><a href="#21-Storage-Gateway" class="headerlink" title="21 - Storage Gateway"></a>21 - Storage Gateway</h1><img src="storage-gateway.png" width="800px" alt="21"/>
+
+<h2 id="Storage-Gateway"><a href="#Storage-Gateway" class="headerlink" title="Storage Gateway"></a>Storage Gateway</h2><p>AWS Storage Gateway offers file-based, volume-based, and tape-based storage solutions:</p>
+<h3 id="File-Gateway"><a href="#File-Gateway" class="headerlink" title="File Gateway"></a>File Gateway</h3><p>File Gateway – A file gateway supports a file interface into Amazon Simple Storage Service (Amazon S3) and combines a service and a virtual software appliance. </p>
+<ul>
+<li>you can store and retrieve objects in Amazon S3 using industry-standard file protocols such as <strong>Network File System (NFS)</strong> and <strong>Server Message Block (SMB)</strong>. </li>
+<li>A file gateway simplifies file storage in Amazon S3, integrates to existing applications through industry-standard file system protocols, and provides a cost-effective alternative to on-premises storage.</li>
+</ul>
+<h3 id="Volume-Gateway"><a href="#Volume-Gateway" class="headerlink" title="Volume Gateway"></a>Volume Gateway</h3><ul>
+<li>A volume gateway provides cloud-backed storage volumes that you can mount as <strong>Internet Small Computer System Interface (iSCSI) devices</strong> from your on-premises application servers.</li>
+<li>The volume gateway is deployed into your on-premises environment as a VM running on VMware ESXi, KVM, or Microsoft Hyper-V hypervisor.</li>
+</ul>
+<p>The gateway supports the following volume configurations:</p>
+<ul>
+<li><strong>Cached volumes</strong> – You store your data in Amazon Simple Storage Service (Amazon S3) and retain a copy of frequently accessed data subsets locally. Cached volumes offer a <strong>substantial cost savings</strong> on primary storage and minimize the need to scale your storage on-premises. You also retain low-latency access to your frequently accessed data.</li>
+<li><strong>Stored volumes</strong> – If you need low-latency access to your entire dataset, first configure your on-premises gateway to store all your data locally. Then asynchronously back up point-in-time snapshots of this data to Amazon S3. This configuration provides durable and inexpensive offsite backups that you can recover to your local data center or Amazon Elastic Compute Cloud (Amazon EC2). For example, if you need replacement capacity for disaster recovery, you can recover the backups to Amazon EC2.</li>
+</ul>
+<h3 id="Tape-Gateway"><a href="#Tape-Gateway" class="headerlink" title="Tape Gateway"></a>Tape Gateway</h3><p> A tape gateway provides cloud-backed virtual tape storage. The tape gateway is deployed into your on-premises environment as a VM running on VMware ESXi, KVM, or Microsoft Hyper-V hypervisor.</p>
+<p> With a tape gateway, you can cost-effectively and durably archive backup data in GLACIER or DEEP_ARCHIVE. A tape gateway provides a virtual tape infrastructure (cold back-up).</p>
+<h1 id="22-ENI"><a href="#22-ENI" class="headerlink" title="22 - ENI"></a>22 - ENI</h1><img src="22.png" alt="eni" width="800px"/>
+
+<h2 id="Elastic-Network-Interface"><a href="#Elastic-Network-Interface" class="headerlink" title="Elastic Network Interface"></a>Elastic Network Interface</h2><p>Every instance in a VPC has a default network interface, called the primary network interface. You cannot detach a primary network interface from an instance. You can create and attach additional network interfaces. The maximum number of network interfaces that you can use varies by instance type.</p>
+<h2 id="DHCP-Dynamic-Host-Configuration-Protocol"><a href="#DHCP-Dynamic-Host-Configuration-Protocol" class="headerlink" title="DHCP(Dynamic Host Configuration Protocol)"></a>DHCP(Dynamic Host Configuration Protocol)</h2><p>In computer science, the Dynamic Host Configuration Protocol is a network management protocol used on Internet Protocol networks, whereby a DHCP server dynamically assigns an IP address and other network configuration parameters to each device on the network, so they can communicate with other IP networks.</p>
+<h1 id="23-SQS-times"><a href="#23-SQS-times" class="headerlink" title="23 - SQS times"></a>23 - SQS times</h1><img src="23.png" alt="long-polling-sqs" width="800px"/>
+
+<h2 id="Long-Polling"><a href="#Long-Polling" class="headerlink" title="Long Polling"></a>Long Polling</h2><p>When the <code>ReceiveMessageWaitTimeSeconds</code> property of a queue is set to a value greater than zero, <strong>long polling</strong> is in effect. </p>
+<ul>
+<li>Long polling reduces the number of empty responses by allowing Amazon SQS to wait until a message is available <strong>before sending a response to a ReceiveMessage request</strong>.</li>
+<li><strong>The maximum long polling wait time is 20 seconds</strong>. </li>
+<li>Long polling helps reduce the cost of using Amazon SQS by <ul>
+<li>eliminating the number of empty responses (when there are no messages available for a ReceiveMessage request) and </li>
+<li>false empty responses (when messages are available but aren’t included in a response). </li>
+</ul>
+</li>
+</ul>
+<h2 id="Differences-between-long-and-short-polling"><a href="#Differences-between-long-and-short-polling" class="headerlink" title="Differences between long and short polling"></a>Differences between long and short polling</h2><p>Short polling occurs when the WaitTimeSeconds parameter of a ReceiveMessage request is set to 0 in one of two ways:</p>
+<ul>
+<li>The ReceiveMessage call sets <code>WaitTimeSeconds</code> to 0.</li>
+<li>The ReceiveMessage call doesn’t set WaitTimeSeconds, but the queue attribute <code>ReceiveMessageWaitTimeSeconds</code> is set to 0.</li>
+</ul>
+<h2 id="Message-Retention-Period"><a href="#Message-Retention-Period" class="headerlink" title="Message Retention Period"></a>Message Retention Period</h2><p>Amazon SQS automatically deletes messages that have been in a queue for more than maximum message retention period. The default message retention period is <strong>4 days</strong>. However, you can set the message retention period to a value from <strong>60 seconds</strong> to 1,209,600 seconds <strong>(14 days)</strong> using the SetQueueAttributes action.</p>
+<h2 id="Dead-Letter-Queue"><a href="#Dead-Letter-Queue" class="headerlink" title="Dead Letter Queue"></a>Dead Letter Queue</h2><p>Amazon SQS supports dead-letter queues, which other queues (source queues) can target for messages that can’t be processed (consumed) successfully. Dead-letter queues are useful for debugging your application or messaging system because they let you isolate problematic messages to determine why their processing doesn’t succeed. </p>
+<p>You exercise control over the Dead Letter Queue using a <strong>Redrive Policy</strong>, which contains two values:</p>
+<ul>
+<li><strong>Maximum Receives</strong> – The maximum number of times that a message can be received by consumers. When this value is exceeded for a message the message will be automatically sent to the Dead Letter Queue.</li>
+<li><strong>Dead Letter Queue</strong> – The ARN (Amazon Resource Name) of an SQS queue that will receive the messages which were not successfully processed after maximum number of receives by consumers.</li>
+</ul>
+<h2 id="Visibility-Timeout"><a href="#Visibility-Timeout" class="headerlink" title="Visibility Timeout"></a>Visibility Timeout</h2><ul>
+<li>When a consumer receives and processes a message from a queue, the message remains in the queue. Amazon SQS doesn’t automatically delete the message. The consumer must delete the message from the queue after receiving and processing it.</li>
+<li>Immediately after a message is received, it remains in the queue. To prevent other consumers from processing the message again, Amazon SQS sets a visibility timeout, a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. </li>
+<li>The default visibility timeout for a message is <strong>30 seconds</strong>. <strong>The minimum is 0 seconds. The maximum is 12 hours</strong>. </li>
+</ul>
+<h1 id="GuardDuty"><a href="#GuardDuty" class="headerlink" title="GuardDuty"></a>GuardDuty</h1><ul>
+<li>Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts, workloads, and data stored in Amazon</li>
+<li>GuardDuty analyzes tens of events across multiple AWS data sources, such as AWS CloudTrail event logs, Amazon VPC Flow Logs, and DNS logs. </li>
+<li>By integrating with Amazon CloudWatch Events, GuardDuty alerts are actionable, easy to aggregate across multiple accounts, and straightforward to push into existing event management and workflow systems.</li>
+</ul>
+<h1 id="Cancelling-Spot-instance-request"><a href="#Cancelling-Spot-instance-request" class="headerlink" title="Cancelling Spot instance request"></a>Cancelling Spot instance request</h1><p>If you no longer want your Spot Instance request, you can cancel it. You can only cancel Spot Instance requests that are open, active, or disabled.</p>
+<ul>
+<li>Your Spot Instance request is <strong>open</strong> when your request has not yet been fulfilled and no instances have been launched. </li>
+<li>Your Spot Instance request is <strong>active</strong> when your request has been fulfilled and Spot Instances have launched as a result.</li>
+<li>Your Spot Instance request is <strong>disabled</strong> when you stop your Spot Instance.</li>
+</ul>
+<p>If your Spot Instance request is active and has an associated running Spot Instance, canceling the request does not terminate the instance.</p>
+<p>If your Spot Instance request is active and has an associated running Spot Instance, or your Spot Instance request is disabled and has an associated stopped Spot Instance, canceling the request does not terminate the instance; <strong>you must terminate the running Spot Instance manually</strong>. </p>
+<p>If you terminate a running or stopped Spot Instance that was launched by a persistent Spot request, the Spot request returns to the open state so that a new Spot Instance can be launched. To cancel a persistent Spot request and terminate its Spot Instances, <strong>you must cancel the Spot request first and then terminate the Spot Instances</strong>. Otherwise, the persistent Spot request can launch a new instance.</p>
+<h2 id="Stop-Start-spot-instance"><a href="#Stop-Start-spot-instance" class="headerlink" title="Stop/Start spot instance"></a>Stop/Start spot instance</h2><p>The feature of stopping a persistent is available for persistent Spot requests. </p>
+<ul>
+<li>You will <strong>not be charged for instance usage</strong> while your instance is stopped. </li>
+<li><strong>EBS volume storage</strong> is charged at standard rates. </li>
+</ul>
+<p>Upon restart, the EBS root device is restored from its prior state, previously attached <strong>data volumes are reattached</strong>, and the instance <strong>retains its instance ID</strong>. </p>
+<h2 id="Spot-Instance-interruptions"><a href="#Spot-Instance-interruptions" class="headerlink" title="Spot Instance interruptions"></a>Spot Instance interruptions</h2><p>You can specify that Amazon EC2 should do one of the following when it interrupts a Spot Instance:</p>
+<ul>
+<li>Stop the Spot Instance</li>
+<li>Hibernate the Spot Instance</li>
+<li>Terminate the Spot Instance<br>The default is to <strong>terminate</strong> Spot Instances when they are interrupted. To change the interruption behavior, see Specifying the interruption behavior.</li>
+</ul>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

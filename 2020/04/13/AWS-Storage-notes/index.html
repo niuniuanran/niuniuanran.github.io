@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS Storage notes - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Block-Storage-vs-Object-Storage"><span class="toc-text">Block Storage vs Object Storage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-EBS-Elastic-Block-Storage"><span class="toc-text">Amazon EBS (Elastic Block Storage)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#EBS-Volume-types"><span class="toc-text">EBS Volume types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Snapshots"><span class="toc-text">Snapshots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticity"><span class="toc-text">Elasticity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EBS-Cost"><span class="toc-text">EBS Cost</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volumes"><span class="toc-text">Volumes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O"><span class="toc-text">I&#x2F;O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Snapshots-1"><span class="toc-text">Snapshots</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-transfer"><span class="toc-text">Data transfer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-S3"><span class="toc-text">Amazon S3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Objects"><span class="toc-text">Objects</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Durability"><span class="toc-text">Durability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access-control"><span class="toc-text">Access control</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S3-Storage-Classes"><span class="toc-text">S3 Storage Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-Standard"><span class="toc-text">S3 Standard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-Intelligent-Tiering"><span class="toc-text">S3 Intelligent-Tiering</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-S3-Standard-Infrequent-Access-Amazon-S3-Standard-IA"><span class="toc-text">Amazon S3 Standard-Infrequent Access (Amazon S3 Standard-IA)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-S3-One-Zone-Infrequent-Access-Amazon-S3-One-Zone-IA"><span class="toc-text">Amazon S3 One Zone-Infrequent Access (Amazon S3 One Zone-IA)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-S3-Glacier"><span class="toc-text">Amazon S3 Glacier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-S3-Glacier-Deep-Archive"><span class="toc-text">Amazon S3 Glacier Deep Archive</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-S3-Bucket"><span class="toc-text">Amazon S3 Bucket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bucket-Naming-rules"><span class="toc-text">Bucket Naming rules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bucket-URLs"><span class="toc-text">Bucket URLs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#path-style-URL-endpoint"><span class="toc-text">path-style URL endpoint</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#virtual-hosted-style-URL-endpoint"><span class="toc-text">virtual hosted-style URL endpoint</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hosting-static-website-on-S3"><span class="toc-text">Hosting static website on S3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-Transfer-Acceleration"><span class="toc-text">S3 Transfer Acceleration</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaling"><span class="toc-text">Scaling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pricing"><span class="toc-text">Pricing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Factors-influencing-S3-pricing"><span class="toc-text">Factors influencing S3 pricing</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-Elastic-File-System"><span class="toc-text">Amazon Elastic File System</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-S3-Glacier-1"><span class="toc-text">Amazon S3 Glacier</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Three-retrieval-options"><span class="toc-text">Three retrieval options:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Archive"><span class="toc-text">Archive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vault"><span class="toc-text">Vault</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vault-Access-Policy"><span class="toc-text">Vault Access Policy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-S3-Glacier"><span class="toc-text">Using S3 Glacier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Management-Console"><span class="toc-text">AWS Management Console.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-S3-Glacier-REST-APIs"><span class="toc-text">Amazon S3 Glacier REST APIs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Java-or-NET-SDKs"><span class="toc-text">AWS Java or .NET SDKs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CLI"><span class="toc-text">AWS CLI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-S3-with-lifecycle-policies"><span class="toc-text">Amazon S3 with lifecycle policies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pricing-1"><span class="toc-text">Pricing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-S3-lifecycle-policies"><span class="toc-text">Amazon S3 lifecycle policies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-side-Encryption"><span class="toc-text">Server-side Encryption</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-S3-managed-encryption-keys-SSE-S3"><span class="toc-text">Amazon S3-managed encryption keys (SSE-S3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Customer-provided-Encryption-Keys-SSE-C"><span class="toc-text">Customer-provided Encryption Keys (SSE-C)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Key-Management-Service-AWS-KMS"><span class="toc-text">AWS Key Management Service (AWS KMS)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EFS-vs-EBS-vs-S3"><span class="toc-text">EFS vs EBS vs S3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Storage-Options-for-EC2"><span class="toc-text">Storage Options for EC2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Direct-options-Can-be-used-for-root-volume"><span class="toc-text">Two Direct options (Can be used for root volume):</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Elastic-Block-Store-EBS"><span class="toc-text">Amazon Elastic Block Store (EBS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-EC2-Instance-Store"><span class="toc-text">Amazon EC2 Instance Store</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-options-not-for-root-volume"><span class="toc-text">Other options(not for root volume):</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mount-an-Amazon-Elastic-File-System-EFS-file-system"><span class="toc-text">Mount an Amazon Elastic File System (EFS) file system</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Connect-to-Amazon-Simple-Storage-Service-Amazon-S3"><span class="toc-text">Connect to Amazon Simple Storage Service(Amazon S3)</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Storage notes
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-13 14:50:02</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS CP Test" title="AWS CP Test">AWS CP Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Block-Storage-vs-Object-Storage"><a href="#Block-Storage-vs-Object-Storage" class="headerlink" title="Block Storage vs Object Storage"></a>Block Storage vs Object Storage</h1><p>Block Storage can change one block (piece of the file) that contains the character.<br>With object Storage, you need to re-upload the whole file for any updates.<br>Block Storage are typically faster and use less bandwidth, but can cost more than object level storage.</p>
+<h1 id="Amazon-EBS-Elastic-Block-Storage"><a href="#Amazon-EBS-Elastic-Block-Storage" class="headerlink" title="Amazon EBS (Elastic Block Storage)"></a>Amazon EBS (Elastic Block Storage)</h1><p>Amazon EBS offers block-level storage for your EC2 instance - directly attached to EC2 instances, lower latency, good choice for running a database in EC2 instance.</p>
+<p>EBS volumes are automatically replicated within <strong>the same Availability Zone</strong>.<br><strong>EBS’s scope is a single Availability Zone</strong></p>
+<h2 id="EBS-Volume-types"><a href="#EBS-Volume-types" class="headerlink" title="EBS Volume types"></a>EBS Volume types</h2><p> Amazon EBS provides three volume types: General Purpose SSD, Provisioned IOPS SSD, and magnetic.</p>
+<ul>
+<li>Solid State Drives (SSD)<ul>
+<li>General Purpose</li>
+<li>Provisioned IOPS</li>
+</ul>
+</li>
+<li>Hard Disk Drives (HDD/ Magnetic)<ul>
+<li>Throughput Optimized</li>
+<li>Cold<blockquote>
+<p>Only SSD can be used for boot volume of EC2 instances<br><strong>Provisioned IOPS SSD</strong> backed Amazon EBS volumes gives you the best performance.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Lower cost HDD option can be used for additional storage other than boot volumes.</li>
+</ul>
+<h2 id="Encryption"><a href="#Encryption" class="headerlink" title="Encryption"></a>Encryption</h2><p>Encrypted Amazon EBS volumes<br>No additional cost</p>
+<h2 id="Snapshots"><a href="#Snapshots" class="headerlink" title="Snapshots"></a>Snapshots</h2><p>EBS backup: EBS snapshots, stored in Amazon S3.<br>To provide a even higher level of data durability with EBS, you can use <strong>Point-in-time snapshots</strong> of your volumes.<br>You can recreate a new volume from a snapshot anytime.<br>You can also share snapshots/copy snapshots to different Regions to provide even greater Disaster Recovery protection.</p>
+<h2 id="Elasticity"><a href="#Elasticity" class="headerlink" title="Elasticity"></a>Elasticity</h2><p>You can change storage type and size without stopping your instances.</p>
+<h2 id="EBS-Cost"><a href="#EBS-Cost" class="headerlink" title="EBS Cost"></a>EBS Cost</h2><h3 id="Volumes"><a href="#Volumes" class="headerlink" title="Volumes"></a>Volumes</h3><p>All volume types are charged by the amount that is provisioned per month until you release the storage.<br>EBS volumes persist independently from the instance.</p>
+<h3 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h3><ul>
+<li>I/O is included in the price of General Purpose SSD volumes. </li>
+<li>For Amazon EBS magnetic volumes, I/O is charged by the number of requests that you make to your volume.</li>
+<li>With Provisioned IOPS SSD volumes, you are also charged by the amount you provision in IOPS (multiplied by the percentage of days that you provision for the month).<h3 id="Snapshots-1"><a href="#Snapshots-1" class="headerlink" title="Snapshots"></a>Snapshots</h3>Added cost of snapshots to Amazon S3 is per GB-month of data stored<h3 id="Data-transfer"><a href="#Data-transfer" class="headerlink" title="Data transfer"></a>Data transfer</h3></li>
+<li>Inbound data transfer is free</li>
+<li>Outbound data transfer acoss Region incurs cost.</li>
+</ul>
+<h1 id="Amazon-S3"><a href="#Amazon-S3" class="headerlink" title="Amazon S3"></a>Amazon S3</h1><h2 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h2><p>Amazon S3 is object-level storage.  Objects can be almost any data file, such as images, videos, or server logs. Objects can be up to 5 TB in size. </p>
+<h2 id="Durability"><a href="#Durability" class="headerlink" title="Durability"></a>Durability</h2><p>Amazon S3 Standard offers 99.99% availability.<br>Amazon S3 offers 11 9’s of durability for Standard Storage Class as well as for their Infrequent Access and Glacier Class.</p>
+<p>One Zone IA has reduced availability (99.95%) and reduced durability (could get destroyed). Good for secondary backup.</p>
+<h2 id="Access-control"><a href="#Access-control" class="headerlink" title="Access control"></a>Access control</h2><p>You get fine-grained control over who can access your data by using <strong>AWS Identity and Access Management (IAM) policies</strong>, <strong>Amazon S3 bucket policies</strong>, and even <strong>per-object access control lists(ACL)</strong>.</p>
+<p>By default, none of your data is shared publicly.<br>You can also encrypt your data in transit and choose to enable server-side encryption on your objects.</p>
+<h2 id="S3-Storage-Classes"><a href="#S3-Storage-Classes" class="headerlink" title="S3 Storage Classes"></a>S3 Storage Classes</h2><img src="S3-classes.png" width="600px"/>
+
+<h3 id="S3-Standard"><a href="#S3-Standard" class="headerlink" title="S3 Standard"></a>S3 Standard</h3><p>Amazon S3 Standard is designed for high durability, availability, and performance object storage for frequently accessed data. </p>
+<h3 id="S3-Intelligent-Tiering"><a href="#S3-Intelligent-Tiering" class="headerlink" title="S3 Intelligent-Tiering"></a>S3 Intelligent-Tiering</h3><p>Optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead.<br>There are no retrieval fees when you use the Amazon S3 Intelligent-Tiering storage class, and no additional fees when objects are moved between access tiers.<br>It works well for long-lived data with access patterns that are unknown or unpredictable </p>
+<h3 id="Amazon-S3-Standard-Infrequent-Access-Amazon-S3-Standard-IA"><a href="#Amazon-S3-Standard-Infrequent-Access-Amazon-S3-Standard-IA" class="headerlink" title="Amazon S3 Standard-Infrequent Access (Amazon S3 Standard-IA)"></a>Amazon S3 Standard-Infrequent Access (Amazon S3 Standard-IA)</h3><p>For data that is accessed less frequently, but requires rapid access when needed.<br>This combination of low cost and high performance makes Amazon S3 Standard-IA good for long-term storage and backups, and as a data store for disaster recovery files.</p>
+<h3 id="Amazon-S3-One-Zone-Infrequent-Access-Amazon-S3-One-Zone-IA"><a href="#Amazon-S3-One-Zone-Infrequent-Access-Amazon-S3-One-Zone-IA" class="headerlink" title="Amazon S3 One Zone-Infrequent Access (Amazon S3 One Zone-IA)"></a>Amazon S3 One Zone-Infrequent Access (Amazon S3 One Zone-IA)</h3><p>Amazon S3 One Zone-IA stores data in a single Availability Zone and it costs less than Amazon S3 Standard-IA.<br>Amazon S3 One Zone-IA works well for customers who want a lower-cost option for infrequently accessed data, but do not require the availability and resilience of Amazon S3 Standard or Amazon S3 Standard-IA.<br>A good choice for storing secondary backup copies of on-premises data or easily re-creatable data. You can also use it as cost-effective storage for data that is replicated from another AWS Region by using Amazon S3 Cross-Region Replication.</p>
+<h3 id="Amazon-S3-Glacier"><a href="#Amazon-S3-Glacier" class="headerlink" title="Amazon S3 Glacier"></a>Amazon S3 Glacier</h3><p>A secure, durable, and low-cost storage class for <strong>data archiving</strong>.<br>You can upload objects directly to Amazon S3 Glacier, or use <strong>Amazon S3 lifecycle policies</strong> to transfer data between any of the Amazon S3 storage classes for active data (Amazon S3 Standard, Amazon S3 Intelligent-Tiering, Amazon S3 Standard-IA, and Amazon S3 One Zone-IA) and Amazon S3 Glacier</p>
+<h3 id="Amazon-S3-Glacier-Deep-Archive"><a href="#Amazon-S3-Glacier-Deep-Archive" class="headerlink" title="Amazon S3 Glacier Deep Archive"></a>Amazon S3 Glacier Deep Archive</h3><p>It supports long-term retention and digital preservation for data that might be accessed once or twice in a year.<br>The <strong>lowest-cost storage class</strong> for Amazon S3.<br>All objects that are stored in Amazon S3 Glacier Deep Archive are replicated and stored across at least three geographically dispersed Availability Zones, and these objects can be restored within 12 hours.</p>
+<h2 id="Amazon-S3-Bucket"><a href="#Amazon-S3-Bucket" class="headerlink" title="Amazon S3 Bucket"></a>Amazon S3 Bucket</h2><ul>
+<li>Amazon S3 stores data inside buckets. Buckets are logical containers for objects.</li>
+<li>Buckets are essentially the prefix for a set of files, and must be uniquely named across all of Amazon S3 globally. </li>
+<li>You can control access for each bucket—who can create, delete, and list objects in the bucket. </li>
+<li>You can also view access logs for the bucket and its objects.</li>
+<li>YOU can choose the geographical region where Amazon S3 stores the bucket and its contents.</li>
+<li>Because buckets can be accessed using path-style and virtual-hosted–style URLs, we recommend that you create buckets with <strong>DNS-compliant bucket names</strong>.</li>
+</ul>
+<h3 id="Bucket-Naming-rules"><a href="#Bucket-Naming-rules" class="headerlink" title="Bucket Naming rules"></a><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html" target="_blank" rel="noopener">Bucket Naming rules</a></h3><ul>
+<li>Bucket names must be a series of one or more labels. Adjacent labels are separated by a single period (.). Bucket names can contain lowercase letters, numbers, and hyphens. Each label must start and end with a lowercase letter or a number.</li>
+<li>Bucket names must not be formatted as an IP address (for example, 192.168.5.4). </li>
+<li>Bucket names must start with a lowercase letter or number.</li>
+<li>Bucket names must not contain uppercase characters or underscores.</li>
+<li>Bucket names should be between 3 and 63 characters long.</li>
+</ul>
+<h3 id="Bucket-URLs"><a href="#Bucket-URLs" class="headerlink" title="Bucket URLs"></a>Bucket URLs</h3><p>Amazon S3 supports both virtual-hosted–style and path-style URLs to access a bucket. </p>
+<h4 id="path-style-URL-endpoint"><a href="#path-style-URL-endpoint" class="headerlink" title="path-style URL endpoint"></a>path-style URL endpoint</h4><p><a href="https://s3.ap-northeast-1.amazonaws.com/bucket-name" target="_blank" rel="noopener">https://s3.ap-northeast-1.amazonaws.com/bucket-name</a></p>
+<h4 id="virtual-hosted-style-URL-endpoint"><a href="#virtual-hosted-style-URL-endpoint" class="headerlink" title="virtual hosted-style URL endpoint"></a>virtual hosted-style URL endpoint</h4><p><a href="https://bucket-name.s3-ap-northeast-1.amazonaws.com" target="_blank" rel="noopener">https://bucket-name.s3-ap-northeast-1.amazonaws.com</a></p>
+<h3 id="Hosting-static-website-on-S3"><a href="#Hosting-static-website-on-S3" class="headerlink" title="Hosting static website on S3"></a>Hosting static website on S3</h3><p>You can host static websites on S3 but are not able to host any dynamic sites designed with server side scripting.<br>For hosting a static website, the minimum two files you need is <code>index.html</code> and <code>error.html</code></p>
+<h3 id="S3-Transfer-Acceleration"><a href="#S3-Transfer-Acceleration" class="headerlink" title="S3 Transfer Acceleration"></a>S3 Transfer Acceleration</h3><p>S3 Transfer Acceleration uses CloudFront’s globally distributed edge locations to provide fast file transfers over long distances.<br>You might want to use Transfer Acceleration on a bucket for various reasons, including the following: </p>
+<ul>
+<li>You have customers that upload to a centralized bucket from all over the world. </li>
+<li>You transfer gigabytes to terabytes of data on a regular basis across continents. </li>
+<li>You underutilize the available bandwidth over the Internet when uploading to Amazon S3.<h2 id="Scaling"><a href="#Scaling" class="headerlink" title="Scaling"></a>Scaling</h2>Amazon S3 automatically manages the storage behind your bucket while your data grows. You can get started immediately, and your data storage will grow with your application needs.<br>Amazon S3 also scales to handle a high volume of requests. You do not need to provision the <strong>storage or throughput</strong>, and you are billed only for what you use.<h2 id="Pricing"><a href="#Pricing" class="headerlink" title="Pricing"></a>Pricing</h2>You pay for:</li>
+<li>Storage, gigabytes per month; </li>
+<li>transfer OUT to other Regions; </li>
+<li>PUT, COPY, POST, LIST, and GET requests.</li>
+</ul>
+<p>You don’t pay for:</p>
+<ul>
+<li>transfers IN to Amazon S3 </li>
+<li>transfers OUT to Amazon CloudFront edge locations or EC2 instances within that same Region</li>
+</ul>
+<h3 id="Factors-influencing-S3-pricing"><a href="#Factors-influencing-S3-pricing" class="headerlink" title="Factors influencing S3 pricing"></a>Factors influencing S3 pricing</h3><ul>
+<li>Storage class type</li>
+<li>Amount of storage</li>
+<li>Requests</li>
+<li>Data transfer</li>
+</ul>
+<h1 id="Amazon-Elastic-File-System"><a href="#Amazon-Elastic-File-System" class="headerlink" title="Amazon Elastic File System"></a>Amazon Elastic File System</h1><p>File storage for use with AWS services and on-premises resources. </p>
+<h1 id="Amazon-S3-Glacier-1"><a href="#Amazon-S3-Glacier-1" class="headerlink" title="Amazon S3 Glacier"></a>Amazon S3 Glacier</h1><h2 id="Three-retrieval-options"><a href="#Three-retrieval-options" class="headerlink" title="Three retrieval options:"></a>Three retrieval options:</h2><ul>
+<li><p>expedited: 1-5 minutes</p>
+</li>
+<li><p>standard: 3-5 hours</p>
+</li>
+<li><p>bulk: 5-12 hours</p>
+<h2 id="Archive"><a href="#Archive" class="headerlink" title="Archive"></a>Archive</h2><p>Archive: Any object such as a photo, video, file, or document that you store in Amazon S3 Glacier.<br>Archive is the base unit of storage in Amazon S3 Glacier. Each archive has its own unique ID and can also have a description.</p>
+<h2 id="Vault"><a href="#Vault" class="headerlink" title="Vault"></a>Vault</h2><p>A container for storing archives. When you create a vault, you specify the vault name and the <strong>region</strong> in which you would like to locate the vault.</p>
+<h2 id="Vault-Access-Policy"><a href="#Vault-Access-Policy" class="headerlink" title="Vault Access Policy"></a>Vault Access Policy</h2><p>One vault access policy can be created for each vault to manage access permissions for that vault. You can also use a vault lock policy to make sure a vault cannot be altered.<br>Each vault can have one vault access policy and one vault lock policy that is attached to it.</p>
+<h2 id="Using-S3-Glacier"><a href="#Using-S3-Glacier" class="headerlink" title="Using S3 Glacier"></a>Using S3 Glacier</h2><h3 id="AWS-Management-Console"><a href="#AWS-Management-Console" class="headerlink" title="AWS Management Console."></a>AWS Management Console.</h3><p>Only a few operations—such as creating and deleting vaults, and creating and managing archive policies—are available in the console.</p>
+<h3 id="Amazon-S3-Glacier-REST-APIs"><a href="#Amazon-S3-Glacier-REST-APIs" class="headerlink" title="Amazon S3 Glacier REST APIs"></a>Amazon S3 Glacier REST APIs</h3><h3 id="AWS-Java-or-NET-SDKs"><a href="#AWS-Java-or-NET-SDKs" class="headerlink" title="AWS Java or .NET SDKs"></a>AWS Java or .NET SDKs</h3><h3 id="AWS-CLI"><a href="#AWS-CLI" class="headerlink" title="AWS CLI"></a>AWS CLI</h3><h3 id="Amazon-S3-with-lifecycle-policies"><a href="#Amazon-S3-with-lifecycle-policies" class="headerlink" title="Amazon S3 with lifecycle policies"></a>Amazon S3 with lifecycle policies</h3><h2 id="Pricing-1"><a href="#Pricing-1" class="headerlink" title="Pricing"></a>Pricing</h2><p>While both services have per-request charges, Amazon S3 charges for PUT, COPY, POST, LIST, GET operations. In contrast, Amazon S3 Glacier charges for UPLOAD and retrieval operations.</p>
+<p>Because Amazon S3 Glacier was designed for less-frequent access to data, it costs less for storage but more for each RETRIEVAL REQUEST than Amazon S3.</p>
+<h2 id="Amazon-S3-lifecycle-policies"><a href="#Amazon-S3-lifecycle-policies" class="headerlink" title="Amazon S3 lifecycle policies"></a>Amazon S3 lifecycle policies</h2><p>You should automate the lifecycle of the data that you store in Amazon S3. By using lifecycle policies, you can cycle data at regular intervals between different Amazon S3 storage types. This automation reduces your overall cost, because you pay less for data as it becomes less important with time.</p>
+</li>
+</ul>
+<h2 id="Server-side-Encryption"><a href="#Server-side-Encryption" class="headerlink" title="Server-side Encryption"></a>Server-side Encryption</h2><p>Server-side encryption is focused on protecting data at rest.</p>
+<ul>
+<li>With both Amazon S3 and Amazon S3 Glacier, you can securely transfer your data over HTTPS. </li>
+<li>Any data that is archived in Amazon S3 Glacier is encrypted by default. </li>
+<li>With Amazon S3, your application must initiate server-side encryption. You can accomplish server-side encryption in Amazon S3 in several ways.<h3 id="Amazon-S3-managed-encryption-keys-SSE-S3"><a href="#Amazon-S3-managed-encryption-keys-SSE-S3" class="headerlink" title="Amazon S3-managed encryption keys (SSE-S3)"></a>Amazon S3-managed encryption keys (SSE-S3)</h3><h3 id="Customer-provided-Encryption-Keys-SSE-C"><a href="#Customer-provided-Encryption-Keys-SSE-C" class="headerlink" title="Customer-provided Encryption Keys (SSE-C)"></a>Customer-provided Encryption Keys (SSE-C)</h3><h3 id="AWS-Key-Management-Service-AWS-KMS"><a href="#AWS-Key-Management-Service-AWS-KMS" class="headerlink" title="AWS Key Management Service (AWS KMS)"></a>AWS Key Management Service (AWS KMS)</h3></li>
+</ul>
+<h1 id="EFS-vs-EBS-vs-S3"><a href="#EFS-vs-EBS-vs-S3" class="headerlink" title="EFS vs EBS vs S3"></a>EFS vs EBS vs S3</h1><p>Amazon EBS delivers high-availability block-level storage volumes for Amazon Elastic Compute Cloud (EC2) instances. It stores data on a file system which is retained after the EC2 instance is shut down.<br>Amazon EFS offers scalable file storage, also optimized for EC2. It can be used as a common data source for any application or workload that runs on numerous instances. Using an EFS file system, you may configure instances to mount the file system.<br>The main differences between EBS and EFS is that <strong>EBS is only accessible from a single EC2 instance in your particular AWS region</strong>, while EFS allows you to <strong>mount the file system across multiple regions and instances</strong>.<br>Finally, Amazon S3 is an object store good at storing vast numbers of backups or user files. Unlike EBS or EFS, <strong>S3 is not limited to EC2</strong>. Files stored within an S3 bucket can be accessed programmatically or directly from services such as <strong>AWS CloudFront</strong>. This is why many websites use it to hold their content and media files, which may be served efficiently from AWS CloudFront.</p>
+<h1 id="Storage-Options-for-EC2"><a href="#Storage-Options-for-EC2" class="headerlink" title="Storage Options for EC2"></a>Storage Options for EC2</h1><h2 id="Two-Direct-options-Can-be-used-for-root-volume"><a href="#Two-Direct-options-Can-be-used-for-root-volume" class="headerlink" title="Two Direct options (Can be used for root volume):"></a>Two Direct options (Can be used for root volume):</h2><h3 id="Amazon-Elastic-Block-Store-EBS"><a href="#Amazon-Elastic-Block-Store-EBS" class="headerlink" title="Amazon Elastic Block Store (EBS)"></a>Amazon Elastic Block Store (EBS)</h3><p>Durable block storage service that is designed to be used with Amazon EC2 for both throughput-and transaction-intensive workloads.</p>
+<h3 id="Amazon-EC2-Instance-Store"><a href="#Amazon-EC2-Instance-Store" class="headerlink" title="Amazon EC2 Instance Store"></a>Amazon EC2 Instance Store</h3><p><strong>Temporary</strong> block-level storage for your instance. This storage is located on disks that are physically attached to the host computer.<br>Instance Store works well when you must temporarily store information that changes frequently, such as buffers, caches, scratch data, and other temporary content. You can also use Instance Store for data that is replicated across a fleet of instances, such as a load balanced pool of web servers.<br><strong>If the instances are stopped—either because of user error or a malfunction—the data on the instance store will be deleted.</strong><br><strong>Rebooting does not erase data in instance storage</strong></p>
+<h2 id="Other-options-not-for-root-volume"><a href="#Other-options-not-for-root-volume" class="headerlink" title="Other options(not for root volume):"></a>Other options(not for root volume):</h2><h3 id="Mount-an-Amazon-Elastic-File-System-EFS-file-system"><a href="#Mount-an-Amazon-Elastic-File-System-EFS-file-system" class="headerlink" title="Mount an Amazon Elastic File System (EFS) file system"></a><u>Mount</u> an Amazon Elastic File System (EFS) file system</h3><p>Amazon EFS is designed to provide massively parallel shared access to thousands of Amazon EC2 instances, enabling your applications to achieve high levels of aggregate throughput and IOPS with consistent low latencies.</p>
+<h3 id="Connect-to-Amazon-Simple-Storage-Service-Amazon-S3"><a href="#Connect-to-Amazon-Simple-Storage-Service-Amazon-S3" class="headerlink" title="Connect to Amazon Simple Storage Service(Amazon S3)"></a><u>Connect</u> to Amazon Simple Storage Service(Amazon S3)</h3><p>An object storage service</p>
+<ul>
+<li>A vault in S3 Glacier is the container for storage archieves</li>
+<li>EBS is used when requiring a encryption solution</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

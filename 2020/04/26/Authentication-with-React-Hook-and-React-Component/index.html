@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Authentication with React Hook and React Component - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-React-Context-to-manage-‘global’-state"><span class="toc-text">Use React Context to manage ‘global’ state</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#User-Provider-and-Consumer-of-Context"><span class="toc-text">User Provider and Consumer of Context</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-Effect-hook-to-ensure-a-proper-fetching-happens"><span class="toc-text">Use Effect hook to ensure a proper fetching happens</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A-loading-spinner-to-make-the-loading-process-clear-and-nice"><span class="toc-text">A loading spinner to make the loading process clear and nice</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Authentication with React Hook and React Component
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-26 22:10:32</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Javascript" title="Javascript">Javascript</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Use-React-Context-to-manage-‘global’-state"><a href="#Use-React-Context-to-manage-‘global’-state" class="headerlink" title="Use React Context to manage ‘global’ state"></a>Use React Context to manage ‘global’ state</h1><p>Here’s the <a href="https://reactjs.org/docs/context.html" target="_blank" rel="noopener">React document</a><br>Here’s the code for <a href="https://github.com/tantigers/TripTime/blob/develop/src/spa/contexts/AuthContext.js" target="_blank" rel="noopener">AuthContext.js</a>.</p>
+<h1 id="User-Provider-and-Consumer-of-Context"><a href="#User-Provider-and-Consumer-of-Context" class="headerlink" title="User Provider and Consumer of Context"></a>User Provider and Consumer of Context</h1><p><a href="https://github.com/tantigers/TripTime/blob/develop/src/spa/pages/_app.js" target="_blank" rel="noopener">_app.js</a> wraps children with <code>AuthProvider</code></p>
+<h1 id="Use-Effect-hook-to-ensure-a-proper-fetching-happens"><a href="#Use-Effect-hook-to-ensure-a-proper-fetching-happens" class="headerlink" title="Use Effect hook to ensure a proper fetching happens"></a>Use Effect hook to ensure a proper fetching happens</h1><blockquote>
+<p>What does useEffect do? By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates. In this effect, we set the document title, but we could also perform data fetching or call some other imperative API.<br>The <a href="https://reactjs.org/docs/hooks-effect.html" target="_blank" rel="noopener">effect hook</a> lets you perform side effects in function components:</p>
+</blockquote>
+<h1 id="A-loading-spinner-to-make-the-loading-process-clear-and-nice"><a href="#A-loading-spinner-to-make-the-loading-process-clear-and-nice" class="headerlink" title="A loading spinner to make the loading process clear and nice"></a>A loading spinner to make the loading process clear and nice</h1><p>I used the npm package <a href="https://www.npmjs.com/package/react-loading" target="_blank" rel="noopener">react-loading</a> to render a loading animation.</p>
+<p>The component will have a state to decide whether to show the loading animation. When a blocking process is started or stopped, the state gets toggled.<br>Have a look at <a href="https://github.com/tantigers/TripTime/blob/develop/src/spa/components/layout/TopBar.js" target="_blank" rel="noopener">TopBar.js</a> and you’ll get what I mean.</p>
+<p>Here’s the handler of Log Out button.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onClick&#x3D;&#123;async () &#x3D;&gt; &#123;</span><br><span class="line">               this.setState(() &#x3D;&gt; (&#123; loggingOut: true &#125;));</span><br><span class="line">               await logoutHandler();</span><br><span class="line">               this.setState(() &#x3D;&gt; (&#123; loggingOut: false &#125;));</span><br><span class="line">             &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>Here’s how <code>this.state.loggingOut</code> decides whether to show the loading animation:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;&gt;</span><br><span class="line">        &#123;this.state.loggingOut &amp;&amp; (</span><br><span class="line">          &lt;PageLoading message&#x3D;&#39;TripTime is logging you out. See you soon:)&#39; &#x2F;&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">        &lt;AuthContext.Consumer&gt;</span><br><span class="line">              &#123;&#x2F;*the function to render the component*&#x2F;&#125;</span><br><span class="line">        &lt;&#x2F;AuthContext.Consumer&gt;</span><br><span class="line">&lt;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p><code>this.state.loggingOut</code> has to be checked outside the consumer part as it needs <code>this</code> to be the <code>TopBar</code> instance.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

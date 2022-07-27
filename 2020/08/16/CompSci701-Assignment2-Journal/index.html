@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        CompSci701 Assignment2 Journal - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-1"><span class="toc-text">Implementation 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Speculative-Generality"><span class="toc-text">Speculative Generality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-of-refactoring"><span class="toc-text">Timing of refactoring?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-2"><span class="toc-text">Implementation 2</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CompSci701 Assignment2 Journal
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-16 23:33:41</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Private Blog" title="Private Blog">Private Blog</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Implementation-1"><a href="#Implementation-1" class="headerlink" title="Implementation 1"></a>Implementation 1</h1><h2 id="Speculative-Generality"><a href="#Speculative-Generality" class="headerlink" title="Speculative Generality"></a>Speculative Generality</h2><p>I feel that the author worked really hard to give the space for future changeability, but goes too far by assuming what changes will be happening. I see myself through it.<br>For example, the author made methods in the <code>Container</code> class that are created to be overwritten. The superclass’s implementation do not really make sense and are just “dummy” implementation. However, only one subclass needs to overwrite the method. Why not just move it down to the subclass itself, as the <code>House</code> or <code>Store</code>‘s own behaviour? If in the future, we have more subclasses of <code>Container</code> that will also need to implement methods like <code>removeSeed</code>, it is not a hard change to move the method up. </p>
+<p>The interfaces look more luring as it does not add misleading concrete method implementations. But still I think it is a waste to make assumptions on what methods will need to be reused and extract an interface so early. It is always easy to extract an interface based on real need. When we only know of one concrete class, what’s the point? </p>
+<p>The long methods like <code>move</code> is bit harder to wade into. Will come back to it.</p>
+<p>(28 Aug 2020)<br>I’m so angry and so sad about this implementation😠💔<br>Never realised I’ll be emotional reading code, good experience and good training on not yelling in code reviews 😂.<br>I can see that the author is working hard to extract all these interfaces and classes and delegations, but frustratingly, these are all based on his/her <strong>assumptions</strong> of what will need to be extended.<br>The author delegated most of the game logic into a <code>Rule</code> class and the <code>Board</code> becomes a dumb data container not knowing how to take care of itself. This does not enhance alterability, because we still need to review everything and even change in sync when there’s a real need for change coming in.</p>
+<p>(1 Sep 2020)<br>I wound up rating this implementation 1, and I honestly would prefer rewriting the whole thing than looking at it. </p>
+<p>This is a vivid lesson to myself how awful it will be for readers/clients if I make assumptions about future extensions/changes, and think of myself to be so clever that I can extract a fancy interface/ delegation relationship before anyone asks for it. </p>
+<h2 id="Timing-of-refactoring"><a href="#Timing-of-refactoring" class="headerlink" title="Timing of refactoring?"></a>Timing of refactoring?</h2><p>After looking at implementation one, I have more thoughts about when to refactor.<br>Before I think that big refactoring should happen immediately after I have implemented the code. I thought I should look at the code and think, what will need in the future, and how to prepare for them.<br>Now I think big refactoring might be more efficient <strong>before I need to extend or change</strong>.<br>Of course I still should review and improve my code continuously, giving a better name and better structure etc., but major refactorings, such as extracting a new inheritance hierarchy, will be <strong>much more efficient when I have a realistic direction of how the code needs to be changed or extended</strong>.</p>
+<h1 id="Implementation-2"><a href="#Implementation-2" class="headerlink" title="Implementation 2"></a>Implementation 2</h1><p> The first view makes me think of procedural programming, as objects more like containers for data, and the programme is driven by a couple of long methods. I might be wrong. Will have a better look soon.</p>
+<p>(31 Aug 2020)<br>I really like it that the author used a simple integer to keep track of pit. I think both implementation 1 and I have been overthinking about <code>Container</code>, <code>Store</code> and <code>House</code> - these classes are just dumb containers of the <code>seedNum</code> integer! Adding 100 methods that add to/deduct from this integer does not change the fact that these classes are so dumb! </p>
+<p>Looking back at my <a href="https://niuniuanran.github.io/2020/01/01/CompSci701-Assignment1-Journal/">Assignment 1 Journal</a>, having <code>Container</code>, <code>Store</code> and <code>House</code> classes were popped up very early, and I never reviewed this decision. They are so solidly a “THING” in real life that I never doubt that I should make them a separate class. I should be more aware of such dumb data containers in the future, and try not to create classes for the sake of creating classes.</p>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        MIT 6.824 - Distributed Systems - Lecture 1 - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading"><span class="toc-text">Reading</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Paper-MapReduce"><span class="toc-text">Paper: MapReduce</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-distribution-is-achieved"><span class="toc-text">How distribution is achieved</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Staggler-issue"><span class="toc-text">Staggler issue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-case-large-scale-production-indexing"><span class="toc-text">Use case: large-scale production indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-work"><span class="toc-text">Related work</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Restricted-programming-models"><span class="toc-text">Restricted programming models</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lecture"><span class="toc-text">Lecture</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-distributed-system"><span class="toc-text">Why distributed system?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges"><span class="toc-text">Challenges</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Assignment"><span class="toc-text">Assignment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Interesting-observations-from-the-starter-code"><span class="toc-text">Interesting observations from the starter code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#build-in-plugin-mode-find-Map-and-Reduce-functions-via-loadPlugin"><span class="toc-text">build in --plugin mode, find Map and Reduce functions via loadPlugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-timeout-Linux-command"><span class="toc-text">The timeout Linux command</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementation"><span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Worker’s-steps"><span class="toc-text">Worker’s steps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Coordinator’s-RPC-handlers"><span class="toc-text">Coordinator’s RPC handlers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Questions-asked"><span class="toc-text">Questions asked</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Question-1-Can-a-worker-do-either-map-or-reduce"><span class="toc-text">Question 1: Can a worker do either map or reduce?</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question-2-How-is-nReduce-and-ihash-used-by-Worker"><span class="toc-text">Question 2: How is nReduce and ihash used by Worker?</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question-3-Who-is-responsible-for-the-distribution-of-the-reduce-invocations"><span class="toc-text">Question 3: Who is responsible for the distribution of the reduce invocations?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question-4-How-does-the-Coordinator-decide-which-map-job-to-assign-to-a-worker"><span class="toc-text">Question 4: How does the Coordinator decide which map job to assign to a worker?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Question-5-How-do-I-manage-the-jobs-in-the-Coordinator"><span class="toc-text">Question 5: How do I manage the jobs in the Coordinator?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-issue"><span class="toc-text">Performance issue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rethinking-Question-5-Coordinator’s-management-of-the-jobs"><span class="toc-text">Rethinking Question 5 - Coordinator’s management of the jobs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rethinking-writing-to-files-parallel-writing"><span class="toc-text">Rethinking writing to files: parallel writing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rethinking-reading-from-files-use-glob"><span class="toc-text">Rethinking reading from files: use glob</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-communicate-by-sharing-memory-share-memory-by-communicate"><span class="toc-text">Don’t communicate by sharing memory; share memory by communicate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-channel-to-manage-completed-jobs"><span class="toc-text">Use channel to manage completed jobs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Now-the-last-ambitious-goal-remove-all-locks"><span class="toc-text">Now the last ambitious goal: remove all locks</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        MIT 6.824 - Distributed Systems - Lecture 1
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-10-12 15:18:29</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Go" title="Go">Go</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#MIT 6.824" title="MIT 6.824">MIT 6.824</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Distributed Systems" title="Distributed Systems">Distributed Systems</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Reading"><a href="#Reading" class="headerlink" title="Reading"></a>Reading</h1><h2 id="Paper-MapReduce"><a href="#Paper-MapReduce" class="headerlink" title="Paper: MapReduce"></a>Paper: <a href="http://nil.lcs.mit.edu/6.824/2020/papers/mapreduce.pdf" target="_blank" rel="noopener">MapReduce</a></h2><p><code>map</code> and <code>reduce</code> are just what you would think they are, as in <code>Javascript</code> 😊. You write functional code and the run-time system takes care of the details of：</p>
+<ul>
+<li>partitioning the <em>input</em> data</li>
+<li><em>scheduling</em> the program’s execution across a set of machines</li>
+<li>handling machine <em>failures</em><ul>
+<li>achieve availability and reliability of storage on machines’ local disks via <strong>replication</strong></li>
+<li>achieve fault tolerance via <strong>re-execution</strong>: take advantage of the functional model of map and reduce operations</li>
+</ul>
+</li>
+<li>managing the required inter-machine <em>communication</em></li>
+</ul>
+<h3 id="How-distribution-is-achieved"><a href="#How-distribution-is-achieved" class="headerlink" title="How distribution is achieved"></a>How distribution is achieved</h3><ul>
+<li>The <code>Map</code> invocations are distributed by partitioning input data into a set of <em>M</em> splits</li>
+<li>The <code>Reduce</code> invocations are distributed by y partitioning the intermediate key space into <em>R</em> pieces using a partitioning function (e.g., <em>hash(key) mod R</em>). The number of partitions (<em>R</em>) and partitioning function are specified by the user.</li>
+</ul>
+<h3 id="Staggler-issue"><a href="#Staggler-issue" class="headerlink" title="Staggler issue"></a>Staggler issue</h3><p>As a map reduce execution gets to an end, the last few tasks might take very long for reasons like other tasks being scheduled on the machine. This issue is alleviated by back-up mechanism: the master will schedule back-up executions for the last few in-progress tasks, and the task will be considered complete whether the primary or the back-up execution is completed.</p>
+<h3 id="Use-case-large-scale-production-indexing"><a href="#Use-case-large-scale-production-indexing" class="headerlink" title="Use case: large-scale production indexing"></a>Use case: large-scale production indexing</h3><p>Google migrated the document indexing workload to MapReduce. Benefits in the outcome:</p>
+<ul>
+<li>Alterability - separation of concerns</li>
+<li>Acceptable performance and therefore no need to mix conceptually unrelated computations together to avoid extra passes over the data.</li>
+<li>Smaller code base - 3800 lines of C++ to 700</li>
+</ul>
+<h3 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h3><h4 id="Restricted-programming-models"><a href="#Restricted-programming-models" class="headerlink" title="Restricted programming models"></a>Restricted programming models</h4><blockquote>
+<p>e.g. An associative function can be computed over all prefixes of an N element array in log N time on N processors using parallel prefix computations.</p>
+</blockquote>
+<p>Advantage of MapReduce over these restricted models: Fault-tolerant that scales to up to thousands of processes v.s. small scale and programmers take care of machine failure.</p>
+<h1 id="Lecture"><a href="#Lecture" class="headerlink" title="Lecture"></a>Lecture</h1><h2 id="Why-distributed-system"><a href="#Why-distributed-system" class="headerlink" title="Why distributed system?"></a>Why distributed system?</h2><ul>
+<li>Paralism</li>
+<li>Fault Tolerance</li>
+<li>Physical: naturally distributed</li>
+<li>Security/ Isolation</li>
+</ul>
+<h2 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h2><ul>
+<li>Concurrency</li>
+<li>Partial failure</li>
+<li>Performance (achieving the performance you think you deserve): Original reason is for higher performance via paralism, but obtaining the 100* speed with 100* machines is hard.</li>
+</ul>
+<h1 id="Assignment"><a href="#Assignment" class="headerlink" title="Assignment"></a>Assignment</h1><p>Task: Implement the “master”/“cordinator” and “worker” process for MapReduce.</p>
+<h2 id="Interesting-observations-from-the-starter-code"><a href="#Interesting-observations-from-the-starter-code" class="headerlink" title="Interesting observations from the starter code"></a>Interesting observations from the starter code</h2><h3 id="build-in-plugin-mode-find-Map-and-Reduce-functions-via-loadPlugin"><a href="#build-in-plugin-mode-find-Map-and-Reduce-functions-via-loadPlugin" class="headerlink" title="build in --plugin mode, find Map and Reduce functions via loadPlugin"></a>build in <code>--plugin</code> mode, find <code>Map</code> and <code>Reduce</code> functions via <code>loadPlugin</code></h3><p>Nice to know that there is a <a href="https://pkg.go.dev/plugin" target="_blank" rel="noopener"><code>plugin</code> go package</a> taking care of the loading and symbol resolution of Go plugins.</p>
+<h3 id="The-timeout-Linux-command"><a href="#The-timeout-Linux-command" class="headerlink" title="The timeout Linux command"></a>The <code>timeout</code> Linux command</h3><p>timeout is a command-line utility that runs a specified command and terminates it if it is still running after a given period of time.</p>
+<p>Get the Mac alternative:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install coreutils</span><br></pre></td></tr></table></figure>
+
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h3 id="Worker’s-steps"><a href="#Worker’s-steps" class="headerlink" title="Worker’s steps"></a>Worker’s steps</h3><p>Step 1: Request a job from the coordinator<br>Step 2: Open the file and read in the content<br>Step 3: Do the Map or the Reduce job<br>Step 4: Write result into file<br>Step 5: Send output file name back to coordinator</p>
+<h3 id="Coordinator’s-RPC-handlers"><a href="#Coordinator’s-RPC-handlers" class="headerlink" title="Coordinator’s RPC handlers"></a>Coordinator’s RPC handlers</h3><p>Handler 1: <code>HandleJobRequest</code>: Find an indle task and put the information (job type, filename) into the response.<br>Handler 2: <code>HandleJobFinishReport</code>: Update the task state. Decide if all <code>Map</code> tasks have finished; decide if all <code>Reduce</code> tasks have finished and update the <code>Done</code> return value.</p>
+<h3 id="Questions-asked"><a href="#Questions-asked" class="headerlink" title="Questions asked"></a>Questions asked</h3><h4 id="Question-1-Can-a-worker-do-either-map-or-reduce"><a href="#Question-1-Can-a-worker-do-either-map-or-reduce" class="headerlink" title="Question 1: Can a worker do either map or reduce?"></a>Question 1: Can a worker do either map or reduce?</h4><p>Yes. It is determined by the reply from the job request.</p>
+<h5 id="Question-2-How-is-nReduce-and-ihash-used-by-Worker"><a href="#Question-2-How-is-nReduce-and-ihash-used-by-Worker" class="headerlink" title="Question 2: How is nReduce and ihash used by Worker?"></a>Question 2: How is <code>nReduce</code> and <code>ihash</code> used by Worker?</h5><p>According to the MapReduce paper:</p>
+<blockquote>
+<p>Reduce invocations are distributed by partitioning the <strong>intermediate key space</strong> into <code>R</code> pieces using a partitioning function (e.g.,hash(key) mod R). The number of partitions (R) and the partitioning function are specified by the user</p>
+</blockquote>
+<ul>
+<li>R: nReduce</li>
+<li>Intermediate key space: the collection of all keys produced by map</li>
+<li>hash function: ihash</li>
+<li>who’s responsible for the distribution: When the map functions write their results</li>
+</ul>
+<h4 id="Question-3-Who-is-responsible-for-the-distribution-of-the-reduce-invocations"><a href="#Question-3-Who-is-responsible-for-the-distribution-of-the-reduce-invocations" class="headerlink" title="Question 3: Who is responsible for the distribution of the reduce invocations?"></a>Question 3: Who is responsible for the distribution of the reduce invocations?</h4><p>The worker, when it has invoked the <code>mapf</code> function and writes the outcomes to the intermediate files.<br>It should decide which file to write the intermediate key-value pairs according to the result of <code>ihash</code>.</p>
+<h4 id="Question-4-How-does-the-Coordinator-decide-which-map-job-to-assign-to-a-worker"><a href="#Question-4-How-does-the-Coordinator-decide-which-map-job-to-assign-to-a-worker" class="headerlink" title="Question 4: How does the Coordinator decide which map job to assign to a worker?"></a>Question 4: How does the Coordinator decide which map job to assign to a worker?</h4><p>According to the MapReduce paper:</p>
+<blockquote>
+<p>The Map invocations are distributed across multiple machines by automatically partitioning the input data into a set of M splits.</p>
+</blockquote>
+<p>According to the implementations of <code>Map</code> in the <code>mrapps</code>, they are passed two arguments <code>filename string</code> and <code>content string</code>. It might not always use these two arguments - for example, the word count app only uses the <code>content</code>. Therefore, I think I can assume that each map invocation will only involve one file, and the <code>Worker</code> will be responsible for opening the file and reading the content before invoking the <code>Map</code> function.</p>
+<h4 id="Question-5-How-do-I-manage-the-jobs-in-the-Coordinator"><a href="#Question-5-How-do-I-manage-the-jobs-in-the-Coordinator" class="headerlink" title="Question 5: How do I manage the jobs in the Coordinator?"></a>Question 5: How do I manage the jobs in the Coordinator?</h4><ul>
+<li><code>[]Job</code>: hard to query by file name</li>
+<li><code>map[string]Job</code> with filename as the key: hard to find incomplete jobs, not possible for reduce jobs as there are up to <code>mMap</code> intermediate files to be processed by each task.</li>
+<li><code>map[int]Job</code> with job number as the key - this is what I did for the first iteration. The Coordinator maintains two such maps, <code>reduceJobs</code> and <code>mapJobs</code>. - there turned out to be a better solution, more on this later.</li>
+</ul>
+<h2 id="Performance-issue"><a href="#Performance-issue" class="headerlink" title="Performance issue"></a>Performance issue</h2><p>Now that I have the first iteration running (Yes! 🎉), the performance issue becomes notable. Yihao got his version finishing one invocation of <code>test-mr.sh</code> within 1 minutes while I could finish a song waiting for it. Here are some design decisions that I noted down after some discussion with him:</p>
+<h3 id="Rethinking-Question-5-Coordinator’s-management-of-the-jobs"><a href="#Rethinking-Question-5-Coordinator’s-management-of-the-jobs" class="headerlink" title="Rethinking Question 5 - Coordinator’s management of the jobs"></a>Rethinking Question 5 - Coordinator’s management of the jobs</h3><p>Currently, my Coordinator needs to loop through the whole map of jobs to find an available job or to conclude that there’s no suitable job to assign. I originally designed it this way because I was thinking of the “resetting” of jobs back to idle state and thought it would be hard to keep a collection of idle jobs. However, it was actually not that bad. All I had to do was to maintain a slice/queue of jobs to be assigned, and if the job did not get finished in time, I can still append it back. On the other end, the already scheduled jobs could be maintained in a map with keys of job numbers. This makes the querying of scheduled job O(1) if the job gets finished/ did not finish in time.</p>
+<h3 id="Rethinking-writing-to-files-parallel-writing"><a href="#Rethinking-writing-to-files-parallel-writing" class="headerlink" title="Rethinking writing to files: parallel writing"></a>Rethinking writing to files: parallel writing</h3><p>The map tasks need to write into intermediate files, and the reduce tasks need to write to output files.<br>Currently I maintain a map of json encoders, and loop through each key-value pair, and write into the right encoders. This should be largely optimized by dividing the content in-memory and then writing into each file in parallel.</p>
+<h3 id="Rethinking-reading-from-files-use-glob"><a href="#Rethinking-reading-from-files-use-glob" class="headerlink" title="Rethinking reading from files: use glob"></a>Rethinking reading from files: use glob</h3><p>The reduce tasks need to read from intermediate files formatted <code>mr-int-X-Y</code> where <code>Y</code> is the current reduce task number and <code>X</code> is number of any the map tasks that writes into it. Before I looped through all map task numbers and read their content. Two problems: performance, and the map job might have not produced kv for this specific reduce task therefore unnecessary error handling.</p>
+<p>Using glob and write all files in via glob formatted file name would be more robust - as long as there’s no side effect of <code>mapf</code> and <code>reducef</code> producing some other files that follow the same format :)</p>
+<h2 id="Don’t-communicate-by-sharing-memory-share-memory-by-communicate"><a href="#Don’t-communicate-by-sharing-memory-share-memory-by-communicate" class="headerlink" title="Don’t communicate by sharing memory; share memory by communicate"></a>Don’t communicate by sharing memory; share memory by communicate</h2><p>Use a channel to manage unscheduled jobs. It has these advantage:</p>
+<ul>
+<li>It is blocking. The rpc method caller will just be blocked instead of receiving an idle response.</li>
+<li>It is thread safe. No need to apply lock on the slice of job, or each single job.</li>
+</ul>
+<h2 id="Use-channel-to-manage-completed-jobs"><a href="#Use-channel-to-manage-completed-jobs" class="headerlink" title="Use channel to manage completed jobs"></a>Use channel to manage completed jobs</h2><p>I really like this</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; nMap; i++ &#123;</span><br><span class="line">			&lt;-c.jobsCompleted</span><br><span class="line">		&#125;</span><br><span class="line">		c.mu.Lock()</span><br><span class="line">		c.state = doingReduce</span><br><span class="line">		c.mu.Unlock()</span><br><span class="line">		<span class="keyword">go</span> c.startReduceJobScheduling()</span><br><span class="line">		<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; nReduce; i++ &#123;</span><br><span class="line">			&lt;-c.jobsCompleted</span><br><span class="line">		&#125;</span><br><span class="line">		c.mu.Lock()</span><br><span class="line">		c.state = done</span><br><span class="line">		c.mu.Unlock()</span><br><span class="line">	&#125;()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Now-the-last-ambitious-goal-remove-all-locks"><a href="#Now-the-last-ambitious-goal-remove-all-locks" class="headerlink" title="Now the last ambitious goal: remove all locks"></a>Now the last ambitious goal: remove all locks</h2><p>Same philosophy: I am using locks to control access to a piece of memory shared by multiple go routines - i.e. communicate by sharing memory.<br>If I could allow the go routines to communicate with a data access go routine via a channel, it is then natively thread safe.</p>
+<p>What I needed to do is to have a long-running go routine to monitor channels and handle requests from these channels to manipulate map data:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">func (c *Coordinator) manageScheduledJobsMap() &#123;</span><br><span class="line">	for &#123;</span><br><span class="line">		select &#123;</span><br><span class="line">		case j :&#x3D; &lt;-c.jobsToComplete:</span><br><span class="line">			_, going :&#x3D; c.jobsInProgress[*j]</span><br><span class="line">			if going &#123;</span><br><span class="line">				delete(c.jobsInProgress, *j)</span><br><span class="line">				c.jobsCompleted &lt;- j</span><br><span class="line">			&#125;</span><br><span class="line">		case j :&#x3D; &lt;-c.jobsToReschedule:</span><br><span class="line">			_, going :&#x3D; c.jobsInProgress[*j]</span><br><span class="line">			if going &#123;</span><br><span class="line">				delete(c.jobsInProgress, *j)</span><br><span class="line">				c.jobsToSchedule &lt;- j</span><br><span class="line">			&#125;</span><br><span class="line">		case j :&#x3D; &lt;-c.jobsToRecordScheduled:</span><br><span class="line">			c.jobsInProgress[*j] &#x3D; true</span><br><span class="line">		default:</span><br><span class="line">			continue</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

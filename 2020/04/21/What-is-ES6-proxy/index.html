@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        What is ES6 proxy? - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax"><span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Parameters"><span class="toc-text">Parameters</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operations-that-could-be-trapped-with-handler"><span class="toc-text">Operations that could be trapped with handler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Now-check-the-object-identity-proxy"><span class="toc-text">Now check the object-identity-proxy</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Write-my-first-two-simple-proxies"><span class="toc-text">Write my first two simple proxies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Default-Dictionary"><span class="toc-text">Default Dictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-on-argument"><span class="toc-text">Check on argument</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A-nice-extending-constructor-example-by-MDN"><span class="toc-text">A nice extending constructor example by MDN</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Next-Step"><span class="toc-text">Next Step</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        What is ES6 proxy?
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-21 21:41:53</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Javascript" title="Javascript">Javascript</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I got this question when I was <a href="https://niuniuanran.github.io/2020/04/21/Test-a-React-Component-with-Jest/">testing a React component with Jest</a>, and Jest yelled at me that it could not deal with the imported CSS module (which is managed by webpack). The problem was solved with <code>object-identity-proxy</code>.<br>Here’s the description of <code>object-identity-proxy</code> from their <a href="https://www.npmjs.com/package/identity-obj-proxy" target="_blank" rel="noopener">npm page</a>:</p>
+<blockquote>
+<p>An identity object using ES6 proxies. Useful for testing trivial webpack imports. For instance, you can tell Jest to mock this object as imported CSS modules; then all your className lookups on the imported styles object will be returned as-is.</p>
+</blockquote>
+<p>So what is an ES6 proxy?<br>Here’s <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noopener">what MDN says</a>:</p>
+<blockquote>
+<p>The Proxy object is used to define custom behavior for <strong>fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc)</strong>.</p>
+</blockquote>
+<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br></pre></td></tr></table></figure>
+<h1 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h1><p><code>target</code>:<br>A target object to wrap with Proxy. It can be any sort of object, including a native array, a function, or even another proxy.<br><code>handler</code>:<br>An object whose properties are functions define the behavior of proxy p when an operation is performed on it.</p>
+<h1 id="Operations-that-could-be-trapped-with-handler"><a href="#Operations-that-could-be-trapped-with-handler" class="headerlink" title="Operations that could be trapped with handler"></a>Operations that could be trapped with handler</h1><p>MDN listed all the handler object methods, i.e. fundamental operations that could be traps by handler:</p>
+<ul>
+<li><code>handler.getPrototypeOf()</code><br>A trap for Object.getPrototypeOf.</li>
+<li><code>handler.setPrototypeOf()</code><br>A trap for Object.setPrototypeOf.</li>
+<li><code>handler.isExtensible()</code><br>A trap for Object.isExtensible.</li>
+<li><code>handler.preventExtensions()</code><br>A trap for Object.preventExtensions.</li>
+<li><code>handler.getOwnPropertyDescriptor()</code><br>A trap for Object.getOwnPropertyDescriptor.</li>
+<li><code>handler.defineProperty()</code><br>A trap for Object.defineProperty.</li>
+<li><code>handler.has()</code><br>A trap for the in operator.</li>
+<li><code>handler.get()</code><br>A trap for getting property values.</li>
+<li><code>handler.set()</code><br>A trap for setting property values.</li>
+<li><code>handler.deleteProperty()</code><br>A trap for the delete operator.</li>
+<li><code>handler.ownKeys()</code><br>A trap for Object.getOwnPropertyNames and Object.getOwnPropertySymbols.</li>
+<li><code>handler.apply()</code><br>A trap for a <strong>function call</strong>.</li>
+<li><code>handler.construct()</code><br>A trap for the <code>new</code> operator.</li>
+</ul>
+<h1 id="Now-check-the-object-identity-proxy"><a href="#Now-check-the-object-identity-proxy" class="headerlink" title="Now check the object-identity-proxy"></a>Now check the <code>object-identity-proxy</code></h1><p>Here’s the code I found in <code>node_modules/identity-obj-proxy/src/index.js</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">idObj = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function getter(target, key) &#123;</span><br><span class="line">    <span class="keyword">if</span> (key === <span class="string">'__esModule'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> key;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>So this is what they mean by ‘returned as-is’! </p>
+<h1 id="Write-my-first-two-simple-proxies"><a href="#Write-my-first-two-simple-proxies" class="headerlink" title="Write my first two simple proxies"></a>Write my first two simple proxies</h1><p>Now I’ll write two simple proxies to practice.</p>
+<h2 id="Default-Dictionary"><a href="#Default-Dictionary" class="headerlink" title="Default Dictionary"></a>Default Dictionary</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDictionary=&#123;<span class="attr">dog</span>: <span class="string">"woof"</span>, <span class="attr">cat</span>:<span class="string">"meow"</span>, <span class="attr">duck</span>:<span class="string">"quack"</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> myDefaultDictionary = <span class="keyword">new</span> <span class="built_in">Proxy</span>(myDictionary, &#123;</span><br><span class="line"><span class="keyword">get</span>: function getter(target, key) &#123;</span><br><span class="line">    <span class="keyword">return</span> key <span class="keyword">in</span> target?</span><br><span class="line">            target[key]:<span class="string">"hello"</span>;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="keyword">set</span>: function setter(obj, prop, value) &#123;</span><br><span class="line">    <span class="keyword">if</span>(value.length &lt; <span class="number">4</span>) obj[prop]=value+<span class="string">'...'</span>;</span><br><span class="line">    <span class="keyword">else</span> obj[prop]=value;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Now I can get and set the animal sounds:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(myDefaultDictionary.cat); &#x2F;&#x2F;&#39;meow&#39;</span><br><span class="line">console.log(myDefaultDictionary.anran); &#x2F;&#x2F;&#39;hello&#39;</span><br><span class="line"></span><br><span class="line">myDefaultDictionary.anran &#x3D; &#39;hi&#39;;</span><br><span class="line">console.log(myDefaultDictionary.anran); &#x2F;&#x2F;&#39;hi...&#39;</span><br><span class="line">myDefaultDictionary[&#39;yihao&#39;]&#x3D;&#39;yee hee&#39;;</span><br><span class="line">console.log(myDefaultDictionary.yihao); &#x2F;&#x2F;&#39;yee hee&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Check-on-argument"><a href="#Check-on-argument" class="headerlink" title="Check on argument"></a>Check on argument</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getALuckyNumber</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span>'s lucky number is <span class="subst">$&#123;<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">30</span>)&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> getLuckyNumberAnranMachine = <span class="keyword">new</span> <span class="built_in">Proxy</span>(getALuckyNumber, </span><br><span class="line">      &#123;<span class="attr">apply</span>: <span class="function"><span class="keyword">function</span>(<span class="params">target, thisArg, argList</span>)</span></span><br><span class="line"><span class="function">          </span>&#123;<span class="keyword">if</span>(argList[<span class="number">0</span>].toLowerCase() === <span class="string">'anran'</span>) <span class="built_in">console</span>.log(<span class="string">`anran, how many times have I tell you it's 18?`</span>); </span><br><span class="line">          <span class="keyword">else</span> target(argList[<span class="number">0</span>]);&#125;&#125;</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+<p>Now I always get a fixed lucky number (and get told off when I ask it):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getLuckyNumberAnranMachine(<span class="string">"yihao"</span>); <span class="comment">// yihao's lucky number is 12</span></span><br><span class="line">getLuckyNumberAnranMachine(<span class="string">"judy"</span>); <span class="comment">// judy's lucky number is 3</span></span><br><span class="line">getLuckyNumberAnranMachine(<span class="string">"anran"</span>); <span class="comment">// anran, how many times have I tell you it's 18?</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="A-nice-extending-constructor-example-by-MDN"><a href="#A-nice-extending-constructor-example-by-MDN" class="headerlink" title="A nice extending constructor example by MDN"></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy#Extending_constructor" target="_blank" rel="noopener">A nice extending constructor example by MDN</a></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">sup, base</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(</span><br><span class="line">    base.prototype, <span class="string">'constructor'</span></span><br><span class="line">  ); </span><br><span class="line">  base.prototype = <span class="built_in">Object</span>.create(sup.prototype);</span><br><span class="line">  <span class="keyword">var</span> handler = &#123;</span><br><span class="line">    construct: <span class="function"><span class="keyword">function</span>(<span class="params">target, args</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(base.prototype);</span><br><span class="line">      <span class="keyword">this</span>.apply(target, obj, args);</span><br><span class="line">      <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;,</span><br><span class="line">    apply: <span class="function"><span class="keyword">function</span>(<span class="params">target, that, args</span>) </span>&#123;</span><br><span class="line">      sup.apply(that, args);</span><br><span class="line">      base.apply(that, args);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(base, handler);</span><br><span class="line">  descriptor.value = proxy;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(base.prototype, <span class="string">'constructor'</span>, descriptor);</span><br><span class="line">  <span class="keyword">return</span> proxy;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Boy = extend(Person, <span class="function"><span class="keyword">function</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Boy.prototype.gender = <span class="string">'M'</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Peter = <span class="keyword">new</span> Boy(<span class="string">'Peter'</span>, <span class="number">13</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Peter.gender);  <span class="comment">// "M"</span></span><br><span class="line"><span class="built_in">console</span>.log(Peter.name);    <span class="comment">// "Peter"</span></span><br><span class="line"><span class="built_in">console</span>.log(Peter.age);     <span class="comment">// 13</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Next-Step"><a href="#Next-Step" class="headerlink" title="Next Step"></a>Next Step</h1><p>Haven’t fully understand the MDN extending constructor example yet:<br>What is <code>Object.getOwnPropertyDescriptor</code>? How to best understand what is <code>proptype</code> in Javascript?</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

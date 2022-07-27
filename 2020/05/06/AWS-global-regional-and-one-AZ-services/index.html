@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS global, regional and one-AZ services - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Global-service"><span class="toc-text">Global service</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IAM"><span class="toc-text">IAM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#One-Region-Multiple-Availability-Zone-automatically"><span class="toc-text">One Region, Multiple Availability Zone automatically</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Elastic-File-System"><span class="toc-text">Amazon Elastic File System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SNS"><span class="toc-text">SNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQS"><span class="toc-text">SQS</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multiple-Availability-Zone-automatically-Go-to-multiple-regions-with-additional-feature"><span class="toc-text">Multiple Availability Zone automatically, Go to multiple regions with additional feature</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Aurora"><span class="toc-text">Amazon Aurora</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Aurora-Global-Database"><span class="toc-text">Amazon Aurora Global Database</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-S3"><span class="toc-text">Amazon S3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-DynamoDB"><span class="toc-text">Amazon DynamoDB</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#One-Availability-Zone-by-default-can-go-to-multiple-availability-zones"><span class="toc-text">One Availability Zone by default, can go to multiple availability zones</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-RDS"><span class="toc-text">Amazon RDS</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS global, regional and one-AZ services
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-05-06 20:24:09</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS CP Test" title="AWS CP Test">AWS CP Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Global-service"><a href="#Global-service" class="headerlink" title="Global service"></a>Global service</h1><h2 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h2><p>Users are global entities, like an AWS account is today. No region is required to be specified when you define user.</p>
+<h1 id="One-Region-Multiple-Availability-Zone-automatically"><a href="#One-Region-Multiple-Availability-Zone-automatically" class="headerlink" title="One Region, Multiple Availability Zone automatically"></a>One Region, Multiple Availability Zone automatically</h1><h2 id="Amazon-Elastic-File-System"><a href="#Amazon-Elastic-File-System" class="headerlink" title="Amazon Elastic File System"></a>Amazon Elastic File System</h2><p>Amazon EFS is a <strong>regional service</strong> storing data within and across <strong>multiple Availability Zones (AZs)</strong> for high availability and durability.</p>
+<h2 id="SNS"><a href="#SNS" class="headerlink" title="SNS"></a>SNS</h2><p>All messages published to SNS are stored redundantly across multiple Availability Zones.</p>
+<h2 id="SQS"><a href="#SQS" class="headerlink" title="SQS"></a>SQS</h2><p>Amazon SQS stores all message queues and messages within a single, highly-available AWS region with multiple redundant Availability Zones (AZs), so that no single computer, network, or AZ failure can make messages inaccessible.</p>
+<h1 id="Multiple-Availability-Zone-automatically-Go-to-multiple-regions-with-additional-feature"><a href="#Multiple-Availability-Zone-automatically-Go-to-multiple-regions-with-additional-feature" class="headerlink" title="Multiple Availability Zone automatically, Go to multiple regions with additional feature"></a>Multiple Availability Zone automatically, Go to multiple regions with additional feature</h1><h2 id="Amazon-Aurora"><a href="#Amazon-Aurora" class="headerlink" title="Amazon Aurora"></a>Amazon Aurora</h2><p> Amazon Aurora is designed to offer greater than 99.99% availability, replicating 6 copies of your data across 3 Availability Zones and backing up your data continuously to Amazon S3. </p>
+<h3 id="Amazon-Aurora-Global-Database"><a href="#Amazon-Aurora-Global-Database" class="headerlink" title="Amazon Aurora Global Database"></a>Amazon Aurora Global Database</h3><p>Amazon Aurora Global Database is designed for globally distributed applications, allowing a single Amazon Aurora database to span multiple AWS regions. </p>
+<h2 id="Amazon-S3"><a href="#Amazon-S3" class="headerlink" title="Amazon S3"></a>Amazon S3</h2><p>You specify an AWS Region when you create your Amazon S3 bucket. For S3 Standard, S3 Standard-IA, and S3 Glacier storage classes, your objects are automatically stored across multiple devices spanning a minimum of three Availability Zones, each separated by miles across an AWS Region.<br>Cross-Region replication (CRR) is used to copy objects across Amazon S3 buckets in different AWS Regions.</p>
+<h2 id="Amazon-DynamoDB"><a href="#Amazon-DynamoDB" class="headerlink" title="Amazon DynamoDB"></a>Amazon DynamoDB</h2><p>Amazon DynamoDB global tables provide a fully managed solution for deploying a multiregion, multi-master database, without having to build and maintain your own replication solution. </p>
+<h1 id="One-Availability-Zone-by-default-can-go-to-multiple-availability-zones"><a href="#One-Availability-Zone-by-default-can-go-to-multiple-availability-zones" class="headerlink" title="One Availability Zone by default, can go to multiple availability zones"></a>One Availability Zone by default, can go to multiple availability zones</h1><h2 id="Amazon-RDS"><a href="#Amazon-RDS" class="headerlink" title="Amazon RDS"></a>Amazon RDS</h2><p>When you provision a <strong>Multi-AZ DB Instance</strong>, Amazon RDS synchronously replicates the data to a standby instance in a different Availability Zone (AZ). </p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

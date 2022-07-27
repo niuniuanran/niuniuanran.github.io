@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Read a Go package: scs.SessionManager - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage-in-project"><span class="toc-text">Usage in project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-through-basic-usage"><span class="toc-text">Go through basic usage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Understanding-Load-function"><span class="toc-text">Understanding Load function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Understanding-LoadAndSave-function"><span class="toc-text">Understanding LoadAndSave function</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Read a Go package: scs.SessionManager
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-05-04 11:35:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Go" title="Go">Go</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Usage-in-project"><a href="#Usage-in-project" class="headerlink" title="Usage in project"></a>Usage in project</h2><p>I was learning how to maintain sessions in Go and went across the <a href="https://github.com/alexedwards/scs" target="_blank" rel="noopener">scs</a> package for session middleware.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; In main.go</span><br><span class="line">&#x2F;&#x2F; available to whole main package</span><br><span class="line">var session *scs.SessionManager</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	app.InProduction &#x3D; false</span><br><span class="line">	session &#x3D; scs.New()</span><br><span class="line">	session.Lifetime &#x3D; 24 * time.Hour</span><br><span class="line">	session.Cookie.Persist &#x3D; true</span><br><span class="line">	session.Cookie.SameSite &#x3D; http.SameSiteLaxMode</span><br><span class="line">	session.Cookie.Secure &#x3D; app.InProduction</span><br><span class="line">    &#x2F;&#x2F; ... </span><br><span class="line"></span><br><span class="line">    srv :&#x3D; &amp;http.Server&#123;</span><br><span class="line">        Addr: addr,</span><br><span class="line">        Handler: routes(&amp;app),</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; In middleware.go</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; SessionLoad loads and saves the session on every request</span><br><span class="line">func SessionLoad(next http.Handler) http.Handler&#123;</span><br><span class="line">	return session.LoadAndSave(next)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In routes.go</span><br><span class="line"></span><br><span class="line">func routes(app *config.AppConfig) http.Handler&#123;</span><br><span class="line">	mux :&#x3D; chi.NewRouter()</span><br><span class="line">	&#x2F;&#x2F; ...</span><br><span class="line">	mux.Use(SessionLoad)</span><br><span class="line">	mux.Get(&quot;&#x2F;&quot;, handlers.Repo.ServeHome)</span><br><span class="line">	mux.Get(&quot;&#x2F;about&quot;, handlers.Repo.ServeAbout)</span><br><span class="line">	return mux</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Go-through-basic-usage"><a href="#Go-through-basic-usage" class="headerlink" title="Go through basic usage"></a>Go through basic usage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;io&quot;</span><br><span class="line">	&quot;net&#x2F;http&quot;</span><br><span class="line">	&quot;time&quot;</span><br><span class="line"></span><br><span class="line">	&quot;github.com&#x2F;alexedwards&#x2F;scs&#x2F;v2&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Declare sessionManager here and make it available to whole main package</span><br><span class="line">var sessionManager *scs.SessionManager</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	&#x2F;&#x2F; Initialize a new session manager and configure the session lifetime.</span><br><span class="line">	sessionManager &#x3D; scs.New()</span><br><span class="line">	sessionManager.Lifetime &#x3D; 24 * time.Hour</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; mux is used for routing</span><br><span class="line">	mux :&#x3D; http.NewServeMux()</span><br><span class="line">	mux.HandleFunc(&quot;&#x2F;put&quot;, putHandler)</span><br><span class="line">	mux.HandleFunc(&quot;&#x2F;get&quot;, getHandler)</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; Wrap your handlers with the LoadAndSave() middleware.</span><br><span class="line">	http.ListenAndServe(&quot;:4000&quot;, sessionManager.LoadAndSave(mux))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func putHandler(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">	&#x2F;&#x2F; Store a new key and value in the session data.</span><br><span class="line">	sessionManager.Put(r.Context(), &quot;message&quot;, &quot;Hello from a session!&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func getHandler(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">	&#x2F;&#x2F; Use the GetString helper to retrieve the string value associated with a</span><br><span class="line">	&#x2F;&#x2F; key. The zero value is returned if the key does not exist.</span><br><span class="line">	msg :&#x3D; sessionManager.GetString(r.Context(), &quot;message&quot;)</span><br><span class="line">	io.WriteString(w, msg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Understanding-Load-function"><a href="#Understanding-Load-function" class="headerlink" title="Understanding Load function"></a>Understanding <code>Load</code> function</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Load retrieves the session data for the given token from the session store,</span><br><span class="line">&#x2F;&#x2F; and returns a new context.Context containing the session data. If no matching</span><br><span class="line">&#x2F;&#x2F; token is found then this will create a new session.</span><br><span class="line">&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F; Most applications will use the LoadAndSave() middleware and will not need to</span><br><span class="line">&#x2F;&#x2F; use this method.</span><br><span class="line">func (s *SessionManager) Load(ctx context.Context, token string) (context.Context, error) &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; A Context carries a deadline, a cancellation signal, and other request-scope values across API boundaries.</span><br><span class="line">    &#x2F;&#x2F; Context&#39;s methods may be called by multiple goroutines simultaneously.</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; contextKey is the key used to set and retrieve the session data from a context.Context. It&#39;s automatically generated to ensure uniqueness.</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; .(*sessionData) is a type assertion, similar to the &#39;as&#39; keyword in C#</span><br><span class="line">    &#x2F;&#x2F; If the session is already in the context, just return the context and nothing needs to be done.</span><br><span class="line">	if _, ok :&#x3D; ctx.Value(s.contextKey).(*sessionData); ok &#123;</span><br><span class="line">		return ctx, nil</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; If the token is empty, simply add a new, empty session data to the context.</span><br><span class="line">	if token &#x3D;&#x3D; &quot;&quot; &#123;</span><br><span class="line">		return s.addSessionDataToContext(ctx, newSessionData(s.Lifetime)), nil</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; Find should return the data for a session token from the store, in byte array format</span><br><span class="line">	b, found, err :&#x3D; s.Store.Find(token)</span><br><span class="line">	if err !&#x3D; nil &#123;</span><br><span class="line">		return nil, err</span><br><span class="line">	&#125; else if !found &#123;</span><br><span class="line">        &#x2F;&#x2F; If no session data with the given token is found in the store, add empty session data to the context.</span><br><span class="line">		return s.addSessionDataToContext(ctx, newSessionData(s.Lifetime)), nil</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sd :&#x3D; &amp;sessionData&#123;</span><br><span class="line">		status: Unmodified,</span><br><span class="line">		token:  token,</span><br><span class="line">	&#125;</span><br><span class="line">    &#x2F;&#x2F; Decode the byte array found from the store</span><br><span class="line">	if sd.deadline, sd.values, err &#x3D; s.Codec.Decode(b); err !&#x3D; nil &#123;</span><br><span class="line">		return nil, err</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; Mark the session data as modified if an idle timeout is being used. This</span><br><span class="line">	&#x2F;&#x2F; will force the session data to be re-committed to the session store with</span><br><span class="line">	&#x2F;&#x2F; a new expiry time.</span><br><span class="line">	if s.IdleTimeout &gt; 0 &#123;</span><br><span class="line">		sd.status &#x3D; Modified</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return s.addSessionDataToContext(ctx, sd), nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Understanding-LoadAndSave-function"><a href="#Understanding-LoadAndSave-function" class="headerlink" title="Understanding LoadAndSave function"></a>Understanding <code>LoadAndSave</code> function</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; LoadAndSave provides middleware which automatically loads and saves session</span><br><span class="line">&#x2F;&#x2F; data for the current request, and communicates the session token to and from</span><br><span class="line">&#x2F;&#x2F; the client in a cookie.</span><br><span class="line">func (s *SessionManager) LoadAndSave(next http.Handler) http.Handler &#123;</span><br><span class="line">	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">		var token string</span><br><span class="line">		cookie, err :&#x3D; r.Cookie(s.Cookie.Name)</span><br><span class="line">		if err &#x3D;&#x3D; nil &#123;</span><br><span class="line">			token &#x3D; cookie.Value</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		ctx, err :&#x3D; s.Load(r.Context(), token)</span><br><span class="line">		if err !&#x3D; nil &#123;</span><br><span class="line">			s.ErrorFunc(w, r, err)</span><br><span class="line">			return</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		sr :&#x3D; r.WithContext(ctx)</span><br><span class="line">		bw :&#x3D; &amp;bufferedResponseWriter&#123;ResponseWriter: w&#125;</span><br><span class="line">		next.ServeHTTP(bw, sr)</span><br><span class="line"></span><br><span class="line">		if sr.MultipartForm !&#x3D; nil &#123;</span><br><span class="line">			sr.MultipartForm.RemoveAll()</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if s.Status(ctx) !&#x3D; Unmodified &#123;</span><br><span class="line">			responseCookie :&#x3D; &amp;http.Cookie&#123;</span><br><span class="line">				Name:     s.Cookie.Name,</span><br><span class="line">				Path:     s.Cookie.Path,</span><br><span class="line">				Domain:   s.Cookie.Domain,</span><br><span class="line">				Secure:   s.Cookie.Secure,</span><br><span class="line">				HttpOnly: s.Cookie.HttpOnly,</span><br><span class="line">				SameSite: s.Cookie.SameSite,</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			switch s.Status(ctx) &#123;</span><br><span class="line">			case Modified:</span><br><span class="line">				token, expiry, err :&#x3D; s.Commit(ctx)</span><br><span class="line">				if err !&#x3D; nil &#123;</span><br><span class="line">					s.ErrorFunc(w, r, err)</span><br><span class="line">					return</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				responseCookie.Value &#x3D; token</span><br><span class="line"></span><br><span class="line">				if s.Cookie.Persist || s.GetBool(ctx, &quot;__rememberMe&quot;) &#123;</span><br><span class="line">					responseCookie.Expires &#x3D; time.Unix(expiry.Unix()+1, 0)        &#x2F;&#x2F; Round up to the nearest second.</span><br><span class="line">					responseCookie.MaxAge &#x3D; int(time.Until(expiry).Seconds() + 1) &#x2F;&#x2F; Round up to the nearest second.</span><br><span class="line">				&#125;</span><br><span class="line">			case Destroyed:</span><br><span class="line">				responseCookie.Expires &#x3D; time.Unix(1, 0)</span><br><span class="line">				responseCookie.MaxAge &#x3D; -1</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			w.Header().Add(&quot;Set-Cookie&quot;, responseCookie.String())</span><br><span class="line">			addHeaderIfMissing(w, &quot;Cache-Control&quot;, &#96;no-cache&#x3D;&quot;Set-Cookie&quot;&#96;)</span><br><span class="line">			addHeaderIfMissing(w, &quot;Vary&quot;, &quot;Cookie&quot;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if bw.code !&#x3D; 0 &#123;</span><br><span class="line">			w.WriteHeader(bw.code)</span><br><span class="line">		&#125;</span><br><span class="line">		w.Write(bw.buf.Bytes())</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

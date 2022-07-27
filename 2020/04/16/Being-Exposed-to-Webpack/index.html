@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Being Exposed to Webpack - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-Concepts"><span class="toc-text">Core Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Entry"><span class="toc-text">Entry</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loaders"><span class="toc-text">Loaders</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Plugins"><span class="toc-text">Plugins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mode"><span class="toc-text">Mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Compatibility"><span class="toc-text">Browser Compatibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Environment"><span class="toc-text">Environment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#An-“ahead-of-time-compiler”-for-the-browser"><span class="toc-text">An “ahead of time compiler” for the browser</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Moving-assets-to-webpack"><span class="toc-text">Moving assets to webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Installing-Webpack"><span class="toc-text">Step 1: Installing Webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Improve-performance"><span class="toc-text">Step 2: Improve performance</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Next-Step"><span class="toc-text">Next Step</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Being Exposed to Webpack
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-16 12:44:06</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Today I first heard about Webpack. Writing something like <code>import ../assets/images/dog,png</code> in a JavaScript file is unheard of before, and it’s good to know that with Webpack I can actually import these static resources in this way,</p>
+<blockquote>
+<p>At its core, webpack is a static module bundler for modern JavaScript applications. When webpack processes your application, it internally builds a dependency graph which maps every module your project needs and generates one or more bundles. – <a href="https://webpack.js.org/concepts/" target="_blank" rel="noopener">Webpack Core Concepts</a></p>
+</blockquote>
+<p>See also <a href="https://juejin.im/post/5ccf0c5d6fb9a03203619874" target="_blank" rel="noopener">this article</a> about why we need modularization in frontend development.</p>
+<p>Next.js uses a preconfigured webpack under the hood that you don’t need to mess with. You can also extend the usage of <code>webpack</code> by defining a function that extends webpack config inside <code>next.config.js</code>. See the <a href="https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config" target="_blank" rel="noopener">Next.js Custom Webpack Config here</a>.</p>
+<p>Today I’ll just follow the webpack documentation to have a overview of webpack core concepts.</p>
+<h1 id="Core-Concepts"><a href="#Core-Concepts" class="headerlink" title="Core Concepts"></a>Core Concepts</h1><h2 id="Entry"><a href="#Entry" class="headerlink" title="Entry"></a>Entry</h2><p>Entry point is the module that webpack starts building its internal dependency graph.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Output is where webpack will save the generated bundles.</p>
+<h2 id="Loaders"><a href="#Loaders" class="headerlink" title="Loaders"></a>Loaders</h2><p>Out of the box, webpack only understands JavaScript and JSON files.<br>Loaders allow webpack to process other types of files and convert them into valid modules that can be consumed by your application and added to the dependency graph.</p>
+<p>At a high level, loaders have two properties in your webpack configuration:<br>The test property identifies which file or files should be transformed.<br>The use property indicates which loader should be used to do the transforming.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* webpack.config.js *&#x2F;</span><br><span class="line"></span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &#39;my-first-webpack.bundle.js&#39;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123; test: &#x2F;\.txt$&#x2F;, use: &#39;raw-loader&#39; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>The configuration above has defined a rules property for a single module with two required properties: test and use. This tells webpack’s compiler the following:</p>
+<blockquote>
+<p>“Hey webpack compiler, when you come across a path that resolves to a ‘.txt’ file inside of a require()/import statement, <strong>use the raw-loader to transform it</strong> before you add it to the bundle.”</p>
+</blockquote>
+<h2 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h2><p>Plugins can be leveraged to perform a wider range of tasks like bundle optimization, asset management and injection of environment variables.</p>
+<p>In order to use a plugin, you need to require() it and add it to the plugins array. Most plugins are customizable through options. Since you can use a plugin multiple times in a configuration for different purposes, you need to create an instance of it by calling it with the <code>new</code> operator.</p>
+<h2 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h2><p>By setting the mode parameter to either development, production or none, you can enable webpack’s built-in optimizations that correspond to each environment. The default value is production.</p>
+<h2 id="Browser-Compatibility"><a href="#Browser-Compatibility" class="headerlink" title="Browser Compatibility"></a>Browser Compatibility</h2><p>webpack supports all browsers that are ES5-compliant (IE8 and below are not supported). webpack needs Promise for import() and require.ensure(). If you want to support older browsers, you will need to load a polyfill before using these expressions.</p>
+<h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><p>webpack runs on Node.js version 8.x and higher.</p>
+<h1 id="An-“ahead-of-time-compiler”-for-the-browser"><a href="#An-“ahead-of-time-compiler”-for-the-browser" class="headerlink" title="An “ahead of time compiler” for the browser"></a>An “ahead of time compiler” for the browser</h1><p><a href="https://www.youtube.com/watch?v=WQue1AN93YU" target="_blank" rel="noopener">A video tutorial by front end center</a> presented the network timeline without using webpack:</p>
+<img src="./timeline.jpg" alt="timeline" width="800px">
+
+<p>As can be seen, the HTML is the entry point when we browse to the webpage.<br>The dependency from the html page to asset css/js files and then to <code>@import</code> resources can be compounding on big projects.</p>
+<p>Webpack follows a <strong>graph of dependencies</strong> regardless of their file type and tries to build a complete picture:</p>
+<img src="./dependency-graph.jpg" alt="dependency graph" width="800px">
+
+<h2 id="Moving-assets-to-webpack"><a href="#Moving-assets-to-webpack" class="headerlink" title="Moving assets to webpack"></a>Moving assets to webpack</h2><p>The author then demonstrated how he moved the assets to webpack.</p>
+<h3 id="Step-1-Installing-Webpack"><a href="#Step-1-Installing-Webpack" class="headerlink" title="Step 1: Installing Webpack"></a>Step 1: Installing Webpack</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack</span><br></pre></td></tr></table></figure>
+<p>Then add an npm script to package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">&quot;build&quot;: &quot;webpack&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Create <code>webpack.config.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/scripts/main.js'</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">    path: __direname + <span class="string">'/build'</span>,</span><br><span class="line">    publicPath: <span class="string">'/build/'</span>,</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If we fire up <code>npm run build</code>, now webpack builds up your <code>bundle.js</code>.</p>
+<p>What we will be doing is <strong>move the dependencies that browser needs to deal with, to dependencies that webpack take care of</strong></p>
+<h3 id="Step-2-Improve-performance"><a href="#Step-2-Improve-performance" class="headerlink" title="Step 2: Improve performance"></a>Step 2: Improve performance</h3><p>CSS is synchronised, which means we only start loading the resources that CSS refers to after it’s fully loaded.<br>By moving the resource dependency into your bundle.js, you allow these resources to load early on.</p>
+<p>So these are for today of me getting to know the basic idea of webpack. </p>
+<h1 id="Next-Step"><a href="#Next-Step" class="headerlink" title="Next Step"></a>Next Step</h1><ul>
+<li>Follow <a href="https://www.youtube.com/watch?v=WQue1AN93YU" target="_blank" rel="noopener">this video</a> to try out how webpack functions.</li>
+<li>The Network inspection tool looks handy to use when concerned about performances and what requests are being made.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

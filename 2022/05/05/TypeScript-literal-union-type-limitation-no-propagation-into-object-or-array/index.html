@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        TypeScript literal union type limitation - no propagation into object or array - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-I-noticed-it"><span class="toc-text">How I noticed it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Findings"><span class="toc-text">Findings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preference"><span class="toc-text">Preference</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        TypeScript literal union type limitation - no propagation into object or array
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-05-05 10:35:32</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="How-I-noticed-it"><a href="#How-I-noticed-it" class="headerlink" title="How I noticed it"></a>How I noticed it</h2><p>I was writing a unit test suite leveraging the <code>test.each</code> table approach of jest.<br>We have a string literal union type like this:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> UnrefRefundReason =</span><br><span class="line">  | <span class="string">'ZERO_DOLLAR_REFUNDABLE'</span></span><br><span class="line">  | <span class="string">'MULTIPLE_PAYMENTS'</span></span><br><span class="line">  | <span class="string">'BLIND_REFUND'</span></span><br><span class="line">  | <span class="string">'DIFFERENT_PAYMENT_TYPES'</span></span><br></pre></td></tr></table></figure>
+
+<p>And the test table layout looks like this:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">test.each([</span><br><span class="line">  &#123;</span><br><span class="line">    someIds: <span class="literal">undefined</span>,</span><br><span class="line">    someBoolean: <span class="literal">true</span>,</span><br><span class="line">    reason: <span class="string">'DIFFERENT_PAYMENT_TYPES'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    someIds: [<span class="string">'1'</span>, <span class="string">'2'</span>],</span><br><span class="line">    someBoolean: <span class="literal">false</span>,</span><br><span class="line">    reason: <span class="string">'MULTIPLE_PAYMENTS'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    someIds: [<span class="string">'1'</span>, <span class="string">'2'</span>],</span><br><span class="line">    someBoolean: <span class="literal">true</span>,</span><br><span class="line">    reason: <span class="string">'MULTIPLE_PAYMENTS'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])(</span><br><span class="line">  <span class="string">'goes to the state of unreferencedPrompt with the correct reason $reason if unreferenced refund is needed'</span>,</span><br><span class="line">  <span class="keyword">async</span> (&#123;</span><br><span class="line">    someIds,</span><br><span class="line">    someBoolean,</span><br><span class="line">    reason,</span><br><span class="line">  &#125;: &#123;</span><br><span class="line">    someIds: <span class="built_in">string</span>[]</span><br><span class="line">    someBoolean: <span class="built_in">boolean</span></span><br><span class="line">    reason: UnrefRefundReason,</span><br><span class="line">  &#125;)&#123;</span><br><span class="line">     <span class="comment">//... test script</span></span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>The error I got was:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Types of property &#39;reason&#39; are incompatible.</span><br><span class="line">         Type &#39;string&#39; is not assignable to type &#39;UnrefRefundReason&#39;.</span><br></pre></td></tr></table></figure>
+
+<p>If I go with the other mapping approach (array -&gt; argument list):</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">test.each([</span><br><span class="line">  [<span class="literal">undefined</span>, <span class="literal">false</span>, <span class="string">'BLIND_REFUND'</span>],</span><br><span class="line">  [[], <span class="literal">false</span>, <span class="string">'BLIND_REFUND'</span>],</span><br><span class="line">  [<span class="literal">undefined</span>, <span class="literal">true</span>, <span class="string">'DIFFERENT_PAYMENT_TYPES'</span>],</span><br><span class="line">  [[], <span class="literal">true</span>, <span class="string">'DIFFERENT_PAYMENT_TYPES'</span>],</span><br><span class="line">  [[<span class="string">'1'</span>, <span class="string">'2'</span>], <span class="literal">false</span>, <span class="string">'MULTIPLE_PAYMENTS'</span>],</span><br><span class="line">  [[<span class="string">'1'</span>, <span class="string">'2'</span>], <span class="literal">true</span>, <span class="string">'MULTIPLE_PAYMENTS'</span>],</span><br><span class="line">])(</span><br><span class="line">  <span class="string">'goes to the state of unreferencedPrompt with the correct reason $reason if unreferenced refund is needed'</span>,</span><br><span class="line">  <span class="keyword">async</span> (</span><br><span class="line">    someIds: <span class="built_in">string</span>[] | <span class="literal">undefined</span>,</span><br><span class="line">    someBoolean: <span class="built_in">boolean</span>,</span><br><span class="line">    reason: UnrefRefundReason</span><br><span class="line">  ) =&gt; &#123;</span><br><span class="line">    <span class="comment">//...test script</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>I got similar error:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Type &#39;[undefined, boolean, string]&#39; is not assignable to type &#39;[originalRegisterSalePaymentIds: string[] | undefined, originalSalePaidByOtherPT: boolean, reason: UnrefRefundReason]&#39;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Findings"><a href="#Findings" class="headerlink" title="Findings"></a>Findings</h2><p>From <code>string</code> to <code>UnrefRefundReason</code>, TypeScript needs to do a “type narrowing”. But the type narrowing will not propagate into object. See explanation here:</p>
+<p><a href="https://github.com/microsoft/TypeScript/issues/31755#issuecomment-498669080" target="_blank" rel="noopener">https://github.com/microsoft/TypeScript/issues/31755#issuecomment-498669080</a></p>
+<h2 id="Preference"><a href="#Preference" class="headerlink" title="Preference"></a>Preference</h2><p>I am increasingly preferring enum instead of literal union:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">enum</span> UnrefRefundReason &#123;</span><br><span class="line">  ZERO_DOLLAR_REFUNDABLE = <span class="string">'ZERO_DOLLAR_REFUNDABLE'</span>,</span><br><span class="line">  MULTIPLE_PAYMENTS = <span class="string">'MULTIPLE_PAYMENTS'</span>,</span><br><span class="line">  BLIND_REFUND = <span class="string">'BLIND_REFUND'</span>,</span><br><span class="line">  DIFFERENT_PAYMENT_TYPES = <span class="string">'DIFFERENT_PAYMENT_TYPES'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

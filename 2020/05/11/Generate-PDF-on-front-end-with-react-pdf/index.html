@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Generate PDF on front end with react-pdf - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Prevent-SSR-in-Next-js"><span class="toc-text">Prevent SSR in Next.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code-for-a-nice-pdf"><span class="toc-text">Code for a nice pdf</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Creat-a-fixed-header-that-appears-on-each-page"><span class="toc-text">Creat a fixed header that appears on each page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Styled-Components"><span class="toc-text">Styled Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nesting-Views"><span class="toc-text">Nesting Views</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Generate PDF on front end with react-pdf
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-05-11 18:11:25</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I am working to achieve the function for user to generate their trip plan into a pdf that they can carry around with them. <a href="https://react-pdf.org/" target="_blank" rel="noopener">react-pdf</a> is a very powerful tool for me to achieve this goal.</p>
+<h1 id="Prevent-SSR-in-Next-js"><a href="#Prevent-SSR-in-Next-js" class="headerlink" title="Prevent SSR in Next.js"></a>Prevent SSR in Next.js</h1><p>As the web rendering functions of react-pdf only work on client side, the first problem I faced was to prevent server side rendering. I wrote <a href="https://niuniuanran.github.io/2020/05/07/Prevent-Next-js-Server-Side-Rendering/">another blog</a> on this issue.</p>
+<h1 id="Code-for-a-nice-pdf"><a href="#Code-for-a-nice-pdf" class="headerlink" title="Code for a nice pdf"></a>Code for a nice pdf</h1><p>So here comes the big part: create a nice pdf for user’s trip plan. There are limited options on what <a href="https://react-pdf.org/components" target="_blank" rel="noopener">components</a> I could use: </p>
+<ul>
+<li>Page</li>
+<li>Link</li>
+<li>Text</li>
+<li>View</li>
+<li>Image</li>
+<li>Note</li>
+<li>Canvas<br>It is to be noted that <code>View</code> can be nested within another <code>View</code>.</li>
+</ul>
+<h2 id="Creat-a-fixed-header-that-appears-on-each-page"><a href="#Creat-a-fixed-header-that-appears-on-each-page" class="headerlink" title="Creat a fixed header that appears on each page"></a>Creat a fixed header that appears on each page</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Text, View, Link &#125; from &#39;@react-pdf&#x2F;renderer&#39;;</span><br><span class="line"></span><br><span class="line">&lt;View fixed&gt;</span><br><span class="line">    &lt;Text</span><br><span class="line">     style&#x3D;&#123;&#123;</span><br><span class="line">       fontSize: 10,</span><br><span class="line">       textAlign: &#39;right&#39;,</span><br><span class="line">       margin: 5,</span><br><span class="line">       color: &#39;#ff4200&#39;,</span><br><span class="line">     &#125;&#125;</span><br><span class="line">    &gt;</span><br><span class="line">     Presented to you by&#123;&#39; &#39;&#125;</span><br><span class="line">     &lt;Link src&#x3D;&#123;&#39;http:&#x2F;&#x2F;triptime.cc&#39;&#125;&gt;TripTime&lt;&#x2F;Link&gt;</span><br><span class="line">    &lt;&#x2F;Text&gt;</span><br><span class="line">&lt;&#x2F;View&gt;</span><br></pre></td></tr></table></figure>
+<p>Here’s the generated header:</p>
+<img src="header.png" width="800px" alt="a fixed header on top of each page"/>
+
+<h2 id="Styled-Components"><a href="#Styled-Components" class="headerlink" title="Styled Components"></a>Styled Components</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import styled from &#39;@react-pdf&#x2F;styled-components&#39;;</span><br><span class="line"></span><br><span class="line">const GrayText &#x3D; styled.Text&#96;</span><br><span class="line">     color: #666;</span><br><span class="line">   &#96;;</span><br></pre></td></tr></table></figure>
+<p>Then I can use<code>&lt;GrayText&gt;{activity.description}&lt;/GrayText&gt;</code> to generate gray Text components.</p>
+<h2 id="Nesting-Views"><a href="#Nesting-Views" class="headerlink" title="Nesting Views"></a>Nesting Views</h2><p>Views can be nested.</p>
+<p>DayView:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import _ from &#39;underscore&#39;;</span><br><span class="line">import &#123; Text, View&#125; from &#39;@react-pdf&#x2F;renderer&#39;;</span><br><span class="line"></span><br><span class="line">export default function DayView(props) &#123;</span><br><span class="line">     const day &#x3D; props.dailyRecord.day;</span><br><span class="line">     const events &#x3D; _.sortBy(props.dailyRecord.events, &#39;start&#39;);</span><br><span class="line">   </span><br><span class="line">     return (</span><br><span class="line">       &lt;View&gt;</span><br><span class="line">         &lt;Text style&#x3D;&#123;&#123; color: &#39;#ff6400&#39;, fontSize: 16 &#125;&#125;&gt;&#123;day&#125;&lt;&#x2F;Text&gt;</span><br><span class="line">         &#123;events.map((event, index) &#x3D;&gt; &#123;</span><br><span class="line">           if (event.type &#x3D;&#x3D;&#x3D; &#39;travel&#39;)</span><br><span class="line">             return &lt;TravelView travel&#x3D;&#123;event&#125; key&#x3D;&#123;index&#125; &#x2F;&gt;;</span><br><span class="line">           else return &lt;ActivityView activity&#x3D;&#123;event&#125; key&#x3D;&#123;index&#125; &#x2F;&gt;;</span><br><span class="line">         &#125;)&#125;</span><br><span class="line">       &lt;&#x2F;View&gt;</span><br><span class="line">     );</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>ActivityView:</p>
+<figure class="highlight plain"><figcaption><span>ActivityView(props) &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  const activity &#x3D; props.activity;</span><br><span class="line">  return (</span><br><span class="line">    &lt;View style&#x3D;&#123;&#123; fontSize: 14, margin: 5 &#125;&#125; wrap&#x3D;&#123;false&#125;&gt;</span><br><span class="line">      &lt;Text&gt;Activity: &#123;activity.name&#125;&lt;&#x2F;Text&gt;</span><br><span class="line">      &lt;View style&#x3D;&#123;&#123; paddingLeft: 10, fontSize: 12 &#125;&#125;&gt;</span><br><span class="line">        &lt;GrayText&gt;&#123;activity.description&#125;&lt;&#x2F;GrayText&gt;</span><br><span class="line">        &#123;activity.address &amp;&amp; (</span><br><span class="line">          &lt;Text&gt;</span><br><span class="line">            &lt;GrayText&gt;At:&lt;&#x2F;GrayText&gt; &#123;activity.address&#125;</span><br><span class="line">          &lt;&#x2F;Text&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">        &lt;Text&gt;</span><br><span class="line">          &lt;GrayText&gt;From:&lt;&#x2F;GrayText&gt; &#123;formatTimeString(activity.start)&#125;&#123;&#39; &#39;&#125;</span><br><span class="line">          &lt;GrayText&gt;To:&lt;&#x2F;GrayText&gt; &#123;formatTimeString(activity.end)&#125;</span><br><span class="line">        &lt;&#x2F;Text&gt;</span><br><span class="line">      &lt;&#x2F;View&gt;</span><br><span class="line">    &lt;&#x2F;View&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Here’s the look of the trip plan pdf, organised by days:</p>
+<img src="days.png" width="800px" alt="activities and travels organised in days"/>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

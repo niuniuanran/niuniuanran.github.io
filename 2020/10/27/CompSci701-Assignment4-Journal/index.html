@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Kalah with improved Alterability and Testability - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Assignment4-Reflection"><span class="toc-text">Assignment4 Reflection:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kalah-with-improved-Alterability-and-Testability"><span class="toc-text">Kalah with improved Alterability and Testability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Extracting-BoardContent-from-Board"><span class="toc-text">Extracting BoardContent from Board</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-not-Decorator-pattern"><span class="toc-text">Why not Decorator pattern</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Template-Method"><span class="toc-text">Template Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UML-overall"><span class="toc-text">UML, overall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applying-Observability-and-Controllabiity-on-my-Kalah-Design"><span class="toc-text">Applying Observability and Controllabiity on my Kalah Design</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Observability"><span class="toc-text">Observability</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Observing-instruction"><span class="toc-text">Observing instruction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Observing-player’s-seeds"><span class="toc-text">Observing player’s seeds</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#More-insights-by-counting-method-invocation"><span class="toc-text">More insights by counting method invocation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controllability"><span class="toc-text">Controllability</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Kalah with improved Alterability and Testability
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-27 15:20:07</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Assignment4-Reflection"><a href="#Assignment4-Reflection" class="headerlink" title="Assignment4 Reflection:"></a>Assignment4 Reflection:</h1><h1 id="Kalah-with-improved-Alterability-and-Testability"><a href="#Kalah-with-improved-Alterability-and-Testability" class="headerlink" title="Kalah with improved Alterability and Testability"></a>Kalah with improved Alterability and Testability</h1><p>I am so happy that I get to “reasonably” use the design patterns and design principles I’ve always wanted to use in this assignment!</p>
+<h2 id="Extracting-BoardContent-from-Board"><a href="#Extracting-BoardContent-from-Board" class="headerlink" title="Extracting BoardContent from Board"></a>Extracting <code>BoardContent</code> from <code>Board</code></h2><p>I have always wanted to extract the model (which manages the two players’ pits) from the <code>Board</code> class, but found it hard to make the decision as there are so many small methods involved. Glad to finally achieve this.</p>
+<p>The biggest challenge was with <code>switchPlayer</code> method:</p>
+<ul>
+<li>It has to be able to be overrode later when implementing “undo”, because I have to ensure that the move history for one user is correctly erased whenever he finishes his turn.</li>
+<li><code>Board</code> should now know nothing about the two <code>PlayerPits</code>, otherwise it will break the encapsulation, and it does not make too much sense extracting <code>BoardContent</code> if <code>Board</code> wants to take care of <code>PlayerPits</code> itself.</li>
+</ul>
+<p>This is what I wound up having at this stage:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Board</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">switchPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        boardContent.switchPlayer();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BoardContent</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">switchPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        currentPlayerIndex = <span class="number">1</span> - currentPlayerIndex;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In this way, I can override <code>Board#switchPlayer()</code> as needed, without breaking the encapsulation of <code>PlayerPits</code> within <code>BoardContent</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BoardWithUndo</span> <span class="keyword">extends</span> <span class="title">Board</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">switchPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        snapshotStack.clear();</span><br><span class="line">        <span class="keyword">super</span>.switchPlayer();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>BoardContent</code> is the “model” responsible for the state of each player’s pits. It maps well with the “board content” concept in the context schema, containing the pits of two players. My <code>BoardContent</code> will not need to be changed in the unlikely case where the game’s context schema is changed. Now, my <code>Board</code> only needs to be changed when we are changing how the player can operate on the board. </p>
+<p>Separating the more stable model from the more dynamic operation interface makes the design more alterable because I can focus on changing or extending Board when implementing new game rules. </p>
+<h2 id="Why-not-Decorator-pattern"><a href="#Why-not-Decorator-pattern" class="headerlink" title="Why not Decorator pattern"></a>Why not Decorator pattern</h2><p>I thought of using Decorator Pattern, so that I could add new functionalities to Board by wrapping it in BoardDecorators. This was appealing because I would get rid of the chain of inheritance <code>BoardWithSkipAndUndo</code> → <code>BoardWithUndo</code> → <code>Board</code>.<br>However, I decided not to use the decorator pattern because it does not give me much flexibility in changing existing behaviours of the object being decorated. I have to directly override switchPlayer() to update the move history whenever there is a switch in turn, so I chose to directly extend Board instead of decorating it.</p>
+<h2 id="Template-Method"><a href="#Template-Method" class="headerlink" title="Template Method"></a>Template Method</h2><p>It is my first time using a template method for real!<br><code>CommandPrompter.promptNewCommand()</code> is a template method that defines how to prompt for user input and instantiate a concrete Command. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Command <span class="title">promptNewCommand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String userInput = promptForInput();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> inputInteger = Integer.parseInt(userInput);</span><br><span class="line">        <span class="keyword">return</span> processNumberInput(inputInteger);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</span><br><span class="line">        Command nonNumberCommand = processNonNumberInput(userInput);</span><br><span class="line">        <span class="keyword">if</span> (nonNumberCommand != <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> nonNumberCommand;</span><br><span class="line">    &#125;</span><br><span class="line">    io.println(<span class="string">"Invalid input. Please try again."</span>);</span><br><span class="line">    <span class="keyword">return</span> promptNewCommand();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> String <span class="title">promptForInput</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> Command <span class="title">processNumberInput</span><span class="params">(<span class="keyword">int</span> numberInput)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> Command <span class="title">processNonNumberInput</span><span class="params">(String nonNumberInput)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>This pattern makes it easy to add new possible user inputs.Whenever a new operation is added, for example, “u” for undo, I just need to create a new subclass of CommandPrompter and implement three hook methods:</p>
+<ol>
+<li><code>promptForInput()</code>, to tell users what input options are available;</li>
+<li><code>processNumberInput(int number)</code> to process user’s number inputs and encapsulate the game operation into a concrete Command object.</li>
+<li><code>processNonNumberInput(String input)</code>, to process user’s non-number inputs and encapsulate the game operation into a concrete Command object.</li>
+</ol>
+<p>For example, in <code>CommandPrompterWithUndo</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> String <span class="title">promptForInput</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    boardWithUndo.printBoard();</span><br><span class="line">    <span class="keyword">return</span> io.readFromKeyboard(boardWithUndo.nextInputInstruction());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Command <span class="title">processNumberInput</span><span class="params">(<span class="keyword">int</span> numberInput)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> houseIndex = numberInput - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> SowCommand(boardWithUndo, houseIndex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Command <span class="title">processNonNumberInput</span><span class="params">(String nonNumberInput)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nonNumberInput.toLowerCase().equals(<span class="string">"q"</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> QuitCommand(boardWithUndo);</span><br><span class="line">    <span class="keyword">if</span> (nonNumberInput.toLowerCase().equals(<span class="string">"u"</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UndoCommand(boardWithUndo);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UML-overall"><a href="#UML-overall" class="headerlink" title="UML, overall"></a>UML, overall</h2><img src="uml.png" alt="" width="1000px"/>
+
+<h2 id="Applying-Observability-and-Controllabiity-on-my-Kalah-Design"><a href="#Applying-Observability-and-Controllabiity-on-my-Kalah-Design" class="headerlink" title="Applying Observability and Controllabiity on my Kalah Design"></a>Applying Observability and Controllabiity on my Kalah Design</h2><p>It was nice to be able to have the observability and controllabiity insights for testability. </p>
+<h3 id="Observability"><a href="#Observability" class="headerlink" title="Observability"></a>Observability</h3><p>In addition to printing the board to observe the state of pits, I also added counters of method calls to allow examining of what happened within the programme. For example, MockPlayerPits overrides the method putSeedInHouse() to increment the putSeedInHouseCounter with each call. Test cases can then examine the putSeedInHouseCounter to ensure the process of sowing went as expected.</p>
+<h4 id="Observing-instruction"><a href="#Observing-instruction" class="headerlink" title="Observing instruction"></a>Observing instruction</h4><p>To check what round the player is at, I could examine what instruction the game gave:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">       public void testGetBonusRound() &#123;</span><br><span class="line">           prepareBoard(playerPits1, playerPits2);</span><br><span class="line">           String firstInstruction &#x3D; board.nextInputInstruction();</span><br><span class="line">           board.sow(5);</span><br><span class="line">           assert board.nextInputInstruction().equals(firstInstruction);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Observing-player’s-seeds"><a href="#Observing-player’s-seeds" class="headerlink" title="Observing player’s seeds"></a>Observing player’s seeds</h4><p>I could examine the player’s seeds by letting this specific player print their pits:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSowWithoutCaptureOrBonusRound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">assert</span> playerPits1.housesToString(<span class="number">1</span>, <span class="number">6</span>).equals(<span class="string">"1[ 0] | 2[ 6] | 3[ 3] | 4[ 2] | 5[ 0] | 6[ 1] | "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="More-insights-by-counting-method-invocation"><a href="#More-insights-by-counting-method-invocation" class="headerlink" title="More insights by counting method invocation"></a>More insights by counting method invocation</h4><p>By adding method invocation counters in the mocks, I could gain more insights into what happened:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MockBoardContentSnapshot</span> <span class="keyword">extends</span> <span class="title">BoardContentSnapshot</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> restoreTimeCounter;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MockBoardContentSnapshot</span><span class="params">(PlayerPitsSnapshot currentPlayerPitsSnapshot, PlayerPitsSnapshot opponentPlayerPitsSnapshot)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(currentPlayerPitsSnapshot, opponentPlayerPitsSnapshot);</span><br><span class="line">        restoreTimeCounter = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRestoreTimeCounter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> restoreTimeCounter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">restoreState</span><span class="params">(BoardContent boardContent)</span> </span>&#123;</span><br><span class="line">        restoreTimeCounter++;</span><br><span class="line">        <span class="keyword">super</span>.restoreState(boardContent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Controllability"><a href="#Controllability" class="headerlink" title="Controllability"></a>Controllability</h3><p>I created a constructor for MockPlayerPits that takes an int array for the number of seeds in each house.<br>By these the customisable mock, I am able to easily control the state of the game, while not breaking the encapsulation of the original PlayerPits.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MockPlayerPits</span><span class="params">(<span class="keyword">int</span>[] houseSeedNum, <span class="keyword">int</span> storeSeedNum)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(houseSeedNum.length, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">        houses[i].addSeeds(houseSeedNum[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    store.addSeeds(storeSeedNum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

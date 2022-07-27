@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Test React component/hook that uses React Apollo - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finding-1-MockedProvider"><span class="toc-text">Finding 1: MockedProvider</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#New-Problem-I-don’t-need-a-component-I-need-to-render-a-hook"><span class="toc-text">New Problem: I don’t need a component, I need to render a hook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finding-2"><span class="toc-text">Finding 2:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#New-problem-mocking-graphQL-error-in-mocks-gets-type-error"><span class="toc-text">New problem: mocking graphQL error in mocks gets type error</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Specify-graphQL-error-as-a-field-of-result"><span class="toc-text">1. Specify graphQL error as a field of result</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-use-GraphQLError-constructor-from-graphql-library"><span class="toc-text">2. use GraphQLError constructor from graphql library</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#New-problem-wrong-act"><span class="toc-text">New problem: wrong act?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Symptoms"><span class="toc-text">Symptoms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Research-on-act-doc"><span class="toc-text">Research on act doc</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Test React component/hook that uses React Apollo
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-03-07 15:11:49</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#GraphQL" title="GraphQL">GraphQL</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Testing" title="Testing">Testing</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>We have a <code>usePaymentEffectReducer</code> that needs to trigger <code>useQuery</code> as a hook:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useQuery &#125; <span class="keyword">from</span> <span class="string">'@apollo/client'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> usePairingWithDispatch = (</span><br><span class="line">  <span class="comment">// arguments</span></span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  useQuery&lt;LSPAYPairingData&gt;(GQL_QUERY), &#123;</span><br><span class="line">    variables: &#123; ... &#125;,</span><br><span class="line">    onCompleted: <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// Handle data</span></span><br><span class="line">      <span class="comment">// dispatch PAIR_OK</span></span><br><span class="line">    &#125;,</span><br><span class="line">    onError: <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// error handling</span></span><br><span class="line">      <span class="comment">// dispatch ERROR</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In order to test the upper hook, the GraphQL query done by Apollo client needs to be mocked out.</p>
+<h2 id="Finding-1-MockedProvider"><a href="#Finding-1-MockedProvider" class="headerlink" title="Finding 1: MockedProvider"></a>Finding 1: MockedProvider</h2><p><a href="https://www.apollographql.com/docs/react/v2/api/react-testing/" target="_blank" rel="noopener">https://www.apollographql.com/docs/react/v2/api/react-testing/</a></p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">it(<span class="string">'runs the mocked query'</span>, () =&gt; &#123;</span><br><span class="line">  render(</span><br><span class="line">    &lt;MockedProvider mocks=&#123;mocks&#125;&gt;</span><br><span class="line">      &lt;MyQueryComponent /&gt;</span><br><span class="line">    &lt;<span class="regexp">/MockedProvider&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ Run assertions on &lt;MyQueryComponent/</span>&gt;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="New-Problem-I-don’t-need-a-component-I-need-to-render-a-hook"><a href="#New-Problem-I-don’t-need-a-component-I-need-to-render-a-hook" class="headerlink" title="New Problem: I don’t need a component, I need to render a hook"></a>New Problem: I don’t need a component, I need to render a hook</h2><p>I cannot just do:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; result, waitForNextUpdate &#125; = renderHook(<span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">&lt;MockedProvider&gt;</span><br><span class="line">  usePaymentEffectReducer(&#123;</span><br><span class="line">    ...TEST_ARGS,</span><br><span class="line">  &#125;)</span><br><span class="line">  &lt;<span class="regexp">/MockedProvider&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Finding-2"><a href="#Finding-2" class="headerlink" title="Finding 2:"></a>Finding 2:</h2><p><a href="https://react-hooks-testing-library.com/usage/advanced-hooks#context" target="_blank" rel="noopener">https://react-hooks-testing-library.com/usage/advanced-hooks#context</a></p>
+<blockquote>
+<p>Often, a hook is going to need a value out of context. The useContext hook is really good for this, but it will often require a Provider to be wrapped around the component using the hook. We can use the wrapper option for renderHook to do just that.</p>
+</blockquote>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wrapper = <span class="function">(<span class="params">&#123; children &#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;CounterStepProvider step=&#123;<span class="number">2</span>&#125;&gt;&#123;children&#125;&lt;<span class="regexp">/CounterStepProvider&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br><span class="line"><span class="regexp">const &#123; result &#125; = renderHook(() =&gt; useCounter(), &#123; wrapper &#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="New-problem-mocking-graphQL-error-in-mocks-gets-type-error"><a href="#New-problem-mocking-graphQL-error-in-mocks-gets-type-error" class="headerlink" title="New problem: mocking graphQL error in mocks gets type error"></a>New problem: mocking <code>graphQL</code> error in mocks gets type error</h2><h3 id="1-Specify-graphQL-error-as-a-field-of-result"><a href="#1-Specify-graphQL-error-as-a-field-of-result" class="headerlink" title="1. Specify graphQL error as a field of result"></a>1. Specify graphQL error as a field of <code>result</code></h3><p><a href="https://github.com/apollographql/react-apollo/issues/1127" target="_blank" rel="noopener">https://github.com/apollographql/react-apollo/issues/1127</a></p>
+<h3 id="2-use-GraphQLError-constructor-from-graphql-library"><a href="#2-use-GraphQLError-constructor-from-graphql-library" class="headerlink" title="2. use GraphQLError constructor from graphql library"></a>2. use <code>GraphQLError</code> constructor from <code>graphql</code> library</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; GraphQLError &#125; <span class="keyword">from</span> <span class="string">'graphql'</span></span><br><span class="line">mocks=&#123;[</span><br><span class="line">         &#123;</span><br><span class="line">           request: APOLLO_REQUEST,</span><br><span class="line">           result: &#123;</span><br><span class="line">             errors: [</span><br><span class="line">               <span class="keyword">new</span> GraphQLError(</span><br><span class="line">                 <span class="string">'pairing missing'</span>,</span><br><span class="line">                 [],</span><br><span class="line">                 <span class="literal">undefined</span>,</span><br><span class="line">                 [],</span><br><span class="line">                 [],</span><br><span class="line">                 <span class="literal">undefined</span>,</span><br><span class="line">                 &#123; <span class="attr">code</span>: SWIPER_ERROR_CODES.CODE_REGISTER_PAIRING_NOT_FOUND &#125;</span><br><span class="line">               ),</span><br><span class="line">             ],</span><br><span class="line">           &#125;,</span><br><span class="line">         &#125;,</span><br><span class="line">       ]&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="New-problem-wrong-act"><a href="#New-problem-wrong-act" class="headerlink" title="New problem: wrong act?"></a>New problem: wrong <code>act</code>?</h2><h3 id="Symptoms"><a href="#Symptoms" class="headerlink" title="Symptoms"></a>Symptoms</h3><p>I imported <code>act</code> together with <code>renderHook</code>, thinking that would make sure my <code>act</code> will be the correct one:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; renderHook, act &#125; <span class="keyword">from</span> <span class="string">'@testing-library/react-hooks'</span></span><br></pre></td></tr></table></figure>
+
+<p>The code where I used <code>act</code> looks like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; result &#125; = renderHook(<span class="function"><span class="params">()</span> =&gt;</span> usePaymentEffectReducer(TEST_ARGS), &#123;</span><br><span class="line">  wrapper: getApolloWrapperWithPairings([TEST_PAIRING_DATA]),</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">await</span> waitFor(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  expect(result.current[<span class="number">0</span>].status).toBe(<span class="string">'error'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">act(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  result.current[<span class="number">1</span>](&#123;</span><br><span class="line">    type: <span class="string">'RETRY'</span>,</span><br><span class="line">    previousState: COLLECTING_STATE <span class="keyword">as</span> PaymentState,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>However, I still get an error message like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Warning: It looks like you<span class="string">'re using the wrong act() around your test interactions.</span></span><br><span class="line"><span class="string">Be sure to use the matching version of act() corresponding to your renderer:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// for react-dom:</span></span><br><span class="line"><span class="string">import &#123;act&#125; from '</span>react-dom/test-utils<span class="string">';</span></span><br><span class="line"><span class="string">// ...</span></span><br><span class="line"><span class="string">act(() =&gt; ...);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// for react-test-renderer:</span></span><br><span class="line"><span class="string">import TestRenderer from '</span>react-test-renderer<span class="string">';</span></span><br><span class="line"><span class="string">const &#123;act&#125; = TestRenderer;</span></span><br><span class="line"><span class="string">// ...</span></span><br><span class="line"><span class="string">act(() =&gt; ...);</span></span><br><span class="line"><span class="string">    in TestComponent</span></span><br><span class="line"><span class="string">    in ApolloProvider (created by MockedProvider)</span></span><br><span class="line"><span class="string">    in MockedProvider</span></span><br><span class="line"><span class="string">    in Unknown</span></span><br><span class="line"><span class="string">    in Suspense</span></span><br><span class="line"><span class="string">    in ErrorBoundary</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Research-on-act-doc"><a href="#Research-on-act-doc" class="headerlink" title="Research on act doc"></a>Research on <code>act</code> doc</h3><p>According <a href="https://react-hooks-testing-library.com/reference/api#act" target="_blank" rel="noopener">render-hooks/act</a>:</p>
+<blockquote>
+<p>This is the same act function function that is exported from your chosen renderer.</p>
+</blockquote>
+<p>Which of the <a href="https://react-hooks-testing-library.com/installation#renderer" target="_blank" rel="noopener">two renderers</a> will I import by importing <code>react-hooks</code>?</p>
+<blockquote>
+<p>When using standard import for this library (show below), we will attempt to auto-detect which renderer you have installed and use it without needing any specific wiring up to make it happen. If you have both installed in your project, and you use the standard import (see below) the library will default to using react-test-renderer.</p>
+</blockquote>
+<blockquote>
+<p>We use react-test-renderer by default as it enables hooks to be tested that are designed for either react or react-native and it is compatible with more test runners out-of-the-box as there is no DOM requirement to use it.</p>
+</blockquote>
+<p>The interesting thing is that the <code>wrapper</code> will use <code>dom</code> renderer, so if <code>act</code> use the <code>native</code> renderer imported by auto detection, there will be a mismatch.</p>
+<p>If I import specifically <code>dom</code> renderer like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; renderHook, act &#125; <span class="keyword">from</span> <span class="string">'@testing-library/react-hooks/dom'</span></span><br></pre></td></tr></table></figure>
+
+<p>The mismatch will be resolved.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

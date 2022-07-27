@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Golang: how string encoding impacts result of len() - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#builtin-function-len-v-Type-int"><span class="toc-text">builtin function: len(v Type) int</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-rune"><span class="toc-text">What is rune</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-string"><span class="toc-text">What is &#96;string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Range-expression-on-a-string"><span class="toc-text">Range expression on a string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Index-expression-on-a-string"><span class="toc-text">Index expression on a string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Difference-between-len-rune-s-and-len-s"><span class="toc-text">Difference between len([]rune(s)) and len(s)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Golang: how string encoding impacts result of len()
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-05-24 12:30:05</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Go" title="Go">Go</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Encoding" title="Encoding">Encoding</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="builtin-function-len-v-Type-int"><a href="#builtin-function-len-v-Type-int" class="headerlink" title="builtin function: len(v Type) int"></a>builtin function: <code>len(v Type) int</code></h2><p>The len built-in function returns the length of v, according to its type:</p>
+<ul>
+<li>Array: the number of elements in v.</li>
+<li>Pointer to array: the number of elements in *v (even if v is nil).</li>
+<li>Slice, or map: the number of elements in v; if v is nil, len(v) is zero.</li>
+<li>String: the number of <strong>bytes</strong> in v.</li>
+<li>Channel: the number of elements queued (unread) in the channel buffer; if v is nil, len(v) is zero.</li>
+</ul>
+<h2 id="What-is-rune"><a href="#What-is-rune" class="headerlink" title="What is rune"></a>What is <code>rune</code></h2><p>rune is an alias for int32 and is equivalent to int32 in all ways. It is used, by convention, to distinguish character values from integer values.</p>
+<p>Representing Unicode code points.</p>
+<p><code>type rune = int32</code></p>
+<h2 id="What-is-string"><a href="#What-is-string" class="headerlink" title="What is `string"></a>What is `string</h2><p>string is the set of all strings of 8-bit bytes, conventionally but not necessarily representing UTF-8-encoded text. A string may be empty, but not nil. Values of string type are immutable.</p>
+<p><code>type string string</code></p>
+<h2 id="Range-expression-on-a-string"><a href="#Range-expression-on-a-string" class="headerlink" title="Range expression on a string"></a>Range expression on a string</h2><p>See <a href="https://golang.org/ref/spec#RangeClause" target="_blank" rel="noopener">Range expression doc here</a></p>
+<p>For a string value, the “range” clause iterates over the <strong>Unicode</strong> code points in the string starting at byte index 0. </p>
+<ul>
+<li>On successive iterations, the index value will be the index of the first byte of successive UTF-8-encoded code points in the string, </li>
+<li>and the second value, of type <code>rune</code>, will be the value of the corresponding code point. </li>
+</ul>
+<p>If the iteration encounters an invalid UTF-8 sequence, the second value will be 0xFFFD, the Unicode replacement character, and the next iteration will advance a single byte in the string.</p>
+<h2 id="Index-expression-on-a-string"><a href="#Index-expression-on-a-string" class="headerlink" title="Index expression on a string"></a>Index expression on a string</h2><p>See <a href="https://golang.org/ref/spec#Index_expressions" target="_blank" rel="noopener">Index expression doc here</a></p>
+<p><code>a[x]</code> is the non-constant byte value at index x and the type of a[x] is byte</p>
+<h2 id="Difference-between-len-rune-s-and-len-s"><a href="#Difference-between-len-rune-s-and-len-s" class="headerlink" title="Difference between len([]rune(s)) and len(s)"></a>Difference between len([]rune(s)) and len(s)</h2><p><code>rune[]</code> splits string into four-byte characters; len(s) counts how many bytes are in the string.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	s :&#x3D; &quot;H世界&quot;</span><br><span class="line">    fmt.Println(&quot;Range expression on rune slice&quot;)</span><br><span class="line">	runes :&#x3D; []rune(s)</span><br><span class="line">	for _, r :&#x3D; range runes &#123;</span><br><span class="line">		fmt.Println(r)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(&quot;Range expression on string&quot;)</span><br><span class="line">	for _, l :&#x3D; range s &#123;</span><br><span class="line">		fmt.Println(l)</span><br><span class="line">	&#125;</span><br><span class="line">    fmt.Println(&quot;Index expression on string&quot;)</span><br><span class="line">	for i :&#x3D; 0; i &lt; len(s); i++ &#123;</span><br><span class="line">		fmt.Println(s[i])</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(&quot;------&quot;)</span><br><span class="line"></span><br><span class="line">	fmt.Println(&quot;string length: &quot;, len(s))</span><br><span class="line">	fmt.Println(&quot;runes length: &quot;, len(runes))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Range expression on rune slice</span><br><span class="line">72</span><br><span class="line">19990</span><br><span class="line">30028</span><br><span class="line">Range expression on string</span><br><span class="line">72</span><br><span class="line">19990</span><br><span class="line">30028</span><br><span class="line">Index expression on string</span><br><span class="line">72</span><br><span class="line">228</span><br><span class="line">184</span><br><span class="line">150</span><br><span class="line">231</span><br><span class="line">149</span><br><span class="line">140</span><br><span class="line">------</span><br><span class="line">string length:  7</span><br><span class="line">runes length:  3</span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

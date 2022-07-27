@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS Billing and Pricing - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Organizations-Consolidated-Billing"><span class="toc-text">Organizations, Consolidated Billing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EC2-Costs"><span class="toc-text">EC2 Costs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spot-instance-pricing"><span class="toc-text">Spot instance pricing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scheduled-Reserved-Instances"><span class="toc-text">Scheduled Reserved Instances</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DynamoDB-Pricing"><span class="toc-text">DynamoDB Pricing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#on-demand-capacity-mode"><span class="toc-text">on-demand capacity mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#provisioned-capacity-mode"><span class="toc-text">provisioned capacity mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pricing-Terms"><span class="toc-text">Pricing Terms</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Read-request-unit-RCU"><span class="toc-text">Read request unit: RCU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Write-request-unit-WCU"><span class="toc-text">Write request unit: WCU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replicated-write-request-unit-rWCU"><span class="toc-text">Replicated write request unit: rWCU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Streams-read-request-unit"><span class="toc-text">Streams read request unit:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transactional-read-write-requests"><span class="toc-text">Transactional read&#x2F;write requests:</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Billing and Pricing
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-20 11:38:53</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS CP Test" title="AWS CP Test">AWS CP Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Organizations-Consolidated-Billing"><a href="#Organizations-Consolidated-Billing" class="headerlink" title="Organizations, Consolidated Billing"></a>Organizations, Consolidated Billing</h1><p>You can use <strong>AWS Organizations</strong> to link all your accounts, and then use <strong>Consolidated Billing</strong> to <strong>utilize unused RI price with Instances of the same type in other accounts</strong>.</p>
+<p>You have multiple AWS Accounts and additional unused reserved instances in the main production account.  You have deployed On-Demand instances in the Test &amp; Dev Account.  How can you reduce your total EC2 costs?  </p>
+<ul>
+<li>Step one, Create AWS Organizations </li>
+<li>Use Consolidated Billing to link the Accounts.</li>
+</ul>
+<h1 id="EC2-Costs"><a href="#EC2-Costs" class="headerlink" title="EC2 Costs"></a>EC2 Costs</h1><p>Detailed monitoring and use of Elastic Load Balancers will increase your EC2 Instances costs.</p>
+<h2 id="Spot-instance-pricing"><a href="#Spot-instance-pricing" class="headerlink" title="Spot instance pricing"></a>Spot instance pricing</h2><p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html" target="_blank" rel="noopener">See here for the tables</a>.<br>If you terminate your spot instance, you are charged with the same policy as on-demand (though different rate): Linux, for second; Windows, for full hour even if you use partial hour.<br>If EC2 terminate your spot instance, if it’s in spot block, no charge at all; if not in spot block, for Linux you are charged by second, for windows you are not charged for the partial hour.</p>
+<h2 id="Scheduled-Reserved-Instances"><a href="#Scheduled-Reserved-Instances" class="headerlink" title="Scheduled Reserved Instances"></a>Scheduled Reserved Instances</h2><p>Scheduled Reserved Instances (Scheduled Instances) enable you to purchase capacity reservations that recur on a <strong>daily, weekly, or monthly</strong> basis, with a specified start time and duration, for <strong>a one-year term</strong>.</p>
+<h1 id="DynamoDB-Pricing"><a href="#DynamoDB-Pricing" class="headerlink" title="DynamoDB Pricing"></a>DynamoDB Pricing</h1><p>DynamoDB charges for *<em>reading, writing, and storing data *</em>in your DynamoDB tables, along with any optional features you choose to enable.<br>DynamoDB has two capacity modes and those come with specific billing options for processing reads and writes on your tables: on-demand and provisioned. </p>
+<h2 id="on-demand-capacity-mode"><a href="#on-demand-capacity-mode" class="headerlink" title="on-demand capacity mode"></a>on-demand capacity mode</h2><p>With on-demand capacity mode, DynamoDB charges you for the data reads and writes your application performs on your tables. You do not need to specify how much read and write throughput you expect your application to perform because DynamoDB instantly accommodates your workloads as they ramp up or down.</p>
+<h2 id="provisioned-capacity-mode"><a href="#provisioned-capacity-mode" class="headerlink" title="provisioned capacity mode"></a>provisioned capacity mode</h2><p>With provisioned capacity mode, you specify the number of reads and writes per second that you expect your application to require. </p>
+<h2 id="Pricing-Terms"><a href="#Pricing-Terms" class="headerlink" title="Pricing Terms"></a>Pricing Terms</h2><h3 id="Read-request-unit-RCU"><a href="#Read-request-unit-RCU" class="headerlink" title="Read request unit: RCU"></a>Read request unit: RCU</h3><p>API calls to read data from your table are billed in read request units. DynamoDB read requests can be either strongly consistent, eventually consistent, or transactional. A strongly consistent read request of up to 4 KB requires one read request unit. For items larger than 4 KB, additional read request units are required. For items up to 4 KB in size, an eventually consistent read request requires one-half read request unit, and a transactional read request requires two read request units. For example, a strongly consistent read request of an 8 KB item requires two read request units, an eventually consistent read of an 8 KB item requires one read request unit, and a transactional read of an 8 KB item requires four read request units. See Read Consistency for more details.</p>
+<h3 id="Write-request-unit-WCU"><a href="#Write-request-unit-WCU" class="headerlink" title="Write request unit: WCU"></a>Write request unit: WCU</h3><p>API calls to write data to your table are billed in write request units. A standard write request unit can write an item up to 1 KB. For items larger than 1 KB, additional write request units are required. A transactional write requires two write request units. For example, a write request of a 1 KB item requires one write request unit, a write request of a 3 KB item requires three write request units, and a transactional write request of a 3 KB item requires six write request units.</p>
+<h3 id="Replicated-write-request-unit-rWCU"><a href="#Replicated-write-request-unit-rWCU" class="headerlink" title="Replicated write request unit: rWCU"></a>Replicated write request unit: rWCU</h3><p>hen using DynamoDB global tables, your data is written automatically to multiple AWS Regions of your choice. Each write occurs in the local Region as well as the replicated Regions.</p>
+<h3 id="Streams-read-request-unit"><a href="#Streams-read-request-unit" class="headerlink" title="Streams read request unit:"></a>Streams read request unit:</h3><p>Each GetRecords API call to DynamoDB Streams is a streams read request unit. Each streams read request unit can return up to 1 MB of data.</p>
+<h3 id="Transactional-read-write-requests"><a href="#Transactional-read-write-requests" class="headerlink" title="Transactional read/write requests:"></a>Transactional read/write requests:</h3><p>In DynamoDB, a transactional read or write differs from a standard read or write because it guarantees all operations contained in a single transaction set succeed or fail as a set.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

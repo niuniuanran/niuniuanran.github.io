@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        CompSci701 Lecture Journal - Alterability - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lecture-7-1-Assessing-Alterability"><span class="toc-text">Lecture 7.1: Assessing Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Assessing-with-Change-Cases"><span class="toc-text">Assessing with Change Cases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Likelihood-gt-Value"><span class="toc-text">Likelihood -&gt; Value</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Impact-gt-Impact-on-the-alterability-assessment"><span class="toc-text">Impact -&gt; Impact on the alterability assessment</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Assessing-Impact"><span class="toc-text">Assessing Impact</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decision-Making-on-Changes"><span class="toc-text">Decision Making on Changes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alterability-is-not-connected-with-a-specific-change"><span class="toc-text">Alterability is not connected with a specific change</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-useful-heuristic"><span class="toc-text">A useful heuristic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Consequences-of-this-Heuristic"><span class="toc-text">Consequences of this Heuristic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Notes-about-the-heuristic-that-will-offer-some-insights"><span class="toc-text">Notes about the heuristic that will offer some insights</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lecture-7-2-Design-Patterns"><span class="toc-text">Lecture 7.2: Design Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition-and-Usage"><span class="toc-text">Definition and Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-Solution"><span class="toc-text">General Solution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Problems"><span class="toc-text">Common Problems</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relationship-with-Maintainability"><span class="toc-text">Relationship with Maintainability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Composite-Pattern"><span class="toc-text">Composite Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Design-for-Uniformity-v-s-Design-for-Type-Safety"><span class="toc-text">Design for Uniformity v.s. Design for Type Safety</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composite-Pattern-and-Alterability"><span class="toc-text">Composite Pattern and Alterability</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lecture-8-1-Dependency-Injection"><span class="toc-text">Lecture 8.1: Dependency Injection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Roles-involved-in-DI"><span class="toc-text">Roles involved in DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Client"><span class="toc-text">Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interface"><span class="toc-text">Interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Injector"><span class="toc-text">Injector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Forms-of-Dependency-Injection"><span class="toc-text">Forms of Dependency Injection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructor-Injection"><span class="toc-text">Constructor Injection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setter-Injection"><span class="toc-text">Setter Injection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interface-Injection"><span class="toc-text">Interface Injection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Related-Design-Principles-and-Patterns"><span class="toc-text">Related Design Principles and Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-Responsibility"><span class="toc-text">Single Responsibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependency-Inversion"><span class="toc-text">Dependency Inversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inversion-of-Control"><span class="toc-text">Inversion of Control</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CompSci701 Lecture Journal - Alterability
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-01 10:14:40</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Lecture-7-1-Assessing-Alterability"><a href="#Lecture-7-1-Assessing-Alterability" class="headerlink" title="Lecture 7.1: Assessing Alterability"></a>Lecture 7.1: Assessing Alterability</h1><p>Alterability is a <strong>Quality Attribute</strong> for the <strong>design</strong> of the software.</p>
+<p>Requirement ➡️ Amount of Change ⬅️ Alterability</p>
+<p>Today we will discuss how to assess alterability more reliably:</p>
+<ol>
+<li>Change Cases provides a way to discuss what kinds of changes may be needed<ul>
+<li>Likelihood</li>
+<li>Impact</li>
+</ul>
+</li>
+<li>A useful heuristic: C/N comparing with I, how many <em>distinct elements</em> (C) are to be changed to achieve the required impact on the programme behaviour (I)<ul>
+<li>A design that only requires adding new classes when changes are needed is considered good: new classes not counted into C.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Assessing-with-Change-Cases"><a href="#Assessing-with-Change-Cases" class="headerlink" title="Assessing with Change Cases"></a>Assessing with Change Cases</h2><p>Describe the changes we want to make to the programme.</p>
+<p>Include the <em>likelihood</em> and <em>impact</em>.</p>
+<h3 id="Likelihood-gt-Value"><a href="#Likelihood-gt-Value" class="headerlink" title="Likelihood -&gt; Value"></a>Likelihood -&gt; Value</h3><p>It would not be worth the trouble to consider this change case when assessing alterability.</p>
+<h3 id="Impact-gt-Impact-on-the-alterability-assessment"><a href="#Impact-gt-Impact-on-the-alterability-assessment" class="headerlink" title="Impact -&gt; Impact on the alterability assessment"></a>Impact -&gt; Impact on the alterability assessment</h3><p>We would expect a change case to be easily covered if it has a low impact.</p>
+<h4 id="Assessing-Impact"><a href="#Assessing-Impact" class="headerlink" title="Assessing Impact"></a>Assessing Impact</h4><p>Assessed against <strong>requirements</strong>.<br>How much of the system <strong>beheviour</strong> will be changed by the change case?</p>
+<h3 id="Decision-Making-on-Changes"><a href="#Decision-Making-on-Changes" class="headerlink" title="Decision Making on Changes"></a>Decision Making on Changes</h3><blockquote>
+<p>Make design choices that lead to designs where the cost to implement a change case is consistent with its impact.</p>
+</blockquote>
+<h2 id="Alterability-is-not-connected-with-a-specific-change"><a href="#Alterability-is-not-connected-with-a-specific-change" class="headerlink" title="Alterability is not connected with a specific change"></a>Alterability is not connected with a specific change</h2><p>We assess the alterability of a <strong>design</strong>: if the design does not change, its alterability should not change.</p>
+<h2 id="A-useful-heuristic"><a href="#A-useful-heuristic" class="headerlink" title="A useful heuristic"></a>A useful heuristic</h2><p>C(number of classes to be changed)/N(total number of classes)<br>v.s.<br>I (impact value, between 0 and 1)</p>
+<h3 id="Consequences-of-this-Heuristic"><a href="#Consequences-of-this-Heuristic" class="headerlink" title="Consequences of this Heuristic"></a>Consequences of this Heuristic</h3><p>Goal: Reduce C/N</p>
+<h3 id="Notes-about-the-heuristic-that-will-offer-some-insights"><a href="#Notes-about-the-heuristic-that-will-offer-some-insights" class="headerlink" title="Notes about the heuristic that will offer some insights"></a>Notes about the heuristic that will offer some insights</h3><ul>
+<li>C does <em>not</em> include any new classes created. If the design allows us to add new classes without changing existing classes, this is an alterable design.</li>
+<li>Class is counted as changed no matter how many changes are made. </li>
+<li>Bass, Clements, Kazman definition:<ul>
+<li><blockquote>
+<p>a system is typically modifiable if changes involve <strong>the fewest possible number of distinct elements</strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Lecture-7-2-Design-Patterns"><a href="#Lecture-7-2-Design-Patterns" class="headerlink" title="Lecture 7.2: Design Patterns"></a>Lecture 7.2: Design Patterns</h1><h2 id="Definition-and-Usage"><a href="#Definition-and-Usage" class="headerlink" title="Definition and Usage"></a>Definition and Usage</h2><p>A <em>general solution</em> to a <em>commonly occurring problem</em> within a <em>given context</em> in software design.</p>
+<h3 id="General-Solution"><a href="#General-Solution" class="headerlink" title="General Solution"></a>General Solution</h3><ul>
+<li>Not a specific implementation.</li>
+<li>Can be varied case by case. Some examples I can think of:<ol>
+<li>In command pattern, a queue of commands v.s. each single command being executed immediately</li>
+<li>In composite pattern, uniformity v.s. type safety</li>
+<li>In strategy pattern, an array of strategy objects v.s. a field of generic type</li>
+</ol>
+</li>
+</ul>
+<h3 id="Common-Problems"><a href="#Common-Problems" class="headerlink" title="Common Problems"></a>Common Problems</h3><p>“Common”: Has been used in multiple systems and so should expect to use it in more. Some examples:</p>
+<ol>
+<li>Composite pattern:<ul>
+<li>File system</li>
+<li>Swing components</li>
+<li>red-black tree</li>
+</ul>
+</li>
+<li>Decorator pattern:<ul>
+<li>Swing Layer</li>
+<li>Java IO</li>
+</ul>
+</li>
+</ol>
+<h2 id="Relationship-with-Maintainability"><a href="#Relationship-with-Maintainability" class="headerlink" title="Relationship with Maintainability"></a>Relationship with Maintainability</h2><ol>
+<li>Relationship with Alterability<ul>
+<li>Do not support Alterability by definitions</li>
+<li>Tend to have some impact on Alterability, because many problems are about changing.</li>
+</ul>
+</li>
+<li>Relationship with Comprehensibility<ul>
+<li>The pattern might be in the reader’s Knowledge Base.</li>
+<li>The reader will be able to map the code with their design schema.</li>
+<li>Enhances the efficiency of comprehension.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Composite-Pattern"><a href="#Composite-Pattern" class="headerlink" title="Composite Pattern"></a>Composite Pattern</h2><h3 id="Design-for-Uniformity-v-s-Design-for-Type-Safety"><a href="#Design-for-Uniformity-v-s-Design-for-Type-Safety" class="headerlink" title="Design for Uniformity v.s. Design for Type Safety"></a>Design for Uniformity v.s. Design for Type Safety</h3><ul>
+<li>Design for uniformity: All composite/leaf classes have the same interface and have the same methods.</li>
+<li>Design for Type Safety: Only composite classes have composite methods.</li>
+</ul>
+<h3 id="Composite-Pattern-and-Alterability"><a href="#Composite-Pattern-and-Alterability" class="headerlink" title="Composite Pattern and Alterability"></a>Composite Pattern and Alterability</h3><ol>
+<li>To add a new kind of leaf <code>L</code>:<ul>
+<li>L is the new code, doesn’t count into C when evaluating alterability</li>
+<li>One class will need to change to construct objects from <code>L</code>. If more than one classes need to be changed, it suggests that composite pattern wasn’t really implemented.</li>
+<li>C = 1 (the best we can hope for - your changes have to be integrated into the system by changing an existing class). </li>
+</ul>
+</li>
+<li>To add a new kind of composite is the same: Add the new class (implementing the same interface), and use the new class in a client.</li>
+</ol>
+<h1 id="Lecture-8-1-Dependency-Injection"><a href="#Lecture-8-1-Dependency-Injection" class="headerlink" title="Lecture 8.1: Dependency Injection"></a>Lecture 8.1: Dependency Injection</h1><blockquote>
+<p>“Separates the use of objects from construction of objects.”</p>
+</blockquote>
+<h2 id="Roles-involved-in-DI"><a href="#Roles-involved-in-DI" class="headerlink" title="Roles involved in DI"></a>Roles involved in DI</h2><h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><p>The object to be used: </p>
+<ul>
+<li><code>CsvMovieFinder</code>, <code>DbMovieFinder</code></li>
+<li><code>NodeService</code> in CS711 assignment2.2</li>
+<li><code>WeatherForecastController</code> in .NET Core’s web API example</li>
+</ul>
+<h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><p>Object that is depending on the service it uses:</p>
+<ul>
+<li><code>MovieLister</code>, who has a <code>movieFinder</code> field and calls <code>MovieFinder.find()</code>.</li>
+<li><code>ServiceCollection</code> in .NET Core web API</li>
+</ul>
+<h3 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h3><p>Interface that defines how the client may use the services.</p>
+<ul>
+<li><code>MovieFinder</code></li>
+<li><code>Controller</code> in .NET Core web API</li>
+</ul>
+<h3 id="Injector"><a href="#Injector" class="headerlink" title="Injector"></a>Injector</h3><p>Responsible for constructing the services and injecting them into the client.</p>
+<ul>
+<li><code>HomeTheatre</code></li>
+<li><code>StartUp</code> in .NET Core web API</li>
+</ul>
+<h2 id="Forms-of-Dependency-Injection"><a href="#Forms-of-Dependency-Injection" class="headerlink" title="Forms of Dependency Injection"></a>Forms of Dependency Injection</h2><h3 id="Constructor-Injection"><a href="#Constructor-Injection" class="headerlink" title="Constructor Injection"></a>Constructor Injection</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new MovieLister(csvMovieFinder)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Setter-Injection"><a href="#Setter-Injection" class="headerlink" title="Setter Injection"></a>Setter Injection</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movieLister.setFinder(csvMovieFinder)</span><br></pre></td></tr></table></figure>
+
+<p>Difficult for the client to ensure all dependencies are injected before use.</p>
+<h3 id="Interface-Injection"><a href="#Interface-Injection" class="headerlink" title="Interface Injection"></a>Interface Injection</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface MovieLister &#123;</span><br><span class="line">    public void setMovieFinder(MovieFinder movieFinder) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Related-Design-Principles-and-Patterns"><a href="#Related-Design-Principles-and-Patterns" class="headerlink" title="Related Design Principles and Patterns"></a>Related Design Principles and Patterns</h2><h3 id="Single-Responsibility"><a href="#Single-Responsibility" class="headerlink" title="Single Responsibility"></a>Single Responsibility</h3><p>The client now only cares about the business logic (e.g. list movies) and don’t need to worry about constructing the Service (MovieFinder)</p>
+<h3 id="Dependency-Inversion"><a href="#Dependency-Inversion" class="headerlink" title="Dependency Inversion"></a>Dependency Inversion</h3><ol>
+<li>High-level modules should not depend on low-level modules. Both should depend on abstractions.<ul>
+<li><code>MovieLister</code> should not depend on <code>CSVMovieFinder</code>, and instead should depend on <code>MovieFinder</code> interface. </li>
+</ul>
+</li>
+<li>Abstractions should not depend on details. Details should depend on abstractions.</li>
+</ol>
+<h3 id="Inversion-of-Control"><a href="#Inversion-of-Control" class="headerlink" title="Inversion of Control"></a>Inversion of Control</h3><p>The container (service collection) takes control of finding and injecting the dependency. </p>
+<p>These principles will be discussed in separate journals.</p>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

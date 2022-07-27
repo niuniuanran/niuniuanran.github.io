@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Parallel and Distributed Computing Intro Notes - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-vs-Distributed-Computing"><span class="toc-text">Parallel vs Distributed Computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><span class="toc-text">Lynch’s Discussion of how Distributed Algorithms differ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Inter-process-Communication-IPC-Method"><span class="toc-text">The Inter-process Communication (IPC) Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing-Model"><span class="toc-text">Timing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Failure-Model"><span class="toc-text">Failure Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Addressed"><span class="toc-text">Problem Addressed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typical-scenario-in-distributed-computing"><span class="toc-text">Typical scenario in distributed computing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rounds-and-Steps"><span class="toc-text">Rounds and Steps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronise-model-as-a-particular-case-of-asynchronous-models"><span class="toc-text">Synchronise model as a particular case of asynchronous models</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Asynchronous-model"><span class="toc-text">Asynchronous model</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#async-time-complexity-gt-sync-time-complexity"><span class="toc-text">async time complexity &gt;&#x3D; sync time complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronous-model-with-FIFO-channels"><span class="toc-text">Asynchronous model with FIFO channels</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Non-determinism"><span class="toc-text">Non-determinism</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Confluent-system"><span class="toc-text">Confluent system</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Parallel and Distributed Computing Intro Notes
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-10 11:44:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Distributed Algorithms" title="Distributed Algorithms">Distributed Algorithms</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Algorithms" title="Algorithms">Algorithms</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Parallel-vs-Distributed-Computing"><a href="#Parallel-vs-Distributed-Computing" class="headerlink" title="Parallel vs Distributed Computing"></a>Parallel vs Distributed Computing</h1><ul>
+<li>Coupling<ul>
+<li>Parallel computing: tight coupling between tasks, that cooperate on <strong>shared memory</strong></li>
+<li>Distributed computing: loose coupling between nodes, that cooperate by <strong>messaging</strong></li>
+</ul>
+</li>
+<li>Algorithm implementation<ul>
+<li>In classical algorithms, the problem is <strong>encoded</strong> and given to the (one single) processing element</li>
+<li>In parallel algorithms, the problem is <strong>encoded and partitioned</strong>, and then its chunks are given to the processing elements.</li>
+<li>In distributed algorithms, the problem is given by the <strong>network</strong> itself and solved by <strong>coordination protocols</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>Distributed systems</strong> are groups of networked computers which share a common goal for their work.</p>
+<h1 id="Lynch’s-Discussion-of-how-Distributed-Algorithms-differ"><a href="#Lynch’s-Discussion-of-how-Distributed-Algorithms-differ" class="headerlink" title="Lynch’s Discussion of how Distributed Algorithms differ"></a>Lynch’s Discussion of how Distributed Algorithms differ</h1><p>There are many different kinds of distributed algorithms. Some of the attributes by which they differ include：</p>
+<h2 id="The-Inter-process-Communication-IPC-Method"><a href="#The-Inter-process-Communication-IPC-Method" class="headerlink" title="The Inter-process Communication (IPC) Method"></a>The Inter-process Communication (IPC) Method</h2><p>Distributed algorithms run on a collection of processors, which need to communicate somehow. They could communicate through:</p>
+<ul>
+<li>Accessing Shared Memory</li>
+<li>Point-to-Point or Broadcast Messaging</li>
+<li>Executing Remote Procedure Calls</li>
+</ul>
+<h2 id="Timing-Model"><a href="#Timing-Model" class="headerlink" title="Timing Model"></a>Timing Model</h2><p>Timing of events in the system, reflecting the different types of timing information that might be used by algorithms.</p>
+<ul>
+<li>Completely synchronous: performing communication and computation in Lock-step synchrony</li>
+<li>Completely asynchronous: each node can take steps at arbitrary speeds and in arbitrary orders.</li>
+<li>Partially asynchronous: in between, some timing restrictions but not completely lock-step. For example, each node could <ul>
+<li>have bounds on their relative speeds, or </li>
+<li>have access to approximately synchronized clocks.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Failure-Model"><a href="#Failure-Model" class="headerlink" title="Failure Model"></a>Failure Model</h2><ul>
+<li>The algorithm can assume that there will be no node failures</li>
+<li>The algorithm can also be designed to tolerate limited amount of faulty behavior, such as:<ul>
+<li>Processors might just stop, with or without warning; </li>
+<li>Processors might fail transiently (转瞬即逝地); </li>
+<li>Processors might exhibit more severe Byzantine failures, where a failed processor can behave arbitrarily. </li>
+<li>Failures of the communication mechanisms, including <ul>
+<li>message loss</li>
+<li>duplication</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Problem-Addressed"><a href="#Problem-Addressed" class="headerlink" title="Problem Addressed"></a>Problem Addressed</h2><p>The typical problems that are considered are those that arise in the application areas mentioned above.<br>Typical problems：</p>
+<ul>
+<li>resource allocation, </li>
+<li>communication, </li>
+<li>consensus among distributed processors, </li>
+<li>database concurrency control, </li>
+<li>deadlock detection, </li>
+<li>global snapshots, </li>
+<li>synchronization</li>
+</ul>
+<h1 id="Typical-scenario-in-distributed-computing"><a href="#Typical-scenario-in-distributed-computing" class="headerlink" title="Typical scenario in distributed computing"></a>Typical scenario in distributed computing</h1><ul>
+<li>computing nodes have local memories and unique IDs</li>
+<li>nodes are arranged in a network: graph, digraph, ring…</li>
+<li>neighbouring nodes communicate by message passing (This is a typical IPC method)</li>
+<li>independent failures are possible: nodes, communication channels (Failure model)</li>
+<li>the network topology (size, diameter, neighbourhoods) and other characteristics (e.g. latencies) are often unknown to <strong>individual nodes</strong>  </li>
+<li>the network may or may not dynamically change</li>
+<li>nodes solve parts of a bigger problem or have individual problems but still need some sort of <strong>coordination</strong> - which is achieved by distributed algorithms.</li>
+</ul>
+<h1 id="Rounds-and-Steps"><a href="#Rounds-and-Steps" class="headerlink" title="Rounds and Steps"></a>Rounds and Steps</h1><p>Nodes work in rounds (macro-steps), which have three sub-steps:</p>
+<ul>
+<li>1 Receive sub-step: receive incoming messages</li>
+<li>2 Process sub-step: change local node state</li>
+<li>3 Send sub-step: send outgoing messages</li>
+</ul>
+<blockquote>
+<p>Note: some algorithms expect null or empty messages, as an explicit conrmation that nothing was sent</p>
+</blockquote>
+<h1 id="Synchronise-model-as-a-particular-case-of-asynchronous-models"><a href="#Synchronise-model-as-a-particular-case-of-asynchronous-models" class="headerlink" title="Synchronise model as a particular case of asynchronous models"></a>Synchronise model as a particular case of asynchronous models</h1><p>We describe timing model with the rounds and steps above.</p>
+<ul>
+<li>Synchronous model， version 1<ul>
+<li>all nodes: <em>process</em> takes 1 time unit</li>
+<li>all messages: transit time (<em>send</em> -&gt; <em>receive</em>) takes 0 time units</li>
+</ul>
+</li>
+<li>Synchronous model, version 2<ul>
+<li>all nodes: <em>process</em> takes 0 time units</li>
+<li>all messages: transit time (<em>send</em> -&gt; <em>receive</em>) takes 1 time units</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The second (and equivalent) version ensures that <strong>synchronised models are a particular case of asynchronous models</strong></p>
+</blockquote>
+<h1 id="Asynchronous-model"><a href="#Asynchronous-model" class="headerlink" title="Asynchronous model"></a>Asynchronous model</h1><ul>
+<li><p>all nodes: <em>process</em> takes 0 time units</p>
+</li>
+<li><p>each message (individually): transit time (send -&gt; receive) takes <strong>any real number of time units</strong> (for synchronous it is 1 time unit)</p>
+<ul>
+<li>or, normalised: any real number in the [0; 1] interval</li>
+</ul>
+</li>
+<li><p>often, a FIFO guarantee, which however may affect the above timing assumption (see next slide)</p>
+</li>
+</ul>
+<h2 id="async-time-complexity-gt-sync-time-complexity"><a href="#async-time-complexity-gt-sync-time-complexity" class="headerlink" title="async time complexity &gt;= sync time complexity"></a>async time complexity &gt;= sync time complexity</h2><p>Time complexity (<strong>worst-case</strong>) = supremum of all possible normalised async runs.</p>
+<p>Sync run is just one of the all possible runs, where all transit is 1 time unit.</p>
+<h2 id="Asynchronous-model-with-FIFO-channels"><a href="#Asynchronous-model-with-FIFO-channels" class="headerlink" title="Asynchronous model with FIFO channels"></a>Asynchronous model with FIFO channels</h2><ul>
+<li>The FIFO guarantee: faster messages cannot overtake earlier slower messages sent over the same channel</li>
+<li>Congestion (pileup) may occur and this should be accounted for</li>
+<li>The timing assumption: (each message (individually): transit time (send -&gt; receive) takes <strong>any real number of time units</strong> (for synchronous it is 1 time unit), or, normalised: any real number in the [0; 1] interval) only applies to the top (oldest) message in the FIFO queue</li>
+<li>After the top message is delivered, the next top message is delivered after an additional arbitrary delay.</li>
+<li>Thus, <strong>a sequence of n messages may take n time units</strong> until the last is delivered</li>
+</ul>
+<h1 id="Non-determinism"><a href="#Non-determinism" class="headerlink" title="Non-determinism"></a>Non-determinism</h1><p>Both sync and async timing models are non-deterministic.</p>
+<ul>
+<li>Choice of request (sync and async)</li>
+<li>Message delay may vary (async)</li>
+</ul>
+<p>However, all executions must arrive to a valid decision (not necessarily the same, but valid).</p>
+<h2 id="Confluent-system"><a href="#Confluent-system" class="headerlink" title="Confluent system"></a>Confluent system</h2><p>In computer science, confluence is a property of rewriting systems, describing which terms in such a system can be rewritten in more than one way, to yield the same result. </p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

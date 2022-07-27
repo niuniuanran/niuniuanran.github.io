@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        SOLID Principle - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SOLID-Principle"><span class="toc-text">SOLID Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Static-a-bad-idea"><span class="toc-text">Static: a bad idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bad-for-alterability"><span class="toc-text">Bad for alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bad-for-comprehensibility"><span class="toc-text">Bad for comprehensibility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-R-Alterability-heuristic-revisited"><span class="toc-text">C&#x2F;R Alterability heuristic revisited</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Look-for-the-design-that-minimises-C"><span class="toc-text">Look for the design that minimises C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Avoid-dependency-for-change-case"><span class="toc-text">Avoid dependency for change case</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Responsibility-Principle-SRP"><span class="toc-text">Single Responsibility Principle (SRP)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-s-Responsibility-Driven-Design"><span class="toc-text">v.s. Responsibility-Driven Design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP-and-Alterability"><span class="toc-text">SRP and Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-two-designs"><span class="toc-text">Consider two designs:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-possible-change-cases"><span class="toc-text">Consider possible change cases:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP-and-Design-Patterns"><span class="toc-text">SRP and Design Patterns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP-Conclusion"><span class="toc-text">SRP Conclusion</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Closed-Principle-OCP"><span class="toc-text">Open Closed Principle (OCP)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Consequence"><span class="toc-text">Consequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-open-what-is-closed"><span class="toc-text">What is open, what is closed?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OCP-and-Alterability"><span class="toc-text">OCP and Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Actionable"><span class="toc-text">Actionable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polymorphism"><span class="toc-text">Polymorphism!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Liskov-Substitution-Principle-LSP"><span class="toc-text">Liskov Substitution Principle (LSP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Segregation-Principle"><span class="toc-text">Interface Segregation Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ISP-and-Alterability"><span class="toc-text">ISP and Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISP-and-Design-Patterns"><span class="toc-text">ISP and Design Patterns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Dependency-Inversion-Principle-DIP"><span class="toc-text">The Dependency Inversion Principle (DIP)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actionable-1"><span class="toc-text">Actionable</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        SOLID Principle
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-05 09:31:41</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="SOLID-Principle"><a href="#SOLID-Principle" class="headerlink" title="SOLID Principle"></a>SOLID Principle</h1><blockquote>
+<p>Just <strong>consequences</strong> of doing OOB “properly”.</p>
+</blockquote>
+<h2 id="Static-a-bad-idea"><a href="#Static-a-bad-idea" class="headerlink" title="Static: a bad idea"></a>Static: a bad idea</h2><p>I have been thinking if static fields are an awful idea for a while, and it is good to get some confirmation from Ewan’s view. </p>
+<h3 id="Bad-for-alterability"><a href="#Bad-for-alterability" class="headerlink" title="Bad for alterability"></a>Bad for alterability</h3><p>Having a static field means we assume the field should be the same across all instances - it might be true for the current scenario, but the situation may change any time.<br>If this assumption is broken, we will have to modify the class and modify ALL of its clients.</p>
+<h3 id="Bad-for-comprehensibility"><a href="#Bad-for-comprehensibility" class="headerlink" title="Bad for comprehensibility"></a>Bad for comprehensibility</h3><p>The reader has to keep track of the static field over the life cycles of all objects of the class - it may be changed any time. </p>
+<ul>
+<li>This is not efficient because it requires reading more code from external presentation.</li>
+<li>This is not effective because missing any changes to the static field will lead to very different understanding of the programme.</li>
+</ul>
+<h2 id="C-R-Alterability-heuristic-revisited"><a href="#C-R-Alterability-heuristic-revisited" class="headerlink" title="C/R Alterability heuristic revisited"></a>C/R Alterability heuristic revisited</h2><blockquote>
+<p>“Change Ratio” C/N varies by change cases, then how is the change ratio used to assess the overall alterability of the design?</p>
+</blockquote>
+<h3 id="Look-for-the-design-that-minimises-C"><a href="#Look-for-the-design-that-minimises-C" class="headerlink" title="Look for the design that minimises C"></a>Look for the design that minimises C</h3><p>“For likely and non-trivial impact change cases”</p>
+<h3 id="Avoid-dependency-for-change-case"><a href="#Avoid-dependency-for-change-case" class="headerlink" title="Avoid dependency for change case"></a>Avoid dependency for change case</h3><p>Avoid designs where which design has lower CR highly depends on the change case</p>
+<h2 id="Single-Responsibility-Principle-SRP"><a href="#Single-Responsibility-Principle-SRP" class="headerlink" title="Single Responsibility Principle (SRP)"></a>Single Responsibility Principle (SRP)</h2><h3 id="v-s-Responsibility-Driven-Design"><a href="#v-s-Responsibility-Driven-Design" class="headerlink" title="v.s. Responsibility-Driven Design"></a>v.s. Responsibility-Driven Design</h3><p>Responsibility = an obligation to perform a task <strong>or</strong> know information</p>
+<p>With this principle, you’ll have classes with multiple “responsibility”, because here the definition of “responsibility” is different to Martin’s SRP.</p>
+<h3 id="SRP-and-Alterability"><a href="#SRP-and-Alterability" class="headerlink" title="SRP and Alterability"></a>SRP and Alterability</h3><h4 id="Consider-two-designs"><a href="#Consider-two-designs" class="headerlink" title="Consider two designs:"></a>Consider two designs:</h4><ul>
+<li>Design A: A1, A2, A3, …. , AN</li>
+<li>Design B: B1, A3, … , AN. For Design B, B1 is the combo of A1 and A2.</li>
+</ul>
+<h4 id="Consider-possible-change-cases"><a href="#Consider-possible-change-cases" class="headerlink" title="Consider possible change cases:"></a>Consider possible change cases:</h4><ol>
+<li>Change case c1 requires Ai to change (i = 1…N)<ul>
+<li>Design A: CR = 1/N</li>
+<li>Design B: CR = 1/(N-1)</li>
+<li>For c1, A is more changeable than B</li>
+</ul>
+</li>
+<li>Change case c2 requires Ai and Ak to change (i + k &gt; 3)<ul>
+<li>Design A: CR = 2/N</li>
+<li>Design B: CR = 2/(N-1)</li>
+<li>For c2, A is more changeable than B</li>
+</ul>
+</li>
+<li>Change case c3 requires Ai and Ak to change (i + k = 3)<ul>
+<li>Design A: CR = 2/N</li>
+<li>Design B: CR = 1/(N-1)</li>
+<li>For c3, B is more changeable than A, when N &gt; 2.</li>
+</ul>
+</li>
+</ol>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><ul>
+<li>For <strong>most</strong> change cases, the C/N of Design A will be smaller than Design B.</li>
+<li>Therefore, Design A has a better overall alterability than Design B.</li>
+</ul>
+<h3 id="SRP-and-Design-Patterns"><a href="#SRP-and-Design-Patterns" class="headerlink" title="SRP and Design Patterns"></a>SRP and Design Patterns</h3><blockquote>
+<p>Many of the elements of a design pattern are there to do just one thing.</p>
+</blockquote>
+<p>Examples:</p>
+<ol>
+<li>Decorator: each decorator</li>
+<li>Composite: each leaf and composite</li>
+<li>Command: each concrete command</li>
+<li>Dependency Injection: each service, and the client</li>
+<li>Strategy: each concrete strategy</li>
+</ol>
+<h3 id="SRP-Conclusion"><a href="#SRP-Conclusion" class="headerlink" title="SRP Conclusion"></a>SRP Conclusion</h3><ul>
+<li>“One responsibility”: not actionable</li>
+<li>The “one reason to change” or “group things that change for the same reason together” definitions are perhaps easier to action, because the reasoning can be done in terms of change cases.</li>
+</ul>
+<h2 id="Open-Closed-Principle-OCP"><a href="#Open-Closed-Principle-OCP" class="headerlink" title="Open Closed Principle (OCP)"></a>Open Closed Principle (OCP)</h2><blockquote>
+<p>F<strong>undamentally, we create classes and we do not intend them to change. If a new behaviour is needed, we extend instead of modifying</strong>.</p>
+</blockquote>
+<p>The real power comes from judicious use of <strong>polymorphism</strong>, that is identifying the method to execute via dynamic dispatch.</p>
+<h3 id="Consequence"><a href="#Consequence" class="headerlink" title="Consequence"></a>Consequence</h3><p>Typically leads to more <strong>abstract entities</strong> that are made concrete either through:</p>
+<ul>
+<li>extension, or</li>
+<li>supplying the concrete implementations as parameters (e.g. with dependency injection)</li>
+</ul>
+<h3 id="What-is-open-what-is-closed"><a href="#What-is-open-what-is-closed" class="headerlink" title="What is open, what is closed?"></a>What is open, what is closed?</h3><ul>
+<li>Implementation of method is closed for modification, but open to being overriden/extended by subclasses. </li>
+<li>Contexts of method (where the method is being called) is closed, yet by polymophism the behaviour is open to be varied.</li>
+</ul>
+<h3 id="OCP-and-Alterability"><a href="#OCP-and-Alterability" class="headerlink" title="OCP and Alterability"></a>OCP and Alterability</h3><p>Reducing C.</p>
+<h3 id="Actionable"><a href="#Actionable" class="headerlink" title="Actionable"></a>Actionable</h3><ul>
+<li>When we change something, anything that needs to change is not closed to change.</li>
+<li>When designing something, think about what variations are needed for the context schema.</li>
+</ul>
+<h3 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism!"></a>Polymorphism!</h3><p>The core of change.<br>Proper use of <em>polymorphism</em> lies at the core of OOP.</p>
+<h2 id="Liskov-Substitution-Principle-LSP"><a href="#Liskov-Substitution-Principle-LSP" class="headerlink" title="Liskov Substitution Principle (LSP)"></a>Liskov Substitution Principle (LSP)</h2><blockquote>
+<p><strong>Child classes must be substitutable for their Parent classes</strong>.</p>
+</blockquote>
+<ul>
+<li>Code reuse is not very interesting.</li>
+<li><strong>Context reuse</strong> is more interesting: the context can remain unchanged, but program behaviour changes.</li>
+</ul>
+<p><strong>Any design pattern that relies on inheritance (pretty much all of them) is based on LSP</strong>.</p>
+<h2 id="Interface-Segregation-Principle"><a href="#Interface-Segregation-Principle" class="headerlink" title="Interface Segregation Principle"></a>Interface Segregation Principle</h2><blockquote>
+<p><strong>Make fine-grained interfaces that are client-specific.</strong></p>
+</blockquote>
+<p>Because we are limiting between the knowledge exposed to the client, we are reducing the possibility that the client needs to change according to the class.</p>
+<h3 id="ISP-and-Alterability"><a href="#ISP-and-Alterability" class="headerlink" title="ISP and Alterability"></a>ISP and Alterability</h3><p>Reduce the impact of change -&gt; Reduce C.</p>
+<h3 id="ISP-and-Design-Patterns"><a href="#ISP-and-Design-Patterns" class="headerlink" title="ISP and Design Patterns"></a>ISP and Design Patterns</h3><p>e.g. Observer<br>Command typically only have <code>execute()</code></p>
+<h2 id="The-Dependency-Inversion-Principle-DIP"><a href="#The-Dependency-Inversion-Principle-DIP" class="headerlink" title="The Dependency Inversion Principle (DIP)"></a>The Dependency Inversion Principle (DIP)</h2><h3 id="Actionable-1"><a href="#Actionable-1" class="headerlink" title="Actionable"></a>Actionable</h3><p>Look for opportunities to make fields abstract instead of concrete.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

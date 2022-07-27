@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        My Next.js Auth0 implementation - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Auth0-Registration"><span class="toc-text">Auth0 Registration</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nextjs-auth0-Configuration"><span class="toc-text">nextjs-auth0 Configuration</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-API-Routes"><span class="toc-text">Creating API Routes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Accessing-user-info-from-client"><span class="toc-text">Accessing user info from client</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-1-MyApp-getInitialProps"><span class="toc-text">Attempt 1: MyApp.getInitialProps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-2-React-Hooks-stuff"><span class="toc-text">Attempt 2: React Hooks stuff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-3-componentDidMount"><span class="toc-text">Attempt 3: componentDidMount</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#My-next-steps"><span class="toc-text">My next steps</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        My Next.js Auth0 implementation
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-06 23:15:12</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>It has been a one-week challenge for me to create a neat implementation of auth0 authentication in our Next.js project.The @auth0/nextjs-auth0 SDK was published in September 2019, and there have been multiple nice tutorials online that runs through the work from the beginning, but they all happily finish after implementing one Profile page and do not offer further suggestions on good practices when multiple pages need the user authentication information.<br>After many trial-and-errors, I am now (hopefully) settled with an implementation utilising api endpoints and _app.js.<br>Here’s a review of what I have done.</p>
+<hr>
+
+<h1 id="Auth0-Registration"><a href="#Auth0-Registration" class="headerlink" title="Auth0 Registration"></a>Auth0 Registration</h1><p>I first went to auth0.com and signed up for an account, which comes with an auth0 domain.<br>I then created a Regular Web App.<br>The fields that are required in the Settings are:<br>Allowed Callback URLs, Allowed Web Origins, and Allowed Logout URLs. </p>
+<p>For local development and testing, I set:</p>
+<ul>
+<li>Allowed Callback URLs: <a href="http://localhost:3000/api/callback" target="_blank" rel="noopener">http://localhost:3000/api/callback</a></li>
+<li>Allowed Web Origins: <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> </li>
+<li>Allowed Logout URLs: <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></li>
+</ul>
+<p>Once the application gets deployed, the deployed URLs can be added to corresponding fields, separated with other URLs by a comma(,).</p>
+<p>Save the changes to settings, and now scroll up to note down three pieces of basic information:</p>
+<ul>
+<li>Domain (something.auth0.com),</li>
+<li>Client ID</li>
+<li>Client Secret<br>They will be needed for the auth0 configuration.</li>
+</ul>
+<h1 id="nextjs-auth0-Configuration"><a href="#nextjs-auth0-Configuration" class="headerlink" title="nextjs-auth0 Configuration"></a>nextjs-auth0 Configuration</h1><p>The installation and configuration of @auth0/nextjs-auth0 are fully explained on their <a href="https://github.com/auth0/nextjs-auth0" target="_blank" rel="noopener">github page</a>. The only thing to be noted is that, while they put the clientId, clientSecret etc. straight into the /utils/auth0.js file, We should actually put them into the .env file for the security of credentials and for the flexibility among multiple deployments. I also learnt from my team mate that although the .env file is never committed, a .env.example file could be shared through git to present the required .env variables. <a href="https://www.npmjs.com/package/dotenv" target="_blank" rel="noopener">dotenv module</a> is installed to load environment variables from a .env file into process.env.</p>
+<h1 id="Creating-API-Routes"><a href="#Creating-API-Routes" class="headerlink" title="Creating API Routes"></a>Creating API Routes</h1><p>I copied and pasted the code from <a href="https://github.com/auth0/nextjs-auth0" target="_blank" rel="noopener">the @auth0/nextjs-auth0 github page</a> for these api endpoints:</p>
+<ul>
+<li>login, to handle user log in. This will redirect user to auth0.</li>
+<li>callback, this gets called once user comes back from auth0. It will create a cookie that contains the user session, encrypted with the CookieSecret provided in the configuration step.</li>
+<li>logout, to handle user log out. This removes the cookie.</li>
+<li>me, to return the user profile to the client.</li>
+</ul>
+<h1 id="Accessing-user-info-from-client"><a href="#Accessing-user-info-from-client" class="headerlink" title="Accessing user info from client"></a>Accessing user info from client</h1><h2 id="Attempt-1-MyApp-getInitialProps"><a href="#Attempt-1-MyApp-getInitialProps" class="headerlink" title="Attempt 1: MyApp.getInitialProps"></a>Attempt 1: MyApp.getInitialProps</h2><p>According to this tutorial, the Profile page accesses the user session in the getInitialProps function, which will set the <code>user</code> to Profile’s <code>props</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Profile.getInitialProps &#x3D; async (&#123; req, res &#125;) &#x3D;&gt; &#123;</span><br><span class="line">  if (typeof window &#x3D;&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">    const &#123; user &#125; &#x3D; await auth0.getSession(req);</span><br><span class="line">    if (!user) &#123;</span><br><span class="line">      res.writeHead(302, &#123;</span><br><span class="line">        Location: &#39;&#x2F;api&#x2F;login&#39;</span><br><span class="line">      &#125;);</span><br><span class="line">      res.end();</span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123; user &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I went to learn more about <code>getInitialProps</code> from the <a href="https://nextjs.org/docs/api-reference/data-fetching/getInitialProps" target="_blank" rel="noopener">next.js documentation</a>, and learnt that:</p>
+<blockquote>
+<p><code>getInitialProps</code> enables server-side rendering in a page and allows you to do initial data population, it means sending the page with the data already populated from the server.<br><code>getInitialProps</code> is an async function that can be added to any page as a static method.<br><code>getInitialProps</code> will disable <a href="https://nextjs.org/docs/advanced-features/automatic-static-optimization" target="_blank" rel="noopener">Automatic Static Optimization</a>, which means with the blocking data requirement, Next.js will render the page with <code>getInitialProps</code> on-demand, per-request (meaning Server-Side Rendering), instead of pre-rendering the page to static HTML.<br><code>getInitialProps</code> can not be used in children components, <em>only in the default export of every page</em>.</p>
+</blockquote>
+<p>Therefore, for the current project implementation, there are two issues that stop me from using <code>getInitialProps</code> for each of my pages:</p>
+<ol>
+<li><code>getInitialProps</code> could only be called by a page component, and therefore components like <code>TopBar</code>, and page components that are exported in wrappers like <code>withLayout(Map)</code> could not use <code>getInitialProps</code> to fetch the data.</li>
+<li>There will be many pages in our website protected by authentication, and including this piece of logic in every pages will not look good (In the end I still included the same logic in each page, but not as naked as this piece).</li>
+</ol>
+<p>With these two problems in mind, my first idea was to make the user property accessible to all pages through customising <code>_app.js</code>. I migrated the <code>Profile.getInitialProps</code> to <code>MyApp.getInitialProps</code>, and pass the user property to the Layout and Component:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const &#123; Component, pageProps, user &#125; &#x3D; this.props;</span><br><span class="line">    return (</span><br><span class="line">      &lt;&gt;</span><br><span class="line">        &lt;Head&gt;</span><br><span class="line">          &lt;title&gt;TripTime: Time for our next Adventure&lt;&#x2F;title&gt;</span><br><span class="line">          &lt;meta</span><br><span class="line">            name&#x3D;&#39;viewport&#39;</span><br><span class="line">            content&#x3D;&#39;initial-scale&#x3D;1.0, width&#x3D;device-width&#39;</span><br><span class="line">          &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;Head&gt;</span><br><span class="line">        &lt;MainLayout user&#x3D;&#123;user&#125;&gt;</span><br><span class="line">          &lt;Component &#123;...pageProps&#125; user&#x3D;&#123;user&#125; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;MainLayout&gt;</span><br><span class="line">      &lt;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>For some time I thought this was a perfect solution, until I found out that I had to refresh each page to have the current login status. It looks like when I was browsing through Next.js <code>Link</code>s, <code>MyApp.getInitialProps</code> does not get invoked again until I refresh the page. So this is how the first attempt failed.</p>
+<h2 id="Attempt-2-React-Hooks-stuff"><a href="#Attempt-2-React-Hooks-stuff" class="headerlink" title="Attempt 2: React Hooks stuff"></a>Attempt 2: React Hooks stuff</h2><p>I will not go through this implementation in detail as it is largely based on <a href="https://dev.to/codemochi/how-to-add-auth0-to-nextjs-the-ultimate-guide-4ipn" target="_blank" rel="noopener">this tutorial</a>. Up to this moment I don’t know what <code>React.useEffect</code>, <code>React.useContext</code> and <code>React.useState</code> do. I’ll come back to learn more about that later.</p>
+<h2 id="Attempt-3-componentDidMount"><a href="#Attempt-3-componentDidMount" class="headerlink" title="Attempt 3: componentDidMount"></a>Attempt 3: componentDidMount</h2><p>When I was talking about the first attempt with my team mates, they suggested that if I did not pass the <code>user</code> object, but instead pass a <code>getUser</code> function to be called by components, the user information will be forced to be loaded for each component. Based on this idea, here’s the new <code>\pages\_app.js</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">import &#39;..&#x2F;css&#x2F;global.css&#39;;</span><br><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import App from &#39;next&#x2F;app&#39;;</span><br><span class="line">import MainLayout from &#39;..&#x2F;components&#x2F;layout&#x2F;MainLayout&#39;;</span><br><span class="line">import Head from &#39;next&#x2F;head&#39;;</span><br><span class="line">import fetch from &#39;isomorphic-unfetch&#39;;</span><br><span class="line"></span><br><span class="line">export default class MyApp extends App &#123;</span><br><span class="line">  setUser() &#123;</span><br><span class="line">    return async component &#x3D;&gt; &#123;</span><br><span class="line">      fetch(&#39;&#x2F;api&#x2F;me&#39;)</span><br><span class="line">        .then(response &#x3D;&gt; (response.ok ? response.json() : null))</span><br><span class="line">        .then(user &#x3D;&gt;</span><br><span class="line">          component.setState(() &#x3D;&gt; &#123;</span><br><span class="line">            return &#123; user: user &#125;;</span><br><span class="line">          &#125;),</span><br><span class="line">        );</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; Component, pageProps &#125; &#x3D; this.props;</span><br><span class="line">    return (</span><br><span class="line">      &lt;&gt;</span><br><span class="line">        &lt;Head&gt;</span><br><span class="line">          &lt;title&gt;TripTime: Time for our next Adventure&lt;&#x2F;title&gt;</span><br><span class="line">          &lt;meta</span><br><span class="line">            name&#x3D;&#39;viewport&#39;</span><br><span class="line">            content&#x3D;&#39;initial-scale&#x3D;1.0, width&#x3D;device-width&#39;</span><br><span class="line">          &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;Head&gt;</span><br><span class="line">        &lt;MainLayout setUser&#x3D;&#123;this.setUser()&#125;&gt;</span><br><span class="line">          &lt;Component &#123;...pageProps&#125; setUser&#x3D;&#123;this.setUser()&#125; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;MainLayout&gt;</span><br><span class="line">      &lt;&#x2F;&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As can be seen, _app.js defines a function <code>setUser</code> that returns an <code>async</code> function. This <code>async</code> function takes in a component, fetches the user information, and sets the user information into the component’s state. The <code>setUser</code> function is passed on to both <code>MainLayout</code> and <code>Component</code> as a property.</p>
+<p>Now where do I call the <code>setUser</code> method?</p>
+<p>According to <a href="">react documentation</a>, <code>render</code> is not the place to call <code>setState</code>:</p>
+<blockquote>
+<p>The render() function should be pure, meaning that it does not modify component state, it returns the same result each time it’s invoked, and it does not directly interact with the browser.</p>
+</blockquote>
+<p>Not <code>constructor</code> either:</p>
+<blockquote>
+<p>Typically, in React constructors are only used for two purposes:<br>  Initializing local state by assigning an object to this.state.<br>  Binding event handler methods to an instance.<br>You should not call setState() in the constructor(). Instead, if your component needs to use local state, assign the initial state to this.state directly in the constructor:</p>
+</blockquote>
+<p>Down on the React Component lifecycle, now I have <code>componentDidMount</code>:</p>
+<blockquote>
+<p>componentDidMount() is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here.<br>You may call setState() immediately in componentDidMount(). It will trigger an extra rendering, but it will happen before the browser updates the screen. This guarantees that even though the render() will be called twice in this case, the user won’t see the intermediate state.</p>
+</blockquote>
+<p>So here’s my third version of implementation, using <code>Dashboard</code> as an example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import TripSummary from &#39;..&#x2F;components&#x2F;dashboard&#x2F;TripSummary&#39;;</span><br><span class="line">import trip from &#39;..&#x2F;dummy-data&#x2F;trip&#39;;</span><br><span class="line">import TripTeamLayout from &#39;..&#x2F;components&#x2F;layout&#x2F;TripTeamLayout&#39;;</span><br><span class="line">import PropTypes from &#39;prop-types&#39;;</span><br><span class="line"></span><br><span class="line">export default class Dashboard extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state &#x3D; &#123; user: null &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    this.props.setUser(this);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;TripTeamLayout user&#x3D;&#123;this.state.user&#125;&gt;</span><br><span class="line">        &lt;TripSummary trip&#x3D;&#123;trip&#125; user&#x3D;&#123;this.state.user&#125; &#x2F;&gt;</span><br><span class="line">      &lt;&#x2F;TripTeamLayout&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dashboard.propTypes &#x3D; &#123;</span><br><span class="line">  setUser: PropTypes.func,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="My-next-steps"><a href="#My-next-steps" class="headerlink" title="My next steps"></a>My next steps</h1><ul>
+<li>Passing the function around gives me a weird happy thrill. JavaScript is a fun language and I’ll learn more about it!</li>
+<li>What on hell is React Hook and what did the second version do with it remains a mystery to me at this moment. I’ll go further into that as soon as possible.</li>
+<li>The login handler of auth0 seems to provide the option to store state, so that user can come back after they login, instead of being redirected to the profile page all the time. It’s an extra nice thing to do when the main features of the website are achieved.</li>
+</ul>
+<p><strong>Coding on!</strong></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

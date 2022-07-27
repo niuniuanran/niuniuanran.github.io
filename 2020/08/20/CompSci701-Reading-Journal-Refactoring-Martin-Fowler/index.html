@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Reading Journal - Refactoring, by Martin Fowler - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#30-07-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;30&#x2F;07&#x2F;2020&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-Refactor"><span class="toc-text">When to Refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-refactoring"><span class="toc-text">Before refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extract-methods"><span class="toc-text">Extract methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Placing-methods-in-the-right-place"><span class="toc-text">Placing methods in the right place</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Try-to-get-rid-of-temporary-variables"><span class="toc-text">Try to get rid of temporary variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-issue-in-refactoring"><span class="toc-text">Performance issue in refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-switch-on-another-object’s-attribute"><span class="toc-text">Don’t switch on another object’s attribute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State-pattern-by-Gang-of-Four"><span class="toc-text">State pattern by Gang of Four</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Principles-of-Refactoring"><span class="toc-text">Principles of Refactoring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-refactoring"><span class="toc-text">What is refactoring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-refactor"><span class="toc-text">When to refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Three-strikes-and-refactor"><span class="toc-text">Three strikes and refactor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Refactor-when-adding-new-functionality"><span class="toc-text">Refactor when adding new functionality</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Changing-Published-Interfaces-when-Refactoring"><span class="toc-text">Changing Published Interfaces when Refactoring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Maintain-both-old-and-new-interfaces"><span class="toc-text">Maintain both old and new interfaces</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rewrite-old-function-to-call-the-new-one"><span class="toc-text">Rewrite old function to call the new one</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Java’s-deprecation-facility"><span class="toc-text">Use Java’s deprecation facility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Try-not-to-publish-interfaces-unless-necessary"><span class="toc-text">Try not to publish interfaces unless necessary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-special-interface-change-adding-a-new-exception-in-throws-clause"><span class="toc-text">A special interface change: adding a new exception in throws clause</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#When-not-to-refactor"><span class="toc-text">When not to refactor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-rewriting-is-just-easier"><span class="toc-text">When rewriting is just easier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Break-into-components-first"><span class="toc-text">Break into components first</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-the-deadline-of-the-project"><span class="toc-text">Before the deadline of the project</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Refactoring-and-Performance"><span class="toc-text">Refactoring and Performance</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-budgeting"><span class="toc-text">Time budgeting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constant-attention-approach"><span class="toc-text">Constant attention approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delay-until-your-performance-optimization-stage"><span class="toc-text">Delay until your performance optimization stage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-a-profiler-to-monitor-the-system"><span class="toc-text">Use a profiler to monitor the system</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Focus-on-“performance-hot-spots”-for-optimisation"><span class="toc-text">Focus on “performance hot spots” for optimisation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stay-cautious"><span class="toc-text">Stay cautious</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-refactoring-helps-late-optimisation"><span class="toc-text">How refactoring helps late optimisation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#31-07-2020-Bad-Smells"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;31&#x2F;07&#x2F;2020: Bad Smells&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Duplicated-Code"><span class="toc-text">Duplicated Code</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Long-Method"><span class="toc-text">Long Method</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Be-more-aggressive-about-decomposing-methods"><span class="toc-text">Be more aggressive about decomposing methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-there-are-many-parameters-and-temporary-variables"><span class="toc-text">When there are many parameters and temporary variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deciding-which-code-to-extract"><span class="toc-text">Deciding which code to extract</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Comments"><span class="toc-text">Comments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conditionals-and-loops"><span class="toc-text">Conditionals and loops</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Large-Class"><span class="toc-text">Large Class</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Long-Parameter-List"><span class="toc-text">Long Parameter List</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Divergent-Change"><span class="toc-text">Divergent Change</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Shotgun-Surgery"><span class="toc-text">Shotgun Surgery</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Feature-Envy"><span class="toc-text">Feature Envy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-Design-Patterns-require-you-to-break-this-rule"><span class="toc-text">Some Design Patterns require you to break this rule</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GoF’s-Strategy-pattern"><span class="toc-text">GoF’s Strategy pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GoF’s-Visitor-pattern"><span class="toc-text">GoF’s Visitor pattern</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data-Clumps"><span class="toc-text">Data Clumps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Primitive-Obsession"><span class="toc-text">Primitive Obsession</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Switch-Statement"><span class="toc-text">Switch Statement</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Where-should-the-polymorphism-go"><span class="toc-text">Where should the polymorphism go?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If-it’s-just-some-options-within-a-single-method"><span class="toc-text">If it’s just some options within a single method</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Parallel-Inheritance-Hierarchies"><span class="toc-text">Parallel Inheritance Hierarchies</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lazy-Class"><span class="toc-text">Lazy Class</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Speculative-Generality"><span class="toc-text">Speculative Generality</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Temporary-field"><span class="toc-text">Temporary field</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Message-Chains"><span class="toc-text">Message Chains</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Middle-Man"><span class="toc-text">Middle Man</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inappropriate-Intimacy"><span class="toc-text">Inappropriate Intimacy</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Alternative-Classes-with-Different-Interfaces"><span class="toc-text">Alternative Classes with Different Interfaces</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Incomplete-Library-Class"><span class="toc-text">Incomplete Library Class</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data-Class"><span class="toc-text">Data Class</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Refused-Bequest"><span class="toc-text">Refused Bequest</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comments-1"><span class="toc-text">Comments</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-8-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 1&#x2F;8&#x2F;2020 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Build-Tests"><span class="toc-text">Build Tests</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JUnit-Test"><span class="toc-text">JUnit Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit-Test-vs-Functional-Test"><span class="toc-text">Unit Test vs Functional Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Tips"><span class="toc-text">Test Tips</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-8-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3&#x2F;8&#x2F;2020 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Refactoring-techniques-on-methods"><span class="toc-text">Refactoring techniques on methods</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Method-with-Method-Object"><span class="toc-text">Replace Method with Method Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-role-of-temporary-variables"><span class="toc-text">The role of temporary variables</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-8-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 7&#x2F;8&#x2F;2020 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Moving-Features-Between-Objects"><span class="toc-text">Moving Features Between Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduce-Foreign-Method"><span class="toc-text">Introduce Foreign Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduce-Local-Extension"><span class="toc-text">Introduce Local Extension</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-8-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 9&#x2F;8&#x2F;2020 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Organising-Data"><span class="toc-text">Organising Data</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Self-Encapsulate-Field"><span class="toc-text">Self Encapsulate Field</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encapsulate-Collection"><span class="toc-text">Encapsulate Collection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Type-Code-with-Subclasses"><span class="toc-text">Replace Type Code with Subclasses</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Type-Code-with-Strategy-State"><span class="toc-text">Replace Type Code with Strategy&#x2F;State</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-8-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 10&#x2F;8&#x2F;2020 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Simplifying-Conditional-Expressions"><span class="toc-text">Simplifying Conditional Expressions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Nested-Conditional-with-Guard-Clauses"><span class="toc-text">Replace Nested Conditional with Guard Clauses</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduce-Null-Object-null-subclass"><span class="toc-text">Introduce Null Object (null subclass)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduce-Assertions"><span class="toc-text">Introduce Assertions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-8-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 12&#x2F;8&#x2F;2020 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Making-Method-Calls-Simpler"><span class="toc-text">Making Method Calls Simpler</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Separate-Query-from-Modifier"><span class="toc-text">Separate Query from Modifier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-in-my-code"><span class="toc-text">Example in my code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Concurrency-Issue"><span class="toc-text">Concurrency Issue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Parameter-with-Explicit-Methods"><span class="toc-text">Replace Parameter with Explicit Methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preserve-Whole-Object"><span class="toc-text">Preserve Whole Object</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Key-consideration-Dependency-Structure"><span class="toc-text">Key consideration: Dependency Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-it-worth-it-when-only-one-value-is-needed"><span class="toc-text">Is it worth it when only one value is needed?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-your-method-in-the-right-place"><span class="toc-text">Is your method in the right place?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduce-Parameter-Object"><span class="toc-text">Introduce Parameter Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Constructor-with-Factory-Method"><span class="toc-text">Replace Constructor with Factory Method</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Direct-motivation-Subclassing-instead-of-Type-Code"><span class="toc-text">Direct motivation: Subclassing instead of Type Code</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encapsulate-Downcast"><span class="toc-text">Encapsulate Downcast</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#When-you’ll-need-to-downcast"><span class="toc-text">When you’ll need to downcast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Do-not-leave-the-evil-job-of-downcast-to-clients"><span class="toc-text">Do not leave the evil job of downcast to clients</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Error-Code-with-Exception"><span class="toc-text">Replace Error Code with Exception</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deciding-if-the-exception-is-checked-or-unchecked"><span class="toc-text">Deciding if the exception is checked or unchecked</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-8-2020"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 17&#x2F;8&#x2F;2020 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dealing-with-Generalization"><span class="toc-text">Dealing with Generalization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-Up-Field"><span class="toc-text">Pull Up Field</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-Up-Method"><span class="toc-text">Pull Up Method</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Challenge-with-Pulling-up-Method-reference-to-subclass-features"><span class="toc-text">Challenge with Pulling up Method: reference to subclass features</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-Up-Constructor-Body"><span class="toc-text">Pull Up Constructor Body</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extract-Subclass-Extract-Superclass"><span class="toc-text">Extract Subclass&#x2F;Extract Superclass</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Extract-Subclass-Triggers"><span class="toc-text">Extract Subclass Triggers:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Extract-Superclass-Triggers"><span class="toc-text">Extract Superclass Triggers:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alternative-Extract-Class"><span class="toc-text">Alternative: Extract Class</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extract-Interface"><span class="toc-text">Extract Interface</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Triggers"><span class="toc-text">Triggers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collapse-Hierarchy"><span class="toc-text">Collapse Hierarchy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Form-Template-Method"><span class="toc-text">Form Template Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Inheritance-with-Delegation"><span class="toc-text">Replace Inheritance with Delegation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace-Delegation-with-Inheritance"><span class="toc-text">Replace Delegation with Inheritance</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-8-2020-Big-Refactorings"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 19&#x2F;8&#x2F;2020: Big Refactorings &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tease-Apart-Inheritance"><span class="toc-text">Tease Apart Inheritance</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Convert-Procedural-Design-to-Objects"><span class="toc-text">Convert Procedural Design to Objects</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Separate-Domain-from-Presentation"><span class="toc-text">Separate Domain from Presentation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-Pattern"><span class="toc-text">MVC Pattern</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extract-Hierarchy"><span class="toc-text">Extract Hierarchy</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-8-2020-Refactoring-Reuse-and-Reality"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 20&#x2F;8&#x2F;2020:  Refactoring, Reuse, and Reality &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-cost-of-refactoring"><span class="toc-text">The cost of refactoring?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Refactor-securely"><span class="toc-text">Refactor securely</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Refactoring-Tools"><span class="toc-text">Refactoring Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Technical-Criteria-for-a-Refactoring-Tool"><span class="toc-text">Technical Criteria for a Refactoring Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-Database"><span class="toc-text">Program Database</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parse-Trees"><span class="toc-text">Parse Trees</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accuracy"><span class="toc-text">Accuracy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Practical-Criteria-for-a-Refactoring-Tool"><span class="toc-text">Practical Criteria for a Refactoring Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Speed"><span class="toc-text">Speed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Undo"><span class="toc-text">Undo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integration-with-other-tools"><span class="toc-text">Integration with other tools</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🎈🎈🎈🎈🎈-Done-20-Aug-2020-🎈🎈🎈🎈🎈"><span class="toc-text">🎈🎈🎈🎈🎈 Done! (20 Aug 2020) 🎈🎈🎈🎈🎈</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Reading Journal - Refactoring, by Martin Fowler
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-20 10:40:02</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Good Practices" title="Good Practices">Good Practices</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="30-07-2020"><a href="#30-07-2020" class="headerlink" title="=============30/07/2020============="></a>=============30/07/2020=============</h1><p>Today I started reading the book recommended at CompSci701 class:<br>Martin Fowler (feat. Kent Beck) Refactoring: Improving the Design of Existing Code. Addison-Wesley (2012).</p>
+<p>I am reading the Chinese translated version, translated by Mr 熊节. I will write my note back in English to reinforce learning.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="When-to-Refactor"><a href="#When-to-Refactor" class="headerlink" title="When to Refactor"></a>When to Refactor</h2><p>This is a nice description for when to refactor, which could help me consider how I improve my assignment.</p>
+<blockquote>
+<p>If you want to add a new feature to the program, and the structure of the code makes it inconvenient to do so, then refactor before adding the feature.</p>
+</blockquote>
+<h2 id="Before-refactoring"><a href="#Before-refactoring" class="headerlink" title="Before refactoring"></a>Before refactoring</h2><p><strong>Good tests are the foundation for refactoring!</strong></p>
+<p>Refactoring could introduce bugs, so write a reliable testing environment to ensure you don’t break things during refactoring.</p>
+<h2 id="Extract-methods"><a href="#Extract-methods" class="headerlink" title="Extract methods"></a>Extract methods</h2><p>The smaller your code block, the easier to manage, change and move them.<br>To extract methods, you need to find the local variables and parameters.<br>Any <strong>unchanged</strong> variables in the long block could be passed to the extracted method/function as arguments.<br>Be careful with changed variables”. If there is only one variable’s value being changed, it can be the return value of the new argument.</p>
+<h2 id="Placing-methods-in-the-right-place"><a href="#Placing-methods-in-the-right-place" class="headerlink" title="Placing methods in the right place"></a>Placing methods in the right place</h2><p>Most of the time, functions/methods should be put in where the data it uses belongs. This is relatable to a static method I wrote for Kalah:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Generate a pair of player partner for Kalah game.</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> KalahPlayer[] createNewPlayerPair() &#123;</span><br><span class="line">    KalahPlayer[] newPlayerPair = <span class="keyword">new</span> KalahPlayer[<span class="number">2</span>];</span><br><span class="line">    newPlayerPair[<span class="number">0</span>] = <span class="keyword">new</span> KalahPlayer(DEFAULT_PLAYER_ONE_NAME);</span><br><span class="line">    newPlayerPair[<span class="number">1</span>] = <span class="keyword">new</span> KalahPlayer(DEFAULT_PLAYER_TWO_NAME);</span><br><span class="line">    newPlayerPair[<span class="number">0</span>].setOpponent(newPlayerPair[<span class="number">1</span>]);</span><br><span class="line">    newPlayerPair[<span class="number">1</span>].setOpponent(newPlayerPair[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> newPlayerPair;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To start with it was in the <code>Kalah</code> class because this is where it is used.<br>Then I moved it to <code>KalahJudge</code> class because I don’t want <code>Kalah</code> to know too much about processes other than driving the game state.<br>Finally I moved it to <code>KalahPlayer</code>, because:</p>
+<ul>
+<li><code>KalahPlayer</code> is all this method deals with and needs to know;</li>
+<li>If I put this “constructor” method in <code>KalahPlayer</code>, I will be able to make <code>KalahPlayer</code>‘s constructor private, because this should be the only way to create a valid <code>KalahPlayer</code> instance.</li>
+</ul>
+<h2 id="Try-to-get-rid-of-temporary-variables"><a href="#Try-to-get-rid-of-temporary-variables" class="headerlink" title="Try to get rid of temporary variables"></a>Try to get rid of temporary variables</h2><p>Temporary variables could be problems. They are only valid in the function they belong to, and therefore could contribute to a long and complex function. It is easy to lose track of temporary variables in a long function.</p>
+<h2 id="Performance-issue-in-refactoring"><a href="#Performance-issue-in-refactoring" class="headerlink" title="Performance issue in refactoring"></a>Performance issue in refactoring</h2><p>Replacing temporary variables with query <strong>could</strong> cause performance issue. For example, there might need to be extra loops in the query method. It says <strong>could</strong> because you never know until you run assessments on the running time. You do not need to worry about this when you refactor. Worry about them when you are optimising - by that time you are at a good position with well-refactored code.</p>
+<h2 id="Don’t-switch-on-another-object’s-attribute"><a href="#Don’t-switch-on-another-object’s-attribute" class="headerlink" title="Don’t switch on another object’s attribute"></a>Don’t <code>switch</code> on another object’s attribute</h2><p>With the <code>Movie</code> and <code>Rental</code> example in the book, <code>getCharges</code> switch among different movie types.</p>
+<p>This method is originally in the <code>Rental</code> class and uses the <code>getDaysRented()</code> method belonging to <code>Rental</code> and the <code>getPriceCode()</code> method belonging to <code>Movie</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getCharge</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">double</span> result=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">switch</span>(getMovie().getPriceCode())&#123;</span><br><span class="line">    caseMovie.REGULAR:</span><br><span class="line">      result+=<span class="number">2</span>;</span><br><span class="line">      <span class="keyword">if</span>(getDaysRented()&gt;<span class="number">2</span>)</span><br><span class="line">        result+=(getDaysRented()-<span class="number">2</span>)*<span class="number">1.5</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    caseMovie.NEW_RELEASE:</span><br><span class="line">      result+=getDaysRented()*<span class="number">3</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    caseMovie.CHILDRENS:</span><br><span class="line">      result+=<span class="number">1.5</span>;</span><br><span class="line">      <span class="keyword">if</span>(getDaysRented()&gt;<span class="number">3</span>)</span><br><span class="line">        result+=(getDaysRented()-<span class="number">3</span>)*<span class="number">1.5</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>It should be moved to <code>Movie</code> class and pass the result of <code>getDaysRented</code> as an argument.<br>This is because this method depends on how many possible <code>priceCode</code> there are in <code>Movie</code>.<br>If the potential change to this system is an addition of new movie type/<code>priceCode</code>, we want to <strong>contain the change caused by adding new movie types</strong> within the <code>Movie</code> class.</p>
+<h2 id="State-pattern-by-Gang-of-Four"><a href="#State-pattern-by-Gang-of-Four" class="headerlink" title="State pattern by Gang of Four"></a>State pattern by Gang of Four</h2><p>This looks like the Strategy pattern, but is different because <code>Price</code> class represents a “state” of the movie, instead of a “behaviour”. It could be updated from <code>NEW</code> to <code>REGULAR</code> after some time.</p>
+<img alt="" src="https://github.com/niuniuanran/niuniuanran.github.io/blob/master/2020/01/01/Image-Vault/state-pattern.png?raw=true" width="700px"/>
+
+<p>Related refactoring technique:</p>
+<ul>
+<li>Replace Type Code with State/Strategy</li>
+<li>Replace Conditional With Polymorphism</li>
+</ul>
+<p>Interactions after adding the State pattern:</p>
+<img src="state-pattern-interaction.png" width="700px" alt=""/>
+
+<p>UML after adding the State pattern:</p>
+<img src="state-uml.png" alt="" width="700px"/>
+
+
+<h1 id="Principles-of-Refactoring"><a href="#Principles-of-Refactoring" class="headerlink" title="Principles of Refactoring"></a>Principles of Refactoring</h1><h2 id="What-is-refactoring"><a href="#What-is-refactoring" class="headerlink" title="What is refactoring"></a>What is refactoring</h2><p>A change to the internal structure of a software to improve its comprehensibility and reduce its maintaining cost, without changing its observable behaviours.</p>
+<h2 id="When-to-refactor"><a href="#When-to-refactor" class="headerlink" title="When to refactor"></a>When to refactor</h2><p>You do not refactor for the sake of refactoring. You have another goal and use refactoring to facilitate that.</p>
+<h2 id="Three-strikes-and-refactor"><a href="#Three-strikes-and-refactor" class="headerlink" title="Three strikes and refactor"></a>Three strikes and refactor</h2><p>Don Roberts’ “The rule of three”: </p>
+<blockquote>
+<p>The third time you do something similar, you refactor.</p>
+</blockquote>
+<h2 id="Refactor-when-adding-new-functionality"><a href="#Refactor-when-adding-new-functionality" class="headerlink" title="Refactor when adding new functionality"></a>Refactor when adding new functionality</h2><ul>
+<li>Refactoring helps us understand the code to be modified;</li>
+<li>Refactoring makes the structure clear and easier to be extended.</li>
+</ul>
+<h1 id="Changing-Published-Interfaces-when-Refactoring"><a href="#Changing-Published-Interfaces-when-Refactoring" class="headerlink" title="Changing Published Interfaces when Refactoring"></a>Changing Published Interfaces when Refactoring</h1><p>If you change the interface, anything could happen.</p>
+<p>The problem with refactoring is that some refactoring techniques DO change interfaces - as simple as Rename Method (273). What’s its impact on the treasured notion of Encapsulation?</p>
+<ul>
+<li>If all callers are under your control, no problem - even with a <strong>public</strong> interface.</li>
+<li><strong>Published</strong> is a step ahead public. If an interface is published, i.e. </li>
+</ul>
+<h2 id="Maintain-both-old-and-new-interfaces"><a href="#Maintain-both-old-and-new-interfaces" class="headerlink" title="Maintain both old and new interfaces"></a>Maintain both old and new interfaces</h2><h3 id="Rewrite-old-function-to-call-the-new-one"><a href="#Rewrite-old-function-to-call-the-new-one" class="headerlink" title="Rewrite old function to call the new one"></a>Rewrite old function to call the new one</h3><p>Don’t copy the function implementation, or you’ll get stuck into code duplication!</p>
+<h3 id="Use-Java’s-deprecation-facility"><a href="#Use-Java’s-deprecation-facility" class="headerlink" title="Use Java’s deprecation facility"></a>Use Java’s deprecation facility</h3><p>Mark the old interface as <code>deprecated</code> so that your callers will notice.</p>
+<h2 id="Try-not-to-publish-interfaces-unless-necessary"><a href="#Try-not-to-publish-interfaces-unless-necessary" class="headerlink" title="Try not to publish interfaces unless necessary"></a>Try not to publish interfaces unless necessary</h2><p>Organizations with an overly strong notion of code ownership tend to publish interfaces inside the team too early. This will introduce unnecessary needs to maintain new/old interfaces.<br>Change your notion of ownership, and let everyone be able to change others’ code to adapt to new interfaces. This will make refactoring much smoother.</p>
+<h2 id="A-special-interface-change-adding-a-new-exception-in-throws-clause"><a href="#A-special-interface-change-adding-a-new-exception-in-throws-clause" class="headerlink" title="A special interface change: adding a new exception in throws clause"></a>A special interface change: adding a new exception in <code>throws</code> clause</h2><p>This is not change to function signature, so you cannot use delegation to cover it. But the compiler will be unhappy with this change.</p>
+<p>To solve this, define a <strong>superclass exception</strong> for a whole package (such as SQLException for java.sql) and ensure that public methods only declare this exception in their throws clause. </p>
+<p>This way, callers will only know the more generic exception, while we could define new subclass exceptions as we need.</p>
+<h1 id="When-not-to-refactor"><a href="#When-not-to-refactor" class="headerlink" title="When not to refactor"></a>When not to refactor</h1><h2 id="When-rewriting-is-just-easier"><a href="#When-rewriting-is-just-easier" class="headerlink" title="When rewriting is just easier"></a>When rewriting is just easier</h2><p>A clear signal for <strong>rewriting</strong> instead of refactoring is: the current code could not function properly. </p>
+<p>Remember, before refactoring, your code should be functional in most cases.</p>
+<h3 id="Break-into-components-first"><a href="#Break-into-components-first" class="headerlink" title="Break into components first"></a>Break into components first</h3><p>A compromise route is to refactor a large piece of software into components with strong encapsulation. Then you can make a <em>refactor-versus-rebuild</em> decision for one component at a time.</p>
+<h2 id="Before-the-deadline-of-the-project"><a href="#Before-the-deadline-of-the-project" class="headerlink" title="Before the deadline of the project"></a>Before the deadline of the project</h2><p>Avoid refactoring at this time, because the productivity you gain will only be available after the deadline.</p>
+<h1 id="Refactoring-and-Performance"><a href="#Refactoring-and-Performance" class="headerlink" title="Refactoring and Performance"></a>Refactoring and Performance</h1><p>Even if you totally know the system, do measure its performance instead of assuming. </p>
+<p>The secret to fast software, in all but hard real-time contexts, is to <strong>write tunable software<br>first</strong> and then to tune it for sufficient speed.</p>
+<p>Three ways to write fast software:</p>
+<h2 id="Time-budgeting"><a href="#Time-budgeting" class="headerlink" title="Time budgeting"></a>Time budgeting</h2><p>Often used in hard real-time system.</p>
+<p>Budget each component certain amount of resource - time and footprint.</p>
+<h2 id="Constant-attention-approach"><a href="#Constant-attention-approach" class="headerlink" title="Constant attention approach"></a>Constant attention approach</h2><p>Try to keep high performance anytime doing anything.<br>This feels attractive but are not so effective. Problems:</p>
+<ul>
+<li>Changes that improve performance usually make the program harder to work with. This slows development. </li>
+<li>The performance improvements are spread all around the program, and each improvement is made with a narrow perspective of the program’s behavior.</li>
+</ul>
+<h2 id="Delay-until-your-performance-optimization-stage"><a href="#Delay-until-your-performance-optimization-stage" class="headerlink" title="Delay until your performance optimization stage"></a>Delay until your performance optimization stage</h2><p> If you optimize all the code equally, you end up with 90 percent of the optimizations wasted, because you are optimizing code that isn’t run much.<br> Focus on writing well-mannered program, and then follow specific procedure to adjust the system’s performance later in your development, when you enter a performance optimisation stage.</p>
+<h3 id="Use-a-profiler-to-monitor-the-system"><a href="#Use-a-profiler-to-monitor-the-system" class="headerlink" title="Use a profiler to monitor the system"></a>Use a profiler to monitor the system</h3><p> First you use a profiler to tell you what places in your system consumes the most time and space. </p>
+<h3 id="Focus-on-“performance-hot-spots”-for-optimisation"><a href="#Focus-on-“performance-hot-spots”-for-optimisation" class="headerlink" title="Focus on “performance hot spots” for optimisation"></a>Focus on “performance hot spots” for optimisation</h3><p> Then you could focus on these <strong>“performance hot spots”</strong> to conduct optimizations.</p>
+<h3 id="Stay-cautious"><a href="#Stay-cautious" class="headerlink" title="Stay cautious"></a>Stay cautious</h3><p> Just like refactoring, you should adjust in small steps when optimising:</p>
+<ul>
+<li><p>Adjust in small steps</p>
+</li>
+<li><p>For each step, compile, test, rerun the profiler. If no improvements, undo the adjustment.</p>
+<p>Follow the above process of <strong>finding and removing hot spots</strong>, until you get the performance wanted by your client.</p>
+</li>
+</ul>
+<h2 id="How-refactoring-helps-late-optimisation"><a href="#How-refactoring-helps-late-optimisation" class="headerlink" title="How refactoring helps late optimisation"></a>How refactoring helps late optimisation</h2><p>Although refactoring could slow down the software in the short term, a well-refactored programme helps this style of refactoring in two ways:</p>
+<ul>
+<li>More time to focus on performance because adding new features is now quicker.</li>
+<li>Finer granularity for your performance analysis. </li>
+</ul>
+<h1 id="31-07-2020-Bad-Smells"><a href="#31-07-2020-Bad-Smells" class="headerlink" title="=============31/07/2020: Bad Smells============="></a>=============31/07/2020: Bad Smells=============</h1><p>Today I’ll be reading chapter 3: Code smells. The number behind the technique name is the page number in the book in the <a href="https://www.amazon.cn/dp/B07QKC6RN7/ref=sr_1_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&keywords=%E9%87%8D%E6%9E%84&qid=1596241892&sr=8-1" target="_blank" rel="noopener">Chinese Kindle version</a> for future reference.</p>
+<p>No set of metrics rivals informed human intuition. </p>
+<h1 id="Duplicated-Code"><a href="#Duplicated-Code" class="headerlink" title="Duplicated Code"></a>Duplicated Code</h1><ul>
+<li>Same expressions in two functions in one class: Extract Method(110)</li>
+<li>Same expressions in sibling subclasses: Extract Method(110) and Pull Up Method(332) into their superclass</li>
+<li>Similar methods in sibling subclasses: Extract Method(110) to separate identical parts and differences, then you mind find the opportunity to use Form Template Method(345) to get a Template Method pattern.</li>
+<li>Functions doing the same thing with different algorithms: choose the clearer one and use Substitute Algorithm (139).</li>
+<li>Two unrelated classes using duplicated code: <ul>
+<li>Extract Class(149) and move the duplicate code into an independent class</li>
+<li>Or maybe it should only belong to one class and be invoked in the other.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Long-Method"><a href="#Long-Method" class="headerlink" title="Long Method"></a>Long Method</h1><blockquote>
+<p>The object programs that live best and longest are those with short methods.<br>All of the payoffs of indirection— <strong>explanation, sharing, and choosing</strong>—are supported by little methods</p>
+</blockquote>
+<p>Older languages carried an overhead in subroutine calls, which deterred people from small methods. Modern OO languages has almost eliminated this overhead.<br>It takes effort to read the methods though, so the key to making small methods comprehensible is <strong>a good name</strong>, so that your reader do not need to jump to the methods to know what it does.</p>
+<h2 id="Be-more-aggressive-about-decomposing-methods"><a href="#Be-more-aggressive-about-decomposing-methods" class="headerlink" title="Be more aggressive about decomposing methods"></a>Be more aggressive about decomposing methods</h2><p>A heuristic we follow:</p>
+<blockquote>
+<p>When you feel the need to add comment to explain something, extract what needs to be explained into a new method, and name it with its <strong>intention</strong>(not how it does the job).</p>
+</blockquote>
+<p>We can do this on even a short line of code, even if the method is longer than the code it replaces.</p>
+<blockquote>
+<p>The key here is not method length, but the semantic distance between what the method does and how it does it.</p>
+</blockquote>
+<h2 id="When-there-are-many-parameters-and-temporary-variables"><a href="#When-there-are-many-parameters-and-temporary-variables" class="headerlink" title="When there are many parameters and temporary variables"></a>When there are many parameters and temporary variables</h2><p>If you use Extract Method(110), you’ll get a lot of parameters passed to the extracted method.</p>
+<ul>
+<li>Replace Temp with Query(120) to eliminate these temporary elements.</li>
+<li>Introduce Parameter Object(295) and Preserve Whole Object(288) to make your long parameter list cleaner.</li>
+<li>If you’ve tried that, and you still have too many temps and parameters, it’s time to get out the<br>heavy artillery: <strong>Replace Method with Method Object</strong>(135).</li>
+</ul>
+<h2 id="Deciding-which-code-to-extract"><a href="#Deciding-which-code-to-extract" class="headerlink" title="Deciding which code to extract"></a>Deciding which code to extract</h2><h3 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h3><p>Comments often signal the <strong>semantic distance</strong> between the code’s intention and how it does it.<br><strong>A block of code with a comment that tells you what it is doing can be replaced by a method whose name is based on the comment.</strong></p>
+<h3 id="Conditionals-and-loops"><a href="#Conditionals-and-loops" class="headerlink" title="Conditionals and loops"></a>Conditionals and loops</h3><p>Conditionals and loops  also give signs for extractions. </p>
+<ul>
+<li>Use Decompose Conditional(238) to deal with conditional expressions. </li>
+<li>With loops, extract the loop and the code within the loop into its own method.</li>
+</ul>
+<h1 id="Large-Class"><a href="#Large-Class" class="headerlink" title="Large Class"></a>Large Class</h1><p>If you want to do too many things with a single class, it often shows up as too many instance variables - then duplicated code will not be far behind.</p>
+<ul>
+<li>When you have too many instance variables: <ul>
+<li>Extract Class(149) and organise several variables into a new class. </li>
+<li>If several variables has the same prefixes or suffixes they might belong to the same component</li>
+<li>You could Extract Subclass(330) when suitable.</li>
+</ul>
+</li>
+<li>When you have too much code: Also Extract Class(149) and Extract Subclass(330)<ul>
+<li>First find out how the clients use the code, then Extract Interface(341)</li>
+</ul>
+</li>
+<li>If your large class is a GUI class, you could  move data and behavior to a separate <strong>domain object</strong>.<ul>
+<li>This may require keeping some duplicate data in both places and keeping the data in sync. Duplicate Observed Data(189) suggests how to do this.  </li>
+</ul>
+</li>
+</ul>
+<h1 id="Long-Parameter-List"><a href="#Long-Parameter-List" class="headerlink" title="Long Parameter List"></a>Long Parameter List</h1><p>In object-oriented programs, parameter lists tend to be much smaller than in traditional programs. This is because you just need to pass your method with enough objects for it to help itself to everything it needs.</p>
+<ul>
+<li>If a request to an existing object could replace a parameter, Replace Parameter with Method(292). Here the “existing object” could be:<ul>
+<li>a field within the class that the method belongs</li>
+<li>another parameter</li>
+</ul>
+</li>
+<li>Preserve Whole Object(288) to collect a handful of data from the same object, and replace these parameters with that object.</li>
+<li>If some data items have no logical object, you could Introduce Parameter Object(295) to create a “parameter object”.</li>
+<li>One important exception: Sometimes you do not want to create <strong>dependency from the called object to the larger object</strong>. In those cases unpacking data and sending it along as parameters is reasonable.<ul>
+<li>pay attention to the pain involved. If the parameter list is too long or changes too often, you need to rethink your dependency structure.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Divergent-Change"><a href="#Divergent-Change" class="headerlink" title="Divergent Change"></a>Divergent Change</h1><p>Divergent change occurs when one class is commonly changed in different ways for different reasons.</p>
+<p>To clean this up you identify <strong>everything that changes for a particular cause</strong> and use Extract Class to put them all together.</p>
+<h1 id="Shotgun-Surgery"><a href="#Shotgun-Surgery" class="headerlink" title="Shotgun Surgery"></a>Shotgun Surgery</h1><p>You smell Shotgun Surgery when every time you make a kind of change, you have to make a lot of little changes to a lot of different classes. </p>
+<ul>
+<li>In this case you want to use Move Method and Move Field to put all the changes into a single class. </li>
+<li>If no current class looks like a good candidate, create one. </li>
+<li>Often you can use Inline Class to bring a whole bunch of behavior together. </li>
+</ul>
+<blockquote>
+<p>Divergent change is one class that suffers many kinds of changes, and shotgun surgery is one change that alters many classes.<br>Either way you want to arrange things so that, ideally, there is a <strong>one-to-one link between common changes and classes</strong>.</p>
+</blockquote>
+<h1 id="Feature-Envy"><a href="#Feature-Envy" class="headerlink" title="Feature Envy"></a>Feature Envy</h1><ul>
+<li>A classic smell: a method’s interest is higher than its interest in its own class. Often desiring for data.</li>
+<li>Solution: Move the method to the place it wants to be. </li>
+<li>When a method wants to use features from multiple classes, decide by seeing which class owns the data most used by this method.</li>
+</ul>
+<h2 id="Some-Design-Patterns-require-you-to-break-this-rule"><a href="#Some-Design-Patterns-require-you-to-break-this-rule" class="headerlink" title="Some Design Patterns require you to break this rule"></a>Some Design Patterns require you to break this rule</h2><p>These patterns are used to fight against the smell of Divergent Change, and to put things that change together in the same place. </p>
+<h3 id="GoF’s-Strategy-pattern"><a href="#GoF’s-Strategy-pattern" class="headerlink" title="GoF’s Strategy pattern"></a>GoF’s Strategy pattern</h3><p>Makes it easy for you to change a method’s behaviour, because it isolates a small amount of behaviours that need to be overridden.<br>The strategy object’s methods will want data from its owner. </p>
+<h3 id="GoF’s-Visitor-pattern"><a href="#GoF’s-Visitor-pattern" class="headerlink" title="GoF’s Visitor pattern"></a>GoF’s Visitor pattern</h3><p>The visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying the structures.<br>The visitor object’s methods will want data from the visited element.</p>
+<h1 id="Data-Clumps"><a href="#Data-Clumps" class="headerlink" title="Data Clumps"></a>Data Clumps</h1><p>Data items that always go to places together should have their own object.</p>
+<ul>
+<li>Extract Class(149) to extract these data items into the same object.</li>
+<li>Move your attention to the method signature:<ul>
+<li>Introduce Parameter Object(295)</li>
+<li>Preserve Whole Object(288)<br>This way, you could shorten a lot of parameter lists and simplify method calls.<br>Don’t worry if only parts of the new object are used, as long as the new object replaces two or more items, it’s worth the change.</li>
+</ul>
+</li>
+</ul>
+<p>A good way of judgement: <strong>If replace one item in the clump, will other data items lose their meaning? If so, it is a clear signal: they should be in an object.</strong></p>
+<h1 id="Primitive-Obsession"><a href="#Primitive-Obsession" class="headerlink" title="Primitive Obsession"></a>Primitive Obsession</h1><ul>
+<li>Replace Data Value with Object(175) to replace the standalone values with objects.</li>
+<li>Replace Type Code with Class(218) </li>
+<li>Replace Type Code with Subclass(213), e.g. replace <code>Movie.priceCode</code> with subclasses of <code>Price</code>: <code>NewPrice</code>, <code>RegularPrice</code>,  <code>ChildrenPrice</code></li>
+<li>Replace Type Code with State/Strategy(227), e.g. use <code>price.calculateCharge(daysRented)</code> to calculate Rental charge for a movie. <code>price</code> maintains a state for the movie. </li>
+<li>If you find yourself picking data from an array, try Replace Array with Object(186)</li>
+</ul>
+<h1 id="Switch-Statement"><a href="#Switch-Statement" class="headerlink" title="Switch Statement"></a>Switch Statement</h1><p>A very significant symptoms of object-oriented code: the lack of switch statement.<br>The essential problem to statement is <strong>duplication</strong>.<br>You often find the same switch cases appearing in multiple places, and if you need to add a new case, you need to go find all its appearances.</p>
+<p> The OO notion of <strong>polymorphism</strong> gives you an elegant way to deal with this problem.</p>
+<h2 id="Where-should-the-polymorphism-go"><a href="#Where-should-the-polymorphism-go" class="headerlink" title="Where should the polymorphism go?"></a>Where should the polymorphism go?</h2><p>Switch clause often switches among type code. You want “method or class for the type code”, so you should:</p>
+<ul>
+<li>Use Extract Method(110) to extract the switch clause to a method</li>
+<li>Use Move Method(142) to move this method to the class being switched (maintaining the type code/to be made polymorphism)</li>
+<li>Use Replace Type Code with Subclasses(223) or Replace Type Code with State/Strategy(227) in this class.</li>
+<li>Once the logic of switching is migrated to this class, use Replace Conditions with Polymorphism(255).</li>
+</ul>
+<h2 id="If-it’s-just-some-options-within-a-single-method"><a href="#If-it’s-just-some-options-within-a-single-method" class="headerlink" title="If it’s just some options within a single method"></a>If it’s just some options within a single method</h2><p>If you only want to some simple choices, polymorphism is a bit overkill. You could consider:</p>
+<ul>
+<li>Replace Parameter with Explicit Methods(285)</li>
+<li>If one of the cases is <code>null</code>, you could try using Introduce Null Object(260).</li>
+</ul>
+<h1 id="Parallel-Inheritance-Hierarchies"><a href="#Parallel-Inheritance-Hierarchies" class="headerlink" title="Parallel Inheritance Hierarchies"></a>Parallel Inheritance Hierarchies</h1><p>In this scenario, whenever you add a subclass to one class, you’ll have to add a subclass to another class in parallel.<br>The strategy to eliminate this duplication:</p>
+<ul>
+<li>Let one instances of one hierarchy <strong>refer</strong> to instances of the other.</li>
+<li>Then you could choose to use Move Method(142) and Move Field(146) to get rid of the hierarchy on the <strong>referring</strong> class: now it contains a field (the referred instance) that takes care of the inheritance relationship.</li>
+</ul>
+<h1 id="Lazy-Class"><a href="#Lazy-Class" class="headerlink" title="Lazy Class"></a>Lazy Class</h1><p>Each class costs time and effort to maintain. Kill classes that aren’t doing enough to pay for itself.</p>
+<ul>
+<li>If some subclasses are not doing lots, try Collapse Hierachy(344)</li>
+<li>For components almost useless outside one context, use Inline Class(154)</li>
+</ul>
+<h1 id="Speculative-Generality"><a href="#Speculative-Generality" class="headerlink" title="Speculative Generality"></a>Speculative Generality</h1><p>Don’t say “Oh one day we’ll need this”. See if you are using them now.</p>
+<ul>
+<li>Collapse Hierarchy (344) if some abstract classes are not so useful.</li>
+<li>Unnecessary delegation could be removed with Inline Class(154).</li>
+<li>Methods with unused parameters should be subject to Remove Parameter (277). </li>
+<li>Methods named with unnecessarily abstract names should be brought down to earth with Rename Method (273.</li>
+<li>If the only user of a method/class are test cases, get rid of the test cases and the code.</li>
+</ul>
+<h1 id="Temporary-field"><a href="#Temporary-field" class="headerlink" title="Temporary field"></a>Temporary field</h1><p>Sometimes you see an object in which an instance variable is set only in certain circumstances.<br>Such code is difficult to understand, because you expect an object to need all of its variables. </p>
+<ul>
+<li>Use Extract Class（149) to create a home for the poor orphan variables. Put all the code that concerns the variables into the component. </li>
+<li>You may also be able to eliminate conditional code by using Introduce Null Object (260) to create an alternative component for when the variables aren’t valid.</li>
+</ul>
+<p>A common case of temporary field occurs when a complicated algorithm needs several variables. Because the implementer didn’t want to pass around a huge parameter list (who does?), he put them in fields. But the fields are valid only during the algorithm.<br>In this case you can use Extract Class(149) with <strong>these variables and the methods that require them</strong>. The new object is a <strong>method object</strong> and knows how to do the algorithm.</p>
+<p>I found <a href="https://refactoring.guru/replace-method-with-method-object" target="_blank" rel="noopener">an article by Refactoring Guru: Replace Method with Method Object</a> explaining what is a method object:</p>
+<blockquote>
+<ul>
+<li>Problem: You have a long method in which the local variables are so intertwined that you can’t apply Extract Method.</li>
+<li>Solution: Transform the method into a separate class so that the local variables become fields of the class. Then you can split the method into several methods within the same class.</li>
+</ul>
+</blockquote>
+<h1 id="Message-Chains"><a href="#Message-Chains" class="headerlink" title="Message Chains"></a>Message Chains</h1><p>You see message chains when a client asks one object for another object, which the client then asks for yet another object, which the client then asks for yet another another object, and so on. You may see these as a long line of <code>getThis</code> methods, or as a sequence of temps. </p>
+<p>Navigating this way means the client is <strong>coupled</strong> to the structure of the navigation.<br>Any change to the intermediate relationships causes the client to have to change.</p>
+<ul>
+<li>Hide Delegate(157): </li>
+</ul>
+<img src="hide-delegate.png" alt="" width="600px"/>
+
+<p>However, this way tends to make a handful of objects “Middle Man”.</p>
+<ul>
+<li>A better option: first observe what the object got at the end of the chain is used for. See if you could use Extract Method(110) to extract the code that uses this final object into a new method, and then use Move Method(142) to push this method <strong>down</strong> the chain. If several clients of one of the objects in the chain want to navigate the rest of the way, add a method to do that.</li>
+</ul>
+<h1 id="Middle-Man"><a href="#Middle-Man" class="headerlink" title="Middle Man"></a>Middle Man</h1><p>You look at a class’s interface and find half the methods are delegating to this other class. </p>
+<ul>
+<li>Use Remove Middle Man(160) and talk to the object that really knows what’s going on. </li>
+<li>If only a few methods aren’t doing much, use Inline Method(117) to inline them into the caller. </li>
+<li>If there is additional behavior, you can use Replace Delegation with Inheritance (355) to turn the middle man into a subclass of the real object. That allows you to <strong>extend behavior without chasing all that delegation</strong> (Your old middle man now knows how to do the delegated job himeself, and he also knows some extra stuff).</li>
+</ul>
+<h1 id="Inappropriate-Intimacy"><a href="#Inappropriate-Intimacy" class="headerlink" title="Inappropriate Intimacy"></a>Inappropriate Intimacy</h1><p>Sometimes classes become far too intimate and spend too much time delving in each others’private parts. </p>
+<ul>
+<li>Use Move Method (142) and Move Field (146) to separate the pieces to reduce the intimacy. </li>
+<li>See whether you can arrange a Change Bidirectional Association to Unidirectional(200).</li>
+<li>If the classes do have common interests, use Extract Class (149) to put the commonality in a safe place that the two lovers could share interests.  </li>
+<li>Use Hide Delegate (157) to let another class act as go-between.</li>
+</ul>
+<blockquote>
+<p>Inheritance often can lead to overintimacy. Subclasses are always going to know more about their parents than their parents would like them to know. If it’s time to leave home, apply Replace Inheritance with Delegation (352).</p>
+</blockquote>
+<h1 id="Alternative-Classes-with-Different-Interfaces"><a href="#Alternative-Classes-with-Different-Interfaces" class="headerlink" title="Alternative Classes with Different Interfaces"></a>Alternative Classes with Different Interfaces</h1><ul>
+<li>Use Rename Method (273) on any methods that do the same thing but have different signatures for what they do. </li>
+<li>Keep using Move Method (142) to move behavior to the classes until the protocols are the same.</li>
+<li>If you have to redundantly move code to accomplish this, you may be able to use Extract Superclass (336).</li>
+</ul>
+<h1 id="Incomplete-Library-Class"><a href="#Incomplete-Library-Class" class="headerlink" title="Incomplete Library Class"></a>Incomplete Library Class</h1><ul>
+<li><p>If there are just a couple of methods that you wish the library class had, use Introduce Foreign Method (162). </p>
+</li>
+<li><p>If there is a whole load of extra behavior, you need Introduce Local Extension (164).</p>
+<h1 id="Data-Class"><a href="#Data-Class" class="headerlink" title="Data Class"></a>Data Class</h1><p>These are classes that have fields, getting and setting methods for the fields, and nothing else.<br>Such classes are dumb data holders and are almost certainly <strong>being manipulated in far too much detail by other classes</strong>. </p>
+</li>
+<li><p>In early stages these classes may have public fields. If so, you should immediately apply Encapsulate Field (206) before anyone notices.</p>
+</li>
+<li><p>If you have collection fields, check to see whether they are properly encapsulated and apply Encapsulate Collection (208) if not.</p>
+</li>
+<li><p>Use Remove Setting Method (300) on any field that should not be changed.</p>
+</li>
+<li><p>Look for where these getting and setting methods are used by other classes. Try to use <strong>Move Method</strong> to move behavior into the data class. </p>
+</li>
+<li><p>If you can’t move a whole method, use Extract Method (110) to create a method that can be moved.</p>
+</li>
+<li><p>After a while you can start using Hide Method (303) on the getters and setters.</p>
+</li>
+</ul>
+<blockquote>
+<p>Data classes are like children. They are okay as a starting point, but to participate as a grownup object, they need to take some responsibility.</p>
+</blockquote>
+<h1 id="Refused-Bequest"><a href="#Refused-Bequest" class="headerlink" title="Refused Bequest"></a>Refused Bequest</h1><ul>
+<li><p>Traditional thoughts: A subclass should want to play with all the methods and data from its superclass. If it does not, there are mistakes in the design of the inheritance hierarchy. The methods and data that the child do not want to play with should be sent to a sibling of the child through using Push Down Method (328) and Push down Field (329).</p>
+</li>
+<li><p>Martin &amp; Beck’s opinion: If Refused Bequest causes confusion and problem, follow the traditional thoughts. Nine times out of ten this smell is too faint to be worth cleaning.</p>
+</li>
+<li><p>The smell of refused bequest is much stronger if the subclass is reusing behavior but does not want to support the interface of the superclass. </p>
+</li>
+<li><p>We don’t mind refusing implementations, but <strong>refusing interface</strong> gets us on our high horses. In this case, however, don’t fiddle with the hierarchy; you want to gut it by applying Replace Inheritance with Delegation(352).</p>
+</li>
+</ul>
+<h1 id="Comments-1"><a href="#Comments-1" class="headerlink" title="Comments"></a>Comments</h1><p>Comments help us to identify bad smells. First you should eliminate the bad smells through your refactoring techniques. Often after refactoring, we realise that the code has told everything.</p>
+<ul>
+<li>If you need comment to explain a block of code, try Extract Method (110)</li>
+<li>If the method has been extracted, try Rename Method (273)</li>
+<li>If you want to state some rules about the required state of the system, try Introduce Assertion (267).</li>
+</ul>
+<blockquote>
+<p>When you feel the need to write a comment, first try to refactor the code so that any comment becomes superfluous.</p>
+</blockquote>
+<p>A good time to use a comment is when you don’t know what to do. With comments you can: </p>
+<ul>
+<li>Describe what is going on</li>
+<li>Indicate areas in which you aren’t sure. </li>
+<li>Say why you did something. </li>
+</ul>
+<p>These comments will give information to future modifiers.</p>
+<h1 id="1-8-2020"><a href="#1-8-2020" class="headerlink" title="============= 1/8/2020 ============="></a>============= 1/8/2020 =============</h1><h1 id="Build-Tests"><a href="#Build-Tests" class="headerlink" title="Build Tests"></a>Build Tests</h1><blockquote>
+<p>Make sure all tests are fully automatic and that they check their own results.</p>
+</blockquote>
+<p>Benefit of frequently running automatic test:</p>
+<blockquote>
+<p>A suite of tests is a powerful bug detector that decapitates the time it takes to find bugs. (while the bugs are freshly introduced)</p>
+</blockquote>
+<blockquote>
+<p>The standard Java idiom for testing is the testing main. The idea is that every class should have a main function that tests the class. It’s a reasonable convention (although not honored much), but it can become awkward. The problem is that such a convention makes it tricky to run many tests easily. Another approach is to build separate test classes that work in a framework to make testing easier.</p>
+</blockquote>
+<h2 id="JUnit-Test"><a href="#JUnit-Test" class="headerlink" title="JUnit Test"></a>JUnit Test</h2><p>Junit framework uses the  composite pattern that allows you to group tests into arbitrary layers of suites:</p>
+<img src="junit-composition.png" alt="" width="700px"/>
+
+<blockquote>
+<p>Run your tests frequently. Localize tests whenever you compile—every test at least every day.</p>
+</blockquote>
+<h2 id="Unit-Test-vs-Functional-Test"><a href="#Unit-Test-vs-Functional-Test" class="headerlink" title="Unit Test vs Functional Test"></a>Unit Test vs Functional Test</h2><ul>
+<li>Unit tests are highly localized. Each test class works within a single package. </li>
+<li>Functional tests are written to ensure the software as a whole works. </li>
+<li>Functional tests typically treat the whole system as a black box as much as possible.</li>
+</ul>
+<p>When functional testers, or users, find a bug in the software, at least two things are needed to fix<br>it:</p>
+<ul>
+<li>start with addding a unit test that exposes the bug</li>
+<li>change the production code to remove the bug</li>
+</ul>
+<blockquote>
+<p>When I get a bug report, I begin by writing a unit test that causes the bug to surface. </p>
+<ul>
+<li>I write more than one test if I need to narrow the scope of the bug, or if there may be related failures. </li>
+<li>I use the unit tests to help pin down the bug and to ensure that a similar bug doesn’t get past my unit tests again.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>For refactoring purposes, I count on the unit tests—the programmer’s friend.</p>
+</blockquote>
+<h2 id="Test-Tips"><a href="#Test-Tips" class="headerlink" title="Test Tips"></a>Test Tips</h2><blockquote>
+<p>The key is to test the areas that you are most worried about going wrong. That way you get the most benefit for your testing effort.</p>
+</blockquote>
+<blockquote>
+<p>It is better to write and run incomplete tests than not to run complete tests.</p>
+</blockquote>
+<blockquote>
+<p>Think of the boundary conditions under which things might go wrong and concentrate<br>  your tests there.</p>
+</blockquote>
+<blockquote>
+<p>Don’t forget to test that exceptions are raised when things are expected to go wrong.</p>
+</blockquote>
+<blockquote>
+<p>It is better to spend a reasonable time to catch most bugs than to spend ages trying to catch them all.</p>
+</blockquote>
+<h1 id="3-8-2020"><a href="#3-8-2020" class="headerlink" title="============= 3/8/2020 ============="></a>============= 3/8/2020 =============</h1><p>Now I start reading the Catalog of Refactorings.</p>
+<h1 id="Refactoring-techniques-on-methods"><a href="#Refactoring-techniques-on-methods" class="headerlink" title="Refactoring techniques on methods"></a>Refactoring techniques on methods</h1><h2 id="Replace-Method-with-Method-Object"><a href="#Replace-Method-with-Method-Object" class="headerlink" title="Replace Method with Method Object"></a>Replace Method with Method Object</h2><p>This is a technique that interests me a lot, as it helps break down long method that actively manipulate multiple local variables.</p>
+<p>There are two ways to share variables between two methods: pass them as arguments/return values, and making them globally accessible to both to them.</p>
+<p>Extracting a Method Object makes the old local variables accessible to all extracted short methods.</p>
+<h2 id="The-role-of-temporary-variables"><a href="#The-role-of-temporary-variables" class="headerlink" title="The role of temporary variables"></a>The role of temporary variables</h2><p>Fowler refreshed my understanding of temporary variables. In his opinion, temporary variables should also serve the comprehensibility of the code. When possible, extracting method should be preferred over using temporary variables; queries should be preferred over in-line calculation of a temp. If the method is too hard to decompose and temporary variables are necessary, <strong>each temporary method should only serve ONE purpose</strong> and should never be reused for a new purpose. The name of the temporary variable, just like methods, should clearly state its intention.</p>
+<h1 id="7-8-2020"><a href="#7-8-2020" class="headerlink" title="============= 7/8/2020 ============="></a>============= 7/8/2020 =============</h1><p>Buried in 711 assignment for three days and AC today!!!🎈🎉🎈🎉  Back to the book.</p>
+<h1 id="Moving-Features-Between-Objects"><a href="#Moving-Features-Between-Objects" class="headerlink" title="Moving Features Between Objects"></a>Moving Features Between Objects</h1><blockquote>
+<p>You’ve probably heard that a class should be a crisp abstraction, handle a few clear<br>  responsibilities, or some similar guideline. In practice, classes grow. You add some operations<br>  here, a bit of data there. You add a responsibility to a class feeling that it’s not worth a separate<br>  class, but as that responsibility grows and breeds, the class becomes too complicated. Soon your<br>  class is as crisp as a microwaved duck.</p>
+</blockquote>
+<h2 id="Introduce-Foreign-Method"><a href="#Introduce-Foreign-Method" class="headerlink" title="Introduce Foreign Method"></a>Introduce Foreign Method</h2><p>Introduce a foreign method when a server class you are using needs an additional method, but you can’t modify the class. To do so, create a method in the client class with an instance of the server class as its first argument.</p>
+<h2 id="Introduce-Local-Extension"><a href="#Introduce-Local-Extension" class="headerlink" title="Introduce Local Extension"></a>Introduce Local Extension</h2><p>Introduce Local Extension when a service class needs several additional methods, but you can’t modify the class. You also want to reuse the additional methods in multiple places - if it is one-off thing, just create a foreign method.</p>
+<p>Create a new class that contains these extra methods. Make this extension class a subclass or a wrapper of the original.</p>
+<h1 id="9-8-2020"><a href="#9-8-2020" class="headerlink" title="============= 9/8/2020 ============="></a>============= 9/8/2020 =============</h1><h1 id="Organising-Data"><a href="#Organising-Data" class="headerlink" title="Organising Data"></a>Organising Data</h1><h2 id="Self-Encapsulate-Field"><a href="#Self-Encapsulate-Field" class="headerlink" title="Self Encapsulate Field"></a>Self Encapsulate Field</h2><p>Question:</p>
+<blockquote>
+<p>Inside a class, do we access the fields directly through the field name, or do we also use getters and setters?</p>
+</blockquote>
+<p>Martin’s Choice:</p>
+<blockquote>
+<ul>
+<li>I’m usually happy to do what the rest of the team wants to do. </li>
+<li>Left to myself, though, I like to use direct variable access as a first resort, <strong>until it gets in the way</strong>. </li>
+</ul>
+</blockquote>
+<p>When do we need to self encapsulate:<br>The advantages of indirect variable access are that <strong>it allows a subclass to override<br>how to get that information with a method</strong> and that it supports <strong>more flexibility in managing the data</strong>, such as lazy initialization, which initializes the value only when you need to use it.</p>
+<h2 id="Encapsulate-Collection"><a href="#Encapsulate-Collection" class="headerlink" title="Encapsulate Collection"></a>Encapsulate Collection</h2><p>Often a class contains a collection of instances. This collection might be an array, list, set, or vector. Such cases often have the usual getter and setter for the collection.</p>
+<ul>
+<li>A getter for a multivalued attribute should return something that prevents manipulation of the collection and hides unnecessary<br>details about its structure. The getter should not return the collection object itself, because:<ul>
+<li>It <strong>allows clients to manipulate the contents of the collection without the owning class’s knowing what is going on</strong>. </li>
+<li>It reveals too much to clients about the object’s internal data structures. </li>
+</ul>
+</li>
+<li>There should not be a setter for collection: rather there should be operations to add and remove elements. <ul>
+<li>This gives the owning object control over adding and removing elements from the collection.</li>
+</ul>
+</li>
+<li>With this protocol:<ul>
+<li>the collection is properly encapsulated, </li>
+<li>the coupling of the owning class to its clients is reduced</li>
+</ul>
+</li>
+</ul>
+<h2 id="Replace-Type-Code-with-Subclasses"><a href="#Replace-Type-Code-with-Subclasses" class="headerlink" title="Replace Type Code with Subclasses"></a>Replace Type Code with Subclasses</h2><p>Building the stage for Replace Conditional with Polymorphism.</p>
+<h2 id="Replace-Type-Code-with-Strategy-State"><a href="#Replace-Type-Code-with-Strategy-State" class="headerlink" title="Replace Type Code with Strategy/State"></a>Replace Type Code with Strategy/State</h2><p>This is similar to Replace Type Code with Subclasses, but can be used if the type code<br>changes <strong>during the life of the object</strong> or if another reason prevents subclassing. It uses either the<br>state or strategy pattern.</p>
+<h1 id="10-8-2020"><a href="#10-8-2020" class="headerlink" title="============= 10/8/2020 ============="></a>============= 10/8/2020 =============</h1><h1 id="Simplifying-Conditional-Expressions"><a href="#Simplifying-Conditional-Expressions" class="headerlink" title="Simplifying Conditional Expressions"></a>Simplifying Conditional Expressions</h1><h2 id="Replace-Nested-Conditional-with-Guard-Clauses"><a href="#Replace-Nested-Conditional-with-Guard-Clauses" class="headerlink" title="Replace Nested Conditional with Guard Clauses"></a>Replace Nested Conditional with Guard Clauses</h2><p>What is “<strong>Guard Clause</strong>“?</p>
+<blockquote>
+<p>If the condition is an unusual condition, check the condition and return if the condition is true. This kind of check is often called a guard clause. (Beck)</p>
+</blockquote>
+<blockquote>
+<p>Guard clauses either return from the method or throw an exception.</p>
+</blockquote>
+<h2 id="Introduce-Null-Object-null-subclass"><a href="#Introduce-Null-Object-null-subclass" class="headerlink" title="Introduce Null Object (null subclass)"></a>Introduce Null Object (null subclass)</h2><blockquote>
+<p>The essence of polymorphism is that instead of asking an object what type it is and then invoking some behavior based on the answer, you just invoke the behavior. </p>
+</blockquote>
+<blockquote>
+<p>Remember, null objects are always constant: nothing about them ever<br>  changes. Accordingly, we implement them using the <strong>Singleton pattern</strong><br>  [Gang of Four]. Whenever you ask, for example, for a missing person,<br>  you always get the single instance of that class.</p>
+</blockquote>
+<h2 id="Introduce-Assertions"><a href="#Introduce-Assertions" class="headerlink" title="Introduce Assertions"></a>Introduce Assertions</h2><p>Assertions act as communication and debugging aids. In communication they help the reader understand the assumptions the code is making.<br>In debugging, assertions can help <strong>catch bugs closer to their origin</strong>. I’ve noticed the debugging help is less important when I write self-testing code, but I still appreciate the value of assertions in communciation. (Martin)</p>
+<h1 id="12-8-2020"><a href="#12-8-2020" class="headerlink" title="============= 12/8/2020 ============="></a>============= 12/8/2020 =============</h1><h1 id="Making-Method-Calls-Simpler"><a href="#Making-Method-Calls-Simpler" class="headerlink" title="Making Method Calls Simpler"></a>Making Method Calls Simpler</h1><h2 id="Separate-Query-from-Modifier"><a href="#Separate-Query-from-Modifier" class="headerlink" title="Separate Query from Modifier"></a>Separate Query from Modifier</h2><p>You get into trouble if you “modify” and “query” in the same methods.</p>
+<blockquote>
+<p>A good rule to follow is to say that any method that returns a value should not have observable side effects. </p>
+</blockquote>
+<h3 id="Example-in-my-code"><a href="#Example-in-my-code" class="headerlink" title="Example in my code"></a>Example in my code</h3><p>I broke this role in the Kalah assignment with this method:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">takeAllSeeds</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> takeSeedNum = seedNum;</span><br><span class="line">    seedNum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> takeSeedNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>It does two things:</p>
+<ul>
+<li>query the current number of seeds</li>
+<li>modify the seed number to 0.</li>
+</ul>
+<p><strong>In Martin’s opinion, this is bad. But how will breaking this method into two improve my programme, If every time seeds in a house needs to be modified, I will need the number of seeds right after? How is a <code>getter</code> then a <code>remove</code> call better than a call to <code>takeAllSeeds</code>?</strong> </p>
+<h3 id="Concurrency-Issue"><a href="#Concurrency-Issue" class="headerlink" title="Concurrency Issue"></a>Concurrency Issue</h3><ul>
+<li>An important idiom in multi-thread system: Test then Set</li>
+<li>You need to retain a third method for the query-and-modify operation. </li>
+<li>The query-and-modify operation will call the <strong>separate</strong> query and modify methods and be synchronized. </li>
+<li>If the query and modify operations are not synchronized, you also might restrict their visibility to package or private level. </li>
+<li>That way you have a safe, synchronized operation decomposed into two easier-to-understand methods. </li>
+<li>These lower-level methods then are available for other uses.</li>
+</ul>
+<h2 id="Replace-Parameter-with-Explicit-Methods"><a href="#Replace-Parameter-with-Explicit-Methods" class="headerlink" title="Replace Parameter with Explicit Methods"></a>Replace Parameter with Explicit Methods</h2><p>If the caller wants to decide what it wants to do by setting the parameter, it might as well call different methods instead of passing an instructive parameter to one compound method and let the big method run conditional operations.</p>
+<h2 id="Preserve-Whole-Object"><a href="#Preserve-Whole-Object" class="headerlink" title="Preserve Whole Object"></a>Preserve Whole Object</h2><p>Preserve Whole Object means when a method needs value(s) from an object, instead of passing the value(s), pass the whole object.</p>
+<h3 id="Key-consideration-Dependency-Structure"><a href="#Key-consideration-Dependency-Structure" class="headerlink" title="Key consideration: Dependency Structure"></a>Key consideration: Dependency Structure</h3><p>Passing in the required object causes a dependency between the required object and the called object.<br>If you don’t want to introduce this dependency, don’t pass the whole object.</p>
+<h3 id="Is-it-worth-it-when-only-one-value-is-needed"><a href="#Is-it-worth-it-when-only-one-value-is-needed" class="headerlink" title="Is it worth it when only one value is needed?"></a>Is it worth it when only one value is needed?</h3><p>Martin’s opinion is yes.</p>
+<ul>
+<li>One value and one object amount to the same thing when you pass them in, at least for clarity’s sake</li>
+<li>There may even be a performance cost with pass by value parameters. <h3 id="Is-your-method-in-the-right-place"><a href="#Is-your-method-in-the-right-place" class="headerlink" title="Is your method in the right place?"></a>Is your method in the right place?</h3><blockquote>
+<p>That a called method uses lots of values from another object is a signal that the called method should really be defined on the object from which the values come. When you are considering Preserve Whole Object, consider Move Method as an alternative.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Introduce-Parameter-Object"><a href="#Introduce-Parameter-Object" class="headerlink" title="Introduce Parameter Object"></a>Introduce Parameter Object</h2><p>When you see a group of values that tend to be passed together, consider grouping them together by creating a new class, then pass its instances as parameter instead,</p>
+<ul>
+<li>This will shorten the parameter list and improve readability.</li>
+<li>Once you have the new class, you might find that the new class is a better home for the method. Moving the method to the class holding data it is more interested in will largely reduce duplicated code.</li>
+</ul>
+<h2 id="Replace-Constructor-with-Factory-Method"><a href="#Replace-Constructor-with-Factory-Method" class="headerlink" title="Replace Constructor with Factory Method"></a>Replace Constructor with Factory Method</h2><p>In Java/C++, you have to know the exact class of the object you want to create, when using constructors. To go around this, you could use Factory Methods.</p>
+<h3 id="Direct-motivation-Subclassing-instead-of-Type-Code"><a href="#Direct-motivation-Subclassing-instead-of-Type-Code" class="headerlink" title="Direct motivation: Subclassing instead of Type Code"></a>Direct motivation: Subclassing instead of Type Code</h3><p>Constructors can only return an instance of the object that is asked for. So you need to replace the constructor with a factory method.</p>
+<h2 id="Encapsulate-Downcast"><a href="#Encapsulate-Downcast" class="headerlink" title="Encapsulate Downcast"></a>Encapsulate Downcast</h2><h3 id="When-you’ll-need-to-downcast"><a href="#When-you’ll-need-to-downcast" class="headerlink" title="When you’ll need to downcast"></a>When you’ll need to downcast</h3><p>In Java, he lack of templates means that you have to downcast whenever you take an object out of a collection.<br>In other strongly typed languages, you’ll also need to do downcast when the compiler could not figure out the specific type of the object.</p>
+<h3 id="Do-not-leave-the-evil-job-of-downcast-to-clients"><a href="#Do-not-leave-the-evil-job-of-downcast-to-clients" class="headerlink" title="Do not leave the evil job of downcast to clients"></a>Do not leave the evil job of downcast to clients</h3><p>If you return a value from a method, and you know the type of what is returned is more specialized than what the method signature says, you are putting unnecessary work on your clients.<br>Rather than forcing them to do the downcasting, you should always provide them with <strong>the most specific type you can</strong>.</p>
+<h2 id="Replace-Error-Code-with-Exception"><a href="#Replace-Error-Code-with-Exception" class="headerlink" title="Replace Error Code with Exception"></a>Replace Error Code with Exception</h2><p>Exceptions are better than returning error codes because they clearly separate normal processing from error processing. This makes programs easier to understand.</p>
+<h3 id="Deciding-if-the-exception-is-checked-or-unchecked"><a href="#Deciding-if-the-exception-is-checked-or-unchecked" class="headerlink" title="Deciding if the exception is checked or unchecked"></a>Deciding if the exception is checked or unchecked</h3><ul>
+<li>If the caller is responsible for testing the condition before calling, make the exception unchecked.<ul>
+<li>If it is the caller’s responsibility to make a check before calling, it will be a <em>programming error</em> if the requirement is not met. Therefore it is a <em>bug*m and an *unchecked exception</em> should be thrown.</li>
+</ul>
+</li>
+<li>If the exception is checked, either create a new exception or use an existing one.<ul>
+<li>If the routine inside the method body will check for certain requirements, I’ll need to declare the exception in the interface. This way I signal the caller to <strong>expect</strong> this type of exception, and take appropriate measures.</li>
+</ul>
+</li>
+</ul>
+<h1 id="17-8-2020"><a href="#17-8-2020" class="headerlink" title="============= 17/8/2020 ============="></a>============= 17/8/2020 =============</h1><h1 id="Dealing-with-Generalization"><a href="#Dealing-with-Generalization" class="headerlink" title="Dealing with Generalization"></a>Dealing with Generalization</h1><p>Duplication gets me into trouble.</p>
+<h2 id="Pull-Up-Field"><a href="#Pull-Up-Field" class="headerlink" title="Pull Up Field"></a>Pull Up Field</h2><p>Visibility change: If the fields used to be private, you’ll need to make it <code>protected</code> in the updated superclass so that </p>
+<h2 id="Pull-Up-Method"><a href="#Pull-Up-Method" class="headerlink" title="Pull Up Method"></a>Pull Up Method</h2><p>Duplicate behaviour is the a breeding ground for future bugs: Hard to make safe changes.</p>
+<h3 id="Challenge-with-Pulling-up-Method-reference-to-subclass-features"><a href="#Challenge-with-Pulling-up-Method-reference-to-subclass-features" class="headerlink" title="Challenge with Pulling up Method: reference to subclass features"></a>Challenge with Pulling up Method: reference to subclass features</h3><p>The most awkward element of Pull Up Method is that the body of the methods may refer to features that are on the subclass but not on the superclass.</p>
+<ul>
+<li>If the feature is a method, you can: <ul>
+<li>generalize the other method </li>
+<li>create an abstract method in the superclass<ul>
+<li>If the feature is a field, you can:</li>
+</ul>
+</li>
+<li>pull up the field</li>
+<li>see if Template Method will move down the part of the method that refer to the subclass field<ul>
+<li>If you have two methods that are similar but not the same, you may be able to use Form Template Method.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pull-Up-Constructor-Body"><a href="#Pull-Up-Constructor-Body" class="headerlink" title="Pull Up Constructor Body"></a>Pull Up Constructor Body</h2><ul>
+<li>You can access the superclass’s constructor via <code>super()</code> in subclass constructors.</li>
+<li>If refactoring becomes complex, you might want to consider Replace Constructor with Factory Method instead.</li>
+</ul>
+<h2 id="Extract-Subclass-Extract-Superclass"><a href="#Extract-Subclass-Extract-Superclass" class="headerlink" title="Extract Subclass/Extract Superclass"></a>Extract Subclass/Extract Superclass</h2><h3 id="Extract-Subclass-Triggers"><a href="#Extract-Subclass-Triggers" class="headerlink" title="Extract Subclass Triggers:"></a>Extract Subclass Triggers:</h3><ul>
+<li>A class has behavior used for some instances of the class and not for others. </li>
+<li>Type Code, but you don’t have a subclass yet to do Replace Type Code with Subclasses/Strategy/State</li>
+</ul>
+<h3 id="Extract-Superclass-Triggers"><a href="#Extract-Superclass-Triggers" class="headerlink" title="Extract Superclass Triggers:"></a>Extract Superclass Triggers:</h3><ul>
+<li>Two classes doing similar things</li>
+</ul>
+<h3 id="Alternative-Extract-Class"><a href="#Alternative-Extract-Class" class="headerlink" title="Alternative: Extract Class"></a>Alternative: Extract Class</h3><p>A choice between <strong>Delegation</strong> and <strong>Inheritance</strong>.</p>
+<h2 id="Extract-Interface"><a href="#Extract-Interface" class="headerlink" title="Extract Interface"></a>Extract Interface</h2><h3 id="Triggers"><a href="#Triggers" class="headerlink" title="Triggers"></a>Triggers</h3><ul>
+<li>Use of only a particular subset of a class’s responsibilities by a group of clients. </li>
+<li>A class needs to work with any class that can handle certain requests.</li>
+</ul>
+<h2 id="Collapse-Hierarchy"><a href="#Collapse-Hierarchy" class="headerlink" title="Collapse Hierarchy"></a>Collapse Hierarchy</h2><p>When the superclass and subclass are doing the same thing.</p>
+<h2 id="Form-Template-Method"><a href="#Form-Template-Method" class="headerlink" title="Form Template Method"></a>Form Template Method</h2><p>This was covered in CompSci718 and has been very handy.<br>Inheritance is a powerful tool for eliminating duplicate behavior. </p>
+<h2 id="Replace-Inheritance-with-Delegation"><a href="#Replace-Inheritance-with-Delegation" class="headerlink" title="Replace Inheritance with Delegation"></a>Replace Inheritance with Delegation</h2><img src="delegation.png" alt="" width="600px"/>
+
+<p>“Has a” relationship: The <code>Stack</code>(delegate) has a <code>Vector</code> object in its field, and “speaks” on behalf of <code>Vector</code>.</p>
+<p>This relates to the concepts of <strong>Proxy Pattern</strong> that I learnt from CompSci711. Here’s the link to my <a href="https://niuniuanran.github.io/2020/08/16/Understanding-Proxy-pattern/">learning note about Proxy Pattern</a>. They are different because:</p>
+<ul>
+<li>There is not inheritance/implementation hierarchy in Delegation itself.</li>
+<li>The <code>Stack</code> class cannot pretend it is a <code>Vector</code>.<br>But they are similar because:</li>
+<li>The “delegator” hides the details of the delegated class from the client.</li>
+<li>Applying the delegation/proxy reduces the burden of re-implementing the same functionality of the existing delegated/subject.</li>
+</ul>
+<h2 id="Replace-Delegation-with-Inheritance"><a href="#Replace-Delegation-with-Inheritance" class="headerlink" title="Replace Delegation with Inheritance"></a>Replace Delegation with Inheritance</h2><p><strong>From “has a/depend” relationship to “extends” relationship.</strong></p>
+<p>If you are tired of writing the delegating methods.</p>
+<p>You should not make a subclass that does not inherit all superclass’s behaviours. Other options:</p>
+<ul>
+<li>Extract Superclass/Interface to extract the common parts first</li>
+<li>Let the client call the delegated subject directly by using Remove Middle Man.</li>
+</ul>
+<h1 id="19-8-2020-Big-Refactorings"><a href="#19-8-2020-Big-Refactorings" class="headerlink" title="======= 19/8/2020: Big Refactorings ======="></a>======= 19/8/2020: Big Refactorings =======</h1><h1 id="Tease-Apart-Inheritance"><a href="#Tease-Apart-Inheritance" class="headerlink" title="Tease Apart Inheritance"></a>Tease Apart Inheritance</h1><img src="tease-apart-inheritance.png" alt="" width="600px"/>
+
+<p>Create two hierarchies and use delegation to invoke one from the other.</p>
+<p>The <code>PizzaStore</code> nightmare I had with CompSci718 was a good example on this. By teasing apart the region styles and the flavour, the code was more alterable whenever I need to add a new flavour/region: It is a nice <strong>matrix</strong>.</p>
+<h1 id="Convert-Procedural-Design-to-Objects"><a href="#Convert-Procedural-Design-to-Objects" class="headerlink" title="Convert Procedural Design to Objects"></a>Convert Procedural Design to Objects</h1><img src="Convert-procedural-to-objects.png" width="600px" alt=""/>
+
+<p>I had a vivid experience on this refactoring with my CompSci711 assignment (Echo - sequential).<br>I got more flexibility to achieve distributed echoing if I encapsulate the procedural communications into <code>Node</code> objects and let them maintain their own state. </p>
+<p>“Using objects” is more than calling constructors. The typical situation is long procedural methods on a class with little data and dumb data objects with nothing more than accessors.</p>
+<p>Scenarios when you do need <strong>classes with behaviours/procedures and little/no data</strong>: Strategy objects! These are dedicated for varying behaviours. They are usually small and are used when we have a particular need for flexibility.</p>
+<p>Key process:</p>
+<ul>
+<li>Take each long procedure and apply <strong>Extract Method</strong> and the related refactorings to break it down. </li>
+<li>As you break down the procedures, use <strong>Move Method</strong> to move each one to the appropriate dumb data class.</li>
+</ul>
+<h1 id="Separate-Domain-from-Presentation"><a href="#Separate-Domain-from-Presentation" class="headerlink" title="Separate Domain from Presentation"></a>Separate Domain from Presentation</h1><p>Some GUI classes contain domain logic. Take the domain logic out as a separate class.</p>
+<img alt="domain-from-pre.png" alt="" width="600px"/>
+
+<p>After the refactoring, your presentation class will know about the domain class, but the domain class does not need to know about presentation.</p>
+<h2 id="MVC-Pattern"><a href="#MVC-Pattern" class="headerlink" title="MVC Pattern"></a>MVC Pattern</h2><p>Key value of MVC: separation between the code for user interface (View) and the domain logic (Model). The presentation class in only responsible for user interface; The domain class only contains business logic.</p>
+<h1 id="Extract-Hierarchy"><a href="#Extract-Hierarchy" class="headerlink" title="Extract Hierarchy"></a>Extract Hierarchy</h1><p>When you have a class doing a lot of jobs, and part of the jobs are done with lots of conditional statements.</p>
+<img alt="" src="extract-hierarchy.png" width="600px"/>
+
+<p>In evolutionary design(I made a separate node learning about evolutionary design <a href="https://niuniuanran.github.io/2020/08/20/What-is-Evolutionary-Design/">here</a>), it is common to think of a class as implementing one idea and come to realize later that it is really implementing two or three or ten.</p>
+<h1 id="20-8-2020-Refactoring-Reuse-and-Reality"><a href="#20-8-2020-Refactoring-Reuse-and-Reality" class="headerlink" title="======= 20/8/2020:  Refactoring, Reuse, and Reality ======="></a>======= 20/8/2020:  Refactoring, Reuse, and Reality =======</h1><p>This chapter is written by William Opdyke to discuss what refactor does in the reality of developer’s works.</p>
+<h1 id="The-cost-of-refactoring"><a href="#The-cost-of-refactoring" class="headerlink" title="The cost of refactoring?"></a>The cost of refactoring?</h1><p>People may argue that “I pay for new functions of the programme”.<br>Refactoring might seem expensive for no new features, but it proves itself by saving the efforts and time in other stages of programme development.</p>
+<h1 id="Refactor-securely"><a href="#Refactor-securely" class="headerlink" title="Refactor securely"></a>Refactor securely</h1><p>The intuitive definition: “Secure refactoring” is refactoring that do not cause damages to the programme. The purpose of refactoring is to change the structure of the programme without changing its behaviour.</p>
+<p><strong>William claims this section to be the most valuable part of this chapter.</strong></p>
+<p>The options you have:</p>
+<ul>
+<li>believe in your coding ability</li>
+<li>believe in your compiler</li>
+<li>believe in your testing suite</li>
+<li>believe your code reviewers</li>
+</ul>
+<p>But people make mistakes. Compilers miss semantic bugs. Tests do not cover all cases.</p>
+<p>William’s suggestion: <strong>define and prototype a refactoring tool to check whether a refactoring can be safely applied to a program and, if it is, refactor the program.</strong></p>
+<h1 id="Refactoring-Tools"><a href="#Refactoring-Tools" class="headerlink" title="Refactoring Tools"></a>Refactoring Tools</h1><p>By the sound of what “refactoring browser” does, what we have with Jetbrain suite/Visual Studio is pretty powerful as refactoring tools nowadays.</p>
+<p>Here’s my screenshot of what Rider has to offer:</p>
+<img alt="" src="refactoring-tools.png" width="400px"/>
+
+
+<h2 id="Technical-Criteria-for-a-Refactoring-Tool"><a href="#Technical-Criteria-for-a-Refactoring-Tool" class="headerlink" title="Technical Criteria for a Refactoring Tool"></a>Technical Criteria for a Refactoring Tool</h2><h3 id="Program-Database"><a href="#Program-Database" class="headerlink" title="Program Database"></a>Program Database</h3><p>Creating a database requires using <strong>semantic</strong> analysis (parsing) to determine the “part of speech” of every token in the program.</p>
+<p>This must done at:</p>
+<ul>
+<li>class definition level, to determine instance variable and method definitions, </li>
+<li>the method level, to determine instance variable and method references.</li>
+</ul>
+<h3 id="Parse-Trees"><a href="#Parse-Trees" class="headerlink" title="Parse Trees"></a>Parse Trees</h3><p>A parse tree is a data structure that represents the internal structure of the method itself. </p>
+<p>Here’s a parse tree example provided by Martin:</p>
+<img src="parse-tree.png" alt="" width="600px"/>
+
+<h3 id="Accuracy"><a href="#Accuracy" class="headerlink" title="Accuracy"></a>Accuracy</h3><p>The refactorings implemented by a tool must reasonably preserve the behavior of programs. </p>
+<h2 id="Practical-Criteria-for-a-Refactoring-Tool"><a href="#Practical-Criteria-for-a-Refactoring-Tool" class="headerlink" title="Practical Criteria for a Refactoring Tool"></a>Practical Criteria for a Refactoring Tool</h2><h3 id="Speed"><a href="#Speed" class="headerlink" title="Speed"></a>Speed</h3><p>If the analysing of the programme takes too much time upfront, developers might not find it an efficient tool.<br>A simple solution: Ask programme for the information the tool will need. Now programmers shoulder some responsibilities for potential errors, but it makes the tool more usable.</p>
+<h3 id="Undo"><a href="#Undo" class="headerlink" title="Undo"></a>Undo</h3><p>Yes I want this so much!</p>
+<h3 id="Integration-with-other-tools"><a href="#Integration-with-other-tools" class="headerlink" title="Integration with other tools"></a>Integration with other tools</h3><p>The accessibility of the refactoring tool makes a lot of differences.</p>
+<h1 id="🎈🎈🎈🎈🎈-Done-20-Aug-2020-🎈🎈🎈🎈🎈"><a href="#🎈🎈🎈🎈🎈-Done-20-Aug-2020-🎈🎈🎈🎈🎈" class="headerlink" title="🎈🎈🎈🎈🎈 Done! (20 Aug 2020) 🎈🎈🎈🎈🎈"></a>🎈🎈🎈🎈🎈 Done! (20 Aug 2020) 🎈🎈🎈🎈🎈</h1><p>Today I finish reading the book! </p>
+<p>Important things I learnt:</p>
+<ul>
+<li>Why I refactor</li>
+<li>When I should refactor</li>
+<li>Why I should not hurry to optimise my programme too early</li>
+<li>What are the bad smells calling for refactoring</li>
+<li>How design patterns are applied in refactoring</li>
+<li>That I should be aware of my “two hats” - I should not suddenly become the developer and start changing the code behaviour while I’m wearing the refactoring hat.</li>
+</ul>
+<p>Impressive refactoring techniques I learnt:</p>
+<ul>
+<li>Adding delegation, and removing it when not needed.</li>
+<li>Introducing Method Object</li>
+<li>Extract Methods, for the purpose of filling the semantic gap between what the method does and how it does it.</li>
+<li>Replace conditional with polymorphism + Replace type code with subclass</li>
+</ul>
+<p>Impressive bad smells that I am now more aware of:</p>
+<ul>
+<li>Dumb data class</li>
+<li>Shotgun Surgery</li>
+<li>Speculative Generality</li>
+<li>Refused Bequest</li>
+<li>Feature Envy</li>
+</ul>
+<p>I want to work on:</p>
+<ul>
+<li>I am having confusion on how much (if any) I should leave spaces for future changes in my programme, or should I just focus on what is currently needed.    <ul>
+<li>I read the assignment2-implementation1 code and I see myself through it: trying so hard to give spaces for future changes that hazards are introduced for the current purposes.</li>
+</ul>
+</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

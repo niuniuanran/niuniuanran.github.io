@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Reading Journal - Scrum and XP from the Trenches by Henrik Kniberg - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Story-Backlog"><span class="toc-text">Story&#x2F;Backlog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Who-can-decide-what"><span class="toc-text">Who can decide what</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-compromise-on-internal-quality"><span class="toc-text">Don’t compromise on internal quality</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sprint-Plan-Meeting"><span class="toc-text">Sprint Plan Meeting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-product-owner-MUST-be-there"><span class="toc-text">Why product owner MUST be there</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-never-compromise-on-Internal-Quality"><span class="toc-text">Why never compromise on Internal Quality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timeboxing"><span class="toc-text">Timeboxing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sprint-Length-Compromises-and-dynamic-adaptations"><span class="toc-text">Sprint Length: Compromises and dynamic adaptations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sprint-Goal-You-have-to-have-one"><span class="toc-text">Sprint Goal: You have to have one</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decide-what-stories-to-include"><span class="toc-text">Decide what stories to include</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Decide-the-velocity"><span class="toc-text">Decide the velocity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Focus-Factor-Man-Day-Available-estimation"><span class="toc-text">Focus Factor * Man-Day Available estimation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#“Almost-done”-is-not-included-in-actual-velocity"><span class="toc-text">“Almost done” is not included in actual velocity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Story-Index-Card-and-Work-Breakdown-Structure"><span class="toc-text">Story Index Card and Work Breakdown Structure</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Defining-“Done”"><span class="toc-text">Defining “Done”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Planning-Poker"><span class="toc-text">Planning Poker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Story-v-s-Tasks"><span class="toc-text">Story v.s. Tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tasks-in-TDD"><span class="toc-text">Tasks in TDD</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Reading Journal - Scrum and XP from the Trenches by Henrik Kniberg
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-09-01 19:23:14</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Good Practices" title="Good Practices">Good Practices</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>(28 Aug 2020)<br>Today I started reading Scrum and XP from the Trenches, written by Henrik Kniberg. I knew about XP from the book Refactoring, and thought that this book will be a nice complementary reading for CompSci701, as Scrum/XP has so much to do with trade-offs and scope decisions.<br>Enhancing comprehensibility/alterability/testability takes time, but pays off richly as a key part of the <strong>internal quality</strong> - quality that product owners/users cannot see.</p>
+<p>I am reading the English and Chinese versions as a pair - Chinese version for the speed and English version to map key terms. The Chinese version is translated by 李剑. </p>
+<h1 id="Story-Backlog"><a href="#Story-Backlog" class="headerlink" title="Story/Backlog"></a>Story/Backlog</h1><p>I tried working with User Stories when working on TripTime, and found that a very helpful way of keeping track of our project progress, making decisions about priorities and trade-offs, and organising end-to-end tests. </p>
+<p>Henrik gives his recommendation on the six key entries that should be included in a story:</p>
+<ol>
+<li>ID</li>
+<li>Name (descriptive, brief, differentiable)</li>
+<li>Importance (each story should have different value!)</li>
+<li>Initial estimate: story point/man*day estimation (should have relative correctness)</li>
+<li>How to demo (could be used as pseudo code for <strong>Acceptance Testing</strong> - I did similar thing on TripTime but called it acceptance criteria)</li>
+<li>Notes (referring to supportive information, explanations, examples)</li>
+</ol>
+<h2 id="Who-can-decide-what"><a href="#Who-can-decide-what" class="headerlink" title="Who can decide what"></a>Who can decide what</h2><p>People other than the product owner can add stories to backlog, but:</p>
+<ul>
+<li>Only Product Owner can decide the <strong>importance</strong>.</li>
+<li>Only Developing Team can add <strong>time estimation</strong>.</li>
+</ul>
+<h2 id="Don’t-compromise-on-internal-quality"><a href="#Don’t-compromise-on-internal-quality" class="headerlink" title="Don’t compromise on internal quality"></a>Don’t compromise on internal quality</h2><p>Therefore, as a developer, I should be aware that I need to budget the time for refactoring and enhancing the maintainability of my code. The product owner might want to negotiate on this - they might want to get something that “works” (external quality) faster, without giving the time for internal quality. We shall not compromise on internal quality: ask them to make the scope smaller instead.</p>
+<h1 id="Sprint-Plan-Meeting"><a href="#Sprint-Plan-Meeting" class="headerlink" title="Sprint Plan Meeting"></a>Sprint Plan Meeting</h1><h2 id="Why-product-owner-MUST-be-there"><a href="#Why-product-owner-MUST-be-there" class="headerlink" title="Why product owner MUST be there"></a>Why product owner MUST be there</h2><p>Every story has three variables, and they have strong dependency on each other:</p>
+<ul>
+<li>Scope (decided by product owner)</li>
+<li>Importance (decided by product owner)</li>
+<li>Estimation (decided by developers)</li>
+</ul>
+<p><strong>Direct collaboration on dynamically adapt this triangle is the foundation of Scrum.</strong></p>
+<h2 id="Why-never-compromise-on-Internal-Quality"><a href="#Why-never-compromise-on-Internal-Quality" class="headerlink" title="Why never compromise on Internal Quality"></a>Why never compromise on Internal Quality</h2><p>A third variable: Quality</p>
+<ul>
+<li>External Quality<ul>
+<li>what users can feel</li>
+<li><strong>Part of Scope: negotiable with product owner</strong>. A slower system with simpler UI could be released first, followed by a cleaner one.</li>
+</ul>
+</li>
+<li>Internal Quality<ul>
+<li>what users cannot see</li>
+<li>long-term impact on maintainability and lifelong cost of ownership</li>
+<li><strong>Non-negotiable</strong>: always ensure internal quality!</li>
+</ul>
+</li>
+</ul>
+<p>How to negotiate when the product owner wants a shorter estimated time but doesn’t want to “pay” by external quality: <strong>Redirect the topic back to scope</strong>:</p>
+<ul>
+<li>Maybe we could simplify error handling in the current story, and put “Advanced error handling” as a separate story to be implemented later?</li>
+<li>Maybe we could reduce the priority of other stories, so that we can focus on delivering the current story sooner?</li>
+</ul>
+<blockquote>
+<p><strong>Once the product owner realise that the internal quality is non-negotiable, they are usually able to go and address other variables.</strong></p>
+</blockquote>
+<h2 id="Timeboxing"><a href="#Timeboxing" class="headerlink" title="Timeboxing"></a>Timeboxing</h2><p>Timeboxing is equally helpful for sprint and <strong>meeting</strong>.<br>If the sprint meeting has reached the pre-defined timebox and no valid plan is made, still end the meeting and learn from it. Next time there will be less rejection on a longer timebox for planning meeting, after the team suffers from the poorly planned sprint.</p>
+<p>This methodology will be helpful to my practices other than code. I tend to push families/friends/teammates to reach the goal, no matter how long it takes, and sometimes we just give up because it has been so long since we embarked for the goal.<br>We should <strong>box the time instead of the scope</strong>. It takes practice to make a good estimation of what can be done within the box, but this is the better approach for more efficient team work.</p>
+<h2 id="Sprint-Length-Compromises-and-dynamic-adaptations"><a href="#Sprint-Length-Compromises-and-dynamic-adaptations" class="headerlink" title="Sprint Length: Compromises and dynamic adaptations"></a>Sprint Length: Compromises and dynamic adaptations</h2><ul>
+<li>Shorter = More frequent delivery = More frequent Feedback = Less time on the wrong direction = Faster learning and improvement = agile movement, Often preferred by product owner.</li>
+<li>Longer = More time to prepare and solve problems = Less tedious Meetings and Presentations = More “flow” working state, Often preferred by developing team.</li>
+</ul>
+<p>No need to spend time analysing. Get started with an acceptable length, and commit to a length after the team knows what suit us.<br>Scrum is the spirit to do, to experiment and to swiftly adapt. The spirit applies both to developing and to other decision making in my life.</p>
+<h2 id="Sprint-Goal-You-have-to-have-one"><a href="#Sprint-Goal-You-have-to-have-one" class="headerlink" title="Sprint Goal: You have to have one"></a>Sprint Goal: You have to have one</h2><ul>
+<li>Express it with business terms instead of technology terms.<ul>
+<li>Make more money</li>
+<li>Impress CEO</li>
+<li>Make the system good enough to be released to real users as a beta version</li>
+<li>Implement the three most important storeis</li>
+</ul>
+</li>
+<li>“Why this sprint? Why don’t we just go for a holiday?”</li>
+<li>You come back to the sprint goal during the sprint, when you are confused about what you are doing.</li>
+<li>Sprint goals of all teams could be listed on a significant position of the companies’ wiki page, so that everyone in the company can come and have a look what the company is doing 👊</li>
+</ul>
+<h2 id="Decide-what-stories-to-include"><a href="#Decide-what-stories-to-include" class="headerlink" title="Decide what stories to include"></a>Decide what stories to include</h2><img src="what-to-include-in-sprint.png" alt="" width="400px"/>
+
+<ul>
+<li>Each rectangle is a story, ranged by importance</li>
+<li>Size is the estimated time by story points</li>
+<li>Height of brace means estimated velocity (story points that could be finished in next sprint)</li>
+</ul>
+<h3 id="Decide-the-velocity"><a href="#Decide-the-velocity" class="headerlink" title="Decide the velocity"></a>Decide the velocity</h3><p>These three methods could be used in combination to decide the team’s velocity for the current sprint:</p>
+<ul>
+<li>Intuitive reactions: good for small team</li>
+<li>Yesterday’s weather: Estimate how many stories can be included based on the velocity history of the team.</li>
+<li>Man-Day available * Focus Factor estimation</li>
+</ul>
+<h4 id="Focus-Factor-Man-Day-Available-estimation"><a href="#Focus-Factor-Man-Day-Available-estimation" class="headerlink" title="Focus Factor * Man-Day Available estimation"></a>Focus Factor * Man-Day Available estimation</h4><img src="focus-factor-2.png" alt="" width="400px"/>
+
+<img src="focus-factor.png" alt="" width="400px"/>
+
+<img src="focus-factor-3.png" alt="" width="400px"/>
+
+<p>Now we know we should include no more than 20 points for the current sprint, with the 50 man-days available.</p>
+<h4 id="“Almost-done”-is-not-included-in-actual-velocity"><a href="#“Almost-done”-is-not-included-in-actual-velocity" class="headerlink" title="“Almost done” is not included in actual velocity"></a>“Almost done” is not included in actual velocity</h4><p>The requirement of Scrum: <strong>Get things done to a deliverable state</strong><br>If the thing is “almost done”, its value is 0 (or maybe negative)</p>
+<h3 id="Story-Index-Card-and-Work-Breakdown-Structure"><a href="#Story-Index-Card-and-Work-Breakdown-Structure" class="headerlink" title="Story Index Card and Work Breakdown Structure"></a>Story Index Card and Work Breakdown Structure</h3><ul>
+<li>Physical Story Index Cards that encourage engagement of the whole team.</li>
+<li>Sticky note under the Index Cards for task breakdown. These details do not need to be in backlog.</li>
+</ul>
+<p>This will require the Scrum Master to manually update the excel from changes of the physical cards, but is worth it considering the enhancement of meeting plan efficiency.</p>
+<p>This relates back to a video, <a href="https://www.youtube.com/watch?v=FklYonNknRs" target="_blank" rel="noopener">Work Breakdown Structure demonstration</a> that I watched at project management course. Now the man’s talk make more sense.</p>
+<h2 id="Defining-“Done”"><a href="#Defining-“Done”" class="headerlink" title="Defining “Done”"></a>Defining “Done”</h2><p>There has to be a consensus on how to define “DONE” between the product owner and the developer team.<br>Possible definitions:</p>
+<ul>
+<li>Ready to be realeased any time</li>
+<li>On the testing server, ready for acceptance test</li>
+<li>The testing team says OK</li>
+</ul>
+<p>An entry in each story stating how to define “DONE” for it would be helpful, as each story may vary.</p>
+<h2 id="Planning-Poker"><a href="#Planning-Poker" class="headerlink" title="Planning Poker"></a>Planning Poker</h2><p>We used this at the CompSci718/719 Project debriefing!</p>
+<p>Every member should have a certain understanding of the story. The Planning Poker approach ensures that everyone is actively thinking.</p>
+<h2 id="Story-v-s-Tasks"><a href="#Story-v-s-Tasks" class="headerlink" title="Story v.s. Tasks"></a>Story v.s. Tasks</h2><ul>
+<li>Stories are deliverable. </li>
+<li>Product owners care about stories.</li>
+</ul>
+<p>Break stories into smaller stories at the sprint planning meeting, in collaboration with product owners.<br>Break storeis into tasks with the developer team, which helps deciding the story points.</p>
+<h3 id="Tasks-in-TDD"><a href="#Tasks-in-TDD" class="headerlink" title="Tasks in TDD"></a>Tasks in TDD</h3><p>Almost every stories’ first task is “write a test that fails”.<br>The last task is “refactoring” (Remove any duplicate code; improve comprehensibility)</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

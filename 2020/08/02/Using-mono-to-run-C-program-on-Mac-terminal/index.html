@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Using mono to run C# program on Mac terminal - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Adding-the-path-to-mono-into-bash-PATH"><span class="toc-text">Adding the path to mono into bash PATH</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Using mono to run C# program on Mac terminal
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-02 16:46:53</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#C#" title="C#">C#</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#bash" title="bash">bash</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I needed a way to run C# console programmes in my Mac Terminal, as I needed to load file input through <code>stdin</code>.</p>
+<p>I learnt online that <a href="https://www.mono-project.com/" target="_blank" rel="noopener">mono</a> is the framework to do it:</p>
+<blockquote>
+<p>Mono is a software platform designed to allow developers to easily create cross platform applications part of the .NET Foundation.</p>
+</blockquote>
+<p>So I downloaded the VS release from <a href="https://www.mono-project.com/download/stable" target="_blank" rel="noopener">here</a>, and then hopped to the <a href="https://www.mono-project.com/docs/getting-started/mono-basics/" target="_blank" rel="noopener">Mono Basics</a> getting started guide to compile and run my first terminal C# program.</p>
+<h1 id="Adding-the-path-to-mono-into-bash-PATH"><a href="#Adding-the-path-to-mono-into-bash-PATH" class="headerlink" title="Adding the path to mono into bash PATH"></a>Adding the path to mono into bash PATH</h1><p>As with <code>Go</code> I was told by terminal <code>bash command not found</code>.<br>I have been messing with <code>PATH</code> several times so I thought this should be the time that I figure out a robust way to add a new path and document it here.</p>
+<p><a href="https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path" target="_blank" rel="noopener">This stackexchange post</a> solved my problem. The steps I followed are:</p>
+<ol>
+<li><p>Find out where the <code>bin</code> for the new command is installed. For mono it is <code>/Library/Frameworks/Mono.framework/Versions/Current/bin</code>.</p>
+</li>
+<li><p>open the <code>~/.bash_profile</code> file </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Here’s what the <code>~/.bash_profile</code> file look like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  GNU nano 2.0.6        File: &#x2F;Users&#x2F;anran&#x2F;.bash_profile                        </span><br><span class="line">PATH&#x3D;&quot;&#x2F;Library&#x2F;Frameworks&#x2F;Python.framework&#x2F;Versions&#x2F;3.7&#x2F;bin:$&#123;PATH&#125;&quot;</span><br><span class="line">export PATH</span><br><span class="line">export PATH&#x3D;&#x2F;Library&#x2F;Frameworks&#x2F;Python.framework&#x2F;Versions&#x2F;3.7&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;bi$</span><br><span class="line">export PATH&#x3D;&quot;$PATH:&#x2F;usr&#x2F;local&#x2F;smlnj&#x2F;bin&quot;</span><br><span class="line">export PATH&#x3D;&quot;$HOME&#x2F;.composer&#x2F;vendor&#x2F;bin:$PATH&quot;</span><br><span class="line">alias composer&#x3D;&quot;php &#x2F;usr&#x2F;local&#x2F;bin&#x2F;composer.phar&quot;</span><br><span class="line">export PATH&#x3D;&quot;&#x2F;usr&#x2F;local&#x2F;opt&#x2F;php@7.3&#x2F;bin:$PATH&quot;</span><br><span class="line">export PATH&#x3D;&quot;$PATH:&#x2F;usr&#x2F;local&#x2F;smlnj&#x2F;bin&quot;</span><br><span class="line">[[ -s &quot;$HOME&#x2F;.rvm&#x2F;scripts&#x2F;rvm&quot; ]] &amp;&amp; source &quot;$HOME&#x2F;.rvm&#x2F;scripts&#x2F;rvm&quot; # Load RVM$</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><code>export</code> explicitly changes the <code>PATH</code> env variable. Each <code>export PATH=&quot;$PATH:&lt;new_path&gt;</code> command adds a new path to <code>PATH</code>.</p>
+<p>Add a new line just before the line to load RVM:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&quot;$PATH:&#x2F;Library&#x2F;Frameworks&#x2F;Mono.framework&#x2F;Versions&#x2F;Current&#x2F;bin&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Save the file and exit.</p>
+<ol start="4">
+<li>Reopen the terminal. </li>
+</ol>
+<p>To verify the path is correctly added, run <code>echo $PATH</code> to see the new <code>PATH</code>‘s content.</p>
+<ol start="5">
+<li>Now <code>mono</code> and <code>csc</code> are available directly through Terminal. To compile and execute my program:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ csc Program.cs</span><br><span class="line">Microsoft (R) Visual C# Compiler version 3.6.0-4.20224.5 (ec77c100)</span><br><span class="line">Copyright (C) Microsoft Corporation. All rights reserved.</span><br><span class="line">   </span><br><span class="line">$ mono Program.exe</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+
+
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

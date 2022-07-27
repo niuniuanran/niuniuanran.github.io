@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        CompSci701 Testability Reflection - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CompSci701-Lecture-Reflection-Testability"><span class="toc-text">CompSci701 Lecture Reflection: Testability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#It’s-a-Trade-Off"><span class="toc-text">It’s a Trade-Off</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Having-a-well-encapsulated-production-class-and-a-transparent-MOCK"><span class="toc-text">Having a well-encapsulated production class, and a transparent MOCK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inject-the-MOCK-in-via-DI"><span class="toc-text">Inject the MOCK in via DI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Establishing-Testing-Criteria"><span class="toc-text">Establishing Testing Criteria</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TDD-I’m-not-alone-in-not-getting-it-🎉"><span class="toc-text">TDD: I’m not alone in not getting it 🎉</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#but-there-is-good-stuff-inside"><span class="toc-text">but there is good stuff inside</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CompSci701 Testability Reflection
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-30 10:39:38</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="CompSci701-Lecture-Reflection-Testability"><a href="#CompSci701-Lecture-Reflection-Testability" class="headerlink" title="CompSci701 Lecture Reflection: Testability"></a>CompSci701 Lecture Reflection: Testability</h1><h2 id="It’s-a-Trade-Off"><a href="#It’s-a-Trade-Off" class="headerlink" title="It’s a Trade-Off"></a>It’s a Trade-Off</h2><ul>
+<li>Encapsulation helps comprehensibility and alterability, but hinders testability.</li>
+<li>For testability， I want to break encapsulation so that I have:<ul>
+<li>Controllability, being able to directly control the state of objects</li>
+<li>Observability: being able to see directly see what’s in the state.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Having-a-well-encapsulated-production-class-and-a-transparent-MOCK"><a href="#Having-a-well-encapsulated-production-class-and-a-transparent-MOCK" class="headerlink" title="Having a well-encapsulated production class, and a transparent MOCK"></a>Having a well-encapsulated production class, and a transparent MOCK</h3><p>In order to solve the dilemma, we separate the class being used in production and the class being used in tests.</p>
+<h3 id="Inject-the-MOCK-in-via-DI"><a href="#Inject-the-MOCK-in-via-DI" class="headerlink" title="Inject the MOCK in via DI"></a>Inject the MOCK in via DI</h3><p>In order to allow the production class and the mock to be flexibly swapped, we use Dependency Injection. </p>
+<ul>
+<li>We follow the Dependency Inversion principle, so that:<ol>
+<li>Both services, the production class and the mock class, extend the same abstract service</li>
+<li>The client (where the service is injected) depends on abstraction.</li>
+</ol>
+</li>
+<li>We follow the Liskov Substitution principle, so that:<ol>
+<li>The mock service still has the functionalities  </li>
+<li>We can safely substitute the service with the mock service, and let it “pretend” to be the real class, by good usage of inheritance.</li>
+</ol>
+</li>
+</ul>
+<h2 id="Establishing-Testing-Criteria"><a href="#Establishing-Testing-Criteria" class="headerlink" title="Establishing Testing Criteria"></a>Establishing Testing Criteria</h2><p>In the definition of Testability, the establishment of test criteria, and the conduction of tests, are separated: </p>
+<blockquote>
+<p>Testability — degree of effectiveness and efficiency with which <strong>test criteria can be established</strong> for a system, product or component and <strong>tests can be performed</strong> to determine whether those criteria have been met.</p>
+</blockquote>
+<p>What are good testing criteria that I should establish?</p>
+<p>Here are some of my thoughts:</p>
+<ul>
+<li>The test criteria should match the requirements of the product owner:<ul>
+<li>If the team have defined the user story well, the description of the user story is a good source of extracting items of testing criteria. </li>
+<li>If the user story does not tell us much about how it should be tested, maybe the team should review the story and see how to make the acceptance criteria clearer.</li>
+<li>This part of testing criteria is likely to be stable.</li>
+</ul>
+</li>
+<li>Given that unit tests often go into more details than the user story, the work structure breakdown will be important too.<ul>
+<li>Important to internal quality.</li>
+</ul>
+</li>
+<li>The testing criteria <strong>specific to the design decision</strong> are the parts lead to tests that might have to be altered when the design is altered. </li>
+</ul>
+<h2 id="TDD-I’m-not-alone-in-not-getting-it-🎉"><a href="#TDD-I’m-not-alone-in-not-getting-it-🎉" class="headerlink" title="TDD: I’m not alone in not getting it 🎉"></a>TDD: I’m not alone in not getting it 🎉</h2><h2 id="but-there-is-good-stuff-inside"><a href="#but-there-is-good-stuff-inside" class="headerlink" title="but there is good stuff inside"></a>but there is good stuff inside</h2><p>It is really good to know that I am not the only one not getting the point of TDD. However, there are some insights that could be gained from the TDD philosophy:</p>
+<ol>
+<li>Writing tests beforehand is a good way to ensure that the team understands the <strong>requirements</strong> well before digging into coding. <ul>
+<li>If we are not doing TDD, we still need to define the requirements well</li>
+<li>We could ask for “Acceptance Criteria” similar to test cases, although we might not be writing the actual tests until we have finished developing the actual code.</li>
+</ul>
+</li>
+<li>TDD tends to lead to smaller classes because the class can only be unit tested if it is properly isolated and has a “unit” functionality. <ul>
+<li>If the design is made following good OOP practice, we could still create small and good classes of SR without the facilitation of TDD.</li>
+</ul>
+</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Digital Forensic - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Definition-of-forensic-and-digital-forensics"><span class="toc-text">Definition of forensic and digital forensics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Forensic-Science"><span class="toc-text">Forensic Science</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Digital-Forensic"><span class="toc-text">Digital Forensic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-we-need-digital-forensic"><span class="toc-text">Why we need digital forensic?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Knowledge-field-of-digital-forensics"><span class="toc-text">Knowledge field of digital forensics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Definition"><span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Steps-in-a-Digital-Forensic-Examination"><span class="toc-text">Steps in a Digital Forensic Examination</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Acquisition"><span class="toc-text">Acquisition</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Search-Warrants"><span class="toc-text">Search Warrants</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Who-may-issue-a-search-warrant"><span class="toc-text">Who may issue a search warrant?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#High-priorities-in-issuing-warrants"><span class="toc-text">High priorities in issuing warrants:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-we-acquiring"><span class="toc-text">What are we acquiring?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Copy-and-a-Clone-Forensic-Image"><span class="toc-text">A Copy and a Clone&#x2F;Forensic Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Acquisition-process"><span class="toc-text">Acquisition process</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Evidence-case-file"><span class="toc-text">Evidence case file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Specialised-Hardware-Software"><span class="toc-text">Specialised Hardware&#x2F;Software</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Write-Blocker"><span class="toc-text">Write Blocker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Computer-Forensic-Software"><span class="toc-text">Computer Forensic Software</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis-Search"><span class="toc-text">Analysis (Search)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Report-Production"><span class="toc-text">Report Production</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Admissibility"><span class="toc-text">Admissibility</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Digital-Forensic-Issues"><span class="toc-text">Digital Forensic Issues</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Expert-Witness"><span class="toc-text">Expert Witness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Search-Warrants-very-modern-problem"><span class="toc-text">Search Warrants: very modern problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Safe-guards-the-court-is-looking-for"><span class="toc-text">Safe guards the court is looking for:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qualifications-Training-Experience-amp-Ethics"><span class="toc-text">Qualifications, Training, Experience &amp; Ethics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Indemnity-Insurance"><span class="toc-text">Indemnity Insurance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Practical-issues-during-search"><span class="toc-text">Practical issues during search</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Future-trends"><span class="toc-text">Future trends</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Digital Forensic
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-08 17:59:32</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Security" title="Security">Security</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Good to know" title="Good to know">Good to know</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Definition-of-forensic-and-digital-forensics"><a href="#Definition-of-forensic-and-digital-forensics" class="headerlink" title="Definition of forensic and digital forensics"></a>Definition of forensic and digital forensics</h1><h2 id="Forensic-Science"><a href="#Forensic-Science" class="headerlink" title="Forensic Science"></a>Forensic Science</h2><p>Two main groups of people allowed to speak to a judge: </p>
+<ul>
+<li>witnesses, allowed only to present what they saw/heard, but no interpretation allowed.</li>
+<li>experts, allowed to present information/facts/documents, and provide interpretation of those facts.<br>Forensic Science aims to collect evidence and make an interpretation of the facts, and then present a report to the court.<blockquote>
+<p>Forensic Science is the application of science to criminal and civil laws, mainly—on the criminal side—during criminal investigation, as governed by the legal standards of admissible evidence and criminal procedure.<br>Forensic scientists can work in both criminal and civil cases;  can work for either the prosecution or the defence</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Digital-Forensic"><a href="#Digital-Forensic" class="headerlink" title="Digital Forensic"></a>Digital Forensic</h2><p>Digital Forensic is a branch of Forensic Science that encompasses the recovery and investigation of material found in digital devices, often in relation to computer crime. </p>
+<h3 id="Why-we-need-digital-forensic"><a href="#Why-we-need-digital-forensic" class="headerlink" title="Why we need digital forensic?"></a>Why we need digital forensic?</h3><ul>
+<li>Cyber crime and cyber enabled crime is flourishing</li>
+<li>The integrity of electronic system is vulnerable</li>
+<li>Professional &amp; business reputations are exposed</li>
+<li>Computer Crime defects our trust of using digital devices, hence interoperability（流通性） and transaction is harmed</li>
+</ul>
+<h3 id="Knowledge-field-of-digital-forensics"><a href="#Knowledge-field-of-digital-forensics" class="headerlink" title="Knowledge field of digital forensics"></a>Knowledge field of digital forensics</h3><p>IT Security: Security for protection - develop tools and procedures to protect the information<br>Digital Forensics: Prosecution or Defense - discover all the facts related to computer crime<br>Overlap of these two fields: System hardening(make system more secure and possible for digital forensics scientists to find solid evidence.)</p>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>Live Forensics, Network Forensics, Computer Forensics, Mobile Forensics, Database Forensics</p>
+<blockquote>
+<p>Scientific tasks, techniques, and practices used in the investigation of stored or transmitted binary information or data for legal purposes. ISO/IEC 30121</p>
+</blockquote>
+<blockquote>
+<p>“the process of identifying, preserving, analysing and presenting digital evidence in a manner that is legally acceptable”</p>
+</blockquote>
+<img src="/2020/04/08/Digital-Forensic/digital-forensic-standards.png" class="" title="digital-forensic-standards">
+
+<h3 id="Steps-in-a-Digital-Forensic-Examination"><a href="#Steps-in-a-Digital-Forensic-Examination" class="headerlink" title="Steps in a Digital Forensic Examination"></a>Steps in a Digital Forensic Examination</h3><ul>
+<li>Acquire evidence</li>
+<li>Analyse evidence</li>
+<li>Produce report(must have a specific standard to be accepted in the court)<br>  -Provide ‘Expert’ consultation and testimony</li>
+</ul>
+<h1 id="Acquisition"><a href="#Acquisition" class="headerlink" title="Acquisition"></a>Acquisition</h1><p>Before starting a search, we must get a search warrant &amp; search order.<br>Evidence collection</p>
+<ul>
+<li>Collection &amp; digital search on site<ul>
+<li>Overt: inform the owner about the search</li>
+<li>Covert: without informing the owner that the search has been conducted (does not often happens)</li>
+</ul>
+</li>
+<li>Bring the device to the lab to do the search</li>
+</ul>
+<h2 id="Search-Warrants"><a href="#Search-Warrants" class="headerlink" title="Search Warrants"></a>Search Warrants</h2><h3 id="Who-may-issue-a-search-warrant"><a href="#Who-may-issue-a-search-warrant" class="headerlink" title="Who may issue a search warrant?"></a>Who may issue a search warrant?</h3><ul>
+<li>Judge of high court, can be asked by two groups of people:<ul>
+<li>law enforcement departments, e.g. police based on a suspicion of crime. </li>
+<li>private organization/person: “someone committed a crime against us (e.g. issued a false documentation and harmed our benefit) and we believe there is some evidence in their device that support our claim.” This is called a “search order”</li>
+</ul>
+</li>
+<li>National security organisation, they can do search without getting a permission (but must apply for a warrant after the search)<h3 id="High-priorities-in-issuing-warrants"><a href="#High-priorities-in-issuing-warrants" class="headerlink" title="High priorities in issuing warrants:"></a>High priorities in issuing warrants:</h3></li>
+<li>Scope of the warrant: the data may not even in the country if the data is saved in cloud services, the warrant might not be able to be issued because of country boundary.</li>
+<li>Legal privilege issues: Search must be committed only to search for related evidence related to the crime and cannot do anything else. e.g. if an organization is accused for financial crime, but the forensic specialist find evidence of illegal immigration, forensic specialist should not report anything about the immigration fraud without a relevant warrant.</li>
+<li>Impact on the running of the business: if forensic specialist take away their device, there might be big influence on the organisation. We should be aware of this and minimise the impact.</li>
+</ul>
+<p>If device is located away from boundary, a search warrant cannot be issued.<br>Search warrant must identify where the device is located, and the specialist is only allowed to search for the device on the site outlined by the warrant.</p>
+<h2 id="What-are-we-acquiring"><a href="#What-are-we-acquiring" class="headerlink" title="What are we acquiring?"></a>What are we acquiring?</h2><p>Digital information that is accessible from:</p>
+<ul>
+<li>hard drives: <pre><code>- the most popular type of hard drive used to come with a high-speed rotating disk and a magnetic head. Don&apos;t have a short access time. 
+- now there is a dramatic shrink in size of hard drives. Electronic hard drives have faster access time.</code></pre></li>
+<li>usb sticks</li>
+<li>mobile phones</li>
+<li>cameras</li>
+<li>CDs, DVDs, Tapes … etc</li>
+</ul>
+<h3 id="A-Copy-and-a-Clone-Forensic-Image"><a href="#A-Copy-and-a-Clone-Forensic-Image" class="headerlink" title="A Copy and a Clone/Forensic Image"></a>A Copy and a Clone/Forensic Image</h3><p>If someone clicks “delete” on a file, the link/reference to the file is deleted, but the information is still on the hard disk.<br>If you order a usual “Copy” you only get referenced files. But if you do a “Clone”, you can possibly get access to deleted files that could provide valuable information.<br><strong>A forensic image must have a digital signature: Only digitally signed image can be used in court as trusted digital evidence that has not been tampered with/changed in the process of copying and evaluation.</strong></p>
+<h3 id="Acquisition-process"><a href="#Acquisition-process" class="headerlink" title="Acquisition process"></a>Acquisition process</h3><ul>
+<li>Digitally photograph evidence items: demonstrating the evidence comes from specific device in specific location. </li>
+<li>Formally document evidence items</li>
+</ul>
+<p><strong>make sure the chain of command is not broken, the devices are never left unattended from the beginning of the search.</strong></p>
+<ul>
+<li>Acquire evidence item onto ‘sterile drive’</li>
+</ul>
+<p><strong>sterile drive was never written into. need device to block changes to the sterile drive</strong></p>
+<ul>
+<li>Verify ‘digital signature’ of acquisition </li>
+</ul>
+<h3 id="Evidence-case-file"><a href="#Evidence-case-file" class="headerlink" title="Evidence case file"></a>Evidence case file</h3><p>Copy all images to single (sterile) case drive.</p>
+<h3 id="Specialised-Hardware-Software"><a href="#Specialised-Hardware-Software" class="headerlink" title="Specialised Hardware/Software"></a>Specialised Hardware/Software</h3><ul>
+<li>Two tools used:<ul>
+<li>Encase</li>
+<li>FTK Imager</li>
+</ul>
+</li>
+<li>Write-blocking hardware to ensure that the subject item is not written to </li>
+<li>Blocking software to stop writing into the original software<h4 id="Write-Blocker"><a href="#Write-Blocker" class="headerlink" title="Write Blocker"></a>Write Blocker</h4>A write blocker is any tool that permits read-only access to data storage devices without compromising the integrity of the data. NIST‘s general write blocking requirements hold that: </li>
+<li>The tool shall not allow a protected drive to be changed</li>
+<li>The tool shall not prevent obtaining any information from or about any drive</li>
+<li>The tool shall not prevent any operations to a drive that is not protected.<br> There are physical and logical write blockers that do the same task but in a slightly different way.</li>
+</ul>
+<p>Acquisition hardware: a (write-blocking) device that connects the investigated device and the sterile drive.</p>
+<h3 id="Computer-Forensic-Software"><a href="#Computer-Forensic-Software" class="headerlink" title="Computer Forensic Software"></a>Computer Forensic Software</h3><p>Two different approaches to searching</p>
+<ul>
+<li>Encase: Just search</li>
+<li>FTK: Generation of index before search<ul>
+<li>before the search, it tries to index any combination of terms used in the device. The generation of the index takes long time, but then search is extremely quick.<br>Depending on you need, you may use one of or both software tools.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Analysis-Search"><a href="#Analysis-Search" class="headerlink" title="Analysis (Search)"></a>Analysis (Search)</h1><p>What we are looking for:</p>
+<ul>
+<li>documents</li>
+<li>emails</li>
+<li>pictures</li>
+<li>who was on the system and when </li>
+<li>who copied what off the system and when</li>
+<li>who deleted what and when</li>
+<li>who created/modified what and when</li>
+<li>was the system time messed with</li>
+</ul>
+<h1 id="Report-Production"><a href="#Report-Production" class="headerlink" title="Report Production"></a>Report Production</h1><p>Paper or DVD? Many judges don’t understand the capability of modern devices.<br>A matter of scale: if we have 200 gigabytes of data, presenting them on paper could stack to 50 times height of sky tower. </p>
+<h2 id="Admissibility"><a href="#Admissibility" class="headerlink" title="Admissibility"></a>Admissibility</h2><p>The deliverable in digital forensic is the report.<br>The report must be produced in a compliant fashion.<br><strong>Admissibility</strong> is the acceptance of the report as evidence.<br>The NZ Evidence Act 2006 normalized that<br>Consider also “Rules of the Court”</p>
+<h1 id="Digital-Forensic-Issues"><a href="#Digital-Forensic-Issues" class="headerlink" title="Digital Forensic Issues"></a>Digital Forensic Issues</h1><h2 id="Expert-Witness"><a href="#Expert-Witness" class="headerlink" title="Expert Witness"></a>Expert Witness</h2><p>Judicature Act 1908 N0 69 (as at date): Expert Witness Code of Conduct</p>
+<ul>
+<li>Expert witness duty to the Court:<ul>
+<li>An expert witness has an overriding duty to assist the Court impartially on relevant matters within the expert’s areas expertise.</li>
+<li>An expert witness is not an advocate for the party who engages the witness.</li>
+</ul>
+</li>
+<li>Code of Conduct:<ul>
+<li>If an expert witness believes that his or her evidence or any part of it may be incomplete or inaccurate without some qualification, that qualification must be stated in his or her evidence.</li>
+<li>If an expert witness believes that his or her opinion is not a concluded opinion because of insufficient research or data or for any other reason, this must be stated in his or her evidence.<br>An expert witness, according to high court rules:</li>
+</ul>
+</li>
+<li>Must have read and agreed to the High Court code of conduct for Expert Witnesses</li>
+<li>May give an ‘OPINION’ in evidence</li>
+<li>Is there to assist the Court. Does not act as an advocate for prosecution or defence</li>
+</ul>
+<h2 id="Search-Warrants-very-modern-problem"><a href="#Search-Warrants-very-modern-problem" class="headerlink" title="Search Warrants: very modern problem"></a>Search Warrants: very modern problem</h2><p>Traditionally search warrants are issued to enter premises.<br>With the ICT architecture and cloud services, the data can be stored far away in location. </p>
+<h2 id="Safe-guards-the-court-is-looking-for"><a href="#Safe-guards-the-court-is-looking-for" class="headerlink" title="Safe guards the court is looking for:"></a>Safe guards the court is looking for:</h2><ul>
+<li>Independent Digital Forensics Consultant</li>
+<li>Personal undertakings to the court regarding actions</li>
+<li>To be aware of the impact on the business</li>
+<li>To hold information remote from plaintiff </li>
+<li>As an expert witness to act on behalf of the court (as per the undertakings re an expert witness)</li>
+</ul>
+<h2 id="Qualifications-Training-Experience-amp-Ethics"><a href="#Qualifications-Training-Experience-amp-Ethics" class="headerlink" title="Qualifications, Training, Experience &amp; Ethics"></a>Qualifications, Training, Experience &amp; Ethics</h2><p>Must have:</p>
+<ul>
+<li>Formal Qualifications (degrees, usually degree in business or CS)</li>
+<li>Training certificates Encase &amp; FTK</li>
+<li>Wide &amp; detailed experience in IT industry</li>
+<li>Legal procedure understanding</li>
+<li>Business experience</li>
+<li>Personal integrity</li>
+<li>Credibility as an Expert witness (Professional Indemnity insurance) </li>
+</ul>
+<h3 id="Indemnity-Insurance"><a href="#Indemnity-Insurance" class="headerlink" title="Indemnity Insurance"></a>Indemnity Insurance</h3><p>You may make a mistake that result in you being charged by the party harmed with your opinion about the case. If you are a professional in this field, it is almost obligatory to have the indemnity insurance to cover this risk.</p>
+<h2 id="Practical-issues-during-search"><a href="#Practical-issues-during-search" class="headerlink" title="Practical issues during search"></a>Practical issues during search</h2><p>Don’t just look for the obvious digital storage devices<br>Devices could be disguised/ very small: PC in a cardboard box, credit card camera, watch, USB drive in a barbie</p>
+<h3 id="Future-trends"><a href="#Future-trends" class="headerlink" title="Future trends"></a>Future trends</h3><ul>
+<li>Larger Storage devices</li>
+<li>More Information</li>
+<li>More (and more) mobile data</li>
+<li>The Cloud </li>
+<li>Evolving legal issues – Case Laws</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

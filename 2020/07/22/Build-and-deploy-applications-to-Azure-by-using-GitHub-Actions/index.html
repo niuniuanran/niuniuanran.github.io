@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Build and deploy applications to Azure by using GitHub Actions - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Options-for-triggering-a-CD-workflow"><span class="toc-text">Options for triggering a CD workflow</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ChatOps"><span class="toc-text">ChatOps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Labels-in-your-pull-request"><span class="toc-text">Labels in your pull request</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Store-credentials-with-GitHub-Secrets"><span class="toc-text">Store credentials with GitHub Secrets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Triggering-CD-with-labelling"><span class="toc-text">Triggering CD with labelling</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Job-conditionals"><span class="toc-text">Job conditionals</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub-deploy-staging-workflow"><span class="toc-text">GitHub deploy-staging workflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Azure-Configuration"><span class="toc-text">Azure Configuration</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Build and deploy applications to Azure by using GitHub Actions
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-22 12:32:25</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#DevOps" title="DevOps">DevOps</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>This is my learning note when learning Continuous Delivery to Azure by GitHub Actions through <a href="https://docs.microsoft.com/en-gb/learn/modules/github-actions-cd/" target="_blank" rel="noopener">Microsoft Learn Module: Build and deploy applications to Azure by using GitHub Actions</a> and GitHub Learning Lab, <a href="https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure" target="_blank" rel="noopener">GitHub Actions: Continuous Delivery with Azure</a></p>
+<blockquote>
+<p>Continuous Delivery is a software development discipline where you build software in such a way that the software can be released to production at any time.</p>
+</blockquote>
+<h1 id="Options-for-triggering-a-CD-workflow"><a href="#Options-for-triggering-a-CD-workflow" class="headerlink" title="Options for triggering a CD workflow"></a>Options for triggering a CD workflow</h1><h2 id="ChatOps"><a href="#ChatOps" class="headerlink" title="ChatOps"></a>ChatOps</h2><p>ChatOps uses chat clients, chatbots and real-time communication tools to execute tasks. For example, you might leave a specific comment in a pull request that can kick off a bot. That bot might comment back with some statistics or run a workflow.</p>
+<h2 id="Labels-in-your-pull-request"><a href="#Labels-in-your-pull-request" class="headerlink" title="Labels in your pull request"></a>Labels in your pull request</h2><p>Different labels can start different workflows.  To use labels, your workflow will look like this:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">types:</span> <span class="string">[labeled]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Store-credentials-with-GitHub-Secrets"><a href="#Store-credentials-with-GitHub-Secrets" class="headerlink" title="Store credentials with GitHub Secrets"></a>Store credentials with GitHub Secrets</h1><p>GitHub Secrets is a secure place to store sensitive information that your workflow will need.<br>In order to deploy to an Azure resource, the GitHub Action must have permission to access the resource. </p>
+<img alt="" src="https://docs.microsoft.com/en-gb/learn/github/github-actions-cd/media/2-secrets.png" width="800px"/>
+
+<p>To access the secret:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">"Login via Azure CLI"</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">azure/login@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">creds:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.AZURE_CREDENTIALS</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Triggering-CD-with-labelling"><a href="#Triggering-CD-with-labelling" class="headerlink" title="Triggering CD with labelling"></a>Triggering CD with labelling</h1><p>In the case for the GitHub Learning lab, we’ll use labels as triggers for multiple tasks:</p>
+<ul>
+<li>When someone applies a “spin up environment” label to a pull request, that’ll tell GitHub Actions that we’d like to set up our resources on an Azure environment.</li>
+<li>When someone applies a “stage” label to a pull request, that’ll be our indicator that we’d like to deploy our application to a staging environment.</li>
+<li>When someone applies a “destroy environment” label to a pull request, we’ll tear down any resources that are running on our Azure account.</li>
+</ul>
+<h1 id="Job-conditionals"><a href="#Job-conditionals" class="headerlink" title="Job conditionals"></a>Job conditionals</h1><p>GitHub Actions features powerful controls for when to execute jobs and the steps within them. One of these controls is if, which allows you run a job only when a specific condition is met:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">if:</span> <span class="string">contains(github.event.pull_request.labels.*.name,</span> <span class="string">'peacock'</span><span class="string">)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="GitHub-deploy-staging-workflow"><a href="#GitHub-deploy-staging-workflow" class="headerlink" title="GitHub deploy-staging workflow"></a>GitHub deploy-staging workflow</h1><p>The <a href="https://github.com/niuniuanran/github-actions-continuous-delivery-azure/blob/master/.github/workflows/deploy-staging.yml" target="_blank" rel="noopener">.github/workflows/deploy-staging.yml</a> defines the logic of the GitHub workflow for staging the deployment. GitHub Actions is cloud agnostic, so any cloud will work with it.</p>
+<h1 id="Azure-Configuration"><a href="#Azure-Configuration" class="headerlink" title="Azure Configuration"></a>Azure Configuration</h1><p>The <a href="https://github.com/niuniuanran/github-actions-continuous-delivery-azure/blob/master/.github/workflows/spinup-destroy.yml" target="_blank" rel="noopener">.github/workflows/spinup-destroy.yml</a> defines the logic for configuring Azure resources.<br>This workflow has two jobs:</p>
+<ul>
+<li>Set up Azure resources will run if the pull request contains a label with the name “spin up environment”.</li>
+<li>Destroy Azure resources will run if the pull request contains a label with the name “destroy environment”.</li>
+</ul>
+<p>In addition to each job, there’s a few global environment variables:</p>
+<ul>
+<li>AZURE_RESOURCE_GROUP, AZURE_APP_PLAN, and AZURE_WEBAPP_NAME are names for our resource group, app service plan, and web app, respectively, which we’ll reference over multiple steps and workflows.</li>
+<li>AZURE_LOCATION lets us specify the region for the data centers, where our app will ultimately be deployed.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

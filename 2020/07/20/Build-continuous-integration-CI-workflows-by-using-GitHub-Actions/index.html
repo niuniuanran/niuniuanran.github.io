@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Build continuous integration (CI) workflows by using GitHub Actions - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-CI"><span class="toc-text">What is CI?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-are-artifacts"><span class="toc-text">What are artifacts?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Artifact-storage"><span class="toc-text">Artifact storage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-a-templated-workflow"><span class="toc-text">Use a templated workflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Examining-the-workflow-file"><span class="toc-text">Examining the workflow file</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#on"><span class="toc-text">on</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jobs"><span class="toc-text">jobs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accessing-artifacts"><span class="toc-text">Accessing artifacts</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Adding-an-approval-workflow"><span class="toc-text">Adding an approval workflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Use-branch-protections"><span class="toc-text">Use branch protections</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Build continuous integration (CI) workflows by using GitHub Actions
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-20 23:24:14</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#DevOps" title="DevOps">DevOps</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>GitHub Actions can be used to implement continuous integration (CI) for code that is maintained in GitHub repositories. </p>
+<ul>
+<li>CI is the practice of using automation to build and test software every time a developer commits changes to version control. </li>
+<li>CI helps teams discover issues early in the development process and fix them quickly.</li>
+</ul>
+<h1 id="What-is-CI"><a href="#What-is-CI" class="headerlink" title="What is CI?"></a>What is CI?</h1><ul>
+<li>CI can help you stick to your team’s quality standards by running tests and reporting the results on GitHub. </li>
+<li>CI tools run builds and tests, <strong>triggered by commits</strong>. </li>
+<li>The results post back to GitHub in the pull request. </li>
+<li>This reduces context switching for developers, and improves consistency for testing.</li>
+<li>The goal is fewer bugs in production and faster feedback while developing.</li>
+</ul>
+<h1 id="What-are-artifacts"><a href="#What-are-artifacts" class="headerlink" title="What are artifacts?"></a>What are artifacts?</h1><p>When a workflow produces something other than a log entry, it’s called an artifact. </p>
+<p>Storing an artifact helps to preserve it between jobs. Each job uses a fresh instance of a VM, so you can’t reuse the artifact by saving it on the VM. If you need your artifact in a different job, you can upload the artifact to storage in one job, and download it for the other job.</p>
+<h2 id="Artifact-storage"><a href="#Artifact-storage" class="headerlink" title="Artifact storage"></a>Artifact storage</h2><p>Artifacts are stored in storage space on GitHub. The space is free for public repositories and some amount is free for private repositories, depending on the account. GitHub stores your artifact for 90 days.</p>
+<p>I took GitHub Learning lab: <a href="https://lab.github.com/githubtraining/github-actions:-continuous-integration" target="_blank" rel="noopener">GitHub Actions: Continuous Integration</a>, which builds <a href="https://github.com/niuniuanran/github-actions-for-ci/" target="_blank" rel="noopener">this repository</a>.</p>
+<h1 id="Use-a-templated-workflow"><a href="#Use-a-templated-workflow" class="headerlink" title="Use a templated workflow"></a>Use a templated workflow</h1><p>Templated workflows are available in the <a href="https://github.com/niuniuanran/github-actions-for-ci/actions" target="_blank" rel="noopener">Actions tab</a>. It will help you add a workflow file, for example, <a href="https://github.com/niuniuanran/github-actions-for-ci/pull/3/commits/10f4732b4db4fc01a37c5e271a916f25fb30a51f#diff-3ac29962efd46b8d2008d26b9d9241a4" target="_blank" rel="noopener">.github/workflows/node.js.yml</a></p>
+<h1 id="Examining-the-workflow-file"><a href="#Examining-the-workflow-file" class="headerlink" title="Examining the workflow file"></a>Examining the workflow file</h1><p>The <a href="https://github.com/niuniuanran/github-actions-for-ci/pull/3/commits/10f4732b4db4fc01a37c5e271a916f25fb30a51f#diff-3ac29962efd46b8d2008d26b9d9241a4" target="_blank" rel="noopener">.github/workflows/node.js.yml</a> defines the CI workflow.</p>
+<h2 id="on"><a href="#on" class="headerlink" title="on"></a>on</h2><p>The on: field is what tells GitHub Actions when to run. In this case, we’re running the workflow anytime there’s a push.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> <span class="string">[</span> <span class="string">master</span> <span class="string">]</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> <span class="string">[</span> <span class="string">master</span> <span class="string">]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h2><p>The <code>jobs:</code> block defines the core component of an Actions workflow. <strong>Workflows are made of jobs</strong>, and our template workflow defines a single job with the identifier build.</p>
+<p>Every job also needs a specific <strong>host machine</strong> on which to run, the <code>runs-on:</code> field is how we specify it. The template workflow is running the build job in the latest version of Ubuntu, a Linux-based operating system.</p>
+<p> The template workflow is running the <code>build:</code> job in the latest version of Ubuntu, a Linux-based operating system.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">[10.x,</span> <span class="number">12.</span><span class="string">x,</span> <span class="number">14.</span><span class="string">x]</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span> </span><br><span class="line"><span class="comment"># actions/checkout@v2 is used to ensure our virtual machine has a copy of our codebase. The checked out code will be used to run tests against.</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line"><span class="comment"># actions/setup-node@v1 is used to set up proper versions of Node.js since we'll be performing testing against multiple versions.</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line"><span class="comment"># 'run:' In addition to running pre-built actions, the workflow can also execute commands, just as you would if you had direct access to the virtual machine. In this portion of the template workflow, we run some common commands relevant to Node.js projects, like npm install to install dependencies and npm test to run the chosen testing framework.</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span> <span class="string">--if-present</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-artifacts"><a href="#Accessing-artifacts" class="headerlink" title="Accessing artifacts"></a>Accessing artifacts</h2><p>With <a href="https://github.com/niuniuanran/github-actions-for-ci/pull/6/files#diff-3ac29962efd46b8d2008d26b9d9241a4" target="_blank" rel="noopener">this version of CI workflow</a>, You may notice build succeeded, but each of the test jobs failed. That’s because the build artifacts created in build aren’t available to the test job. Each job executes in a fresh instance of the virtual environment. This is due to the design of the virtual environments themselves.</p>
+<p>To solve the problem, first <a href="https://github.com/niuniuanran/github-actions-for-ci/pull/6/files#diff-3ac29962efd46b8d2008d26b9d9241a4" target="_blank" rel="noopener">add the step to upload artifact</a>.<br>Then the <code>test</code> job needs to start after <code>build</code> finishes (jobs run in parallel unless specified):</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">test:</span></span><br><span class="line">    <span class="attr">needs:</span> <span class="string">build</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br></pre></td></tr></table></figure>
+
+<p>The <code>test</code> job will download the artifact:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/download-artifact@master</span></span><br><span class="line">      <span class="attr">with:</span> </span><br><span class="line">        <span class="attr">name:</span> <span class="string">webpack</span> <span class="string">artifacts</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">public</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">npm</span> <span class="string">install,</span> <span class="string">and</span> <span class="string">test</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">        <span class="string">npm</span> <span class="string">test</span></span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">CI:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Adding-an-approval-workflow"><a href="#Adding-an-approval-workflow" class="headerlink" title="Adding an approval workflow"></a>Adding an approval workflow</h1><p>There can be multiple workflows for a repo. <a href="https://github.com/niuniuanran/github-actions-for-ci/blob/team-workflow/.github/workflows/approval-workflow.yml" target="_blank" rel="noopener">.github/workflows/approval-workflow.yml</a> uses a community-created action, <a href="https://github.com/abinoda/label-when-approved-action" target="_blank" rel="noopener">pullreminders/label-when-approved-action@master</a> to take care of labelling a pull request as <code>&quot;approved&quot;</code> when there have been 2 reviews.</p>
+<h1 id="Use-branch-protections"><a href="#Use-branch-protections" class="headerlink" title="Use branch protections"></a>Use branch protections</h1><p>In repo settings, you can create branch protection rules for branches that match a certain name pattern.<br>You can reinforce reviews before merge, require status check and prevent branch deletion etc.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

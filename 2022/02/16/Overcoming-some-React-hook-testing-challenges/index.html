@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Overcoming some React hook testing challenges - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-1-mock-modules"><span class="toc-text">Step 1: mock modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-2-testing-useEffectReducer"><span class="toc-text">Step 2: testing useEffectReducer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Challenge-1-state-is-not-updating-after-dispatch"><span class="toc-text">Challenge 1: state is not updating after dispatch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Challenge-2-Warning-“An-update-to-TestComponent-inside-a-test-was-not-wrapped-in-act-…-”"><span class="toc-text">Challenge 2: Warning - “An update to TestComponent inside a test was not wrapped in act(…).”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Challenge-3-Cannot-mock-readonly-imported-property-someAsyncMethod"><span class="toc-text">Challenge 3: Cannot mock readonly imported property someAsyncMethod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Challenge-4-Mock-error-tracking-function"><span class="toc-text">Challenge 4: Mock error tracking function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Challenge-4-Mock-method-seems-to-be-using-the-implementation-from-the-prior-test-suite"><span class="toc-text">Challenge 4: Mock method seems to be using the implementation from the prior test suite</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Overcoming some React hook testing challenges
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-02-16 10:40:39</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Testing" title="Testing">Testing</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Step-1-mock-modules"><a href="#Step-1-mock-modules" class="headerlink" title="Step 1: mock modules"></a>Step 1: mock modules</h2><ul>
+<li><a href="https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c" target="_blank" rel="noopener">Understanding Jest Mocks</a>: <code>fn</code>, <code>mock</code> and <code>spyOn</code></li>
+<li><a href="https://chanonroy.medium.com/mocking-hooks-for-testing-with-jest-and-react-testing-library-d34505616d12" target="_blank" rel="noopener">Mocking React hooks</a></li>
+</ul>
+<p>After these two readings I am able to mock modules that returns a dynamic value (with jest’s mock naming convention).</p>
+<h2 id="Step-2-testing-useEffectReducer"><a href="#Step-2-testing-useEffectReducer" class="headerlink" title="Step 2: testing useEffectReducer"></a>Step 2: testing <code>useEffectReducer</code></h2><ul>
+<li><a href="https://stackoverflow.com/a/59277748/10951931" target="_blank" rel="noopener">Stackoverflow discussion on how to test useReducer itself and how the component uses useReducer</a></li>
+</ul>
+<p>To test hooks, there’s <a href="https://github.com/testing-library/react-hooks-testing-library" target="_blank" rel="noopener">@testing-library/react-hooks</a></p>
+<h3 id="Challenge-1-state-is-not-updating-after-dispatch"><a href="#Challenge-1-state-is-not-updating-after-dispatch" class="headerlink" title="Challenge 1: state is not updating after dispatch"></a>Challenge 1: state is not updating after <code>dispatch</code></h3><p>Note that state got from <code>[state, dispatch] = result.current</code> will not get updated:</p>
+<blockquote>
+<p>The current value of the result will reflect the latest of whatever is returned from the callback passed to renderHook.</p>
+</blockquote>
+<p>In order to see what happens after <code>dispatch</code>, a new <code>current</code> needs to be obtained from <code>result</code> - or use <code>result.current[0]</code></p>
+<h3 id="Challenge-2-Warning-“An-update-to-TestComponent-inside-a-test-was-not-wrapped-in-act-…-”"><a href="#Challenge-2-Warning-“An-update-to-TestComponent-inside-a-test-was-not-wrapped-in-act-…-”" class="headerlink" title="Challenge 2: Warning - “An update to TestComponent inside a test was not wrapped in act(…).”"></a>Challenge 2: Warning - “An update to TestComponent inside a test was not wrapped in act(…).”</h3><p>After investigation, I found that comes from code blocks like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">someAsyncMethod()</span><br><span class="line">    .then(result &#x3D;&gt; &#123;</span><br><span class="line">      dispatch(&#123; type: &#39;SOME_EVENT&#39;&#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(error &#x3D;&gt; &#123;</span><br><span class="line">      dispatch(&#123;     👈 warning produced here</span><br><span class="line">        type: &#39;ERROR&#39;,</span><br><span class="line">        errorMessage: SOME_MESSAGE,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>I wrapped the <code>dispatch</code> in the test script with <code>act</code> but cannot wrap this one.</p>
+<p>I did not see this problem in the tests of <code>useReducer</code> because <code>useReducer</code> does not have effects that make function calls to do the async loads - <code>useReducer</code> depends on <code>dispatch</code> to move forward to the next state, while <code>useEffectReducer</code> depends on the effects.</p>
+<p>Therefore instead of calling <code>dispatch</code> in my test script like in <a href="https://stackoverflow.com/a/59277748/10951931" target="_blank" rel="noopener">this Stackoverflow discussion on how to test useReducer</a>, I should mock <code>someAsyncMethod</code>‘s resolved value.</p>
+<h3 id="Challenge-3-Cannot-mock-readonly-imported-property-someAsyncMethod"><a href="#Challenge-3-Cannot-mock-readonly-imported-property-someAsyncMethod" class="headerlink" title="Challenge 3: Cannot mock readonly imported property someAsyncMethod"></a>Challenge 3: Cannot mock readonly imported property <code>someAsyncMethod</code></h3><p>Solved with this reading: <a href="https://www.chakshunyu.com/blog/how-to-spy-on-a-named-import-in-jest/" target="_blank" rel="noopener">How To Spy On An Exported Function In Jest</a></p>
+<h3 id="Challenge-4-Mock-error-tracking-function"><a href="#Challenge-4-Mock-error-tracking-function" class="headerlink" title="Challenge 4: Mock error tracking function"></a>Challenge 4: Mock error tracking function</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const mockTrackError &#x3D; jest.fn()</span><br><span class="line">jest.mock(&#39;..&#x2F;errorTracking&#39;, () &#x3D;&gt; (&#123;</span><br><span class="line">  useTrackError: jest.fn().mockReturnValue(mockTrackError), 👈 &#96;mockTrackError&#96; will be evaluated upon &#96;jest.mock&#96;</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+
+<p>This is getting:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReferenceError: Cannot access &#39;mockTrackError&#39; before initialization</span><br></pre></td></tr></table></figure>
+
+<p>Fixed block:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mockTrackError &#x3D; jest.fn()</span><br><span class="line">jest.mock(&#39;..&#x2F;errorTracking&#39;, () &#x3D;&gt; (&#123;</span><br><span class="line">  useTrackLSPAYError: jest.fn().mockImplementation(() &#x3D;&gt; mockTrackError), 👈 &#96;mockTrackError&#96; will only be evaluated when test executes</span><br><span class="line">  TAG: &#123; cardNotPresentPayment: &#39;card-not-present&#39; &#125;,</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+
+<p>More details see: <a href="https://blog.bam.tech/developer-news/fix-jest-mock-cannot-access-before-initialization-error" target="_blank" rel="noopener">FIX JEST MOCK ‘CANNOT ACCESS BEFORE INITIALIZATION’ ERROR</a></p>
+<h3 id="Challenge-4-Mock-method-seems-to-be-using-the-implementation-from-the-prior-test-suite"><a href="#Challenge-4-Mock-method-seems-to-be-using-the-implementation-from-the-prior-test-suite" class="headerlink" title="Challenge 4: Mock method seems to be using the implementation from the prior test suite"></a>Challenge 4: Mock method seems to be using the implementation from the prior test suite</h3><p>Two points to be aware of:</p>
+<ul>
+<li><code>jest.clearAllMocks</code>: Clears the <strong>mock.calls and mock.instances</strong> properties of all mocks. Equivalent to calling .mockClear() on every mocked function. It does NOT clear the implementation mock!</li>
+<li>If you do <code>mockImplementationOnce</code> in <code>beforeEach</code>, you kind of need to make sure it really gets called once in each test. The “leftover” implementation will be carried out to the next test suite - which was why I got the bizarre behaviour that the test outcome changed when I swapped two test suites.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

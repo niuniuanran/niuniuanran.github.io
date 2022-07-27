@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Test a React Component with Jest - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Learning-the-Jest-API-basics"><span class="toc-text">Learning the Jest API basics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mocking-webpack-Modules"><span class="toc-text">Mocking webpack Modules</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TestRenderer"><span class="toc-text">TestRenderer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Snapshot-Testing"><span class="toc-text">Snapshot Testing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Next-Step"><span class="toc-text">Next Step</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Test a React Component with Jest
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-21 21:01:43</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Test Driven Development" title="Test Driven Development">Test Driven Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Jest" title="Jest">Jest</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Learning-the-Jest-API-basics"><a href="#Learning-the-Jest-API-basics" class="headerlink" title="Learning the Jest API basics"></a>Learning the Jest API basics</h1><p>I learnt about the Jest API usage from the <a href="https://jestjs.io/docs/en/api" target="_blank" rel="noopener">Jest API document</a>. The functions that I used this time are:</p>
+<ul>
+<li><code>describe(name, fn)</code></li>
+<li><code>expect(value)</code></li>
+<li><code>.toBe(value)</code></li>
+<li><code>.not</code></li>
+<li><code>.toEqual(value)</code></li>
+<li><code>.toMatchSnapshot(propertyMatchers?, hint?)</code></li>
+</ul>
+<h1 id="Mocking-webpack-Modules"><a href="#Mocking-webpack-Modules" class="headerlink" title="Mocking webpack Modules"></a>Mocking webpack Modules</h1><p>Jest can be used in projects that use webpack to manage assets, styles, and compilation. I did not use webpack directly, but the Next.js has built-in webpack that used to import CSS modules. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; __tests__&#x2F;components&#x2F;homepage&#x2F;TripList.test.js</span><br><span class="line"></span><br><span class="line">import TripList from &#39;..&#x2F;..&#x2F;..&#x2F;components&#x2F;homepage&#x2F;TripList&#39;;</span><br><span class="line">import TestRenderer from &#39;react-test-renderer&#39;;</span><br><span class="line"></span><br><span class="line">describe(&#39;Test TripList renders correctly when given no trip&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  const noTripRenderer &#x3D; TestRenderer.create(</span><br><span class="line">    &lt;TripList</span><br><span class="line">      displayIfNoTrip&#x3D;&#123;testNoTripDisplay&#125;</span><br><span class="line">      icon&#x3D;&#123;faCode&#125;</span><br><span class="line">      tripInfoList&#x3D;&#123;[]&#125;</span><br><span class="line">      title&#x3D;&#123;&#39;Test Trip List&#39;&#125;</span><br><span class="line">    &#x2F;&gt;,</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+<p>I imported css files in the <code>TripList.js</code> file:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'../../css/homepage.module.css'</span>;</span><br></pre></td></tr></table></figure>
+<p>But Jest does not know what to do with non-JS files at this moment, I got this error (I’ll just include the whole thing to better explain the context):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> Test suite failed to run</span><br><span class="line">   </span><br><span class="line">Jest encountered an unexpected token</span><br><span class="line">   </span><br><span class="line">This usually means that you are trying to import a file which Jest cannot parse, e.g. it&#39;s not plain JavaScript.</span><br><span class="line">   </span><br><span class="line">By default, if Jest sees a Babel config, it will use that to transform your files, ignoring &quot;node_modules&quot;.</span><br><span class="line">   </span><br><span class="line">Here&#39;s what you can do:</span><br><span class="line"> • To have some of your &quot;node_modules&quot; files transformed, you can specify a custom &quot;transformIgnorePatterns&quot; in your config.</span><br><span class="line"> • If you need a custom transformation specify a &quot;transform&quot; option in your config.</span><br><span class="line"> • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the &quot;moduleNameMapper&quot; config option.</span><br><span class="line">   </span><br><span class="line">You&#39;ll find more details and examples of these config options in the docs:</span><br><span class="line">https:&#x2F;&#x2F;jestjs.io&#x2F;docs&#x2F;en&#x2F;configuration.html</span><br><span class="line">   </span><br><span class="line">Details:</span><br><span class="line">   </span><br><span class="line">&#x2F;Users&#x2F;anran&#x2F;Desktop&#x2F;TripTime&#x2F;src&#x2F;spa&#x2F;css&#x2F;trip-card.module.css:1</span><br><span class="line">.card &#123;</span><br><span class="line">^</span><br><span class="line">   </span><br><span class="line">SyntaxError: Unexpected token &#39;.&#39;</span><br><span class="line">   </span><br><span class="line">  2 | </span><br><span class="line">  3 | import React from &#39;react&#39;;</span><br><span class="line">&gt; 4 | import styles from &#39;..&#x2F;..&#x2F;css&#x2F;trip-card.module.css&#39;;</span><br><span class="line">    | ^</span><br><span class="line">  5 | import PropTypes from &#39;prop-types&#39;;</span><br><span class="line">  6 | import &#123; FontAwesomeIcon &#125; from &#39;@fortawesome&#x2F;react-fontawesome&#39;;</span><br><span class="line">  7 | import &#123; faStickyNote, faCommentDots &#125; from &#39;@fortawesome&#x2F;free-solid-svg-icons&#39;;</span><br><span class="line">   </span><br><span class="line">  at Runtime._execModule (node_modules&#x2F;jest-runtime&#x2F;build&#x2F;index.js:988:58)</span><br><span class="line">  at Object.&lt;anonymous&gt; (components&#x2F;homepage&#x2F;TripCard.js:4:1)</span><br></pre></td></tr></table></figure>
+<p>Because this was caused by an imported module, the <a href="https://jestjs.io/docs/en/webpack" target="_blank" rel="noopener">Using with webpack guide</a> gave me a detailed guidance on what to do with non-js imported modules.</p>
+<p>I used <a href="https://github.com/keyz/identity-obj-proxy" target="_blank" rel="noopener"><code>identity-obj-proxy</code></a> to mock my CSS modules, and a local <code>fileMock.js</code> to define mocking of other non-JS modules:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// __mocks__/fileMock.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">'test-file-stub'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>I went to the <code>jest.config.js</code> file, and added the <code>moduleNameMapper</code> configuration.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  moduleNameMapper: &#123;</span><br><span class="line">       <span class="string">"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$"</span>: <span class="string">"&lt;rootDir&gt;/__tests__/__mocks__/fileMock.js"</span>,</span><br><span class="line">       <span class="string">"\\.(css|less)$"</span>: <span class="string">"identity-obj-proxy"</span></span><br><span class="line">     &#125;</span><br><span class="line"><span class="comment">// ... more configs</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now I could test my Next.js, and Jest knows what to do with non-JS modules.</p>
+<h1 id="TestRenderer"><a href="#TestRenderer" class="headerlink" title="TestRenderer"></a>TestRenderer</h1><p><code>react-test-renderer</code> package provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.<br>React website gives clear guidance on <a href="https://reactjs.org/docs/test-renderer.html" target="_blank" rel="noopener">the usage of TestRenderer</a>.<br>The functions I used this time are:</p>
+<ul>
+<li><code>TestRenderer.create()</code>, used to create the component renderer</li>
+<li><code>testRenderer.toJSON()</code>, used for snapshot testing</li>
+<li><code>testRenderer.root</code>, used to get the rendered instance</li>
+<li><code>testInstance.findByType()</code>, <code>testInstance.findByProps()</code>, <code>testInstance.findAllByType()</code>, used to find elements in the rendered instance</li>
+</ul>
+<h1 id="Snapshot-Testing"><a href="#Snapshot-Testing" class="headerlink" title="Snapshot Testing"></a>Snapshot Testing</h1><p>I first heard the term snapshot testing from my TripTime teammate and it sounded quite intimidating, but it turned out to be a very handy tool for front-end testing.</p>
+<p>The <code>expect(value).toMatchSnapshot(propertyMatchers?, hint?)</code> function generates a snapshot locally when it first runs, and in the future runs will test if the new version matches the existing snapshot.<br>The code looks like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">describe(&quot;Test userHomepage&quot;, ()&#x3D;&gt;&#123;</span><br><span class="line">    const userHomePageRenderer &#x3D; TestRenderer.create(</span><br><span class="line">        &lt;UserHomePage name&#x3D;&#123;&#39;Tester&#39;&#125; &#x2F;&gt;,</span><br><span class="line">     );</span><br><span class="line">    test(&#39;Check if UserHomePage matches Snapshot&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">        expect(userHomePageRenderer.toJSON()).toMatchSnapshot();</span><br><span class="line">    &#125;)</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Next-Step"><a href="#Next-Step" class="headerlink" title="Next Step"></a>Next Step</h1><p>What is ES6 proxy?</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

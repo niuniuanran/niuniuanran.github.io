@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        CompSci701 Discussion Review Week 7-10 - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾-Discussion-Week-7-Command-and-Strategy-pattern-🐾"><span class="toc-text">🐾 Discussion Week 7: Command and Strategy pattern 🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-the-differences-between-Command-and-Strategy-patterns"><span class="toc-text">What are the differences between Command and Strategy patterns?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In-terms-of-maintainability-what-are-the-benefits-and-consequences-of-applying-design-patterns-in-your-code"><span class="toc-text">In terms of maintainability, what are the benefits and consequences of applying design patterns in your code?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾-Discussion-Week-8-Composite-and-Decorator-pattern-🐾"><span class="toc-text">🐾 Discussion Week 8: Composite and Decorator pattern 🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-are-the-differences-between-Composite-and-Decorator-patterns"><span class="toc-text">What are the differences between Composite and Decorator patterns?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾-Discussion-Week-9-Design-Smells-🐾🐾🐾"><span class="toc-text">🐾 Discussion Week 9: Design Smells 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-does-each-smell-affect-alterability"><span class="toc-text">How does each smell affect alterability?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Inappropriate-Intimacy"><span class="toc-text">Inappropriate Intimacy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Long-Method"><span class="toc-text">Long Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comments-a-k-a-Deodorant"><span class="toc-text">Comments (a.k.a. Deodorant)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-big-can-a-class-be-before-it-gets-too-big-How-long-can-a-method-be-before-it-gets-too-long"><span class="toc-text">How big can a class be before it gets too big? How long can a method be before it gets too long?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾-Discussion-Week-10-Testability-of-Kalah-🐾🐾🐾"><span class="toc-text">🐾 Discussion Week 10: Testability of Kalah 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#It’s-a-trade-off"><span class="toc-text">It’s a trade-off</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CompSci701 Discussion Review Week 7-10
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-18 12:33:34</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="🐾-Discussion-Week-7-Command-and-Strategy-pattern-🐾"><a href="#🐾-Discussion-Week-7-Command-and-Strategy-pattern-🐾" class="headerlink" title="🐾 Discussion Week 7: Command and Strategy pattern 🐾"></a>🐾 Discussion Week 7: Command and Strategy pattern 🐾</h1><h2 id="What-are-the-differences-between-Command-and-Strategy-patterns"><a href="#What-are-the-differences-between-Command-and-Strategy-patterns" class="headerlink" title="What are the differences between Command and Strategy patterns?"></a>What are the differences between Command and Strategy patterns?</h2><ol>
+<li>Intention<ul>
+<li>Command pattern adds flexibility to “when” and “where” a behaviour is executed</li>
+<li>Strategy pattern adds flexibility to “how” a behaviour is executed</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>Command pattern packs the request to execute code in the <code>Command</code> object, and lets the invoker invoke the code as needed through calling <code>execute()</code> method.</li>
+<li>Strategy pattern uses abstract <code>Strategy</code> in the context, and varies the actual behaviour by extending <code>Strategy</code>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="In-terms-of-maintainability-what-are-the-benefits-and-consequences-of-applying-design-patterns-in-your-code"><a href="#In-terms-of-maintainability-what-are-the-benefits-and-consequences-of-applying-design-patterns-in-your-code" class="headerlink" title="In terms of maintainability, what are the benefits and consequences of applying design patterns in your code?"></a>In terms of maintainability, what are the benefits and consequences of applying design patterns in your code?</h2><ol>
+<li>Comprehensibility<ul>
+<li>If the design pattern is already in the reader’s knowledge base, the reader is likely to identify the design pattern by reading part of the code, and then they will be able to map the other parts of the code to their design schema. A mapping between the code and the reader’s design schema helps the reader to build a mental model more easily, as they would have an expectation of what the code is doing, thus enhancing the <strong>efficiency</strong> of comprehension. If the reader’s mapping between the code and their design schema is correct, their understanding of the code is more likely to be correct, thus also enhancing the <strong>effectiveness</strong> of comprehension.</li>
+<li>However, if the design pattern is not in the reader’s knowledge base, it might take the reader more time to read the extra interfaces/abstract entities to interpret the structure and intention of the code. In such case, the <strong>efficiency</strong> of comprehension might be reduced on the reader’s first exposure to a design pattern.</li>
+</ul>
+</li>
+<li>Alterability<ul>
+<li>Many design patterns captures the structure of a general solution by abstract entities, and new behaviours can be added through adding new concrete implementations of the abstract entity. </li>
+<li>In this way, design patterns reduces the number of existing classes to be changed.</li>
+<li>Therefore, in terms of C/N, design patterns lead to more abstract interface/class (bigger N), while reduces needs for changing existing classes (smaller C), so the C/N will be reduced.</li>
+<li>In terms of <strong>effectiveness</strong>, fewer changes to existing code means fewer chances of breaking existing functionalities. </li>
+<li>In terms of <strong>efficiency</strong>, design patterns reduce the need to go into the details of existing implementation to make changes, thus making it faster to implement the changes.</li>
+</ul>
+</li>
+</ol>
+<h1 id="🐾-Discussion-Week-8-Composite-and-Decorator-pattern-🐾"><a href="#🐾-Discussion-Week-8-Composite-and-Decorator-pattern-🐾" class="headerlink" title="🐾 Discussion Week 8: Composite and Decorator pattern 🐾"></a>🐾 Discussion Week 8: Composite and Decorator pattern 🐾</h1><img src="composite.png" alt="" width="500px"/>
+
+<img src="decorator.png" alt="" width="600px"/>
+
+<h2 id="What-are-the-differences-between-Composite-and-Decorator-patterns"><a href="#What-are-the-differences-between-Composite-and-Decorator-patterns" class="headerlink" title="What are the differences between Composite and Decorator patterns?"></a>What are the differences between Composite and Decorator patterns?</h2><ol>
+<li>Problem solved:<ul>
+<li>Decorator pattern wants “variation” - adds new functionality</li>
+<li>Composite pattern wants “uniform” - treats parts and whole the same way</li>
+</ul>
+</li>
+<li>Aggregation relationship between composite/decorator and component<ul>
+<li>Decorator pattern’s aggregation relationship is one-to-one, where one decorator aggregates one component.</li>
+<li>Composite pattern’s aggregation relationship is one-to-n, where one composite aggregates arbitrary number of components.</li>
+<li>Although they both supports arbitrary layers of abstraction.</li>
+</ul>
+</li>
+</ol>
+<h1 id="🐾-Discussion-Week-9-Design-Smells-🐾🐾🐾"><a href="#🐾-Discussion-Week-9-Design-Smells-🐾🐾🐾" class="headerlink" title="🐾 Discussion Week 9: Design Smells 🐾🐾🐾"></a>🐾 Discussion Week 9: Design Smells 🐾🐾🐾</h1><h2 id="How-does-each-smell-affect-alterability"><a href="#How-does-each-smell-affect-alterability" class="headerlink" title="How does each smell affect alterability?"></a>How does each smell affect alterability?</h2><h3 id="Inappropriate-Intimacy"><a href="#Inappropriate-Intimacy" class="headerlink" title="Inappropriate Intimacy"></a>Inappropriate Intimacy</h3><p>If two classes are intimate and depend on many details of each other, changes in one class is likely to make it necessary to adapt the other class accordingly. This increases the classes to be inspected and changed, and reduces the effectiveness and efficiency of making changes.</p>
+<h3 id="Long-Method"><a href="#Long-Method" class="headerlink" title="Long Method"></a>Long Method</h3><ul>
+<li>A long method is likely to be doing multiple things, and therefore there will be multiple reasons that require the method to be changed. The developer has to dig into the long method and locate the specific lines of code to be modified, reducing the efficiency of making changes. </li>
+<li>There is also likely to be temporary variables being manipulated in the long method, which might go wrong when changes are being made, reducing effectiveness.</li>
+</ul>
+<h3 id="Comments-a-k-a-Deodorant"><a href="#Comments-a-k-a-Deodorant" class="headerlink" title="Comments (a.k.a. Deodorant)"></a>Comments (a.k.a. Deodorant)</h3><p>Valid comments are relevant to the code. Therefore, when code needs to be changed, the comments have to be changed to remain valid. This increases the job to be done when making changes, reducing efficiency. </p>
+<h2 id="How-big-can-a-class-be-before-it-gets-too-big-How-long-can-a-method-be-before-it-gets-too-long"><a href="#How-big-can-a-class-be-before-it-gets-too-big-How-long-can-a-method-be-before-it-gets-too-long" class="headerlink" title="How big can a class be before it gets too big? How long can a method be before it gets too long?"></a>How big can a class be before it gets too big? How long can a method be before it gets too long?</h2><p>Two useful actionable criteria:</p>
+<ul>
+<li>Check how much of a proportion the class takes in the whole programme, or how much of a proportion the method takes in the whole class. If it takes a significant proportion of the total LoC (for example, more than 1/3), it is possible that the class/method is shouldering too many responsibilities, and should be broken down.</li>
+<li>Examine how many things the class/method is doing - how many reasons will cause the class/method should be changed. If the class/method has multiple responsibilities, it should be broken down even when the number of lines are small.</li>
+</ul>
+<h1 id="🐾-Discussion-Week-10-Testability-of-Kalah-🐾🐾🐾"><a href="#🐾-Discussion-Week-10-Testability-of-Kalah-🐾🐾🐾" class="headerlink" title="🐾 Discussion Week 10: Testability of Kalah 🐾🐾🐾"></a>🐾 Discussion Week 10: Testability of Kalah 🐾🐾🐾</h1><h2 id="It’s-a-trade-off"><a href="#It’s-a-trade-off" class="headerlink" title="It’s a trade-off"></a>It’s a trade-off</h2><p>A programme of high testability might be hard to comprehend and alter.<br>For high testability, we will need to make the methods very “customisable” for different scenarios/corner cases. This means the method will need to take in more arguments telling it about the different cases, which contradicts with our goal for comprehensible code where methods are simple and argument lists are short. </p>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

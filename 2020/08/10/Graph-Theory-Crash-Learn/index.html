@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Graph Theory Crash Learn - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Defining-Graph"><span class="toc-text">Defining Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph-Order-Graph-Cardinality"><span class="toc-text">Graph Order&#x2F;Graph Cardinality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph-Size"><span class="toc-text">Graph Size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Degree-of-a-vertex"><span class="toc-text">Degree of a vertex</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Presentation-of-Graph"><span class="toc-text">Presentation of Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Edge-Set"><span class="toc-text">Edge Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-List"><span class="toc-text">Adjacency List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacency-Matrix"><span class="toc-text">Adjacency Matrix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tree"><span class="toc-text">Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Isomorphic-graph"><span class="toc-text">Isomorphic graph</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Concepts-related-to-graph-theory"><span class="toc-text">Concepts related to graph theory</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Digraph"><span class="toc-text">Digraph</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Arcs"><span class="toc-text">Arcs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path"><span class="toc-text">Path</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Path"><span class="toc-text">Simple Path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Circuit"><span class="toc-text">Circuit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Weights-Costs"><span class="toc-text">Weights&#x2F;Costs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shortest-Path"><span class="toc-text">Shortest Path</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distance"><span class="toc-text">Distance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Eccentricity-of-a-vertex"><span class="toc-text">Eccentricity of a vertex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diameter"><span class="toc-text">Diameter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Radius"><span class="toc-text">Radius</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spanning-Tree"><span class="toc-text">Spanning Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Minimum-Spanning-Tree"><span class="toc-text">Minimum Spanning Tree</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dijkstra’s-Shortest-Path-Algorithm"><span class="toc-text">Dijkstra’s Shortest Path Algorithm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jarnik-Prim-MST-Algorithm"><span class="toc-text">Jarnik-Prim MST Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Difference-with-Dijkstra"><span class="toc-text">Difference with Dijkstra</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS"><span class="toc-text">DFS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DFS-Types-of-Edges"><span class="toc-text">DFS - Types of Edges</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Digraph-1"><span class="toc-text">Digraph</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Undirected-Graph"><span class="toc-text">Undirected Graph</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Shortest-path-tree-v-s-Min-cost-tree"><span class="toc-text">Shortest path tree v.s. Min-cost tree</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Graph Theory Crash Learn
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-10 12:24:08</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Distributed Algorithms" title="Distributed Algorithms">Distributed Algorithms</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Algorithms" title="Algorithms">Algorithms</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Graph Theory" title="Graph Theory">Graph Theory</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Need to pick up some graph knowledge to be more ready for my Parallel and Distributed Computing course.</p>
+<h1 id="Defining-Graph"><a href="#Defining-Graph" class="headerlink" title="Defining Graph"></a>Defining Graph</h1><p>I watched a quick video, <a href="https://www.youtube.com/watch?v=HmQR8Xy9DeM" target="_blank" rel="noopener">Graph Theory - An Introduction</a>, where I took all the images I used in this part.</p>
+<p>Graph is a nonempty finite set of vertices V, along with a set E of 2-element subsets of V.<br>The elements of V are called vertices The elements of E are called edges.</p>
+<img alt="" width="300px" src="define.png"/>
+
+<blockquote>
+<ul>
+<li>Formally, a graph G is an ordered pair of disjoint sets (V, E), where E Í V × V. Set V is called the vertex or node set, while set E is the edge set of graph G. </li>
+<li>Typically, it is assumed that self-loops (i.e. edges of the form (u, u), for some u Î V) are not contained in a graph.  – Definition from<a href="http://www.personal.kent.edu/~rmuhamma/GraphTheory/MyGraphTheory/defEx.htm" target="_blank" rel="noopener">personal.kent.edu</a></li>
+</ul>
+</blockquote>
+<h2 id="Graph-Order-Graph-Cardinality"><a href="#Graph-Order-Graph-Cardinality" class="headerlink" title="Graph Order/Graph Cardinality"></a>Graph Order/Graph Cardinality</h2><p>|G| = |V| = number of vertices or graph order.</p>
+<h2 id="Graph-Size"><a href="#Graph-Size" class="headerlink" title="Graph Size"></a>Graph Size</h2><p>|E| = number of edges or graph size.</p>
+<h2 id="Degree-of-a-vertex"><a href="#Degree-of-a-vertex" class="headerlink" title="Degree of a vertex"></a>Degree of a vertex</h2><p>Number of vertices coming out of edges from the vertex.<br>deg (v1) = 3. </p>
+<p>v1’s neighbours: v2, v3, v4</p>
+<h1 id="Presentation-of-Graph"><a href="#Presentation-of-Graph" class="headerlink" title="Presentation of Graph"></a>Presentation of Graph</h1><h2 id="Edge-Set"><a href="#Edge-Set" class="headerlink" title="Edge Set"></a>Edge Set</h2><img alt="" src="set.png" width="300px"/>
+
+<h2 id="Adjacency-List"><a href="#Adjacency-List" class="headerlink" title="Adjacency List"></a>Adjacency List</h2><img alt="" src="list.png" width="300px"/>
+
+<h2 id="Adjacency-Matrix"><a href="#Adjacency-Matrix" class="headerlink" title="Adjacency Matrix"></a>Adjacency Matrix</h2><img alt="" src="matrix.png" width="300px"/>
+
+<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><p>Graph with no circuit(loop): if you travel from v1 to v4, the only way to come back to v1 is through <strong>backtrack</strong>.</p>
+<h2 id="Isomorphic-graph"><a href="#Isomorphic-graph" class="headerlink" title="Isomorphic graph"></a>Isomorphic graph</h2><blockquote>
+<p>In graph theory, an isomorphism of graphs G and H is a bijection （双射） between the vertex sets of G and H. such that any two vertices u and v of G are adjacent in G if and only if f(u) and f(v) are adjacent in H.</p>
+</blockquote>
+<h1 id="Concepts-related-to-graph-theory"><a href="#Concepts-related-to-graph-theory" class="headerlink" title="Concepts related to graph theory"></a>Concepts related to graph theory</h1><h2 id="Digraph"><a href="#Digraph" class="headerlink" title="Digraph"></a>Digraph</h2><p>Directed Graph.<br>A directed graph (or digraph) is a graph that is made up of a set of vertices connected by edges, where the edges have a direction associated with them.</p>
+<h3 id="Arcs"><a href="#Arcs" class="headerlink" title="Arcs"></a>Arcs</h3><p>In one restricted but very common sense of the term,[5] a directed graph is an ordered pair G=(V,E) comprising:</p>
+<ul>
+<li>V, a set of vertices (also called nodes or points);</li>
+<li><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/410d2e8a388594591b3aa8f63b0cb4ad69063d01" width="20px"/>
+a set of edges (also called directed edges, directed links, directed lines, arrows or arcs) which are ordered pairs of vertices (that is, an edge is associated with two distinct vertices).
+
+</li>
+</ul>
+<h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><p>A path is a sequence of vertices with the property that each vertex in the sequence is adjacent to the vertex next to it.</p>
+<h3 id="Simple-Path"><a href="#Simple-Path" class="headerlink" title="Simple Path"></a>Simple Path</h3><p>A path that does not repeat vertices is called a simple path. </p>
+<h3 id="Circuit"><a href="#Circuit" class="headerlink" title="Circuit"></a>Circuit</h3><p>A circuit is path that begins and ends at the same vertex.</p>
+<h2 id="Weights-Costs"><a href="#Weights-Costs" class="headerlink" title="Weights/Costs"></a>Weights/Costs</h2><p>In many applications, each edge of a graph has an associated numerical value, called a <strong>weight</strong>.</p>
+<ul>
+<li>Weighted graphs may be either directed or undirected.</li>
+<li>The weight of an edge is often referred to as the “<strong>cost</strong>“ of the edge.</li>
+<li>In applications, the weight may be a measure of <ul>
+<li>the length of a route, </li>
+<li>the capacity of a line, </li>
+<li>the energy required to move between locations along a route, etc.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Shortest-Path"><a href="#Shortest-Path" class="headerlink" title="Shortest Path"></a>Shortest Path</h2><p>The shortest path problem is about finding a path between vertices in a graph such that the total sum of the <strong>edges weights</strong> is minimum.</p>
+<h2 id="Distance"><a href="#Distance" class="headerlink" title="Distance"></a>Distance</h2><p>Geodesic distance between a pair of nodes = minimum <strong>length</strong> of a connecting path, aka <strong>length of a shortest path</strong> (hop count in unweighted graphs).</p>
+<blockquote>
+<p>How we define distance is directly related with how we define shortest path.</p>
+<ul>
+<li>For unweighted graph, or for a weighted graph but we choose to ignore the weight, the shortest path/distance are both looking at the <strong>hop count</strong></li>
+<li>For weighted graph and we choose to care about the weight/cost, the shortest path/distance are both looking at the total weight/cost and do not care about the count of edges.</li>
+</ul>
+</blockquote>
+<h2 id="Eccentricity-of-a-vertex"><a href="#Eccentricity-of-a-vertex" class="headerlink" title="Eccentricity of a vertex"></a>Eccentricity of a vertex</h2><p>The eccentricity of a vertex v is the <strong>greatest distance</strong> between v and any other vertex.</p>
+<h2 id="Diameter"><a href="#Diameter" class="headerlink" title="Diameter"></a>Diameter</h2><p>Diameter = maximum distance between any pair of nodes.</p>
+<ul>
+<li>i.e. the maximum distance among the shortest paths connecting each pair of nodes in the graph. </li>
+<li>i.e. the maximum eccentricity of any vertex in the graph</li>
+</ul>
+<h2 id="Radius"><a href="#Radius" class="headerlink" title="Radius"></a>Radius</h2><p>Radius = minimum maximum distance, for any node to any other node (minimum attained at centers).</p>
+<ul>
+<li>i.e. the minimum eccentricity of any vertex in the graph</li>
+<li>i.e. the eccentricity of the graph’s centre</li>
+</ul>
+<h2 id="Spanning-Tree"><a href="#Spanning-Tree" class="headerlink" title="Spanning Tree"></a>Spanning Tree</h2><p>A spanning tree T of an undirected graph G is a subgraph that is a tree which includes all of the vertices of G, with <strong>a minimum possible number of edges</strong>.</p>
+<h3 id="Minimum-Spanning-Tree"><a href="#Minimum-Spanning-Tree" class="headerlink" title="Minimum Spanning Tree"></a>Minimum Spanning Tree</h3><p>A minimum spanning tree (MST) or minimum weight spanning tree is a subset of the edges of a connected, edge-weighted undirected graph that connects all the vertices together, without any cycles and with the <strong>minimum possible total edge weight</strong>.</p>
+<h1 id="Dijkstra’s-Shortest-Path-Algorithm"><a href="#Dijkstra’s-Shortest-Path-Algorithm" class="headerlink" title="Dijkstra’s Shortest Path Algorithm"></a>Dijkstra’s Shortest Path Algorithm</h1><p>See page 5 of <a href="http://courses.cs.vt.edu/~cs3114/Fall10/Notes/T22.WeightedGraphs.pdf" target="_blank" rel="noopener">this presentation</a> for implementation details.<br>Dijkstra’s SSAD Algorithm only works for graphs with non-negative weights.</p>
+<p>We assume that there is a path from the source vertex s to every other vertex in the graph. </p>
+<ul>
+<li>Let S be the set of vertices whose minimum distance from the source vertex has been found. <ul>
+<li>Initially S contains only the source vertex. </li>
+<li>The algorithm is iterative, adding one vertex to S on each pass. </li>
+</ul>
+</li>
+<li>We maintain a table D such that for each vertex v, D(v) is the minimum distance from the source vertex to v via vertices that are already in S (aside possibly from v itself). </li>
+<li>Greed: on each iteration, add to S the vertex v not already in S <strong>for which D(v) is minimal</strong>.</li>
+</ul>
+<h1 id="Jarnik-Prim-MST-Algorithm"><a href="#Jarnik-Prim-MST-Algorithm" class="headerlink" title="Jarnik-Prim MST Algorithm"></a>Jarnik-Prim MST Algorithm</h1><p>By modifying Dijkstra’s SSAD Algorithm to </p>
+<ul>
+<li>build a list of the edges that are used as vertices are added, and </li>
+<li>storing the distance from nodes to the current tree (rather than from nodes to the source)</li>
+</ul>
+<p>We obtain Prim’s Algorithm (V Jarnik, 1930 and R C Prim, 1957).</p>
+<h2 id="Difference-with-Dijkstra"><a href="#Difference-with-Dijkstra" class="headerlink" title="Difference with Dijkstra"></a>Difference with Dijkstra</h2><ul>
+<li>Dijkstra’s SSAD Algorithm not necessarily find a minimum-weight spanning tree, because each steps only greedily finds the shortest path from the current node to the <strong>source node</strong>.</li>
+<li>By contrast, Jarnik-Prim’s algorithm greedily finds the path from the current node to <strong>any node in the current tree</strong></li>
+</ul>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="DFS-Types-of-Edges"><a href="#DFS-Types-of-Edges" class="headerlink" title="DFS - Types of Edges"></a>DFS - Types of Edges</h2><p>Image shot from <a href="https://www.youtube.com/watch?v=Y78KivF-hm0" target="_blank" rel="noopener">Video: DFS - Types of Edges | Edge Classification | Tree Edge, Back Edge, Forward Edge, Cross Edge
+</a></p>
+<h3 id="Digraph-1"><a href="#Digraph-1" class="headerlink" title="Digraph"></a>Digraph</h3><img src="dfs-types-of-edges.png" alt="" width="700px"/>
+
+<ul>
+<li>Tree Edge: Part of the tree</li>
+<li>Forward Edge: edge from ancestor to grandchildren</li>
+<li>Cross Edge: edge connecting two nodes with different parents</li>
+<li>Back Edge: edge from grandchildren to ancestor</li>
+</ul>
+<p>The numbers beside each node is the <a href="https://www.youtube.com/watch?v=2UvzjtJb-WQ" target="_blank" rel="noopener">pre/post time</a>. Now we can see the relationship between the pre/post time and the types of edges:</p>
+<ul>
+<li>For Tree Edge [u,v]: <ul>
+<li>pre[u] &lt; pre[v] &lt; post[v] &lt; pre[u]</li>
+<li>u is the parent, and v is the children.</li>
+</ul>
+</li>
+<li>For Forward Edge [u,v]: <ul>
+<li>pre[u] &lt; pre[v] &lt; post[v] &lt; post[u]</li>
+<li>u is the ancestor, and u is the grandchildren. </li>
+</ul>
+</li>
+<li>For Back Edge [u,v]: <ul>
+<li>pre[v] &lt; pre[u] &lt; post[u] &lt; post[v]</li>
+<li>v is the ancestor, and u is the children.</li>
+</ul>
+</li>
+<li>For Cross Edge [u,v]: <ul>
+<li>pre[v] &lt; post[v] &lt; pre[u] &lt; post[u] </li>
+<li>v gets visited and then u. </li>
+</ul>
+</li>
+</ul>
+<h3 id="Undirected-Graph"><a href="#Undirected-Graph" class="headerlink" title="Undirected Graph"></a>Undirected Graph</h3><p>There will only be two types of edges:</p>
+<ul>
+<li>Tree Edge</li>
+<li>Back Edge</li>
+</ul>
+<img src="undirected-type.png" alt="" width="600px"/>
+
+<p>Why no cross edge? In undirected graph, what would have been “cross edge” would be taken as tree edge.<br>For example, the edge c-&gt; e (now c-e) was taken when we traverse to c.</p>
+<h1 id="Shortest-path-tree-v-s-Min-cost-tree"><a href="#Shortest-path-tree-v-s-Min-cost-tree" class="headerlink" title="Shortest path tree v.s. Min-cost tree"></a>Shortest path tree v.s. Min-cost tree</h1><img src="short-path-min-cost.png" alt="" width="400px"/>
+
+<ul>
+<li>Shortest path tree must have a <strong>root</strong>. Then the tree is one that all node’s path the the root is the shortest possible path.</li>
+<li>Min cost tree does not need a root to define it, it just looks for a tree that has the minimum total weight of edges.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Information Security Basic Terms and Concepts - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mission-Objective-Goals"><span class="toc-text">Mission, Objective, Goals</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Risk-Management"><span class="toc-text">Risk Management</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Risk-Assessment"><span class="toc-text">Risk Assessment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Qualitative-Risk-Assessment"><span class="toc-text">Qualitative Risk Assessment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quantitative-Risk-Assessment"><span class="toc-text">Quantitative Risk Assessment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quantifying-Countermeasures"><span class="toc-text">Quantifying Countermeasures</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Geographic-Considerations"><span class="toc-text">Geographic Considerations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Risk-Assessment-Methodologies"><span class="toc-text">Risk Assessment Methodologies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Risk-Treatment"><span class="toc-text">Risk Treatment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security-Management-Concepts"><span class="toc-text">Security Management Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Controls"><span class="toc-text">Security Controls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CIA-Triad"><span class="toc-text">CIA Triad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Defence-in-Depth"><span class="toc-text">Defence in Depth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Points-of-Failure"><span class="toc-text">Single Points of Failure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fail-open-fail-closed"><span class="toc-text">Fail open, fail closed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Privacy"><span class="toc-text">Privacy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security-Management"><span class="toc-text">Security Management</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Executive-oversight"><span class="toc-text">Security Executive oversight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Governance"><span class="toc-text">Governance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Policy-requirements-guidelines-standards-and-procedures"><span class="toc-text">Policy, requirements, guidelines, standards, and procedures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Roles-and-responsibilities"><span class="toc-text">Roles and responsibilities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-level-agreements"><span class="toc-text">Service level agreements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Secure-Outsourcing"><span class="toc-text">Secure Outsourcing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-classification-and-protection"><span class="toc-text">Data classification and protection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Security-Labels"><span class="toc-text">Security Labels</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Security-Clearance"><span class="toc-text">Security Clearance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Certification-and-accreditation"><span class="toc-text">Certification and accreditation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internal-audit"><span class="toc-text">Internal audit</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Information Security Basic Terms and Concepts
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-28 23:13:03</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Security" title="Security">Security</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Mission-Objective-Goals"><a href="#Mission-Objective-Goals" class="headerlink" title="Mission, Objective, Goals"></a>Mission, Objective, Goals</h1><p>They are set up by organisation management. Security specialists should act under the mission, objectives and goals, and be involved in key activities.<br>Security specialist should give information about risk management.</p>
+<h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><p>Three parts: </p>
+<ul>
+<li>determining the maximum acceptable level of overall risk</li>
+<li>using <strong>risk assessment</strong> techniques to determine the initial level of risks</li>
+<li>If this is excessive, develop <strong>risk treatment</strong> strategies to ameliorate risks</li>
+</ul>
+<h2 id="Risk-Assessment"><a href="#Risk-Assessment" class="headerlink" title="Risk Assessment"></a>Risk Assessment</h2><h3 id="Qualitative-Risk-Assessment"><a href="#Qualitative-Risk-Assessment" class="headerlink" title="Qualitative Risk Assessment"></a>Qualitative Risk Assessment</h3><p>For a given scope of assets, identify:</p>
+<ul>
+<li>Vulnerabilities: characteristic of the object/process/asset, for example, a poor lock</li>
+<li>Threats: burglar</li>
+<li>Threat probability </li>
+<li>Attack: when a person tries to use the vulnerability and when the threat comes true</li>
+<li>Impact: if the attack happens, what will the loss be</li>
+<li>Countermeasures: how to prevent such an attack</li>
+</ul>
+<h3 id="Quantitative-Risk-Assessment"><a href="#Quantitative-Risk-Assessment" class="headerlink" title="Quantitative Risk Assessment"></a>Quantitative Risk Assessment</h3><p>Extension of qualitative risk assessment.</p>
+<ul>
+<li>Asset value</li>
+<li>exposure factor (EF)</li>
+<li>single loss expectancy SLE = EF * Asset</li>
+<li>annualized rate of occurrence (ARO)</li>
+<li>annual loss expectancy ALE = SLE * ARO</li>
+</ul>
+<h3 id="Quantifying-Countermeasures"><a href="#Quantifying-Countermeasures" class="headerlink" title="Quantifying Countermeasures"></a>Quantifying Countermeasures</h3><p>Goal: reduction of ALE<br>Impact of countermeasures:</p>
+<ul>
+<li>Cost of countermeasure</li>
+<li>Changes in Exposure Factor (EF)</li>
+<li>Changes in Single Loss Expectancy (SLE)</li>
+</ul>
+<h3 id="Geographic-Considerations"><a href="#Geographic-Considerations" class="headerlink" title="Geographic Considerations"></a>Geographic Considerations</h3><ul>
+<li>Replacement and repair costs of assets may vary by location</li>
+<li>Exposure Factor may vary by location</li>
+<li>Impact may vary by location</li>
+</ul>
+<h3 id="Risk-Assessment-Methodologies"><a href="#Risk-Assessment-Methodologies" class="headerlink" title="Risk Assessment Methodologies"></a>Risk Assessment Methodologies</h3><p>Not to be tested by listing the content. </p>
+<ul>
+<li>NIST 800-30<br>  -Risk Management Guide for Information Technology Systems</li>
+<li>OCTAVE<br>  -Operationally Critical Threat, Asset, and Vulnerability Evaluation</li>
+<li>FRAP<br>  -Facilitated Risk Analysis Process – qualitative prescreening</li>
+<li>Spanning Tree Analysis<br>  -visual, similar to mind map</li>
+</ul>
+<p>These assessment methodologies above are very expensive and heavy in labour.</p>
+<h2 id="Risk-Treatment"><a href="#Risk-Treatment" class="headerlink" title="Risk Treatment"></a>Risk Treatment</h2><ul>
+<li>Risk acceptance: live with that</li>
+<li>Risk avoidance: discontinue risk-related activity</li>
+<li>Risk reduction: mitigate. </li>
+<li>Risk transfer: buy insurance</li>
+</ul>
+<h1 id="Security-Management-Concepts"><a href="#Security-Management-Concepts" class="headerlink" title="Security Management Concepts"></a>Security Management Concepts</h1><h2 id="Security-Controls"><a href="#Security-Controls" class="headerlink" title="Security Controls"></a>Security Controls</h2><ul>
+<li>Detective: give us information about the attack, for example, security alarm</li>
+<li>Preventive: lower the risk of the threat happening, for example, better lock</li>
+<li>Deterrent: Act on the psychology of the attacker, for example, a CCTV sign</li>
+<li>Administrative: arrange procedure of which way someone will be allowed to enter a premise</li>
+<li>Compensating: transfer the risk, buy an insurance.<h2 id="CIA-Triad"><a href="#CIA-Triad" class="headerlink" title="CIA Triad"></a>CIA Triad</h2>Three pillars of security:</li>
+<li>Confidentiality: information and functions can be accessed only by properly authorized parties</li>
+<li>Integrity: Information and functions can only be added, altered or removed only by authorized persons and means. Does not mean it matches the truth. It only defines who can operate on them. </li>
+<li>Availability: systems, functions and data must be available on-demand according to any agreed-upon parameters regarding levels of service. </li>
+</ul>
+<p>Remember: each of the terms is related to the specific need of the scenario. </p>
+<h2 id="Defence-in-Depth"><a href="#Defence-in-Depth" class="headerlink" title="Defence in Depth"></a>Defence in Depth</h2><p>A layered defence in which two or more layers or controls are used to protect an asset:</p>
+<ul>
+<li>Heterogeneity（异质性）: the different controls should be <strong>different types</strong>, so as to better resist attack</li>
+<li>Entire protection: each control completely protects the asset from most or all threats<blockquote>
+<p>Defense in depth reduces or eliminates the risks associated by single points of failure, fail open, malfunctions, and successful attacks on individual components</p>
+</blockquote>
+</li>
+</ul>
+<img src="defence-in-depth.jpeg" width="500px" alt="defence in depth layers"/>
+
+<h2 id="Single-Points-of-Failure"><a href="#Single-Points-of-Failure" class="headerlink" title="Single Points of Failure"></a>Single Points of Failure</h2><p>A single point of failure (SPOF): weakness in a system where the failure of a single component results in the failure of the entire system</p>
+<h2 id="Fail-open-fail-closed"><a href="#Fail-open-fail-closed" class="headerlink" title="Fail open, fail closed"></a>Fail open, fail closed</h2><p>When a security mechanism fails, there are usually two possible outcomes:</p>
+<ul>
+<li>Fail open: the mechanism <strong>permits</strong> all activity</li>
+<li>Fail closed: the mechanism <strong>blocks</strong> all activity.</li>
+</ul>
+<p>Principles:</p>
+<ul>
+<li>Different types of failures will have different results</li>
+<li>Both fail open and fail closed are undesirable, but sometimes one or the other is catastrophic!</li>
+</ul>
+<p>See <a href="https://www.ixiacom.com/company/blog/fail-closed-fail-open-fail-safe-and-failover-abcs-network-visibility" target="_blank" rel="noopener">here</a> for fail open, fail closed, fail safe, and failover(Failover implies recovery of functionality, achieved through redundancy)</p>
+<h2 id="Privacy"><a href="#Privacy" class="headerlink" title="Privacy"></a>Privacy</h2><p>Defined: the protection and proper handling of sensitive personal information.<br>Requires proper technology for protection<br>Requires appropriate business processes and controls for appropriate handling<br>Issues</p>
+<ul>
+<li>Inappropriate uses</li>
+<li>Unintended disclosure to others</li>
+</ul>
+<h1 id="Security-Management"><a href="#Security-Management" class="headerlink" title="Security Management"></a>Security Management</h1><h2 id="Security-Executive-oversight"><a href="#Security-Executive-oversight" class="headerlink" title="Security Executive oversight"></a>Security Executive oversight</h2><ul>
+<li>Support and enforcement of policies</li>
+<li>Allocation of resources</li>
+<li>Prioritisation of activities</li>
+<li>Risk treatment<h2 id="Governance"><a href="#Governance" class="headerlink" title="Governance"></a>Governance</h2>“Security governance is the set of responsibilities and practices exercised by the board and executive management with the goal of providing strategic direction, ensuring that objectives are achieved ascertaining that risks are managed appropriately and verifying that the enterprise’s resources are used responsibly.”</li>
+<li>Steering Committee oversight</li>
+<li>Resource allocation and prioritization</li>
+<li>Status reporting</li>
+<li>Strategic decisions<h2 id="Policy-requirements-guidelines-standards-and-procedures"><a href="#Policy-requirements-guidelines-standards-and-procedures" class="headerlink" title="Policy, requirements, guidelines, standards, and procedures"></a>Policy, requirements, guidelines, standards, and procedures</h2></li>
+<li>Policies: constraints of behavior on systems and people. Defines what, but not how.</li>
+<li>Requirements: required characteristics of a system or process</li>
+<li>Guidelines: defines how to support a policy</li>
+<li>Standards: what products, technical standards, and methods will be used to support policy</li>
+<li>Procedures: step by step instructions<h2 id="Roles-and-responsibilities"><a href="#Roles-and-responsibilities" class="headerlink" title="Roles and responsibilities"></a>Roles and responsibilities</h2>Formally defined in security policy and job descriptions<br>These need to be defined:</li>
+<li>Ownership of assets</li>
+<li>Access to assets</li>
+<li>Use of assets</li>
+<li>Managers responsible for employee behavior<h2 id="Service-level-agreements"><a href="#Service-level-agreements" class="headerlink" title="Service level agreements"></a>Service level agreements</h2>Roles and responsibilities are the main parts of SLA.<br>SLAs define a formal level of service.<br>SLAs for security activities:</li>
+<li>Security incident response: what we should do there’s an incident? Many organisation don’t have this sort of agreement/policy on what to do. Often there are substantial losses because there is no proper security incident response.<br>Flying a plane is very easy with well programmed regular procedures, but pilots are well paid because they are mainly for handling any unforeseen situation. We cannot programme what happens to a flight. A pilot need to know what to do.</li>
+<li>Security alert / advisory delivery: how to discover emergent situation</li>
+<li>Security investigation</li>
+<li>Policy and procedure review</li>
+</ul>
+<h2 id="Secure-Outsourcing"><a href="#Secure-Outsourcing" class="headerlink" title="Secure Outsourcing"></a>Secure Outsourcing</h2><p>Outsourcing risks:</p>
+<ul>
+<li>Control of <strong>confidential information</strong></li>
+<li>Loss of <strong>control</strong> of business activities</li>
+<li><strong>Accountability</strong> - the organisation that outsources activities is still accountable for their activities and outcomes: still responsible for the error of contractors.</li>
+</ul>
+<h2 id="Data-classification-and-protection"><a href="#Data-classification-and-protection" class="headerlink" title="Data classification and protection"></a>Data classification and protection</h2><p>Components of a classification and protection program</p>
+<ul>
+<li>Sensitivity levels: “confidential”, “restricted”, “secret”, etc.</li>
+<li>Marking procedures: how to indicate sensitivity on various forms of information</li>
+<li>Access procedures</li>
+<li>Handling procedures: e-mailing, faxing, mailing, printing, transmitting, destruction<h3 id="Security-Labels"><a href="#Security-Labels" class="headerlink" title="Security Labels"></a>Security Labels</h3>three essential labels:</li>
+<li>Security level</li>
+<li>label’s owner</li>
+<li>data of expiration<br>Only with these three labels can we set a productive and functional system.<br>It tells the current position of a given document<h3 id="Security-Clearance"><a href="#Security-Clearance" class="headerlink" title="Security Clearance"></a>Security Clearance</h3>Security clearance is the security label for user of data.<br>Security clearance must be higher or equal to security label: the fundamental component of information security.</li>
+</ul>
+<h2 id="Certification-and-accreditation"><a href="#Certification-and-accreditation" class="headerlink" title="Certification and accreditation"></a>Certification and accreditation</h2><p>Two-step process for the formal evaluation and approval for user of a system.</p>
+<ul>
+<li>Certification: the process of evaluating a system against a set of formal standards, policies, or specifications.</li>
+<li>Accreditation: the formal approval for the use of a certified system, for the defined period of time (and possibly other conditions).</li>
+</ul>
+<h2 id="Internal-audit"><a href="#Internal-audit" class="headerlink" title="Internal audit"></a>Internal audit</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

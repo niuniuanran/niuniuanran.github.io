@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Echo: a fundamental diffusing algorithm - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Starting-and-Terminating-options-for-Distributed-algorithms"><span class="toc-text">Starting and Terminating options for Distributed algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Options"><span class="toc-text">Start Options</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminate-Options"><span class="toc-text">Terminate Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echo-Algorithm"><span class="toc-text">Echo Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-phases"><span class="toc-text">Two phases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Links-pointers"><span class="toc-text">Links(pointers)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Termination"><span class="toc-text">Termination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sync-Mode"><span class="toc-text">Sync Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity-analysis"><span class="toc-text">Time complexity analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity-analysis"><span class="toc-text">Message complexity analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Async-Mode"><span class="toc-text">Async Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-complexity"><span class="toc-text">Time complexity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-complexity"><span class="toc-text">Message complexity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-complexity-Async-v-s-Sync"><span class="toc-text">Time complexity: Async v.s Sync</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-supremum"><span class="toc-text">What is supremum?</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Echo: a fundamental diffusing algorithm
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-29 21:13:40</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Distributed Algorithms" title="Distributed Algorithms">Distributed Algorithms</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Algorithms" title="Algorithms">Algorithms</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Starting-and-Terminating-options-for-Distributed-algorithms"><a href="#Starting-and-Terminating-options-for-Distributed-algorithms" class="headerlink" title="Starting and Terminating options for Distributed algorithms"></a>Starting and Terminating options for Distributed algorithms</h1><p>For distributed algorithms you need a way to let your distributed system know when it is time to start or terminate the computation.</p>
+<h2 id="Start-Options"><a href="#Start-Options" class="headerlink" title="Start Options"></a>Start Options</h2><ul>
+<li>Single source/ Centralised/ Diffusing. Echo is a typical diffuing algorithm, starting from one single source.</li>
+<li>Many source/ Decentralised<h2 id="Terminate-Options"><a href="#Terminate-Options" class="headerlink" title="Terminate Options"></a>Terminate Options</h2></li>
+<li>Sometimes one node (often the initiator) takes the final decision and can notify the rest (usually <strong>omitted phase</strong>)</li>
+<li>In general, this can be very challenging and requires sophisticated control algorithms for termination detection.</li>
+</ul>
+<h1 id="Echo-Algorithm"><a href="#Echo-Algorithm" class="headerlink" title="Echo Algorithm"></a>Echo Algorithm</h1><p>Echo is a fundamental <strong>diffusing</strong> algorithm. </p>
+<h2 id="Two-phases"><a href="#Two-phases" class="headerlink" title="Two phases"></a>Two phases</h2><p>Echo combines two phases:</p>
+<ul>
+<li>A broadcast: “top-down”, builds child-to-parent links in a <strong>spanning tree</strong></li>
+<li>ConvergeCast: “bottom-down”/echo phase, confirms that the node has finished its part.</li>
+</ul>
+<h2 id="Links-pointers"><a href="#Links-pointers" class="headerlink" title="Links(pointers)"></a>Links(pointers)</h2><p>Child-to-parent links built at broadcast. Parent-to-child links built either at convergecast or by additional confirmation messages immediately after the broadcast.</p>
+<h2 id="Termination"><a href="#Termination" class="headerlink" title="Termination"></a>Termination</h2><p>After receiving echo tokens from all its neighbours, the source node <strong>decides the termination</strong>. Optionally, the source node can start a third phase to broadcast this termination to other nodes.</p>
+<h2 id="Sync-Mode"><a href="#Sync-Mode" class="headerlink" title="Sync Mode"></a>Sync Mode</h2><p>In Sync mode, you get a BFS spanning tree in broadcast phase (Echo also known as SyncBFS)</p>
+<h3 id="Time-complexity-analysis"><a href="#Time-complexity-analysis" class="headerlink" title="Time complexity analysis"></a>Time complexity analysis</h3><p>Time complexity:<br>Time Units &lt;= 2D + 1</p>
+<p>D is the depth of the BFS spanning tree. </p>
+<ul>
+<li>In the broadcast stage, in each time unit, the messages go deeper into the tree by 1. It takes at most D time units to reach all nodes.</li>
+<li>For the leaf nodes to know that their neighbours have all received a message, it takes 1 extra time unit for all leaf nodes to send messages to neighbours. Now all leaf nodes are ready to ConvergeCast.</li>
+<li>For the root node to receive message for neighbours, nodes at different lengths will need to ConvergeCast back, coming one level up the depth at each time unit. This process takes at most D time units too.</li>
+</ul>
+<h3 id="Message-complexity-analysis"><a href="#Message-complexity-analysis" class="headerlink" title="Message complexity analysis"></a>Message complexity analysis</h3><p>Messages = 2|E|</p>
+<p>Because each node will expect to receive from all its neighbours, each edge will have two messages (-&gt; and &lt;-) going through it. </p>
+<h2 id="Async-Mode"><a href="#Async-Mode" class="headerlink" title="Async Mode"></a>Async Mode</h2><p>In async mode, you get a spanning tree, but not necessarily a BFS spanning tree.</p>
+<h3 id="Time-complexity"><a href="#Time-complexity" class="headerlink" title="Time complexity"></a>Time complexity</h3><p>Time complexity:<br>Time Units = O(|V|)</p>
+<p>There are fast and slow messages.<br>Each slow message takes 1 (normalised) time unit. Each fast message only takes <code>Epsilon</code>. </p>
+<p>Async is a kind of an eager process. </p>
+<ul>
+<li>You build a spanning tree eagerly, taking whichever path is fast for you - the spanning tree gets built pretty fast, ~ |V|*<code>Epsilon</code> time. </li>
+<li>Now what is left for you is the slow edges. To finalise the echo, each node will need to finish their ConvergeCast on a slower node. </li>
+</ul>
+<h3 id="Message-complexity"><a href="#Message-complexity" class="headerlink" title="Message complexity"></a>Message complexity</h3><p>The message number remains the same as sync model,<br>message number = 2E = O(|E|)</p>
+<h2 id="Time-complexity-Async-v-s-Sync"><a href="#Time-complexity-Async-v-s-Sync" class="headerlink" title="Time complexity: Async v.s Sync"></a>Time complexity: Async v.s Sync</h2><ul>
+<li>Sync is a special case of Async. <ul>
+<li>Async’s time complexity is a <strong>supremum over all possible normalised executions</strong> (delivery time in [0; 1]), inclusing sync.</li>
+</ul>
+</li>
+<li>In Sync, all edges takes 1 time unit to travel.  <ul>
+<li>Waiting for all messages to arrive before making a decision and proceed to the next step helps us build the optimised BFS tree.  </li>
+<li>With a BFS tree, we can ensure that echo finishes in 2|D| + 1 time.</li>
+</ul>
+</li>
+<li>In Async, the eager broadcast means we might not choose the overall efficient tree. All graphs could behave like a line. <ul>
+<li>Actually, with a line, |V| = |D| and O(|V|)=O(|D|), async and sync has the same complexity.</li>
+</ul>
+</li>
+</ul>
+<h3 id="What-is-supremum"><a href="#What-is-supremum" class="headerlink" title="What is supremum?"></a>What is supremum?</h3><p>For set (0,1), the supremum is 1. There is no maximum.<br>For set [0,1], the supremum and the maximum are both 1.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

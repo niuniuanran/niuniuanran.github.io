@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        TypeScript Utility Types - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intrinsic-String-Manipulation-Types"><span class="toc-text">Intrinsic String Manipulation Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interesting-examples"><span class="toc-text">Interesting examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intersection-type-amp-ThisType-unity"><span class="toc-text">Intersection type &amp; ThisType unity</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        TypeScript Utility Types
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-03-24 11:36:07</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/utility-types.html</a></p>
+<ul>
+<li>Partial<Type>: useful for update react component state via setter</li>
+<li>Required<Type>: all fields are set to required, useful to reinforce fields</li>
+<li>Readonly<Type>: all fields are set to <code>readonly</code></li>
+<li>Record&lt;Keys, Type&gt;: map the properties of a type to another type</li>
+<li>Pick&lt;Type, Keys&gt;, Omit&lt;Type, Keys&gt;: include/ not include some properties of a type</li>
+<li>Exclude&lt;UnionType, ExcludedMembers&gt;: exclude all union members assignable to <code>ExcludedMembers</code>. e.g. <code>type T = Exclude&lt;string | number | (() =&gt; void), Function&gt;</code>, <code>type T = string } number</code></li>
+<li>Extract&lt;Type, Union&gt;, all types assignable to <code>Union</code>, e.g. <code>type T = Extract&lt;string | number | (() =&gt; void), Function&gt;</code>, <code>type T = () =&gt; void</code></li>
+<li>NonNullable<Type>: extract <code>null</code> and <code>undefined</code></li>
+<li>Parameters<Type>: <code>Type</code> needs to satisfy the constraint <code>(...args:any) =&gt; any</code>, and <code>Parameters&lt;Type&gt;</code> will be type of args</li>
+<li>ConstructorParameters<Type></li>
+<li>ReturnType<Type></li>
+<li>InstanceType<Type>: type of a class’s instance</li>
+<li>ThisParameterType<Type><br>OmitThisParameter<Type><br>ThisType<Type></li>
+</ul>
+<h2 id="Intrinsic-String-Manipulation-Types"><a href="#Intrinsic-String-Manipulation-Types" class="headerlink" title="Intrinsic String Manipulation Types"></a>Intrinsic String Manipulation Types</h2><ul>
+<li>Uppercase<StringType></li>
+<li>Lowercase<StringType></li>
+<li>Capitalize<StringType></li>
+<li>Uncapitalize<StringType></li>
+</ul>
+<h2 id="Interesting-examples"><a href="#Interesting-examples" class="headerlink" title="Interesting examples"></a>Interesting examples</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ThisParameterType</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toHex</span>(<span class="params"><span class="keyword">this</span>: <span class="built_in">Number</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.toString(<span class="number">16</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numberToString</span>(<span class="params">n: ThisParameterType&lt;<span class="keyword">typeof</span> toHex&gt;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> toHex.apply(n)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// remove this parameter via bind</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toHex</span>(<span class="params"><span class="keyword">this</span>: <span class="built_in">Number</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.toString(<span class="number">16</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fiveToHex: OmitThisParameter&lt;<span class="keyword">typeof</span> toHex&gt; = toHex.bind(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Intersection-type-amp-ThisType-unity"><a href="#Intersection-type-amp-ThisType-unity" class="headerlink" title="Intersection type &amp; ThisType unity"></a>Intersection type &amp; ThisType unity</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Intersection type, ThisType unity</span></span><br><span class="line"><span class="keyword">type</span> ObjectDescriptor&lt;D, M&gt; = &#123;</span><br><span class="line">  data?: D</span><br><span class="line">  methods?: M &amp; ThisType&lt;D &amp; M&gt; <span class="comment">// Type of 'this' in methods is D &amp; M</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeObject</span>&lt;<span class="title">D</span>, <span class="title">M</span>&gt;(<span class="params">desc: ObjectDescriptor&lt;D, M&gt;</span>): <span class="title">D</span> &amp; <span class="title">M</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data: object = desc.data || &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> methods: object = desc.methods || &#123;&#125;</span><br><span class="line">  <span class="keyword">return</span> &#123; ...data, ...methods &#125; <span class="keyword">as</span> D &amp; M</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = makeObject(&#123;</span><br><span class="line">  data: &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    moveBy(dx: <span class="built_in">number</span>, dy: <span class="built_in">number</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.x += dx <span class="comment">// Strongly typed this</span></span><br><span class="line">      <span class="keyword">this</span>.y += dy <span class="comment">// Strongly typed this</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">obj.x = <span class="number">10</span></span><br><span class="line">obj.y = <span class="number">20</span></span><br><span class="line">obj.moveBy(<span class="number">5</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>When <code>type D = { x: number; y: number }</code> and <code>type M = { moveBy: (dx: number, dy: number) =&gt; void }</code>, type <code>D &amp; M</code> is <code>{ x: number, y: number } &amp; { moveBy(dx: number, dy: number): number }</code>.</p>
+<p>The <code>methods</code> object in the argument to <code>makeObject</code> has a contextual type that includes <code>ThisType&lt;D &amp; M&gt;</code> and therefore the type of <code>this</code> in methods within the <code>methods</code> object is <code>{ x: number, y: number } &amp; { moveBy(dx: number, dy: number): number }</code></p>
+<p>Notice how the type of the <code>methods</code> property simultaneously is an inference target and a source for the <code>this</code> type in methods.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

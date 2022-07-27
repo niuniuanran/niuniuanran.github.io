@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS High Availability - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Avoid-Single-Point-of-Failure"><span class="toc-text">Avoid Single Point of Failure</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#High-Availability-Factors"><span class="toc-text">High Availability Factors</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fault-Tolerance"><span class="toc-text">Fault Tolerance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recoverability"><span class="toc-text">Recoverability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scalability"><span class="toc-text">Scalability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Services-and-HA"><span class="toc-text">AWS Services and HA</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Elastic-Load-Balancing"><span class="toc-text">Elastic Load Balancing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ALB"><span class="toc-text">ALB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NLB"><span class="toc-text">NLB</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sticky-Cookie"><span class="toc-text">Sticky Cookie</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Elastic-IP-address"><span class="toc-text">Elastic IP address</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#High-availability-with-the-right-architecture"><span class="toc-text">High availability with the right architecture.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ELB-Connection-Draining-–-Remove-Instances-From-Service-With-Care"><span class="toc-text">ELB Connection Draining – Remove Instances From Service With Care</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDS-scaling"><span class="toc-text">RDS scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#With-scaling-on-RDS-you-can"><span class="toc-text">With scaling on RDS you can:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Putting-a-cache-in-front-of-Amazon-RDS"><span class="toc-text">Putting a cache in front of Amazon RDS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaling-Amazon-RDS-Writes-with-Database-Sharding"><span class="toc-text">Scaling Amazon RDS Writes with Database Sharding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Horizontal-scaling-with-Read-Replicas"><span class="toc-text">Horizontal scaling with Read Replicas</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Autoscaling-considerations"><span class="toc-text">Autoscaling considerations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EC2-Auto-Recovery"><span class="toc-text">EC2 Auto Recovery</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS High Availability
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-25 15:22:34</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Avoid-Single-Point-of-Failure"><a href="#Avoid-Single-Point-of-Failure" class="headerlink" title="Avoid Single Point of Failure"></a>Avoid Single Point of Failure</h1><p>If two application servers use the same database server, that database server is the single point of failure. A common solution is to have a secondary database.<br>Notice that when the main database goes offline, the application servers need to automatically send their requests to the secondary database. This goes back to <strong>High Availability Best Practice #2: treat resources as disposable, and design your applications to support changes in hardware</strong>.</p>
+<p>Implement redundancy where possible to prevent single failures.<br>Not neccessarily duplicated components. You can use <strong>automated solutions</strong> that only launch when needed, or a <strong>managed service</strong> where AWS automatically replaces malfunctioning underlying hardware for you</p>
+<h1 id="High-Availability-Factors"><a href="#High-Availability-Factors" class="headerlink" title="High Availability Factors"></a>High Availability Factors</h1><p>Fault tolerance, recoverability, and scalability are three primary factors that determine the overall availability of your application.</p>
+<h2 id="Fault-Tolerance"><a href="#Fault-Tolerance" class="headerlink" title="Fault Tolerance"></a>Fault Tolerance</h2><p>The built-in redundancy of an application’s components</p>
+<h2 id="Recoverability"><a href="#Recoverability" class="headerlink" title="Recoverability"></a>Recoverability</h2><p>The process, policies, and procedures related to restoring service after a catastrophic event.</p>
+<h2 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h2><p>The ability of an application to accommodate growth without changing design.</p>
+<h1 id="AWS-Services-and-HA"><a href="#AWS-Services-and-HA" class="headerlink" title="AWS Services and HA"></a>AWS Services and HA</h1><img src="HA-services.png" alt="" width="900px"/>
+
+<p>Route 53 is one of our only services that has a 100% availability service-level agreement.</p>
+<p><strong>AWS RDS, CloudFront, EBS, ELB are inherently highly available</strong></p>
+<ul>
+<li>You can make Amazon Elastic Compute Cloud—or Amazon EC2—highly available by having two or more Amazon EC2 instances or placing Amazon EC2 instances in an Auto Scaling group. </li>
+<li>With Amazon Redshift, you can set up the clusters and have a copy so that if something happens to one of the nodes, the service could be started from somewhere else. </li>
+<li>For AWS Direct Connect, you can either have two direct connections, or use VPN as a backup.</li>
+</ul>
+<h1 id="Elastic-Load-Balancing"><a href="#Elastic-Load-Balancing" class="headerlink" title="Elastic Load Balancing"></a>Elastic Load Balancing</h1><p>Three types of ELB:</p>
+<img width="800px" src="ELB.png" alt="ELB"/>
+
+<h2 id="ALB"><a href="#ALB" class="headerlink" title="ALB"></a>ALB</h2><ul>
+<li>Content-based routing</li>
+<li>WebSocket, HTTP, HTTPS</li>
+<li>Containers or EC2 instances</li>
+<li>Advanced request routing, supports microservices and container-based applications</li>
+<li>Sticky sessions are a mechanism to route requests from the same client to the same target. Application Load Balancer supports sticky sessions using load balancer generated cookies. If you enable sticky sessions, the same target receives the request and can use the cookie to recover the session context. Stickiness is defined at a target group level.</li>
+</ul>
+<h2 id="NLB"><a href="#NLB" class="headerlink" title="NLB"></a>NLB</h2><ul>
+<li>high throughput</li>
+<li>ultra low latency</li>
+<li>route connections based on IP protocol data</li>
+<li>optimized to handle sudden and volatile traffic patterns, while using a single static IP address per Availability Zone</li>
+<li>Network Load Balancer can now distribute requests regardless of Availability Zone with the support of cross-zone load balancing. </li>
+</ul>
+<h1 id="Sticky-Cookie"><a href="#Sticky-Cookie" class="headerlink" title="Sticky Cookie"></a>Sticky Cookie</h1><p>By default, a load balancer routes each request independently to the application instance with the smallest load. However, you can use sticky session features—which is also known as session affinity—that enable the load balancer to bind a user’s session to a specific application instance.<br>This takes the responsibility of maintaining sessions from the server instance to the load balancer.</p>
+<h1 id="Elastic-IP-address"><a href="#Elastic-IP-address" class="headerlink" title="Elastic IP address"></a>Elastic IP address</h1><p>Elastic IP addresses are very important because they allow us to mask the failure of an instance or software by allowing users and clients to use the same IP address with replacement resources.</p>
+<h1 id="High-availability-with-the-right-architecture"><a href="#High-availability-with-the-right-architecture" class="headerlink" title="High availability with the right architecture."></a>High availability with the right architecture.</h1><ul>
+<li>you can make Amazon Elastic Compute Cloud—or Amazon EC2—highly available by having two or more Amazon EC2 instances or placing Amazon EC2 instances in an Auto Scaling group. </li>
+<li>With Amazon Redshift, you can set up the clusters and have a copy so that if something happens to one of the nodes, the service could be started from somewhere else. </li>
+<li>For AWS Direct Connect, you can either have two direct connections, or use VPN as a backup.<ul>
+<li>Direct Connect (DX) and Hardware virtual network (VPN) use virtual private gateway in an Amazon VPC.</li>
+<li>Direct Connection(DX) is highly available when there are two ports open. </li>
+<li>DX also allows for a connection from remote servers to the AWS cloud at any time.</li>
+</ul>
+</li>
+</ul>
+<h1 id="ELB-Connection-Draining-–-Remove-Instances-From-Service-With-Care"><a href="#ELB-Connection-Draining-–-Remove-Instances-From-Service-With-Care" class="headerlink" title="ELB Connection Draining – Remove Instances From Service With Care"></a>ELB Connection Draining – Remove Instances From Service With Care</h1><p>You can use Elastic Load Balancing on its own, or in conjunction with Auto Scaling. When combined, the two features allow you to create a system that automatically adds and removes EC2 instances in response to changing load.</p>
+<p>In order to provide a first-class use experience, you’d like to avoid breaking open network connections while taking an instance out of service, updating its software, or replacing it with a fresh instance that contains updated software. Imagine each broken connection as a half-drawn web page, an aborted file download, or a failed web service call, each of which results in an unhappy user or customer.<br>You can now avoid this situation by enabling the new <strong>Connection Draining feature</strong> for your Elastic Load Balancers. </p>
+<p>Connection Draining is <strong>enabled by default for load balancers that are created using the Console</strong>.<br>When Connection Draining is enabled and configured, the process of <strong>deregistering an instance from an Elastic Load Balancer</strong> gains an additional step. For the duration of the configured timeout, the load balancer will <strong>allow existing, in-flight requests made to an instance to complete</strong>, but it will <strong>not send any new requests to the instance</strong>. <strong>During this time, the API will report the status of the instance as InService, along with a message stating that “Instance deregistration currently in progress.”</strong> <strong>Once the timeout is reached, any remaining connections will be forcibly closed</strong>.</p>
+<h1 id="RDS-scaling"><a href="#RDS-scaling" class="headerlink" title="RDS scaling"></a>RDS scaling</h1><h2 id="With-scaling-on-RDS-you-can"><a href="#With-scaling-on-RDS-you-can" class="headerlink" title="With scaling on RDS you can:"></a>With scaling on RDS you can:</h2><ul>
+<li>Scale up/down with resizable instance types</li>
+<li>Scale storage up with a few clicks or via the API<ul>
+<li>Easy conversion from standard to Provisioned IOPS storage</li>
+</ul>
+</li>
+<li>Offload read traffic to Read Replicas to increase read performance</li>
+</ul>
+<h2 id="Putting-a-cache-in-front-of-Amazon-RDS"><a href="#Putting-a-cache-in-front-of-Amazon-RDS" class="headerlink" title="Putting a cache in front of Amazon RDS"></a>Putting a cache in front of Amazon RDS</h2><ul>
+<li>ElastiCache for Memcached or Redis</li>
+<li>Your preferred cache solution, self-managed on EC2</li>
+</ul>
+<h2 id="Scaling-Amazon-RDS-Writes-with-Database-Sharding"><a href="#Scaling-Amazon-RDS-Writes-with-Database-Sharding" class="headerlink" title="Scaling Amazon RDS Writes with Database Sharding"></a>Scaling Amazon RDS Writes with Database Sharding</h2><p> Sharding is a technique for improving the performance of writing with multiple database servers. Fundamentally, sharding is when you prepare databases with identical structures, and divide them—using appropriate table columns as keys—to distribute writing processes.</p>
+<h2 id="Horizontal-scaling-with-Read-Replicas"><a href="#Horizontal-scaling-with-Read-Replicas" class="headerlink" title="Horizontal scaling with Read Replicas"></a>Horizontal scaling with Read Replicas</h2><h1 id="Autoscaling-considerations"><a href="#Autoscaling-considerations" class="headerlink" title="Autoscaling considerations"></a>Autoscaling considerations</h1><ul>
+<li>Avoid thrashing<ul>
+<li>scale out easily</li>
+<li>scale in slowly</li>
+</ul>
+</li>
+<li>Use lifecycle hooks: Define lifecycle hooks to perform custom actions when Auto Scaling launches or terminates instances. </li>
+<li>Stateful applications require additional automatic configuration of instances that are launched into Auto Scaling groups. Remember that instances can take several minutes after launch before they are fully usable.</li>
+</ul>
+<h1 id="EC2-Auto-Recovery"><a href="#EC2-Auto-Recovery" class="headerlink" title="EC2 Auto Recovery"></a>EC2 Auto Recovery</h1><p>If you need identical number of instances, you can use EC2 Auto Recovery instead of ASG.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

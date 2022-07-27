@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        What is RESTful API - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-API"><span class="toc-text">What is API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-RESTful-API"><span class="toc-text">What is RESTful API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST-style-constraints"><span class="toc-text">REST style constraints</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stateless"><span class="toc-text">Stateless</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-server"><span class="toc-text">Client-server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cacheable"><span class="toc-text">Cacheable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Uniform-Interface"><span class="toc-text">Uniform Interface</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Related-Concepts"><span class="toc-text">Related Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-an-endpoint"><span class="toc-text">What is an endpoint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-methods"><span class="toc-text">HTTP methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-implements-Body"><span class="toc-text">Response implements Body</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-status"><span class="toc-text">Response.status</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Next-Steps"><span class="toc-text">Next Steps</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        What is RESTful API
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-04-07 09:41:30</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Web API" title="Web API">Web API</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="What-is-API"><a href="#What-is-API" class="headerlink" title="What is API"></a>What is API</h1><p>API (Application Programming Interface),<br>API is the contract/standard provided by one piece of software (A) to another (B), so that B can create a structured request to A and get a structured response.</p>
+<h1 id="What-is-RESTful-API"><a href="#What-is-RESTful-API" class="headerlink" title="What is RESTful API"></a>What is RESTful API</h1><p>Representational State Transfer<br>RESTful APIs refers to web services that conform to the REST architectural style.<br>REST relies on a <strong>stateless, client-server protocol</strong>, almost always HTTP.<br>Treats objects on the server side as <strong>resources that can be created or destroyed</strong>. We can create server object with a POST request, get it with a GET request, or delete it with a DELETE request etc. </p>
+<h2 id="REST-style-constraints"><a href="#REST-style-constraints" class="headerlink" title="REST style constraints"></a>REST style constraints</h2><h3 id="Stateless"><a href="#Stateless" class="headerlink" title="Stateless"></a>Stateless</h3><p>Stateless protocol cannot take advantage of any stored context on the server. Session state is therefore kept entirely on the client.<br>In computing, a stateless protocol is a communications protocol in which no session information is retained by the receiver, usually a server. A stateless protocol does not require the server to retain session information or status about each communicating partner for the duration of multiple requests. In contrast, a protocol that requires keeping of the internal state on the server is known as a stateful protocol. A TCP connection-oriented session is a stateful connection because both systems maintain information about the session itself during its life.<br>An example of a stateless protocol is HTTP, meaning that <strong>each request message can be understood in isolation.</strong><br>Contrast this with a traditional FTP server that conducts an interactive session with the user. During the session, a user is provided a means to be authenticated and set various variables (working directory, transfer mode), all stored on the server as part of the user’s state.</p>
+<h3 id="Client-server"><a href="#Client-server" class="headerlink" title="Client-server"></a>Client-server</h3><p>Separation of concerns is the principle behind the client-server constraints. By separating the user interface concerns from the data storage concerns, we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.</p>
+<h3 id="Cacheable"><a href="#Cacheable" class="headerlink" title="Cacheable"></a>Cacheable</h3><p>In order to improve network efficiency, cache constraints are added to the REST style.<br>Cache constraints require that the data within a response to a request be implicitly or explicitly labeled as cacheable or non-cacheable. If a response is cacheable, then a client cache is given the right to reuse that response data for later, equivalent requests.<br>The advantage of adding cache constraints is that they have the potential to partially or completely eliminate some interactions, improving efficiency, scalability, and user-perceived performance by reducing the average latency of a series of interactions.</p>
+<h3 id="Uniform-Interface"><a href="#Uniform-Interface" class="headerlink" title="Uniform Interface"></a>Uniform Interface</h3><p>The central feature that distinguishes the REST architectural style from other network-based styles is its emphasis on a uniform interface between components.</p>
+<h2 id="Related-Concepts"><a href="#Related-Concepts" class="headerlink" title="Related Concepts"></a>Related Concepts</h2><h3 id="What-is-an-endpoint"><a href="#What-is-an-endpoint" class="headerlink" title="What is an endpoint"></a>What is an endpoint</h3><p>An endpoint is a URI/URL where api/service can be accessed by a client application.</p>
+<h3 id="HTTP-methods"><a href="#HTTP-methods" class="headerlink" title="HTTP methods"></a>HTTP methods</h3><p>GET POST PUT DELETE<br>HEAD OPTIONS(returns the allowed HTTP methods) PATCH</p>
+<h3 id="Response-implements-Body"><a href="#Response-implements-Body" class="headerlink" title="Response implements Body"></a>Response implements Body</h3><p>Response implements Body, so it also has the following methods available to it:</p>
+<ul>
+<li><code>Body.arrayBuffer()</code></li>
+<li><code>Body.blob()</code></li>
+<li><code>Body.formData()</code></li>
+<li><code>Body.json()</code>: It returns a promise that resolves with the result of parsing the body text as JSON.</li>
+<li><code>Body.text()</code>: It returns a promise that resolves with a USVString (text).<h3 id="Response-status"><a href="#Response-status" class="headerlink" title="Response.status"></a>Response.status</h3>The status read-only property of the Response interface contains the status code of the response (e.g., 200 for a success). It is an unsigned short.<br>HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes:</li>
+<li>Informational responses (100–199),</li>
+<li>Successful responses (200–299),</li>
+<li>Redirects (300–399),</li>
+<li>Client errors (400–499),</li>
+<li>Server errors (500–599).<br>See this <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank" rel="noopener">MDN page</a> to learn more about HTTP response status codes.<br>Look at these two api handlers:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default async function login(req, res) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    await auth0.handleLogin(req, res);</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    res.status(error.status || 400).end(error.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default async function me(req, res) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    await auth0.handleProfile(req, res, &#123;&#125;);</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    res.status(error.status || 500).end(error.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+If the error contains status information, we set the response status to the error status;<br>Otherwise,<br>If auth0 did not handleLogin properly, set to 400 Bad Request (The server could not understand the request due to invalid syntax.)<br>If auth0 did not get the user profile properly, set to 500 Internal Server Error (The server has encountered a situation it doesn’t know how to handle.)</li>
+</ul>
+<h1 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h1><p>Re-visit the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a> object, how to make a function return a promise, and how it resolves.</p>
+<blockquote>
+<p>As the Promise.prototype.then() and Promise.prototype.catch() methods return promises, they can be chained.</p>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

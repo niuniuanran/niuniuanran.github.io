@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Operational Excellence Pillar: WA framework - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Design-Principles"><span class="toc-text">Design Principles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Core-Services"><span class="toc-text">Core Services</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anti-Patterns"><span class="toc-text">Anti-Patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Focus-only-on-technology-metrics"><span class="toc-text">Focus only on technology metrics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Changes"><span class="toc-text">Batch Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manual-Changes"><span class="toc-text">Manual Changes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stale-outdated-Document"><span class="toc-text">Stale (outdated) Document</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Prepare"><span class="toc-text">Prepare</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Monitor-the-application-platform-and-infrastructure-components"><span class="toc-text">Monitor the application, platform, and infrastructure components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Validate-workloads-before-moving-into-production"><span class="toc-text">Validate workloads before moving into production</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Perform-Cloud-Operations"><span class="toc-text">Perform Cloud Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-responses-to-operational-events-and-failures"><span class="toc-text">Test responses to operational events and failures</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operate"><span class="toc-text">Operate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Evolve"><span class="toc-text">Evolve</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Evolve-with-AWS-Services-Developer-Tools"><span class="toc-text">Evolve with AWS Services - Developer Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodeStar"><span class="toc-text">AWS CodeStar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodeCommit"><span class="toc-text">AWS CodeCommit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodeBuild"><span class="toc-text">AWS CodeBuild</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodeDeploy"><span class="toc-text">AWS CodeDeploy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodePipeline"><span class="toc-text">AWS CodePipeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-X-Ray"><span class="toc-text">AWS X-Ray</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evolve-with-AWS-Services-Amazon-Elasticsearch-Service"><span class="toc-text">Evolve with AWS Services - Amazon Elasticsearch Service</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-factors-drive-your-operational-priorities"><span class="toc-text">What factors drive your operational priorities?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Determining-whether-you-are-ready-to-support-a-workload"><span class="toc-text">Determining whether you are ready to support a workload</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-factors-drive-your-understanding-of-operational-health"><span class="toc-text">What factors drive your understanding of operational health?</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Operational Excellence Pillar: WA framework
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-24 11:06:39</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS Well-Architectured Framework" title="AWS Well-Architectured Framework">AWS Well-Architectured Framework</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Design-Principles"><a href="#Design-Principles" class="headerlink" title="Design Principles"></a>Design Principles</h1><ul>
+<li>Perform Operations with code</li>
+<li>Annotate document changes: automate the creation of documentation after every build, or you can automatically annotate (注解) hand-crafted documentation. Annotated documentation can be used by people and systems. Use annotations as an input to your operations code</li>
+<li>Make frequent, small, reversible changes: You want to design workloads to allow components to be updated regularly. </li>
+<li>Refine standard operations frequently</li>
+<li>Anticipate failure: pre-mortem (事前验尸)</li>
+<li>Learn from all operational failures</li>
+</ul>
+<h1 id="Core-Services"><a href="#Core-Services" class="headerlink" title="Core Services"></a>Core Services</h1><img src="core-services.png" alt="" width="700px"/>
+
+<ul>
+<li><strong>AWS CloudFormation</strong> is key for operational excellence because it helps you ensure reliability. The service lets you treat infrastructure as code, and it provides templates you can use to replicate your environment.</li>
+<li>To prepare, <strong>AWS Config</strong> and <strong>AWS Config Rules</strong> can be used to <em>create standards for workloads</em>, and to <em>determine whether environments are compliant with those standards before they are put into production</em>.</li>
+<li><strong>CloudWatch</strong> allows you to <em>monitor the operational health of a workload</em>.</li>
+<li><strong>Amazon Elasticsearch</strong> Service allows you to <em>analyze your log data to gain actionable insights quickly and securely</em>.</li>
+</ul>
+<h1 id="Anti-Patterns"><a href="#Anti-Patterns" class="headerlink" title="Anti-Patterns"></a>Anti-Patterns</h1><h2 id="Focus-only-on-technology-metrics"><a href="#Focus-only-on-technology-metrics" class="headerlink" title="Focus only on technology metrics"></a>Focus only on technology metrics</h2><p>You might not be delivering value to the customer if you’re not paying attention to latency.<br>You want to also have business metrics (which AWS offers)</p>
+<h2 id="Batch-Changes"><a href="#Batch-Changes" class="headerlink" title="Batch Changes"></a>Batch Changes</h2><p>Instead, make small, reversible changes</p>
+<h2 id="Manual-Changes"><a href="#Manual-Changes" class="headerlink" title="Manual Changes"></a>Manual Changes</h2><p>It is hard to reproduce errors caused by manual changes</p>
+<h2 id="Stale-outdated-Document"><a href="#Stale-outdated-Document" class="headerlink" title="Stale (outdated) Document"></a>Stale (outdated) Document</h2><p>Having outdated documentation or no documentation can create problems. Put a process in place to ensure all documentation is up-to-date.</p>
+<h1 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h1><h2 id="Monitor-the-application-platform-and-infrastructure-components"><a href="#Monitor-the-application-platform-and-infrastructure-components" class="headerlink" title="Monitor the application, platform, and infrastructure components"></a>Monitor the application, platform, and infrastructure components</h2><p>You can use CloudWatch alarms, and send the information from CloudWatch logs to a dashboard to see the health of your infrastructure at any time. You can use this information to <strong>understand the customer experience and customer behaviors</strong>.</p>
+<h2 id="Validate-workloads-before-moving-into-production"><a href="#Validate-workloads-before-moving-into-production" class="headerlink" title="Validate workloads before moving into production"></a>Validate workloads before moving into production</h2><p>Ask yourself: are the workloads supported by operations?</p>
+<h2 id="Perform-Cloud-Operations"><a href="#Perform-Cloud-Operations" class="headerlink" title="Perform Cloud Operations"></a>Perform Cloud Operations</h2><ul>
+<li>Use Checklist for standard and required procedures</li>
+<li>Check that required procedures are adequately captured in runbooks and playbooks</li>
+<li>Validate trained personnel to make sure everyone is enabled</li>
+</ul>
+<h2 id="Test-responses-to-operational-events-and-failures"><a href="#Test-responses-to-operational-events-and-failures" class="headerlink" title="Test responses to operational events and failures"></a>Test responses to operational events and failures</h2><p>Make sure you test responses to operational events and failures so that you can quickly recover from them.</p>
+<img src="prepare-services.png" alt="" width="700px"/>
+
+<p>Key service: AWS Config, AWS Config Rules to define the standards to stick to.</p>
+<h1 id="Operate"><a href="#Operate" class="headerlink" title="Operate"></a>Operate</h1><ul>
+<li>Achieve business and customer outcomes through the successful operation of a workload.</li>
+<li>Manage operational events with efficiency and effectiveness. You can do this by:<ul>
+<li>establishing <strong>baselines</strong> that you use to identify the improvement or degradation of operations, </li>
+<li>collecting and analyzing your <strong>metrics</strong></li>
+<li>then validating your understanding of how you <strong>define operational success</strong> and how it changes over time.</li>
+</ul>
+</li>
+<li>Communicate the <strong>operational status</strong> of workloads. </li>
+<li>Consider that operational health includes both the health of the <strong>workload</strong>, and the health and success of the operations that act upon the workload—for example, <strong>deployment and incident response</strong>.</li>
+<li>Use <strong>dashboards and notifications</strong> so that information can be accessed automatically. The more people have access to information about the health of your infrastructure, the healthier it will be.</li>
+<li>Take the time to determine the root cause of workload outage.</li>
+</ul>
+<img src="operate-services.png" alt="" width="700px"/>
+
+<h1 id="Evolve"><a href="#Evolve" class="headerlink" title="Evolve"></a>Evolve</h1><ul>
+<li>Dedicate work cycles to making continuous incremental improvements.</li>
+<li>Regularly evaluate and prioritize opportunities for improving procedures for both workloads and operations, such as <strong>feature requests, issue remediation, and compliance requirements</strong>. </li>
+<li>Identify areas for improvement, and include <strong>feedback loops</strong> within your procedures.</li>
+<li>Share “lessons learned” across teams to share the benefits of those lessons. <ul>
+<li>Analyze trends within the lessons learned</li>
+<li>Perform cross-team retrospective analysis of operations metrics</li>
+<li>Identify opportunities and methods for improvement. </li>
+<li>Implement changes and evaluate the results </li>
+</ul>
+</li>
+</ul>
+<img src="evolve-services.png" alt="" width="700px"/>
+
+<h2 id="Evolve-with-AWS-Services-Developer-Tools"><a href="#Evolve-with-AWS-Services-Developer-Tools" class="headerlink" title="Evolve with AWS Services - Developer Tools"></a>Evolve with AWS Services - Developer Tools</h2><h3 id="AWS-CodeStar"><a href="#AWS-CodeStar" class="headerlink" title="AWS CodeStar"></a>AWS CodeStar</h3><p>Each AWS CodeStar project comes with a <strong>project management</strong> dashboard, including an integrated issue tracking capability powered by Atlassian JIRA Software.<br>AWS CodeStar provides a unified user interface, enabling you to easily manage your software development activities in one place.<br>There is no additional charge for using AWS CodeStar. </p>
+<h3 id="AWS-CodeCommit"><a href="#AWS-CodeCommit" class="headerlink" title="AWS CodeCommit"></a>AWS CodeCommit</h3><p>AWS CodeCommit is a fully-managed <strong>source control service</strong> that hosts secure <strong>Git-based</strong> repositories. </p>
+<h3 id="AWS-CodeBuild"><a href="#AWS-CodeBuild" class="headerlink" title="AWS CodeBuild"></a>AWS CodeBuild</h3><p>AWS CodeBuild is a fully managed <strong>continuous integration</strong> service that compiles source code, runs tests, and produces software packages</p>
+<h3 id="AWS-CodeDeploy"><a href="#AWS-CodeDeploy" class="headerlink" title="AWS CodeDeploy"></a>AWS CodeDeploy</h3><p>AWS CodeDeploy is a fully managed <strong>deployment</strong> service that automates software deployments to a variety of compute services such as Amazon EC2, AWS Fargate, AWS Lambda, and your on-premises servers.</p>
+<h3 id="AWS-CodePipeline"><a href="#AWS-CodePipeline" class="headerlink" title="AWS CodePipeline"></a>AWS CodePipeline</h3><p>AWS CodePipeline is a fully managed <strong>continuous delivery</strong> service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.</p>
+<h3 id="AWS-X-Ray"><a href="#AWS-X-Ray" class="headerlink" title="AWS X-Ray"></a>AWS X-Ray</h3><p>AWS X-Ray[<a href="https://aws.amazon.com/xray/]" target="_blank" rel="noopener">https://aws.amazon.com/xray/]</a> helps <strong>developers</strong> analyze and debug production, distributed applications, such as those built using a microservices architecture.<br>With X-Ray, you can:</p>
+<ul>
+<li>understand how your application and its underlying services are performing </li>
+<li>identify and troubleshoot the root cause of performance issues and errors</li>
+<li>have an end-to-end view of requests as they travel through your application</li>
+<li>see a map of your application’s underlying components. </li>
+</ul>
+<p>You can use X-Ray to analyze both applications in development and in production, from simple three-tier applications to complex microservices applications consisting of thousands of services.</p>
+<h2 id="Evolve-with-AWS-Services-Amazon-Elasticsearch-Service"><a href="#Evolve-with-AWS-Services-Amazon-Elasticsearch-Service" class="headerlink" title="Evolve with AWS Services - Amazon Elasticsearch Service"></a>Evolve with AWS Services - Amazon Elasticsearch Service</h2><p><a href="https://aws.amazon.com/elasticsearch-service/" target="_blank" rel="noopener">Amazon Elasticsearch Service</a> provides support for open source Elasticsearch APIs, managed Kibana, integration with Logstash and other AWS services, and built-in alerting and SQL querying.<br>It allows you to <strong>analyze your log data</strong> to gain actionable insights quickly and securely.</p>
+<h1 id="What-factors-drive-your-operational-priorities"><a href="#What-factors-drive-your-operational-priorities" class="headerlink" title="What factors drive your operational priorities?"></a>What factors drive your operational priorities?</h1><ul>
+<li>Business Needs</li>
+<li>Compliance Requirements</li>
+<li>Risk Management</li>
+</ul>
+<h1 id="Determining-whether-you-are-ready-to-support-a-workload"><a href="#Determining-whether-you-are-ready-to-support-a-workload" class="headerlink" title="Determining whether you are ready to support a workload"></a>Determining whether you are ready to support a workload</h1><p>Best practices:</p>
+<ul>
+<li>Continuously improving your <strong>culture</strong>. This best practice governs the way you operate. You must recognize that change is constant, and that you need to continue to experiment and evolve by acting on opportunities to improve.</li>
+<li>Having a <strong>shared understanding</strong> of the value to the business. Make sure that you have cross-team consensus on the value of the workload to the business, and that you have procedures that you can use to engage additional teams for support.</li>
+<li>Ensuring that you have enough personnel so that you can have an appropriate number of <strong>trained personnel</strong> to support the needs of your workload. <ul>
+<li>Perform regular reviews of workload demands</li>
+<li>Train existing personnel or adjust personnel capacity as needed.</li>
+</ul>
+</li>
+<li>Making sure that governance and guidance are documented and accessible.<ul>
+<li>Ensure that standards are accessible, readily understood, and measurable for compliance. Make sure that you have a way to propose changes to standards, and request exceptions.</li>
+</ul>
+</li>
+<li>Using <strong>checklists</strong> to evaluate whether you are ready to operate workloads. These checklists include <strong>operational readiness checklists</strong> and <strong>security checklists</strong>.</li>
+<li>Having <strong>runbooks</strong> for events and procedures that you understand well. </li>
+<li>Having <strong>a playbook</strong> for failure scenarios.</li>
+<li><strong>Practicing recovery</strong> so that you can identify potential failure scenarios and test your responses—for example, <em>game days</em>, and <em>failure injection</em>.</li>
+</ul>
+<h1 id="What-factors-drive-your-understanding-of-operational-health"><a href="#What-factors-drive-your-understanding-of-operational-health" class="headerlink" title="What factors drive your understanding of operational health?"></a>What factors drive your understanding of operational health?</h1><p>Best Practices:</p>
+<ul>
+<li>Defining expected business and customer outcomes. Make sure that you have a <strong>documented</strong> definition of what success looks like for the workload, from business and customer perspectives.</li>
+<li>Identifying <strong>success metrics</strong>. Define metrics that can be used to measure the behavior of the workload against the <strong>expectations of the business and of customers</strong>.</li>
+<li>Identifying <strong>workload metrics</strong>. Define metrics that can be used to measure the status and success of the <strong>workload and its components</strong>. (Technology metrics)</li>
+<li>Identifying <strong>operations metrics</strong>. Define metrics that can be used to measure the execution of <strong>operations activities</strong>, such as runbooks and playbooks.</li>
+<li>Establishing <strong>baselines</strong> for metrics so that they provide expected values as the basis for comparison.</li>
+<li>Collecting and analyzing your metrics. Perform <strong>regular, proactive reviews</strong> to identify trends and determine responses.</li>
+<li>Validating insights. Review the results of your analysis and responses with <strong>cross-functional teams and business owners</strong>. Adjust the responses as appropriate.</li>
+<li>Taking a business-level view of your operations. Determine whether you are satisfying <strong>customer needs</strong>, and identify areas that need improvement so that you can reach your <strong>business goals</strong>.</li>
+<li>Determining the priority of operational events based on their <strong>impact on the business</strong>. When multiple events require intervention, priority is based on the business impact.</li>
+<li>Putting processes in place to handle event, incident, and problem management. </li>
+<li>Processing each alert. <strong>Any event for which you raise an alert should have a well-defined response</strong>, such as a runbook or playbook. The event should also have a specifically identified <strong>owner</strong>, such as an individual, a team, or a role.</li>
+<li>Defining <strong>escalation(raise) paths</strong>. <strong>Runbooks and playbooks</strong> should have a definition for what triggers an escalation, a process for escalation, and specifically identify the owners for each action. Escalations might include third parties, such as for example, vendors, AWS Support, and others.</li>
+<li>Identifying decision makers. </li>
+<li>Communicating operating status through dashboards.</li>
+<li>Pushing <strong>notifications to communicate with your users</strong> when the services they consume are being<br>impacted, and when the services return to normal operating conditions, such as via email or SMS.</li>
+<li>Establishing a <strong>root cause analysis</strong> process that identifies and documents the root cause of an event.</li>
+<li>Communicating the root cause of an issue or event. Also make sure that you tailor your communications to the target audiences.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

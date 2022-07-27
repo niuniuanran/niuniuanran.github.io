@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Hold my game together when people leaves room - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-challenge"><span class="toc-text">My challenge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-reason-for-the-random-behaviour"><span class="toc-text">The reason for the random behaviour</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Available-tools"><span class="toc-text">Available tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reconnecting-WebSocket"><span class="toc-text">Reconnecting WebSocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-context-package"><span class="toc-text">go context package</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Actions-taken"><span class="toc-text">Actions taken</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Reconnecting-WebSocket"><span class="toc-text">Step 1: Reconnecting WebSocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Manage-offline-players’s-state"><span class="toc-text">Step 2: Manage offline players’s state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Handle-the-game-state-change-if-a-player-appears-away-comes-back"><span class="toc-text">Step 3: Handle the game state change if a player appears away&#x2F; comes back</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-1-Make-state-check-functions-more-expressive"><span class="toc-text">Step 3.1 Make state check functions more expressive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-1-Find-out-a-way-to-update-game-state-when-a-player-appears-away-comes-back"><span class="toc-text">Step 3.1 Find out a way to update game state when a player appears away&#x2F; comes back</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Option-1"><span class="toc-text">Option 1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Option-2"><span class="toc-text">Option 2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Implementation"><span class="toc-text">Implementation</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Hold my game together when people leaves room
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-07-20 10:21:39</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Go" title="Go">Go</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#who-is-spy" title="who-is-spy">who-is-spy</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Websocket" title="Websocket">Websocket</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="My-challenge"><a href="#My-challenge" class="headerlink" title="My challenge"></a>My challenge</h2><p>The game is looking good and gets us playing - as long as everyone behaves. By behaving I mean staying at the game web page and never allowing their device to lock the screen - otherwise the game will enter a random state and start sending people inconsistent instructions.<br>My friends soon proved that my expectation on my users are way too high. They have to Google for the word from time to time, and they have to put their phone on their belly more often :D<br>So it is up to me to make the game survive these.</p>
+<h2 id="The-reason-for-the-random-behaviour"><a href="#The-reason-for-the-random-behaviour" class="headerlink" title="The reason for the random behaviour"></a>The reason for the random behaviour</h2><p>Currently, the game is driven by the updates of player states. Here’s a code snippet: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; game.go</span><br><span class="line"></span><br><span class="line">func (room *Room) runTalkRound() bool &#123;</span><br><span class="line">	room.setAllAlivePlayersToState(PlayerListeningState)</span><br><span class="line">	alivePlayers :&#x3D; room.getAlivePlayerPointersInRoom()</span><br><span class="line">	if len(alivePlayers) &lt; 1 &#123;</span><br><span class="line">		room.setAllPlayersToState(PlayerIdleState)</span><br><span class="line">		room.broadcastPlayersState(&quot;No alive players in room&quot;, &quot;&quot;, AlertTypeWarning)</span><br><span class="line">		return false</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    rand.Seed(time.Now().UnixNano())</span><br><span class="line">	startFrom :&#x3D; rand.Intn(len(alivePlayers))</span><br><span class="line">	i :&#x3D; startFrom</span><br><span class="line">	for &#123;</span><br><span class="line">		alivePlayers[i].State &#x3D; PlayerTalkingState</span><br><span class="line">		room.broadcastPlayersState(&quot;&quot;, fmt.Sprintf(&quot;%s&#39;s turn to talk&quot;, alivePlayers[i].Nickname), &quot;&quot;)</span><br><span class="line">		waitForState(func() bool &#123; return alivePlayers[i].State &#x3D;&#x3D; PlayerTalkFinishedState &#125;)</span><br><span class="line">		alivePlayers[i].State &#x3D; PlayerListeningState</span><br><span class="line">		i++</span><br><span class="line">		if i &#x3D;&#x3D; len(alivePlayers) &#123;</span><br><span class="line">			i &#x3D; 0</span><br><span class="line">		&#125;</span><br><span class="line">		if i &#x3D;&#x3D; startFrom &#123;</span><br><span class="line">			return true</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func waitForState(check func() bool) &#123;</span><br><span class="line">	for &#123;</span><br><span class="line">		time.Sleep(time.Second)</span><br><span class="line">		if check() &#123;</span><br><span class="line">			return</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>If a player leaves the room (i.e. the player’s pointer gets removed from the <code>room.players</code> map) in the middle of the talking round, the <code>alivePlayers</code> slice still has the reference to this player, but the game might be stuck waiting for this player to change state.</p>
+<h2 id="Available-tools"><a href="#Available-tools" class="headerlink" title="Available tools"></a>Available tools</h2><p>To solve this problem, I need to know what relevant tools are available. </p>
+<h3 id="Reconnecting-WebSocket"><a href="#Reconnecting-WebSocket" class="headerlink" title="Reconnecting WebSocket"></a>Reconnecting WebSocket</h3><p>One problem for now is that when a player loses their connection, they lose it for good. The solution would be to add retries upon <code>onclose</code>. Luckily there’s already wrapper packages that provide this functionality on top of <code>WebSocket</code>. <a href="https://www.npmjs.com/package/reconnecting-websocket" target="_blank" rel="noopener">reconnecting-websocket</a> looks like what I need.</p>
+<h3 id="go-context-package"><a href="#go-context-package" class="headerlink" title="go context package"></a>go <code>context</code> package</h3><p>Another challenge I face is the management of ongoing games when an unexpected event happens - for example, when a player quits unexpectedly. This means I need something like <code>CancellationToken</code> in C# - luckily, there is <a href="https://pkg.go.dev/context#pkg-index" target="_blank" rel="noopener">context package</a> in go that takes care of cancellation signals.</p>
+<p><a href="https://www.sohamkamani.com/golang/context-cancellation-and-values/" target="_blank" rel="noopener">This</a> is a thorough walkthrough of what it is like to use go context.</p>
+<h2 id="Actions-taken"><a href="#Actions-taken" class="headerlink" title="Actions taken"></a>Actions taken</h2><h3 id="Step-1-Reconnecting-WebSocket"><a href="#Step-1-Reconnecting-WebSocket" class="headerlink" title="Step 1: Reconnecting WebSocket"></a>Step 1: Reconnecting WebSocket</h3><p>At this moment, there’s no attempt to reconnect the player if the websocket connection is lost. The first step towards a more robust game experience would be an automatic connection recovery. </p>
+<h3 id="Step-2-Manage-offline-players’s-state"><a href="#Step-2-Manage-offline-players’s-state" class="headerlink" title="Step 2: Manage offline players’s state"></a>Step 2: Manage offline players’s state</h3><p>All buggy behaviours start from me removing the player pointer whenever their connection is lost. I should allow the player to be in an “offline/appears away” state, which can:</p>
+<ul>
+<li>interact with other actively connected players, as dictated by the server</li>
+<li>later be recovered to an active state, if a request to re-connect is received.</li>
+<li>used to calculate the game result, if for example, the spy is offline and there’s no point keep talking.</li>
+</ul>
+<p>A key to implementing this update is to dig deeper into <code>player.readPump</code> and <code>player.disconnect</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; readPump reads new messages from a player&#39;s connection</span><br><span class="line">func (player *Player) readPump() &#123;</span><br><span class="line">	defer func() &#123;</span><br><span class="line">		player.disconnect()</span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	player.conn.SetReadLimit(maxMessageSize)</span><br><span class="line">	player.conn.SetReadDeadline(time.Now().Add(pongWait))</span><br><span class="line">	player.conn.SetPongHandler(func(string) error &#123; player.conn.SetReadDeadline(time.Now().Add(pongWait)); return nil &#125;)</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; Start endless read loop, waiting for messages from player</span><br><span class="line">	for &#123;</span><br><span class="line">		_, jsonMessage, err :&#x3D; player.conn.ReadMessage()</span><br><span class="line">		if err !&#x3D; nil &#123;</span><br><span class="line">			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) &#123;</span><br><span class="line">				log.Printf(&quot;unexpected close error: %v&quot;, err)</span><br><span class="line">			&#125;</span><br><span class="line">			break</span><br><span class="line">		&#125;</span><br><span class="line">		player.handleNewMessage(jsonMessage)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func (player *Player) disconnect() &#123;</span><br><span class="line">	player.room.unregister &lt;- player</span><br><span class="line">	close(player.send)</span><br><span class="line">	player.conn.Close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Before making the change, whenever the player is unregistered from the room, the player is removed from the room’s <code>players</code> map; now they are not, so it is my responsibility to ensure that the server will now try to send message to the player’s websocket connection - otherwise the server will crash.</p>
+<p>This is implemented in <a href="https://github.com/niuniuanran/WhoIsSpy/commit/fa5be118d1e1873c6208cedcd35277ed66ad74f2" target="_blank" rel="noopener">this commit</a>.</p>
+<h3 id="Step-3-Handle-the-game-state-change-if-a-player-appears-away-comes-back"><a href="#Step-3-Handle-the-game-state-change-if-a-player-appears-away-comes-back" class="headerlink" title="Step 3: Handle the game state change if a player appears away/ comes back"></a>Step 3: Handle the game state change if a player appears away/ comes back</h3><p>The gaming experience would have been damaged when a player leaves unexpectedly when:</p>
+<ul>
+<li>no one knows if the player that left is a spy</li>
+<li>when the player joins the room again, they will be recognized as a new user. They will re-trigger a game state refresh, causing everyone to receive a new word, and the current game is lost.</li>
+</ul>
+<p>Therefore, the server should take over the responsibility to:</p>
+<ul>
+<li>do a check to see if the game can still go on without the player that already left</li>
+<li>keep track of the player that left, and allow them to come back in a non-destructive way</li>
+<li>stop new players from joining a room that has a game running.</li>
+</ul>
+<h4 id="Step-3-1-Make-state-check-functions-more-expressive"><a href="#Step-3-1-Make-state-check-functions-more-expressive" class="headerlink" title="Step 3.1 Make state check functions more expressive"></a>Step 3.1 Make state check functions more expressive</h4><p>To make ground for the change to handle player states, I <a href="https://github.com/niuniuanran/WhoIsSpy/commit/47fb392935858a27eec1cc2af1f969621d5d4082" target="_blank" rel="noopener">made the state check functions more expressive with variadic parameter</a>. Now I can easily check for multiple player states at the same time, or wait for one of multiple conditions to turn true before the game can continue - instead of being stuck with a single check.</p>
+<h4 id="Step-3-1-Find-out-a-way-to-update-game-state-when-a-player-appears-away-comes-back"><a href="#Step-3-1-Find-out-a-way-to-update-game-state-when-a-player-appears-away-comes-back" class="headerlink" title="Step 3.1 Find out a way to update game state when a player appears away/ comes back"></a>Step 3.1 Find out a way to update game state when a player appears away/ comes back</h4><h5 id="Option-1"><a href="#Option-1" class="headerlink" title="Option 1"></a>Option 1</h5><p>The current implementation has a goroutine to run the game. Each “blocking” stage (e.g. waiting for all players to vote) waits for the players’ state to update, and now it is important that the <code>offline</code> state gets checked too.</p>
+<p>Let me start from the <code>waitForState</code> function and allow it to handle special cases.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func waitForState(check func() bool) &#123;</span><br><span class="line">	for &#123;</span><br><span class="line">		time.Sleep(time.Second)</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; TODO Add special case and handler function</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; TODO check if someone has been away</span><br><span class="line"></span><br><span class="line">		if check() &#123;</span><br><span class="line">			return</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Option-2"><a href="#Option-2" class="headerlink" title="Option 2"></a>Option 2</h5><p>Create a separate goroutine to monitor player that appears away - long running while game status is active, and communicates with other goroutine via game status.</p>
+<h5 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h5><p>I decided on option 2 - a long running health check routine, as this is more generic and more resilient to different timing of player leaving the room. See <a href="https://github.com/niuniuanran/WhoIsSpy/commit/1ca648cd9889fdfd845cd6ffb9c4fece1337f553" target="_blank" rel="noopener">this commit that adds healthcheck</a> and <a href="https://github.com/niuniuanran/WhoIsSpy/commit/d4d73f3ad5a15734cff2fc27921238d22e29d152" target="_blank" rel="noopener">this commit that tidies up at end of game</a>.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        The -race flag in Go - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Race-condition"><span class="toc-text">Race condition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#race"><span class="toc-text">-race</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-the-effect"><span class="toc-text">Test the effect</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        The -race flag in Go
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-10-24 17:26:02</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Go" title="Go">Go</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#MIT 6.824" title="MIT 6.824">MIT 6.824</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Race-condition"><a href="#Race-condition" class="headerlink" title="Race condition"></a>Race condition</h2><ul>
+<li>A race condition occurs when two or more threads can access shared data and they try to change it at the same time.</li>
+<li>Problems often occur when one thread does a “check-then-act” (e.g. “check” if the value is X, then “act” to do something that depends on the value being X) and another thread does something to the value in between the “check” and the “act”.</li>
+<li>In order to prevent race conditions from occurring, you would typically put a lock around the shared data to ensure only one thread can access the data at a time. </li>
+</ul>
+<h2 id="race"><a href="#race" class="headerlink" title="-race"></a>-race</h2><p>Enable data race detection.<br>Supported only on linux/amd64, freebsd/amd64, darwin/amd64, windows/amd64,<br>linux/ppc64le and linux/arm64 (only for 48-bit VMA).</p>
+<p>See more in <a href="https://pkg.go.dev/cmd/go" target="_blank" rel="noopener">go cmd documentation</a></p>
+<h2 id="Test-the-effect"><a href="#Test-the-effect" class="headerlink" title="Test the effect"></a>Test the effect</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.go</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"sync"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	wg := sync.WaitGroup&#123;&#125;</span><br><span class="line">	wg.Add(<span class="number">2</span>)</span><br><span class="line">	<span class="keyword">go</span> addToCounterTenTimes(<span class="number">1</span>, &amp;wg)</span><br><span class="line">	<span class="keyword">go</span> addToCounterTenTimes(<span class="number">2</span>, &amp;wg)</span><br><span class="line">	wg.Wait()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addToCounterTenTimes</span><span class="params">(add <span class="keyword">int</span>, wg *sync.WaitGroup)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		counter += add</span><br><span class="line">		fmt.Println(<span class="string">"counter:"</span>, counter)</span><br><span class="line">	&#125;</span><br><span class="line">	wg.Done()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run -race test.go</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">counter: 1</span><br><span class="line">counter: 2</span><br><span class="line">counter: 3</span><br><span class="line">counter: 4</span><br><span class="line">counter: 5</span><br><span class="line">counter: 6</span><br><span class="line">counter: 7</span><br><span class="line">counter: 8</span><br><span class="line">counter: 9</span><br><span class="line">counter: 10</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">WARNING: DATA RACE</span><br><span class="line">Read at 0x00000122fcb0 by goroutine 8:</span><br><span class="line">  main.addToCounterTenTimes()</span><br><span class="line">      &#x2F;Users&#x2F;anran&#x2F;Desktop&#x2F;AnranBlog&#x2F;source&#x2F;_posts&#x2F;test.go:20 +0x4a</span><br><span class="line"></span><br><span class="line">Previous write at 0x00000122fcb0 by goroutine 7:</span><br><span class="line">  main.addToCounterTenTimes()</span><br><span class="line">      &#x2F;Users&#x2F;anran&#x2F;Desktop&#x2F;AnranBlog&#x2F;source&#x2F;_posts&#x2F;test.go:20 +0x66</span><br><span class="line"></span><br><span class="line">Goroutine 8 (running) created at:</span><br><span class="line">  main.main()</span><br><span class="line">      &#x2F;Users&#x2F;anran&#x2F;Desktop&#x2F;AnranBlog&#x2F;source&#x2F;_posts&#x2F;test.go:14 +0xda</span><br><span class="line"></span><br><span class="line">Goroutine 7 (finished) created at:</span><br><span class="line">  main.main()</span><br><span class="line">      &#x2F;Users&#x2F;anran&#x2F;Desktop&#x2F;AnranBlog&#x2F;source&#x2F;_posts&#x2F;test.go:13 +0xaf</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">counter: 12</span><br><span class="line">counter: 14</span><br><span class="line">counter: 16</span><br><span class="line">counter: 18</span><br><span class="line">counter: 20</span><br><span class="line">counter: 22</span><br><span class="line">counter: 24</span><br><span class="line">counter: 26</span><br><span class="line">counter: 28</span><br><span class="line">counter: 30</span><br><span class="line">Found 1 data race(s)</span><br><span class="line">exit status 66</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Note that I had to put <code>-race</code> after <code>go run</code> to make it work. I developed a habbit of putting all flags at the end working with Docker, though this would not work - this will make <code>-race</code> an argument past to <code>test.go</code> instead of <code>go run</code>.</p>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

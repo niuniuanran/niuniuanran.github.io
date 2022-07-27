@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        CompSci701 Lecture Journal Week 1-4 - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-1-2"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D; Week 1-2 &#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Defining-Maintainability"><span class="toc-text">Defining Maintainability</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Comprehensibility-Analysability"><span class="toc-text">Comprehensibility (Analysability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alterability-Modifiability"><span class="toc-text">Alterability (Modifiability)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testability"><span class="toc-text">Testability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Making-a-decision"><span class="toc-text">Making a decision</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Software-Decision-Making-criteria"><span class="toc-text">Software Decision-Making criteria</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensibility"><span class="toc-text">Comprehensibility</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Comprehension-Model"><span class="toc-text">Program Comprehension Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#External-representation"><span class="toc-text">External representation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Knowledge-Base"><span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mental-Model"><span class="toc-text">Mental Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assimilation-Process"><span class="toc-text">Assimilation Process</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-similar-variable-names-make-the-code-less-comprehensible"><span class="toc-text">Why similar variable names make the code less comprehensible?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Naming"><span class="toc-text">Naming</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-Intention-Revealing-Names"><span class="toc-text">Use Intention-Revealing Names</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Avoid-encodings"><span class="toc-text">Avoid encodings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Information-hiding"><span class="toc-text">Information hiding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Research-findings-on-how-naming-affect-comprehensibility"><span class="toc-text">Research findings on how naming affect comprehensibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-question-on-understanding-Comprehension-process"><span class="toc-text">Example question on understanding Comprehension process.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-3"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D; Week 3 &#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Readability"><span class="toc-text">Readability</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Formatting"><span class="toc-text">Formatting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vertical-Formatting"><span class="toc-text">Vertical Formatting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Horizontal-Formatting"><span class="toc-text">Horizontal Formatting</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Effectiveness-and-Efficiency"><span class="toc-text">Effectiveness and Efficiency</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Commenting"><span class="toc-text">Commenting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-are-comments-bad"><span class="toc-text">Why are comments bad?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Commenting-Key-points"><span class="toc-text">Commenting: Key points</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code-Review-Discussion"><span class="toc-text">Code Review Discussion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Literal-gt-Symbolic-constants"><span class="toc-text">Literal -&gt; Symbolic constants</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week4"><span class="toc-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Week4 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding-Mental-Model-and-Knowledge-Base-with-an-example"><span class="toc-text">Understanding Mental Model and Knowledge Base with an example</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Peter’s-Example"><span class="toc-text">Peter’s Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mental-Model-often-include-a-“Hypothesis”"><span class="toc-text">Mental Model often include a “Hypothesis”</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Functions"><span class="toc-text">Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Martin-on-functions"><span class="toc-text">Martin on functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One-Level-of-Abstraction-per-Function"><span class="toc-text">One Level of Abstraction per Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shorter-Argument-List"><span class="toc-text">Shorter Argument List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-Do-one-thing"><span class="toc-text">Function: Do one thing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-One-level-of-abstract-per-function"><span class="toc-text">Function: One level of abstract per function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functions-Removing-number-of-returns"><span class="toc-text">Functions: Removing number of returns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What’s-the-problem-with-too-many-arguments"><span class="toc-text">What’s the problem with too many arguments?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Argument-functions"><span class="toc-text">Single Argument functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Avoid-“out”-arguments"><span class="toc-text">Avoid “out” arguments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Points-of-functions-gt-maintainability"><span class="toc-text">Key Points of functions -&gt; maintainability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Code-Review"><span class="toc-text">Code Review</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#History-of-Code-Review"><span class="toc-text">History of Code Review</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Walkthroughs-Punched-Cards-Era"><span class="toc-text">Walkthroughs (Punched Cards Era)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fagan’s-Softwared-Inspection"><span class="toc-text">Fagan’s Softwared Inspection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modern-Code-Review-MCR-2013"><span class="toc-text">Modern Code Review (MCR) (2013)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tools-for-today’s-code-review"><span class="toc-text">Tools for today’s code review</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Benefits-of-Code-Reviews"><span class="toc-text">Benefits of Code Reviews</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-should-we-look-for-in-code"><span class="toc-text">What should we look for in code?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-make-useful-code-review-comments"><span class="toc-text">How to make useful code review comments?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-to-do"><span class="toc-text">What to do</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾🐾🐾🐾🐾🐾-Week-1-4-Review-🐾🐾🐾🐾🐾🐾"><span class="toc-text">🐾🐾🐾🐾🐾🐾 Week 1-4 Review 🐾🐾🐾🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Topics-we’ve-covered-so-far"><span class="toc-text">Topics we’ve covered so far:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maintainability-intro"><span class="toc-text">Maintainability (intro)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comprehension"><span class="toc-text">Comprehension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Naming-1"><span class="toc-text">Naming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Format-for-Readability"><span class="toc-text">Format for Readability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comment"><span class="toc-text">Comment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Functions-1"><span class="toc-text">Functions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Researches-we’ve-had-a-look-at"><span class="toc-text">Researches we’ve had a look at:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Naming-1-full-word-abbr-single-letters-work-experience-education-gender"><span class="toc-text">Naming 1: full word&#x2F;abbr&#x2F;single letters _ work experience _ education * gender</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Naming-2-Replication-and-Extension-of-Naming-1"><span class="toc-text">Naming 2: Replication and Extension of Naming 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Indentation-impact-on-comprehension"><span class="toc-text">Indentation: impact on comprehension?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comment-Quality-Assessment"><span class="toc-text">Comment Quality Assessment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explain-examples-using-concepts-we’ve-learnt"><span class="toc-text">Explain examples using concepts we’ve learnt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-longer-method-likely-to-reduce-comprehensibility"><span class="toc-text">Why is longer method likely to reduce comprehensibility?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-programming-knowledge-impact-comprehensibility"><span class="toc-text">How programming knowledge impact comprehensibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-will-variable-name-l-impact-comprehensibility"><span class="toc-text">How will variable name l impact comprehensibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-n-a-good-parameter-variable-name-for-factorial"><span class="toc-text">Is n a good parameter variable name for factorial?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-name-revealing-variables-enhance-comprehensibility"><span class="toc-text">How name-revealing variables enhance comprehensibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pros-and-cons-of-hungarian-notation"><span class="toc-text">Pros and cons of hungarian notation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-too-much-spaces-and-empty-lines-impact-comprehension"><span class="toc-text">How too much spaces and empty lines impact comprehension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-informative-intent-comments-could-help-comprehension"><span class="toc-text">How informative, intent comments could help comprehension:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comment-on-the-usefulness-of-the-comment"><span class="toc-text">Comment on the usefulness of the comment:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-four-practice-discussions-we’ve-done"><span class="toc-text">The four practice discussions we’ve done:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Things-I-don’t-know-if-I-understand-or-agree-yet"><span class="toc-text">Things I don’t know if I understand (or agree) yet:</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CompSci701 Lecture Journal Week 1-4
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-01-01 16:13:02</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Coursework" title="Coursework">Coursework</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Private Blog" title="Private Blog">Private Blog</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Week-1-2"><a href="#Week-1-2" class="headerlink" title="==== Week 1-2 ===="></a>==== Week 1-2 ====</h1><h1 id="Defining-Maintainability"><a href="#Defining-Maintainability" class="headerlink" title="Defining Maintainability"></a>Defining Maintainability</h1><p>The degree of <strong>effectiveness and efficiency</strong> with which maintenance activities can be carried out on the product. It includes these independent sub-attributes:</p>
+<h2 id="Comprehensibility-Analysability"><a href="#Comprehensibility-Analysability" class="headerlink" title="Comprehensibility (Analysability)"></a>Comprehensibility (Analysability)</h2><p>Degree of effectiveness and efficiency with which the implementation can be understood in order to conduct maintenance activities with confidence.</p>
+<h2 id="Alterability-Modifiability"><a href="#Alterability-Modifiability" class="headerlink" title="Alterability (Modifiability)"></a>Alterability (Modifiability)</h2><p>Degree to which a product or system can be effectively and efficiently changed without introducing defects or degrading existing product quality.</p>
+<h2 id="Testability"><a href="#Testability" class="headerlink" title="Testability"></a>Testability</h2><p>Degree of effectiveness and efficiency with which test criteria can be established for a system, product or component and tests can be performed to determine whether those criteria have been met.</p>
+<h1 id="Making-a-decision"><a href="#Making-a-decision" class="headerlink" title="Making a decision"></a>Making a decision</h1><p>To discuss and justify a decision: there should be:</p>
+<ul>
+<li>A decision criteria</li>
+<li>Consideration of other options, how are the alternatives not as good as your choice, based on the criteria.</li>
+</ul>
+<h1 id="Software-Decision-Making-criteria"><a href="#Software-Decision-Making-criteria" class="headerlink" title="Software Decision-Making criteria"></a>Software Decision-Making criteria</h1><ul>
+<li>Time to first delivery (Buildability)</li>
+<li>Execution time (performance)</li>
+<li>Existing knowledge of development team</li>
+<li>Time before next failure (reliability)</li>
+<li>Uptime (availability)</li>
+<li>Total cost of ownership (<strong>Maintainability</strong>)</li>
+</ul>
+<h1 id="Comprehensibility"><a href="#Comprehensibility" class="headerlink" title="Comprehensibility"></a>Comprehensibility</h1><p>The more time and effort you need to put in to understand code well enough that you are confident enough to conduct maintenance activities the less comprehensible it is, therefore the less maintainable it is.</p>
+<h2 id="Program-Comprehension-Model"><a href="#Program-Comprehension-Model" class="headerlink" title="Program Comprehension Model"></a>Program Comprehension Model</h2><p>A program comprehension model is a means to explain how comprehension happens, the main components, processes, and interactions between them.</p>
+<img src="comprehension-model.png" alt="" width="600px"/>
+
+<h3 id="External-representation"><a href="#External-representation" class="headerlink" title="External representation"></a>External representation</h3><p>Anything external to the developer<br>E.g. source code, documentation, other developers, program traces, other relevant source code</p>
+<h3 id="Knowledge-Base"><a href="#Knowledge-Base" class="headerlink" title="Knowledge Base"></a>Knowledge Base</h3><p>What the developer knows that is likely to be relevant,<br>e.g. domain knowledge, knowledge of programming language,</p>
+<h3 id="Mental-Model"><a href="#Mental-Model" class="headerlink" title="Mental Model"></a>Mental Model</h3><p>The developer’s current understanding of the program under consideration,<br>e.g. known parts and current hypotheses</p>
+<h3 id="Assimilation-Process"><a href="#Assimilation-Process" class="headerlink" title="Assimilation Process"></a>Assimilation Process</h3><p>How the developer uses all available information to update the mental model,<br>e.g. generation and verification of hypotheses</p>
+<h2 id="Why-similar-variable-names-make-the-code-less-comprehensible"><a href="#Why-similar-variable-names-make-the-code-less-comprehensible" class="headerlink" title="Why similar variable names make the code less comprehensible?"></a>Why similar variable names make the code less comprehensible?</h2><ul>
+<li>Undistinguishable makes it hard to form a hypothesis and verify the hypothesis through reading the code.</li>
+<li>Identifiers that do not tell anything about what the variable/method is doing also hinder the process of forming and verifying hypothesis, but is a different problem from Undistinguishable identifiers.</li>
+</ul>
+<h1 id="Naming"><a href="#Naming" class="headerlink" title="Naming"></a>Naming</h1><p>Every time we need to go to External Representation, there is a big drop in comprehensibility.</p>
+<p>How can we use the comprehension model to decide which are the better names (for<br>comprehension)?</p>
+<ul>
+<li>Assumptions: - putting facts we know (from <strong>Knowledge Base</strong>) into <strong>Mental Model</strong> is more efficient that putting new knowledge<br>(from <strong>External Representation</strong>) into <strong>Mental Model</strong> - accessing <strong>Mental Model</strong> is more efficient than rest of <strong>Knowledge Base</strong> - accessing <strong>Knowledge Base</strong> is more efficient than accessing <strong>External Representation</strong></li>
+<li>If we are familiar with the convention that factorial is often written n! (it is in <strong>Knowledge Base</strong>), then the<br>mapping from “value the factorial is of” to “n” should not take much effort to add to <strong>Mental Model</strong> if n<br>is used as the parameter</li>
+<li>If not familiar with the convention, then it is less obvious that “n” is the most efficient (and so best) choice</li>
+</ul>
+<h2 id="Use-Intention-Revealing-Names"><a href="#Use-Intention-Revealing-Names" class="headerlink" title="Use Intention-Revealing Names"></a>Use Intention-Revealing Names</h2><blockquote>
+<p>The name of a variable, function, or class, should answer all the big questions.<br>It should tell you <strong>why it exists, what it does, and how it is used</strong>.<br>If a name requires a comment, then the name does not reveal its intent. (from Martin).</p>
+</blockquote>
+<ul>
+<li>I see a use of a variable, in order to understand it I need to answer at least one of these questions about it<ul>
+<li>I answer these questions by checking MM (most efficient), KB (next most efficient), or EP (least efficient)</li>
+</ul>
+</li>
+<li>If the name does not reveal its intention, it could not be indexed into the readers’ <strong>Knowledge Base</strong>. The reader will need to review <strong>External Representation</strong> or context, thereby the comprehension process will be less efficient.</li>
+</ul>
+<h2 id="Avoid-encodings"><a href="#Avoid-encodings" class="headerlink" title="Avoid encodings"></a>Avoid encodings</h2><p>encodings = choosing names in a way that encode various information.</p>
+<p>e.g. Hungarian Notation, start of a variable name gives information about the types of the variable. Hungarian Notation was used heavily in the implementation of Windows, because in the early days, the compilers for C has essentially no type check (the compiler only has a limited set of data type, e.g. int, char, float, pointer). Hungarian Notation is an effort to create <strong>intention revealing</strong> variable names.</p>
+<p>We don’t need encodings any more, because IDEs will tell us what they are. e.g. whether they are field, what data type they are.</p>
+<h2 id="Information-hiding"><a href="#Information-hiding" class="headerlink" title="Information hiding"></a>Information hiding</h2><p>Information hiding is a part of making good design.<br>Do I want my clients to know that they are given an interface? Martin says no.</p>
+<h2 id="Research-findings-on-how-naming-affect-comprehensibility"><a href="#Research-findings-on-how-naming-affect-comprehensibility" class="headerlink" title="Research findings on how naming affect comprehensibility"></a>Research findings on how naming affect comprehensibility</h2><p><strong>are full words better for variable names? it depends.</strong></p>
+<h2 id="Example-question-on-understanding-Comprehension-process"><a href="#Example-question-on-understanding-Comprehension-process" class="headerlink" title="Example question on understanding Comprehension process."></a>Example question on understanding Comprehension process.</h2><img src="potential-question.png" alt="" width="500px"/>
+
+<ul>
+<li>Answer: Mental Model.</li>
+<li>Keyword: You have learnt that…</li>
+</ul>
+<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="==== Week 3 ===="></a>==== Week 3 ====</h1><h1 id="Readability"><a href="#Readability" class="headerlink" title="Readability"></a>Readability</h1><p>Part of comprehensibility. The ease/difficulty in which we can extract information from external representation.</p>
+<h1 id="Formatting"><a href="#Formatting" class="headerlink" title="Formatting"></a>Formatting</h1><p>Martin on formatting:</p>
+<blockquote>
+<p>Code formatting is about<br>communication, and communication is the professional developers first order<br>of business.</p>
+</blockquote>
+<h2 id="Vertical-Formatting"><a href="#Vertical-Formatting" class="headerlink" title="Vertical Formatting"></a>Vertical Formatting</h2><ul>
+<li>File size — what is “too big”? (Martin: about 200 LOC, max 500)</li>
+<li>Order within a file - Concepts closely related should be kept close together (to reduce scrolling if nothing<br>else) - Functions call functions declared below - From the comprehension point of view: Efficiency.</li>
+<li>Blank lines provide visual cues separating “concepts”</li>
+</ul>
+<p>So it could be worth it to have a commit to re-arrange the method orders.</p>
+<h2 id="Horizontal-Formatting"><a href="#Horizontal-Formatting" class="headerlink" title="Horizontal Formatting"></a>Horizontal Formatting</h2><ul>
+<li>Line width (Martin 45 characters): Efficiency of comprehensibility</li>
+<li>Use whitespace to separate (or not) <strong>to indicate how close the relationship</strong>: Efficiency and Effectiveness of comprehensibility</li>
+<li>Indentation</li>
+</ul>
+<h1 id="Effectiveness-and-Efficiency"><a href="#Effectiveness-and-Efficiency" class="headerlink" title="Effectiveness and Efficiency"></a>Effectiveness and Efficiency</h1><p>Efficiency: The effort you take (usually time)<br>Effectiveness: How often you get things wrong.</p>
+<h1 id="Commenting"><a href="#Commenting" class="headerlink" title="Commenting"></a>Commenting</h1><ul>
+<li>What it on the paper is external representation (comments/code, in their formats);</li>
+<li>What you know about Java syntax is in your knowledge base.</li>
+<li>What you know about the programme is in your mental model.</li>
+</ul>
+<blockquote>
+<p>The proper use of comments is to compensate for our <strong>failure</strong> to express ourselves in code. –Martin</p>
+</blockquote>
+<h2 id="Why-are-comments-bad"><a href="#Why-are-comments-bad" class="headerlink" title="Why are comments bad?"></a>Why are comments bad?</h2><p>Even good comments create extra work. Changes in code will create extra work to change comments too.</p>
+<p>For a comment to be worth keeping, it has to improve the code in some way - usually comprehensibility.</p>
+<blockquote>
+<p>Which is more efficient:</p>
+<ul>
+<li>reading the comment in the source code, or</li>
+<li>having to reconstruct the intent by understanding almost everything about how the code works?</li>
+</ul>
+<p>Both require access to ER, but without the comment, <strong>more of the ER is needed so less efficient</strong>.</p>
+</blockquote>
+<h1 id="Commenting-Key-points"><a href="#Commenting-Key-points" class="headerlink" title="Commenting: Key points"></a>Commenting: Key points</h1><ul>
+<li>Avoid the need for comments wherever possible</li>
+<li>Comments that support comprehension (and possibly other aspects of maintainability) are acceptable.</li>
+</ul>
+<p>Comments are a kind of documentation.</p>
+<h1 id="Code-Review-Discussion"><a href="#Code-Review-Discussion" class="headerlink" title="Code Review Discussion"></a>Code Review Discussion</h1><p>What type of code review comments do you find useful in improving maintainability?</p>
+<ul>
+<li>Comments seeking improvements on naming and formatting</li>
+<li>Comments identifying bad smells, For example:<ul>
+<li>“literal values” that should be made “symbolic values” for better changeability</li>
+<li>two classes tightly coupled</li>
+<li>long methods that have semantic gaps between the code and the intention</li>
+<li>helpless “orphan” classes that let everything else manipulate its data</li>
+</ul>
+</li>
+</ul>
+<p>What type of code review comments do you find not so useful?</p>
+<ul>
+<li>Duplicate comments about the same problem in the code</li>
+<li>Demotivating comments</li>
+</ul>
+<h1 id="Literal-gt-Symbolic-constants"><a href="#Literal-gt-Symbolic-constants" class="headerlink" title="Literal -&gt; Symbolic constants"></a>Literal -&gt; Symbolic constants</h1><ul>
+<li>Symbolic constant is a label or name that is used to represent a fixed value that never changes throughout a program.</li>
+<li><code>10</code> is a literal constant. You can’t assign a value to 10, and its value can’t be changed.</li>
+</ul>
+<p>To enhance changeability, we should aim to use symbolic constants instead of literals when we could.</p>
+<h1 id="Week4"><a href="#Week4" class="headerlink" title="=========== Week4 ==========="></a>=========== Week4 ===========</h1><h1 id="Understanding-Mental-Model-and-Knowledge-Base-with-an-example"><a href="#Understanding-Mental-Model-and-Knowledge-Base-with-an-example" class="headerlink" title="Understanding Mental Model and Knowledge Base with an example"></a>Understanding Mental Model and Knowledge Base with an example</h1><p>For the comprehension model discussed in the course, explain the difference between the mental model and the knowledge base. Use (small!) code examples to illustrate the difference.</p>
+<h2 id="Peter’s-Example"><a href="#Peter’s-Example" class="headerlink" title="Peter’s Example"></a>Peter’s Example</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">System.out.println( a + b );</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>The code above assigns two integer values to two variables and then prints the sum of the two values in the console.After reading the code, we have understood that a is an integer whose value is one, while b is another integer valued two. The console will print out the sum of a and b, which is the result of 1+2. The information above is in our mental model after understanding the code.</p>
+<p>To understand the code, we need to index some of the code with our knowledge base. For example, to understand that a is an integer whose value is one, we access the knowledge that int means the integer type, and = is to assign the value to the variable. Also, in our KB, we know that System.out.println() is to print the stuff in the pair of parentheses. By indexing this code into our KB, we know that the result of a+b is going to be printed.<br>–Peter</p>
+</blockquote>
+<h2 id="Mental-Model-often-include-a-“Hypothesis”"><a href="#Mental-Model-often-include-a-“Hypothesis”" class="headerlink" title="Mental Model often include a “Hypothesis”"></a>Mental Model often include a “Hypothesis”</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">System.Out.print(i);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>After reading the first line, we understand that we are starting a loop, and we understand that the loop is indexed by <code>i</code>. These understanding of the code is now in our Mental Model.</li>
+<li>In our Mental Model, we also expect that there will be a loop body following the loop header, that will be repeated for three times. We expect that <code>i</code> might be used in the loop body.</li>
+<li>There is no <code>{}</code> or indentation to indicate the loop body after the first line. The un-indented line conflicts our current mental model, and we have to go back to Assimilation Process.</li>
+<li>We look up in our Knowledge Base and remember that if there is only one line after the loop header, the <code>{}</code> can be omitted. We also find in our Knowledge Base that indentation does not impact how the programme will execute in Java.</li>
+</ul>
+<h1 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h1><h2 id="Martin-on-functions"><a href="#Martin-on-functions" class="headerlink" title="Martin on functions"></a>Martin on functions</h2><ul>
+<li>Small (Emmmm I’ll try whenever I can. I feel that sometimes making the method small does not necessarily make things better)</li>
+<li>Do One Thing (“cohesion”) (Totally! Comprehensibility, Changeability, AND Testability)</li>
+<li>One Level of Abstraction per Function (More on this below)</li>
+<li>Reading Code from Top to Bottom (Smoother Assimilation Process)</li>
+<li>Use Descriptive Names (Helps the indexing of Knowledge Base)</li>
+<li>Function Arguments (More on this below)</li>
+<li>Have No Side Effects (When needing a side effect, extract the side effect to a setter method - Do I agree with this though????)</li>
+</ul>
+<h2 id="One-Level-of-Abstraction-per-Function"><a href="#One-Level-of-Abstraction-per-Function" class="headerlink" title="One Level of Abstraction per Function"></a>One Level of Abstraction per Function</h2><ul>
+<li>An approach to reducing the number of levels of abstraction is to move bodies of loops into a separate function. Challenges:<ul>
+<li>Manipulation of local variables will be challenging. Ways I know:<ul>
+<li>Make the local variable “global”</li>
+<li>Pass them as arguments/return value</li>
+<li>Pass a reference type - does this break the “no side effect” rule though?</li>
+</ul>
+</li>
+<li>If the function returns inside the loop body, it will be hard to extract.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Shorter-Argument-List"><a href="#Shorter-Argument-List" class="headerlink" title="Shorter Argument List"></a>Shorter Argument List</h2><p>Yes I agree that the more arguments a function has, the harder it will be for users to feed it and the harder it will be for readers to understand it.<br>Ways to reduce functions that I have read from another Martin’s Refactoring:</p>
+<ul>
+<li>Preserve whole object</li>
+<li>Introduce Parameter Object</li>
+<li>Replace Argument(Parameter) with Method Calls<ul>
+<li>If a method call to another parameter object, or a method call to “this” can get the information I need.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Function-Do-one-thing"><a href="#Function-Do-one-thing" class="headerlink" title="Function: Do one thing"></a>Function: Do one thing</h2><p>Functions should do exactly one thing (also known as cohesion).<br>A good test: can you describe what the function does without using “AND”?</p>
+<p>Question: how about my <code>public int takeAllSeeds()</code>?</p>
+<h2 id="Function-One-level-of-abstract-per-function"><a href="#Function-One-level-of-abstract-per-function" class="headerlink" title="Function: One level of abstract per function"></a>Function: One level of abstract per function</h2><blockquote>
+<p>One possibly-useful heuristic: maximum of 2 levels of indentation.</p>
+</blockquote>
+<p>Functions with only one level of abstraction are probably small.</p>
+<h2 id="Functions-Removing-number-of-returns"><a href="#Functions-Removing-number-of-returns" class="headerlink" title="Functions: Removing number of returns"></a>Functions: Removing number of returns</h2><p>Having one</p>
+<h2 id="What’s-the-problem-with-too-many-arguments"><a href="#What’s-the-problem-with-too-many-arguments" class="headerlink" title="What’s the problem with too many arguments?"></a>What’s the problem with too many arguments?</h2><ul>
+<li>Hard to test</li>
+<li>Hard to comprehend</li>
+</ul>
+<h2 id="Single-Argument-functions"><a href="#Single-Argument-functions" class="headerlink" title="Single Argument functions"></a>Single Argument functions</h2><p>In martin’s opinion, acceptable use of single argument functions:</p>
+<ul>
+<li>to ask a question about the argument</li>
+<li>return a value based on the argument (transforms it)</li>
+<li>signal an event that indicates some change in state should take place</li>
+</ul>
+<p>Avoid functions with “flag” arguments: where the function behaves differently depending on the value of the argument. This makes the function do more than one things.</p>
+<h2 id="Avoid-“out”-arguments"><a href="#Avoid-“out”-arguments" class="headerlink" title="Avoid “out” arguments"></a>Avoid “out” arguments</h2><p>The user will not expect that the argument they pass on will be changed.</p>
+<h2 id="Key-Points-of-functions-gt-maintainability"><a href="#Key-Points-of-functions-gt-maintainability" class="headerlink" title="Key Points of functions -&gt; maintainability"></a>Key Points of functions -&gt; maintainability</h2><ul>
+<li>Use of many small functions can aid comprehension (at least)<ul>
+<li>because their names indicate the one thing they do</li>
+<li>often functions with the lower level of abstraction do not need to be considered, reducing the need to go to the external representation.</li>
+</ul>
+</li>
+<li>Refactor to improve use of functions.</li>
+</ul>
+<h1 id="Code-Review"><a href="#Code-Review" class="headerlink" title="Code Review"></a>Code Review</h1><h2 id="History-of-Code-Review"><a href="#History-of-Code-Review" class="headerlink" title="History of Code Review"></a>History of Code Review</h2><h3 id="Walkthroughs-Punched-Cards-Era"><a href="#Walkthroughs-Punched-Cards-Era" class="headerlink" title="Walkthroughs (Punched Cards Era)"></a>Walkthroughs (Punched Cards Era)</h3><ul>
+<li>Code Listings</li>
+<li>Manual Review<br>Computers read in punch cards, and code review goes through the human-readable code written on papers.<br>People sit down together in a meeting and go through the code written on paper looking for defects. Very inefficient and hard to reproduce/repeat.</li>
+</ul>
+<h3 id="Fagan’s-Softwared-Inspection"><a href="#Fagan’s-Softwared-Inspection" class="headerlink" title="Fagan’s Softwared Inspection"></a>Fagan’s Softwared Inspection</h3><p>A well-defined rigorous process.</p>
+<ul>
+<li>Planning</li>
+<li>Overview</li>
+<li>Preparation</li>
+<li>Inspection Meeting</li>
+<li>Rework</li>
+<li>Follow-up</li>
+</ul>
+<p>In addition to code, this process could be applied to other parts of software dev lifecycle requirements, documentation.</p>
+<p>Still on paper, manual review.<br>The rigorous process is very time-consuming. Not liked by Agile/DevOps, in seek for faster delivery.</p>
+<h3 id="Modern-Code-Review-MCR-2013"><a href="#Modern-Code-Review-MCR-2013" class="headerlink" title="Modern Code Review (MCR) (2013)"></a>Modern Code Review (MCR) (2013)</h3><p><strong>Automate</strong> code review process to make it more efficient.</p>
+<ul>
+<li>Lightweight: Does not require reviewing the whole set of code.</li>
+<li>Not rigorous</li>
+<li>Tool assisted,</li>
+</ul>
+<h2 id="Tools-for-today’s-code-review"><a href="#Tools-for-today’s-code-review" class="headerlink" title="Tools for today’s code review"></a>Tools for today’s code review</h2><ul>
+<li>Code Review Tools<ul>
+<li>Collaboration and Management of Code reviews.</li>
+<li>Facilitate communication between reviewers.</li>
+<li>Provide differential views for reviewers so that they do not need to review all lines: just look for diff to review.</li>
+<li>GitHub Code Review, Crucible, Gerrit</li>
+</ul>
+</li>
+<li>Static Analysis Tools<ul>
+<li>Full/Partial Automatic Defect Detection<ul>
+<li>Full automation: Some defects are well defined. For example, long lines</li>
+<li>Partial automation: Suggest a potentially bad identifier name. Final decision up to decision of reviewers.</li>
+</ul>
+</li>
+<li>Not always accurate</li>
+<li>Suggestion of fixes</li>
+<li>e.g. SonarQube, Checkstyle, FindBugs</li>
+</ul>
+</li>
+<li>Other supporting tools<ul>
+<li>Reviewer Recommendation: recommend reviewer based on certain criteria (e.g. experience of programming language)</li>
+<li>Defect hotspots: highlight parts to be reviewed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Benefits-of-Code-Reviews"><a href="#Benefits-of-Code-Reviews" class="headerlink" title="Benefits of Code Reviews"></a>Benefits of Code Reviews</h2><ul>
+<li>Improve the code<ul>
+<li>Fewer Defects in Code</li>
+<li>Improved code quality</li>
+</ul>
+</li>
+<li>Improve the programmer<ul>
+<li>Spread knowledge</li>
+<li>Education of junior programmers</li>
+<li>Motivation to write better code</li>
+</ul>
+</li>
+</ul>
+<h2 id="What-should-we-look-for-in-code"><a href="#What-should-we-look-for-in-code" class="headerlink" title="What should we look for in code?"></a>What should we look for in code?</h2><ul>
+<li>Do I understand the code?</li>
+<li>Correct?</li>
+<li>Secure?</li>
+<li>Readable?</li>
+<li>Performant?</li>
+<li>Maintainable?</li>
+<li>Needed? Can we avoid writing it?</li>
+<li>Testable?</li>
+<li>Does it have associated tests and appropriate documentation?</li>
+<li>Operable? (can I operate, monitor and debug this code in production)</li>
+</ul>
+<h2 id="How-to-make-useful-code-review-comments"><a href="#How-to-make-useful-code-review-comments" class="headerlink" title="How to make useful code review comments?"></a>How to make useful code review comments?</h2><ul>
+<li>Useful<ul>
+<li>Identification of function issues</li>
+<li>Alternate scenarios (corner cases)</li>
+<li>Suggestions on APIs, design, coding conventions, etc.</li>
+</ul>
+</li>
+<li>Somewhat useful<ul>
+<li>Nit-picking issues (inconsequential errors)<ul>
+<li>e.g. “Could you change back to whitespace indentation like in the existing code, please”</li>
+</ul>
+</li>
+<li>Alternate implementation suggestions</li>
+</ul>
+</li>
+<li>Not useful<ul>
+<li>questions to understand the implementation (not useful for the code.)</li>
+<li>praise (🤔🤔🤔 Emmmm so I shouldn’t be giving 👍 and 🎈 around code reviews? I could do that in person 💬 if I feel I have to.)</li>
+<li>future work (not related to current sprint. Should be documented elsewhere)</li>
+</ul>
+</li>
+</ul>
+<h2 id="What-to-do"><a href="#What-to-do" class="headerlink" title="What to do"></a>What to do</h2><ul>
+<li>Flag things that are dangerous, bad, mistaken, or wrong in the code.</li>
+<li>Don’t make too many trivial comments</li>
+<li>Be polite</li>
+<li>Don’t just criticize, offer suggestions.</li>
+</ul>
+<h1 id="🐾🐾🐾🐾🐾🐾-Week-1-4-Review-🐾🐾🐾🐾🐾🐾"><a href="#🐾🐾🐾🐾🐾🐾-Week-1-4-Review-🐾🐾🐾🐾🐾🐾" class="headerlink" title="🐾🐾🐾🐾🐾🐾 Week 1-4 Review 🐾🐾🐾🐾🐾🐾"></a>🐾🐾🐾🐾🐾🐾 Week 1-4 Review 🐾🐾🐾🐾🐾🐾</h1><h2 id="Topics-we’ve-covered-so-far"><a href="#Topics-we’ve-covered-so-far" class="headerlink" title="Topics we’ve covered so far:"></a>Topics we’ve covered so far:</h2><h3 id="Maintainability-intro"><a href="#Maintainability-intro" class="headerlink" title="Maintainability (intro)"></a>Maintainability (intro)</h3><ul>
+<li>motivation: maintenance costs <strong>dominate</strong> the lifetime cost; ease of maintenance; one aspect of quality<ul>
+<li>maintenance activities</li>
+<li>why care about quality? what else does quality include?</li>
+<li>quality attribute: a quantificable or testible property of a system that is used to indicate how well the system satisfies the needs of stakeholders</li>
+</ul>
+</li>
+<li>defining maintainability<ul>
+<li>multiple definitions from people</li>
+<li>our definition: The degree of effectiveness and efficiency with which maintenance activities can be carried out on the product.</li>
+</ul>
+</li>
+<li>Our definition is a 3*2 matrix:<ul>
+<li>The three <strong>independent</strong> sub-attributes</li>
+<li>efficiency and effectiveness</li>
+</ul>
+</li>
+<li>decisions<ul>
+<li>several possibilities</li>
+<li>criteria(for software, could be availability, performance, maintainability, reliability, buildability, current knowledge, etc.)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Comprehension"><a href="#Comprehension" class="headerlink" title="Comprehension"></a>Comprehension</h3><ul>
+<li>definition (effectiveness, efficiency, understood, to conduct maintenance, with confidence)</li>
+<li>a <strong>program comprehension model</strong> to describe how comprehension happens:<ul>
+<li>Knowledge Base(current knowledge),</li>
+<li>Mental Model (active understanding, including <strong>known parts and current hypotheses</strong>),</li>
+<li>External Representation(whatever is external),</li>
+<li>Assimilation Process (process to update mental model, for example, generation/verification of hypotheses)</li>
+</ul>
+</li>
+<li>Mapping between the problem domains and the source code<ul>
+<li>Mental model: the mapping that has been recovered so far</li>
+<li>Knowledge base: where hypotheses of mapping are constructed from</li>
+<li>Assimilation Process: the process where mapping is updated</li>
+<li>External Representation: through consulting which hypotheses are confirmed (or invalidated). Including source code, people, stackOverflow</li>
+</ul>
+</li>
+<li>Evaluating/determining Comprehensibility<ul>
+<li>we learn “characteristics” of code that impacts comprehensibility.</li>
+<li>example: long method</li>
+</ul>
+</li>
+</ul>
+<h3 id="Naming-1"><a href="#Naming-1" class="headerlink" title="Naming"></a>Naming</h3><ul>
+<li>How naming effect comprehensibility (efficiency/effectiveness)</li>
+<li>Three assumptions on comprehension:<ul>
+<li>KB-&gt;MM is faster than ER-&gt;MM</li>
+<li>accessing MM is more efficient than rest of KB</li>
+<li>accessing KB is more efficient than ER</li>
+</ul>
+</li>
+<li>Intention-Revealing Names (easy to be indexed into MM and form the mapping of code -&gt; problem domain)</li>
+<li>Avoid Encodings (often need to go to ER)</li>
+<li><strong>Choose names that are easy to add to the MM, or can be easily found in the KB. Avoid the need to go to the ER.</strong></li>
+<li>Researches on naming<ul>
+<li>research largely support our intuition, but not extensive.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Format-for-Readability"><a href="#Format-for-Readability" class="headerlink" title="Format for Readability"></a>Format for Readability</h3><ul>
+<li>Code Readability<ul>
+<li>part of comprehensibility</li>
+<li>Definition: Degree to which the code elements of interest can be <strong>identified and distinguished</strong></li>
+<li>Readability -&gt; Comprehensibility<ul>
+<li>If it is hard to read, then the effectiveness and/or efficiency of comprehending it is reduce.</li>
+<li>lower readability -&gt; lower comprehensibility</li>
+<li>readable !-&gt; comprehensible</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Formatting<ul>
+<li>Vertical formatting<ul>
+<li>size (efficiency)</li>
+<li>ordering: newspaper metaphor, higher abstraction before lower-level implementation (efficiency)</li>
+<li>blank lines (efficiency)</li>
+</ul>
+</li>
+<li>horizontal formatting<ul>
+<li>line length (efficiency)</li>
+<li>spaces (efficiency and effectiveness)</li>
+<li>indentation (effectiveness)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h3><ul>
+<li>Why self-explaining code is better?<ul>
+<li>more accessible in MM</li>
+<li>efficiency</li>
+</ul>
+</li>
+<li>Informative and intention comment<ul>
+<li>less from ER</li>
+<li>efficiency</li>
+</ul>
+</li>
+<li>Redundant comment<ul>
+<li>unnecessary extra work for building, maintaining, reading</li>
+<li>lower efficiency</li>
+</ul>
+</li>
+<li>Key points:<ul>
+<li>Avoid needs for comments by making the code self-explaining</li>
+<li>comments that support comprehension/other aspects of maintainability are acceptable: reducing the need to extract from ER</li>
+</ul>
+</li>
+</ul>
+<h3 id="Functions-1"><a href="#Functions-1" class="headerlink" title="Functions"></a>Functions</h3><ul>
+<li><p>Structured Programming</p>
+<ul>
+<li>no <code>go to</code></li>
+<li>discipline on code organisation</li>
+<li>one form of it forbids more than one <code>return</code> from any function</li>
+</ul>
+</li>
+<li><p>Martin’s suggestion on functions</p>
+<ul>
+<li>Small function</li>
+<li>Do one thing (cohesion)</li>
+<li>One level of abstraction(at most 2 levels indentation?)</li>
+<li>Reading from top to bottom (newspaper)</li>
+<li>Descriptive Names (intention revealing)</li>
+<li>Less arguments<ul>
+<li>Problems with “too many” arguments:<ul>
+<li>harder to understand purpose of function (comprehensibility)</li>
+<li>hard to test (testability)</li>
+</ul>
+</li>
+<li>Reduce arguments<ul>
+<li>argument objects</li>
+<li>method’s class fields</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>No side effects<ul>
+<li>no “output” arguments: argument whose value gets changed visibly to the caller</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Key points</p>
+<ul>
+<li>Use of many small good functions can aid comprehension<ul>
+<li>intention revealing name, self documenting code</li>
+<li><strong>reduce the need to go to External Representation</strong>, as we only need to learn the names of the functions with lower levels of abstraction, instead of its implementation.</li>
+</ul>
+</li>
+<li>Refactor to improve use of functions</li>
+</ul>
+</li>
+</ul>
+<h2 id="Researches-we’ve-had-a-look-at"><a href="#Researches-we’ve-had-a-look-at" class="headerlink" title="Researches we’ve had a look at:"></a>Researches we’ve had a look at:</h2><h3 id="Naming-1-full-word-abbr-single-letters-work-experience-education-gender"><a href="#Naming-1-full-word-abbr-single-letters-work-experience-education-gender" class="headerlink" title="Naming 1: full word/abbr/single letters _ work experience _ education * gender"></a>Naming 1: full word/abbr/single letters _ work experience _ education * gender</h3><p><code>Dawn Lawrie, Christopher Morrell, Henry Feild, and David Binkley “Whats in a Name? A Study of Identifiers” 14th IEEE International Conference on Program Comprehension (ICPC’06) 2006.</code></p>
+<ul>
+<li>Hypothesis<ul>
+<li>Primary hypothesis: full english word identifiers lead to better source comprehension (than abbreviations or single letters)</li>
+<li>Secondary hypotheses: increased work experience and qualifications lead to better ability to comprehend (independent of style of identifier); gender plays a role in confident but not comprehension</li>
+</ul>
+</li>
+<li>Conclusion<ul>
+<li>full word &gt; single letter (acronyms)</li>
+<li>abbreviations ~ full word (Especially women)</li>
+<li>work/education -&gt; confidence, but not comprehension</li>
+</ul>
+</li>
+<li>Challenges to validity<ul>
+<li>double-blind?</li>
+<li>participant sampling</li>
+<li>functions selected: how representative?</li>
+<li>algorithms recognised independent of names?</li>
+<li>functions shown in same order</li>
+<li>meaningfulness of identifiers</li>
+</ul>
+</li>
+<li>Evaluation<ul>
+<li>what does our comprehension model predict?</li>
+<li>useful for future improvements?<ul>
+<li>have readers in mind</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Naming-2-Replication-and-Extension-of-Naming-1"><a href="#Naming-2-Replication-and-Extension-of-Naming-1" class="headerlink" title="Naming 2: Replication and Extension of Naming 1"></a>Naming 2: Replication and Extension of Naming 1</h3><p><code>Johannes C. Hofmeister, Janet Siegmund, Daniel V. Holt “Shorter identifier names take longer to comprehend” Empirical Software Engineering (2019) 24:417–443 https://doi.org/10.1007/s10664-018-9621-x (extension of 2017 paper)</code></p>
+<ul>
+<li>RH<ul>
+<li>Semantic: faster comprehension with words as identifiers</li>
+<li>syntactical: no effect</li>
+</ul>
+</li>
+<li>Different tasks<ul>
+<li>semantic errors</li>
+<li>syntax errors</li>
+</ul>
+</li>
+<li>Conclusions (RH proved)<ul>
+<li>words as identifiers lead to faster detection of <strong>semantic</strong> defects</li>
+<li>when in-depth understanding not required (e.g. syntax errors) identifier names do not make a difference</li>
+</ul>
+</li>
+</ul>
+<h3 id="Indentation-impact-on-comprehension"><a href="#Indentation-impact-on-comprehension" class="headerlink" title="Indentation: impact on comprehension?"></a>Indentation: impact on comprehension?</h3><p><code>J. Bauer, J. Siegmund, N. Peitek, J. C. Hofmeister and S. Apel, ”Indentation: Simply a Matter of Style or Support for Program Comprehension?,” 2019 IEEE/ACM 27th International Conference on Program Comprehension (ICPC), Montreal, QC, Canada, 2019, pp. 154-164, http://doi.org/10.1109/ICPC.2019.00033</code></p>
+<ul>
+<li>Replicates <code>Replicates R. J. Miara, J. A. Musselman, J. A. Navarro, and B. Shneiderman, Program indentation and comprehensibility, Communications of the ACM, vol. 26, no. 11, pp. 861867, 1983.</code></li>
+<li>Measure:<ul>
+<li>correctness</li>
+<li>response time</li>
+<li>visual efforts</li>
+</ul>
+</li>
+<li>Result: Indentation shows no effect on:<ul>
+<li>correctness</li>
+<li>response time</li>
+<li>perceived difficulty</li>
+<li>eye movement</li>
+</ul>
+</li>
+<li>In consistent with original study</li>
+<li>Threats to validity<ul>
+<li>participant number</li>
+<li>participant representativeness</li>
+<li>not enough code</li>
+<li>experience of participants</li>
+<li>use of eye tracker</li>
+</ul>
+</li>
+</ul>
+<h3 id="Comment-Quality-Assessment"><a href="#Comment-Quality-Assessment" class="headerlink" title="Comment Quality Assessment"></a>Comment Quality Assessment</h3><p><code>D. Steidl, B. Hummel and E. Juergens, ”Quality analysis of source code comments,” 2013 21st International Conference on Program Comprehension (ICPC), San Francisco, CA, 2013, pp. 83-92, doi: 10.1109/ICPC.2013.6613836</code></p>
+<ul>
+<li>Semi-automated approach<ul>
+<li>supervised machine learning</li>
+<li>quality assessment based on information retrieval</li>
+</ul>
+</li>
+<li>Basic idea: how well do the words in the comment match the words in the identifier<ul>
+<li>too close: not adding value</li>
+<li>no match: irrelevant</li>
+</ul>
+</li>
+</ul>
+<h2 id="Explain-examples-using-concepts-we’ve-learnt"><a href="#Explain-examples-using-concepts-we’ve-learnt" class="headerlink" title="Explain examples using concepts we’ve learnt"></a>Explain examples using concepts we’ve learnt</h2><h3 id="Why-is-longer-method-likely-to-reduce-comprehensibility"><a href="#Why-is-longer-method-likely-to-reduce-comprehensibility" class="headerlink" title="Why is longer method likely to reduce comprehensibility?"></a>Why is longer method likely to reduce comprehensibility?</h3><p>Longer the method, the less likely it is doing one single thing, and so has multiple <strong>mappings</strong>, requiring multiple hypotheses to be created and verified.</p>
+<h3 id="How-programming-knowledge-impact-comprehensibility"><a href="#How-programming-knowledge-impact-comprehensibility" class="headerlink" title="How programming knowledge impact comprehensibility"></a>How programming knowledge impact comprehensibility</h3><p>Knowledge of language is faster accessible from knowledge base (KB). If we don’t know it, we will need to find it from external representation (ER), which will take longer and so reduce the <strong>efficiency</strong> of comprehension.</p>
+<h3 id="How-will-variable-name-l-impact-comprehensibility"><a href="#How-will-variable-name-l-impact-comprehensibility" class="headerlink" title="How will variable name l impact comprehensibility"></a>How will variable name <code>l</code> impact comprehensibility</h3><p>what <code>l</code> is for is in the mental model (MM), but if we confuse <code>l</code>, <code>1</code>, and <code>i</code>, then we will access the wrong thing in the MM, which reduces the <strong>effectiveness</strong> of comprehension.</p>
+<h3 id="Is-n-a-good-parameter-variable-name-for-factorial"><a href="#Is-n-a-good-parameter-variable-name-for-factorial" class="headerlink" title="Is n a good parameter variable name for factorial?"></a>Is <code>n</code> a good parameter variable name for <code>factorial</code>?</h3><p>If we are familiar with the convention that factorial is often written n! (it is in <strong>KB</strong>), then the <strong>mapping</strong> from “value the factorial is of” to “n” should not take much effort to add to <strong>MM</strong> if n is used as the parameter.</p>
+<h3 id="How-name-revealing-variables-enhance-comprehensibility"><a href="#How-name-revealing-variables-enhance-comprehensibility" class="headerlink" title="How name-revealing variables enhance comprehensibility"></a>How name-revealing variables enhance comprehensibility</h3><ul>
+<li>We need to know about the variable: why it exists, what it does, and how it is used.</li>
+<li>We answer questions about the variables by checking MM (most efficient), KB (next most efficient), or EP (least efficient).</li>
+<li>Intention-revealing names makes it easier to map between the source code and the problem domain, and therefore enhances efficiency and effectiveness of assimilation process.</li>
+<li>Intention-revealing names are easier to be indexed to MM, and therefore more efficient when I try to access what the variable is for.</li>
+<li>You are more likely to recall the meaning, meaning no need to find the declaration. -&gt; code is more efficient according to comprehension model</li>
+</ul>
+<h3 id="Pros-and-cons-of-hungarian-notation"><a href="#Pros-and-cons-of-hungarian-notation" class="headerlink" title="Pros and cons of hungarian notation"></a>Pros and cons of hungarian notation</h3><ul>
+<li>Pros:<ul>
+<li>with no useful static type checking, when a name is encountered in the code, can determine what it is being used for — provided you can decode it (efficient if decoding knowledge is in KB, inefficient if in ER)</li>
+<li>if the compiler you use limits the length of identifiers, or you are not a very good typist and your “IDE” does not do auto-complete (this is more about buildability than comprehensibility)</li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>it is hard to remember the encoding (there are so many rules!), so usually end up going to ER, reducing the efficiency of comprehension.</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-too-much-spaces-and-empty-lines-impact-comprehension"><a href="#How-too-much-spaces-and-empty-lines-impact-comprehension" class="headerlink" title="How too much spaces and empty lines impact comprehension"></a>How too much spaces and empty lines impact comprehension</h3><ul>
+<li>vertical spacing slows down finding the line (efficiency)</li>
+<li>whitespaces make it harder to determine which bits are associated (efficiency and effectiveness)</li>
+</ul>
+<h3 id="How-informative-intent-comments-could-help-comprehension"><a href="#How-informative-intent-comments-could-help-comprehension" class="headerlink" title="How informative, intent comments could help comprehension:"></a>How informative, intent comments could help comprehension:</h3><p>Reading comment/reading everything in code both require access to ER, but without the comment, more of the ER is needed so less efficient.</p>
+<h3 id="Comment-on-the-usefulness-of-the-comment"><a href="#Comment-on-the-usefulness-of-the-comment" class="headerlink" title="Comment on the usefulness of the comment:"></a>Comment on the usefulness of the comment:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Protect constructor since it is a static only class</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="title">Assert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Mapping the comments with the descriptions in the list is a good start point:<ul>
+<li>Good comments: Legal, Informative, Intent, Clarification, Consequences, TODO, Amplification, API documentation (e.g. Javadocs)</li>
+<li>Bad comments: Mumbling, Redundant, Misleading, Mandataed, Journal, Noise, Scary Noise, Position Markers, Attributions, Commented-out code, HTML, Nonlocal Information, Too much Information, Inobvious Connection, Function headers</li>
+</ul>
+</li>
+<li>Explain how the source code will not be enough for a reader with basic language knowledge.</li>
+<li>Explain how the comment will facilitate these readers to better understand the code.</li>
+</ul>
+<h2 id="The-four-practice-discussions-we’ve-done"><a href="#The-four-practice-discussions-we’ve-done" class="headerlink" title="The four practice discussions we’ve done:"></a>The four practice discussions we’ve done:</h2><ul>
+<li>How bad names hurt maintainability</li>
+<li>How bad formatting/commenting hurt maintainability (remove commented out code!)</li>
+<li>Code review 1: what are good comments (be useful; be kind when you can; give an alternative when you can)</li>
+<li>Code review 2: what kind of comment helps enhance maintainability and what does not.</li>
+</ul>
+<h2 id="Things-I-don’t-know-if-I-understand-or-agree-yet"><a href="#Things-I-don’t-know-if-I-understand-or-agree-yet" class="headerlink" title="Things I don’t know if I understand (or agree) yet:"></a>Things I don’t know if I understand (or agree) yet:</h2><ul>
+<li>No more than one <code>return</code> from any function?</li>
+<li>Is class field on kind of “global” variable? If so, is it good?</li>
+<li>How far should I go in reducing levels of abstraction?</li>
+</ul>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

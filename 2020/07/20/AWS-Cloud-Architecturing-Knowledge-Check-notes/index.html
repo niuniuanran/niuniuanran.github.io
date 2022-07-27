@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        AWS Cloud Architecturing Knowledge Check notes - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2"><span class="toc-text">2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-EC2-Run-Command"><span class="toc-text">Amazon EC2 Run Command</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Systems-Manager"><span class="toc-text">AWS Systems Manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-OpsWorks"><span class="toc-text">AWS OpsWorks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3"><span class="toc-text">3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4"><span class="toc-text">4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dedicated-Host"><span class="toc-text">Dedicated Host</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Placement"><span class="toc-text">Auto-Placement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Host-affinity"><span class="toc-text">Host affinity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dedicated-Instance"><span class="toc-text">Dedicated Instance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Comparison-of-Dedicated-Host-vs-Dedicated-Instance"><span class="toc-text">A Comparison of Dedicated Host vs Dedicated Instance</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-1"><span class="toc-text">4</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5"><span class="toc-text">5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Config"><span class="toc-text">AWS Config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Config-Rule"><span class="toc-text">AWS Config Rule</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6"><span class="toc-text">6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7"><span class="toc-text">7</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8"><span class="toc-text">8</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9"><span class="toc-text">9</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parameters"><span class="toc-text">Parameters</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10"><span class="toc-text">10</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DependsOn-Attribute"><span class="toc-text">DependsOn Attribute</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11"><span class="toc-text">11</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFormation-Mappings"><span class="toc-text">CloudFormation Mappings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conditions"><span class="toc-text">Conditions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12"><span class="toc-text">12</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CloudFront-distribution"><span class="toc-text">CloudFront distribution</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13"><span class="toc-text">13</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14"><span class="toc-text">14</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15"><span class="toc-text">15</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Looking-up-resources-through-Config"><span class="toc-text">Looking up resources through Config</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16"><span class="toc-text">16</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Adopt-a-consumption-model"><span class="toc-text">Adopt a consumption model</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17"><span class="toc-text">17</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18"><span class="toc-text">18</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19"><span class="toc-text">19</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dead-letter-queue"><span class="toc-text">Dead letter queue</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20"><span class="toc-text">20</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21"><span class="toc-text">21</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22"><span class="toc-text">22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DynamoDB-Consistency-and-Conflict-Resolution"><span class="toc-text">DynamoDB Consistency and Conflict Resolution</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23"><span class="toc-text">23</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#24"><span class="toc-text">24</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#25"><span class="toc-text">25</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#26"><span class="toc-text">26</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Monitor-ElastiCache"><span class="toc-text">Monitor ElastiCache</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#27"><span class="toc-text">27</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-does-MapReduce-do"><span class="toc-text">What does MapReduce do</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#28"><span class="toc-text">28</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#29"><span class="toc-text">29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Floating-IP"><span class="toc-text">Floating IP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#30"><span class="toc-text">30</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#31"><span class="toc-text">31</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Infrastructure-Event-Management"><span class="toc-text">AWS Infrastructure Event Management</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trusted-Advisor"><span class="toc-text">Trusted Advisor</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#32"><span class="toc-text">32</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Inspector"><span class="toc-text">Amazon Inspector</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#33"><span class="toc-text">33</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-Inspector-assessments"><span class="toc-text">Amazon Inspector assessments</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#34"><span class="toc-text">34</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#35"><span class="toc-text">35</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#36"><span class="toc-text">36</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#37"><span class="toc-text">37</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#38"><span class="toc-text">38</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Metrics"><span class="toc-text">Metrics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Statistics"><span class="toc-text">Statistics</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#39"><span class="toc-text">39</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#40"><span class="toc-text">40</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#41"><span class="toc-text">41</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#42"><span class="toc-text">42</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#43"><span class="toc-text">43</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#44"><span class="toc-text">44</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#45"><span class="toc-text">45</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-runbooks-to-perform-procedures"><span class="toc-text">Use runbooks to perform procedures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-playbooks-to-investigate-issues"><span class="toc-text">Use playbooks to investigate issues</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-checklist-to-prepare"><span class="toc-text">Use checklist to prepare</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#46"><span class="toc-text">46</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#47"><span class="toc-text">47</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Per-second-billing"><span class="toc-text">Per-second billing</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#48"><span class="toc-text">48</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#49"><span class="toc-text">49</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Operational-Excellence"><span class="toc-text">Operational Excellence</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#50"><span class="toc-text">50</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#60"><span class="toc-text">60</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#61"><span class="toc-text">61</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#62"><span class="toc-text">62</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#63"><span class="toc-text">63</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#64"><span class="toc-text">64</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#65"><span class="toc-text">65</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#66"><span class="toc-text">66</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#67"><span class="toc-text">67</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-Principles-for-performance-efficiency"><span class="toc-text">Design Principles for performance efficiency</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#68"><span class="toc-text">68</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-CloudFront-Custom-SSL"><span class="toc-text">Amazon CloudFront Custom SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Default-CloudFront-distribution-domain-name"><span class="toc-text">Default: CloudFront distribution domain name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SNI-Custom-SSL"><span class="toc-text">SNI Custom SSL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dedicated-IP-Custom-SSL"><span class="toc-text">Dedicated IP Custom SSL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#69"><span class="toc-text">69</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#70"><span class="toc-text">70</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#71"><span class="toc-text">71</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#72"><span class="toc-text">72</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#73"><span class="toc-text">73</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#74"><span class="toc-text">74</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazon-SQS-visibility-timeout"><span class="toc-text">Amazon SQS visibility timeout</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#75"><span class="toc-text">75</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VPC-Endpoint"><span class="toc-text">VPC Endpoint</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#76"><span class="toc-text">76</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AWS Cloud Architecturing Knowledge Check notes
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-20 11:01:14</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS SAA Test" title="AWS SAA Test">AWS SAA Test</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Here are the questions from the AWS Cloud Architecting Knowledge check that I find worth noting.</p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><img src="access-troubleshoot.png" width="700px" alt=""/>
+
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><img src="auto-deployment.png" width="700px" alt=""/>
+
+<p>Resource deployment and configuration automation</p>
+<h2 id="Amazon-EC2-Run-Command"><a href="#Amazon-EC2-Run-Command" class="headerlink" title="Amazon EC2 Run Command"></a>Amazon EC2 Run Command</h2><p><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html" target="_blank" rel="noopener">AWS Systems Manager Run Command</a> lets you remotely and securely manage the configuration of your managed instances. A managed instance is any EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager. </p>
+<p>Run Command enables you to <strong>automate</strong> common administrative tasks and perform ad hoc configuration changes at scale. </p>
+<h2 id="AWS-Systems-Manager"><a href="#AWS-Systems-Manager" class="headerlink" title="AWS Systems Manager"></a>AWS Systems Manager</h2><p><a href="https://aws.amazon.com/systems-manager/" target="_blank" rel="noopener">AWS Systems Manager</a> gives you visibility and control of your infrastructure on AWS. Systems Manager provides a unified user interface so you can view operational data from multiple AWS services and allows you to automate operational tasks across your AWS resources. </p>
+<p>Systems Manager simplifies resource and application management, shortens the time to detect and resolve operational problems, and makes it easy to operate and manage your infrastructure securely at scale.</p>
+<h2 id="AWS-OpsWorks"><a href="#AWS-OpsWorks" class="headerlink" title="AWS OpsWorks"></a>AWS OpsWorks</h2><p><a href="https://aws.amazon.com/opsworks/" target="_blank" rel="noopener">AWS OpsWorks</a> is a configuration management service that provides managed instances of <strong>Chef and Puppet</strong>. Chef and Puppet are <strong>automation platforms</strong> that allow you to <strong>use code to automate the configurations of your servers</strong>. OpsWorks lets you use Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments. </p>
+<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><img src="automate-test.png" alt="" width="800px"/>
+
+<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><img src="automatic-instance-placement.png" alt="" width="800px"/>
+
+<h2 id="Dedicated-Host"><a href="#Dedicated-Host" class="headerlink" title="Dedicated Host"></a>Dedicated Host</h2><p>To use a Dedicated Host, you first <strong>allocate hosts</strong> for use in your account. You then launch instances onto the hosts by specifying <strong>host tenancy</strong> for the instance. You must select a specific host for the instance to launch on to, or you can allow it to launch on to any host that has <strong>auto-placement enabled</strong> and matches its <strong>instance type</strong>. </p>
+<p>If you no longer need an On-Demand host, you can stop the instances running on the host, direct them to launch on a different host, and then release the host.</p>
+<p>Dedicated Hosts are also integrated with AWS License Manager. With License Manager, you can create a host resource group, which is a collection of Dedicated Hosts that are managed as a single entity. </p>
+<h3 id="Auto-Placement"><a href="#Auto-Placement" class="headerlink" title="Auto-Placement"></a>Auto-Placement</h3><p>Auto-placement is configured at the host level. It allows you to manage whether instances that you launch are launched onto a specific host, or onto any available host that has matching configurations.</p>
+<p>When the auto-placement of a Dedicated Host is disabled, it only accepts Host tenancy instance launches that specify its unique <strong>host ID</strong>. This is the default setting for new Dedicated Hosts.</p>
+<h3 id="Host-affinity"><a href="#Host-affinity" class="headerlink" title="Host affinity"></a>Host affinity</h3><p>Host affinity is configured at the instance level. It establishes a launch relationship between an instance and a Dedicated Host.</p>
+<p><strong>When affinity is set to Host, an instance launched onto a specific host always restarts on the same host if stopped</strong>. This applies to both targeted and untargeted launches.</p>
+<p>When affinity is set to Off, and you stop and restart the instance, it can be restarted on any available host. However, it tries to launch back onto the last Dedicated Host on which it ran (on a best-effort basis).</p>
+<h2 id="Dedicated-Instance"><a href="#Dedicated-Instance" class="headerlink" title="Dedicated Instance"></a>Dedicated Instance</h2><p>Dedicated Instances are Amazon EC2 instances that run in a virtual private cloud (VPC) on <strong>hardware that’s dedicated to a single customer</strong>. Dedicated Instances that belong to different AWS accounts are <strong>physically isolated</strong> at a hardware level, even if those accounts are linked to a single payer account. However, Dedicated Instances may share hardware with other instances from the same AWS account that are not Dedicated Instances.</p>
+<p>You can change the tenancy of an instance from <code>dedicated</code>(Dedicated Instance) to <code>host</code>(Dedicated Host), or from host to dedicated after you’ve launched it.</p>
+<p>If you launch an instance into <strong>a VPC that has an instance tenancy of dedicated</strong>, your instance is automatically a Dedicated Instance, regardless of the tenancy of the instance.</p>
+<h2 id="A-Comparison-of-Dedicated-Host-vs-Dedicated-Instance"><a href="#A-Comparison-of-Dedicated-Host-vs-Dedicated-Instance" class="headerlink" title="A Comparison of Dedicated Host vs Dedicated Instance"></a>A Comparison of Dedicated Host vs Dedicated Instance</h2><p>The chart is found <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html" target="_blank" rel="noopener">here</a>.</p>
+<img src="didicated-vs-host.png" alt="" width="700px"/>
+
+<h1 id="4-1"><a href="#4-1" class="headerlink" title="4"></a>4</h1><img src="automation.png" alt="" width="700px"/>
+
+<h1 id="5"><a href="#5" class="headerlink" title="5"></a>5</h1><img src="aws-config.png" alt="" width="700px"/>
+
+<h2 id="AWS-Config"><a href="#AWS-Config" class="headerlink" title="AWS Config"></a>AWS Config</h2><p><a href="https://aws.amazon.com/config/" target="_blank" rel="noopener">AWS Config</a> is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. Config continuously <strong>monitors and records your AWS resource configurations</strong> and allows you to <strong>automate the evaluation of recorded configurations against desired configurations</strong>. </p>
+<p>With Config, you can review changes in configurations and relationships between AWS resources, dive into detailed resource configuration histories, and determine your overall compliance against the configurations specified in your internal guidelines.</p>
+<h2 id="AWS-Config-Rule"><a href="#AWS-Config-Rule" class="headerlink" title="AWS Config Rule"></a>AWS Config Rule</h2><p>An AWS Config rule represents an <strong>AWS Lambda function</strong> that you create for a custom rule or a predefined function for an AWS managed rule. The function <strong>evaluates configuration items</strong> to <strong>assess</strong> whether your AWS resources comply with your desired configurations.<br>This function can run <strong>when AWS Config detects a configuration change to an AWS resource</strong> and <strong>at a periodic frequency</strong> that you choose (for example, every 24 hours).</p>
+<h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><img src="caching.png" alt="" width="700px"/>
+
+<p>Offload popular traffic to fully managed services like CloudFront or S3 =&gt; Less IaaS to maintain, scale and pay for</p>
+<h1 id="7"><a href="#7" class="headerlink" title="7"></a>7</h1><img src="change-management.png" alt="" width="700px"/>
+
+<h1 id="8"><a href="#8" class="headerlink" title="8"></a>8</h1><img src="cloud-formation-parameter.png" alt="" width="700px"/>
+
+<h1 id="9"><a href="#9" class="headerlink" title="9"></a>9</h1><img alt="" src="cloudformation-parameters.png" width="700px"/>
+
+<h2 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h2><p><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html#gettingstarted.templatebasics.parameters" target="_blank" rel="noopener">AWS CloudFormation Parameters</a><br>You declare parameters in a template’s Parameters object. A parameter contains a list of attributes that define its value and constraints against its value. The only required attribute is Type, which can be String, Number, or an AWS-specific type. You can also add a Description attribute that tells a user more about what kind of value they should specify.<br>It contains a list of attributes that can define default values and allowed values.</p>
+<h1 id="10"><a href="#10" class="headerlink" title="10"></a>10</h1><img alt="" src="Cloudformation-dependson.png" width="700px"/>
+
+<h2 id="DependsOn-Attribute"><a href="#DependsOn-Attribute" class="headerlink" title="DependsOn Attribute"></a>DependsOn Attribute</h2><p>With <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html" target="_blank" rel="noopener">DependsOn</a><br>attribute you specify that the creation of a specific resource follows another. When you add a DependsOn attribute to a resource, that resource is created <strong>only after the creation of the resource specified in the DependsOn attribute</strong>.</p>
+<h1 id="11"><a href="#11" class="headerlink" title="11"></a>11</h1><img alt="" src="cloudformation-mapping.png" width="700px"/>
+
+<h2 id="CloudFormation-Mappings"><a href="#CloudFormation-Mappings" class="headerlink" title="CloudFormation Mappings"></a>CloudFormation Mappings</h2><p>The optional <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html" target="_blank" rel="noopener">Mappings</a> section <strong>matches a key to a corresponding set of named values</strong>.<br>For example, if you want to set values based on a region, you can create a mapping that uses <strong>the region name as a key</strong> and contains the values you want to specify for each specific region. You use the Fn::FindInMap intrinsic function to retrieve values in a map.</p>
+<p>You <strong>cannot</strong> include parameters, pseudo parameters, or intrinsic functions in the Mappings section.</p>
+<h2 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h2><p>The optional <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html" target="_blank" rel="noopener">Conditions</a> section contains statements that define the circumstances under which entities are created or configured.<br>For example, you can create a condition and then associate it with a resource or output so that AWS CloudFormation only creates the resource or output if the condition is true. </p>
+<h1 id="12"><a href="#12" class="headerlink" title="12"></a>12</h1><img alt="" src="cf-distribution.png" width="700px"/>
+
+<h2 id="CloudFront-distribution"><a href="#CloudFront-distribution" class="headerlink" title="CloudFront distribution"></a>CloudFront distribution</h2><p>When you create a web distribution, CloudFront assigns a domain name to the distribution, such as d111111abcdef8.cloudfront.net. You can use this domain name in the URLs for your content.</p>
+<h1 id="13"><a href="#13" class="headerlink" title="13"></a>13</h1><img alt="" src="concierge.png" width="700px"/>
+
+<h1 id="14"><a href="#14" class="headerlink" title="14"></a>14</h1><img alt="" src="config.png" width="700px"/>
+
+<h1 id="15"><a href="#15" class="headerlink" title="15"></a>15</h1><img alt="" src="config-inventory.png" width="700px"/>
+
+<h2 id="Looking-up-resources-through-Config"><a href="#Looking-up-resources-through-Config" class="headerlink" title="Looking up resources through Config"></a>Looking up resources through Config</h2><p>You can use the AWS Config console, AWS CLI, and AWS Config API to look up the resources that AWS Config has taken an <strong>inventory</strong> of, or <strong>discovered</strong>, including deleted resources and resources that AWS Config is not currently recording.<br>See <a href="https://docs.aws.amazon.com/config/latest/developerguide/looking-up-discovered-resources.html" target="_blank" rel="noopener">here</a></p>
+<h1 id="16"><a href="#16" class="headerlink" title="16"></a>16</h1><img alt="" src="consumption-model.png" width="700px"/>
+
+<h2 id="Adopt-a-consumption-model"><a href="#Adopt-a-consumption-model" class="headerlink" title="Adopt a consumption model"></a>Adopt a consumption model</h2><p>One of <a href="https://wa.aws.amazon.com/wat.pillar.costOptimization.en.html" target="_blank" rel="noopener">Cost Optimisation Design Principles</a>.<br>Pay only for the computing resources that you require and increase or decrease usage depending on business requirements, not by using elaborate forecasting.<br>For example, development and test environments are typically only used for eight hours a day during the work week. You can stop these resources when they are not in use for a potential cost savings of 75% (40 hours versus 168 hours).</p>
+<h1 id="17"><a href="#17" class="headerlink" title="17"></a>17</h1><img alt="" src="db-consideration.png" width="700px"/>
+
+<p><a href="https://wa.aws.amazon.com/wat.question.PERF_4.en.html" target="_blank" rel="noopener">Considerations when selecting a database solution</a> include requirements for <strong>availability, consistency, partition tolerance, latency, durability, scalability, and query capability</strong>. </p>
+<h1 id="18"><a href="#18" class="headerlink" title="18"></a>18</h1><img alt="" src="dead-letter-queue.png" width="700px"/>
+
+<h1 id="19"><a href="#19" class="headerlink" title="19"></a>19</h1><img alt="" src="dead-letter-queue-benefit.png" width="700px"/>
+
+<h2 id="Dead-letter-queue"><a href="#Dead-letter-queue" class="headerlink" title="Dead letter queue"></a>Dead letter queue</h2><p>Amazon SQS supports <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html" target="_blank" rel="noopener">dead-letter queue</a>, which other queues (source queues) can target for messages that can’t be processed (consumed) successfully. Dead-letter queues are useful for debugging your application or messaging system because they let you isolate problematic messages to determine why their processing doesn’t succeed. </p>
+<h1 id="20"><a href="#20" class="headerlink" title="20"></a>20</h1><img alt="" src="decoupling.png" width="700px"/>
+
+<h1 id="21"><a href="#21" class="headerlink" title="21"></a>21</h1><img alt="" src="distribution.png" width="700px"/>
+
+<h1 id="22"><a href="#22" class="headerlink" title="22"></a>22</h1><img alt="" src="dynamodb-concurrent.png" width="700px"/>
+
+<h2 id="DynamoDB-Consistency-and-Conflict-Resolution"><a href="#DynamoDB-Consistency-and-Conflict-Resolution" class="headerlink" title="DynamoDB Consistency and Conflict Resolution"></a>DynamoDB Consistency and Conflict Resolution</h2><p>Any changes made to any item in any replica table are <strong>replicated to all the other replicas</strong> within the same global table. In a global table, a newly written item is usually propagated to all replica tables within seconds.</p>
+<p>With a global table, each replica table stores the same set of data items. DynamoDB does not support partial replication of only some of the items.</p>
+<ul>
+<li>An application can read and write data to any replica table. If your application only uses eventually consistent reads and only issues reads against one AWS Region, it will work without any modification. </li>
+<li>If your application requires strongly consistent reads, it must perform all of its strongly consistent reads and writes in the same Region. </li>
+</ul>
+<p><strong>DynamoDB does not support strongly consistent reads across Regions.</strong><br>Therefore, <strong>if you write to one Region and read from another Region, the read response might include stale data that doesn’t reflect the results of recently completed writes in the other Region</strong>.</p>
+<p><strong>Conflicts can arise if applications update the same item in different Regions at about the same time</strong>. To help ensure eventual consistency, DynamoDB global tables <strong>use a last writer wins reconciliation between concurrent updates</strong>, in which DynamoDB makes a best effort to determine the last writer.<br>With this conflict resolution mechanism, all the replicas will agree on the <strong>latest update</strong> and converge toward a state in which they all have identical data.</p>
+<h1 id="23"><a href="#23" class="headerlink" title="23"></a>23</h1><img alt="" src="dynamodb-model.png" width="700px"/>
+
+<h1 id="24"><a href="#24" class="headerlink" title="24"></a>24</h1><img alt="" src="dynamodb-performance.png" width="700px"/>
+
+<p><strong>Amazon DynamoDB is a key-value and document database that delivers single-digit millisecond performance at any scale.</strong></p>
+<h1 id="25"><a href="#25" class="headerlink" title="25"></a>25</h1><img alt="" src="ec2-type-choice.png" width="700px"/>
+
+<h1 id="26"><a href="#26" class="headerlink" title="26"></a>26</h1><img alt="" src="elasti-cache.png" width="700px"/>
+
+<h2 id="Monitor-ElastiCache"><a href="#Monitor-ElastiCache" class="headerlink" title="Monitor ElastiCache"></a>Monitor ElastiCache</h2><p>The following CloudWatch metrics offer good insight into ElastiCache performance. In most cases, we recommend that you set CloudWatch alarms for these metrics so that you can take corrective action before performance issues occur:</p>
+<ul>
+<li>CPUUtilization</li>
+<li>EngineCPUUtilization</li>
+<li>SwapUsage</li>
+<li>Evictions</li>
+<li>CurrConnections</li>
+</ul>
+<p>See <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.html" target="_blank" rel="noopener">here</a> for details.</p>
+<h1 id="27"><a href="#27" class="headerlink" title="27"></a>27</h1><img alt="" src="emr.png" width="700px"/>
+
+<h2 id="What-does-MapReduce-do"><a href="#What-does-MapReduce-do" class="headerlink" title="What does MapReduce do"></a>What does MapReduce do</h2><p>Amazon EMR uses Apache Hadoop as its <strong>distributed data processing engine</strong>. Hadoop is an open source, Java software framework that supports data-intensive distributed applications running on large clusters of commodity hardware. Hadoop implements a programming model named “MapReduce,” where <strong>the data is divided into many small fragments of work, each of which may be executed on any node in the cluster</strong>. </p>
+<p>Instead of using one large computer to store and process the data, Hadoop allows clustering multiple computers to <strong>analyze massive datasets in parallel</strong> more quickly.</p>
+<h1 id="28"><a href="#28" class="headerlink" title="28"></a>28</h1><img alt="" src="evolve.png" width="700px"/>
+
+<h1 id="29"><a href="#29" class="headerlink" title="29"></a>29</h1><img alt="" src="floating-ip.png" width="700px"/>
+
+<h2 id="Floating-IP"><a href="#Floating-IP" class="headerlink" title="Floating IP"></a>Floating IP</h2><p>A Floating IP is an IP address that can be instantly moved from one Droplet to another Droplet in the same datacenter. </p>
+<h1 id="30"><a href="#30" class="headerlink" title="30"></a>30</h1><img alt="" src="ha-ec2.png" width="700px"/>
+
+<h1 id="31"><a href="#31" class="headerlink" title="31"></a>31</h1><img alt="" src="infrastructure-event-management.png" width="700px"/>
+
+<h2 id="AWS-Infrastructure-Event-Management"><a href="#AWS-Infrastructure-Event-Management" class="headerlink" title="AWS Infrastructure Event Management"></a>AWS Infrastructure Event Management</h2><p><a href="https://aws.amazon.com/premiumsupport/programs/iem/" target="_blank" rel="noopener">AWS Infrastructure Event Management</a> is a structured program available to Enterprise Support customers (and Business Support customers for an additional fee) that helps you <strong>plan for large-scale events such as product or application launches, infrastructure migrations, and marketing events</strong>.</p>
+<h2 id="Trusted-Advisor"><a href="#Trusted-Advisor" class="headerlink" title="Trusted Advisor"></a>Trusted Advisor</h2><p><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/" target="_blank" rel="noopener">Trusted Advisor</a> is an online tool that provides you real time guidance to help you provision your resources following AWS best practices. Trusted Advisor checks help optimize your AWS infrastructure, increase security and performance, reduce your overall costs, and monitor service limits. </p>
+<p><strong>AWS Business Support</strong> and <strong>AWS Enterprise Support</strong> customers get access to all 115 Trusted Advisor checks (14 cost optimization, 17 security, 24 fault tolerance, 10 performance, and 50 service limits) and recommendations.</p>
+<h1 id="32"><a href="#32" class="headerlink" title="32"></a>32</h1><img alt="" src="inspector.png" width="700px"/>
+
+<h2 id="Amazon-Inspector"><a href="#Amazon-Inspector" class="headerlink" title="Amazon Inspector"></a>Amazon Inspector</h2><ul>
+<li><a href="https://aws.amazon.com/inspector/" target="_blank" rel="noopener">Amazon Inspector</a> is an <strong>automated security assessment service</strong> that helps improve the security and compliance of applications deployed on AWS. </li>
+<li>Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices. </li>
+<li>The AWS security organization is continuously assessing the AWS environment and updating a <strong>knowledge base of security best practices and rules</strong>. Amazon Inspector makes this expertise available to you in the form of a service that simplifies the process of establishing and enforcing best practices within your AWS environment.</li>
+</ul>
+<h1 id="33"><a href="#33" class="headerlink" title="33"></a>33</h1><img alt="" src="inspector-rules-packages.png" width="700px"/>
+
+<h2 id="Amazon-Inspector-assessments"><a href="#Amazon-Inspector-assessments" class="headerlink" title="Amazon Inspector assessments"></a>Amazon Inspector assessments</h2><p>Amazon Inspector assessments are offered to you as pre-defined <strong>rules packages</strong> mapped to common security best practices and vulnerability definitions.</p>
+<h1 id="34"><a href="#34" class="headerlink" title="34"></a>34</h1><img alt="" src="io-troubleshoot.png" width="700px"/>
+
+<h1 id="35"><a href="#35" class="headerlink" title="35"></a>35</h1><img alt="" src="kinesis-data-stream.png" width="700px"/>
+
+<h1 id="36"><a href="#36" class="headerlink" title="36"></a>36</h1><img alt="" src="kinesis-data-stream-use-case.png" width="700px"/>
+
+<h1 id="37"><a href="#37" class="headerlink" title="37"></a>37</h1><img alt="" src="lambda-performance.png" width="700px"/>
+
+<h1 id="38"><a href="#38" class="headerlink" title="38"></a>38</h1><img alt="" src="Metris.png" width="700px"/>
+
+<h2 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h2><p>Metrics are uniquely defined by </p>
+<ul>
+<li>a <strong>name</strong>, </li>
+<li>a <strong>namespace</strong>, and </li>
+<li><strong>zero or more dimensions</strong>. </li>
+</ul>
+<p>Each <strong>data point</strong> in a metric has </p>
+<ul>
+<li>a time stamp, </li>
+<li>and (optionally) a unit of measure. </li>
+</ul>
+<p>You can retrieve statistics from CloudWatch for any metric.</p>
+<h2 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h2><ul>
+<li>Statistics are metric data aggregations over specified periods of time. </li>
+<li>CloudWatch provides statistics based on the metric data points provided by your custom data or provided by other AWS services to CloudWatch. </li>
+<li>Aggregations are made using the:<ul>
+<li>namespace, </li>
+<li>metric name, </li>
+<li>dimensions, </li>
+<li>the data point unit of measure, </li>
+<li>within the time period you specify.</li>
+</ul>
+</li>
+</ul>
+<h1 id="39"><a href="#39" class="headerlink" title="39"></a>39</h1><img alt="" src="middleware.png" width="700px"/>
+
+<img alt="" src="middleware-careful.png" width="400px"/>
+
+<h1 id="40"><a href="#40" class="headerlink" title="40"></a>40</h1><img alt="" src="monitor-reliability-issues.png" width="700px"/>
+
+<h1 id="41"><a href="#41" class="headerlink" title="41"></a>41</h1><img alt="" src="op-excellence-priority.png" width="700px"/>
+
+<h1 id="42"><a href="#42" class="headerlink" title="42"></a>42</h1><img alt="" src="operational-excellence.png" width="700px"/>
+
+<p>See this table from <a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf" target="_blank" rel="noopener">AWS Well-Architectured Whitepaper</a>:</p>
+<img alt="" src="wa-framework.png" width="600px"/>
+
+<h1 id="43"><a href="#43" class="headerlink" title="43"></a>43</h1><img alt="" src="ops-ex-standards.png" width="700px"/>
+
+<h1 id="44"><a href="#44" class="headerlink" title="44"></a>44</h1><img alt="" src="ops-exc.png" width="700px"/>
+
+<h1 id="45"><a href="#45" class="headerlink" title="45"></a>45</h1><img alt="" src="ops-excellence-books.png" width="700px"/>
+
+<h2 id="Use-runbooks-to-perform-procedures"><a href="#Use-runbooks-to-perform-procedures" class="headerlink" title="Use runbooks to perform procedures"></a>Use runbooks to perform procedures</h2><ul>
+<li><a href="https://wa.aws.amazon.com/wat.concept.runbook.en.html" target="_blank" rel="noopener">Runbooks</a> are documented procedures to achieve specific outcomes. </li>
+<li>Start with a valid effective manual process, implement it in code and trigger automated execution where appropriate.</li>
+<li>Consistent and prompt responses to <strong>well understood events</strong>.</li>
+</ul>
+<h2 id="Use-playbooks-to-investigate-issues"><a href="#Use-playbooks-to-investigate-issues" class="headerlink" title="Use playbooks to investigate issues"></a>Use playbooks to investigate issues</h2><ul>
+<li><a href="https://wa.aws.amazon.com/wat.concept.playbook.en.html" target="_blank" rel="noopener">Playbooks</a> are the predefined steps to perform to <strong>identify</strong> an issue. </li>
+<li>Enable consistent and prompt responses to <strong>issues that are not well understood</strong>. </li>
+</ul>
+<h2 id="Use-checklist-to-prepare"><a href="#Use-checklist-to-prepare" class="headerlink" title="Use checklist to prepare"></a>Use checklist to prepare</h2><p>You should use a consistent process (including manual or automated checklists) to know when you are ready to go live with your workload or a change.</p>
+<h1 id="46"><a href="#46" class="headerlink" title="46"></a>46</h1><img alt="" src="OpsWork.png" width="700px"/>
+
+<p>OpsWorks has three offerings, </p>
+<ul>
+<li>AWS Opsworks for Chef Automate,</li>
+<li>AWS OpsWorks for Puppet Enterprise, and </li>
+<li>AWS OpsWorks Stacks.</li>
+</ul>
+<h1 id="47"><a href="#47" class="headerlink" title="47"></a>47</h1><p><img alt="" src="per-second-billing.png" width="700px"/> - very possibly outdated.</p>
+<h2 id="Per-second-billing"><a href="#Per-second-billing" class="headerlink" title="Per-second billing"></a>Per-second billing</h2><p>EC2 usage are billed on one second increments, with a minimum of 60 seconds. Similarly, provisioned storage for EBS volumes will be billed per-second increments, with a 60 second minimum. Per-second billing is available for instances launched in:</p>
+<ul>
+<li>On-Demand, <strong>Reserved</strong> and Spot forms</li>
+<li>All regions and Availability Zones</li>
+<li>Amazon Linux and Ubuntu</li>
+</ul>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html" target="_blank" rel="noopener">This article</a> explains how reserved instances are billed.</p>
+<h1 id="48"><a href="#48" class="headerlink" title="48"></a>48</h1><img alt="" src="perform-monitor.png" width="700px"/>
+
+<h1 id="49"><a href="#49" class="headerlink" title="49"></a>49</h1><img alt="" src="prepare.png" width="700px"/>
+
+<h2 id="Operational-Excellence"><a href="#Operational-Excellence" class="headerlink" title="Operational Excellence"></a>Operational Excellence</h2><ul>
+<li>Organization<ul>
+<li>OPS 1: How do you determine what your priorities are?</li>
+<li>OPS 2: How do you structure your organization to support your business outcomes?</li>
+<li>OPS 3: How does your organizational culture support your business outcomes?</li>
+</ul>
+</li>
+<li>Prepare   <ul>
+<li>OPS 4: How do you design your workload so that you can understand its state?</li>
+<li>OPS 5: How do you reduce defects, ease remediation, and improve flow into production?</li>
+<li>OPS 6: How do you mitigate deployment risks?</li>
+<li>OPS 7: How do you know that you are ready to support a workload?</li>
+</ul>
+</li>
+<li>Operate<ul>
+<li>OPS 8: How do you understand the health of your workload?</li>
+<li>OPS 9: How do you understand the health of your operations?</li>
+<li>OPS 10: How do you manage workload and operations events?</li>
+</ul>
+</li>
+<li>Evolve<ul>
+<li>OPS 11: How do you evolve operations?</li>
+</ul>
+</li>
+</ul>
+<h1 id="50"><a href="#50" class="headerlink" title="50"></a>50</h1><img alt="" src="protect-data.png" width="700px"/>
+
+<h1 id="60"><a href="#60" class="headerlink" title="60"></a>60</h1><img alt="" src="provisioned-iops-ssd.png" width="700px"/>
+
+<h1 id="61"><a href="#61" class="headerlink" title="61"></a>61</h1><img alt="" src="rdp-port.png" width="700px"/>
+
+<h1 id="62"><a href="#62" class="headerlink" title="62"></a>62</h1><img alt="" src="reserve.png" width="700px"/>
+
+<p><a href="https://aws.amazon.com/elasticache/reserved-cache-nodes/" target="_blank" rel="noopener">Amazon ElastiCache Reserved Nodes</a> give you the option to make a low, one-time payment for each cache node you want to reserve and in turn receive a significant discount on the hourly charge for that Node.</p>
+<h1 id="63"><a href="#63" class="headerlink" title="63"></a>63</h1><img alt="" src="resource-based.png" width="700px"/>
+
+<h1 id="64"><a href="#64" class="headerlink" title="64"></a>64</h1><img alt="" src="routes.png" width="700px"/>
+
+<h1 id="65"><a href="#65" class="headerlink" title="65"></a>65</h1><img alt="" src="runbooks.png" width="700px"/>
+
+<h1 id="66"><a href="#66" class="headerlink" title="66"></a>66</h1><img alt="" src="security.png" width="700px"/>
+
+<h1 id="67"><a href="#67" class="headerlink" title="67"></a>67</h1><img alt="" src="serverless.png" width="700px"/>
+
+<h2 id="Design-Principles-for-performance-efficiency"><a href="#Design-Principles-for-performance-efficiency" class="headerlink" title="Design Principles for performance efficiency"></a>Design Principles for performance efficiency</h2><ul>
+<li>Democratize advanced technologies: Make advanced technology implementation easier for your team by delegating complex tasks to your cloud vendor. Rather than asking your IT team to learn about hosting and running a new technology, consider consuming the technology as a service. </li>
+<li>Go global in minutes: Deploying your workload in multiple AWS Regions around the world allows you to provide lower latency and a better experience for your customers at minimal cost.</li>
+<li>Use serverless architectures: Serverless architectures remove the need for you to run and maintain physical servers for traditional compute activities.</li>
+<li>Experiment more often: With virtual and automatable resources, you can quickly carry out <strong>comparative testing</strong> using different types of instances, storage, or configurations.</li>
+<li>Consider mechanical sympathy: Understand how cloud services are consumed and always use the technology approach that aligns best with your workload goals. For example, consider data access patterns when you select database or storage approaches.</li>
+</ul>
+<h1 id="68"><a href="#68" class="headerlink" title="68"></a>68</h1><img alt="" src="sni.png" width="700px"/>
+
+<h2 id="Amazon-CloudFront-Custom-SSL"><a href="#Amazon-CloudFront-Custom-SSL" class="headerlink" title="Amazon CloudFront Custom SSL"></a>Amazon CloudFront Custom SSL</h2><p>Amazon CloudFront gives you three options for accelerating your entire website while delivering your content <strong>securely over HTTPS</strong> from all of CloudFront’s edge locations.</p>
+<h3 id="Default-CloudFront-distribution-domain-name"><a href="#Default-CloudFront-distribution-domain-name" class="headerlink" title="Default: CloudFront distribution domain name"></a>Default: CloudFront distribution domain name</h3><p>By default you can deliver your content to viewers over HTTPS by using your CloudFront distribution domain name in your URLs, for example, <a href="https://dxxxxx.cloudfront.net/image.jpg" target="_blank" rel="noopener">https://dxxxxx.cloudfront.net/image.jpg</a>.</p>
+<p>If you want to deliver your content over HTTPS using your <strong>own domain name and your own SSL certificate</strong>, you can use one of our Custom SSL certificate support features.</p>
+<h3 id="SNI-Custom-SSL"><a href="#SNI-Custom-SSL" class="headerlink" title="SNI Custom SSL"></a>SNI Custom SSL</h3><p>Server Name Indication (SNI) Custom SSL relies on the <strong>SNI extension of the Transport Layer Security protocol</strong>, which allows multiple domains to serve SSL traffic over the same IP address. Amazon CloudFront delivers your content from each edge location and offers the same security as the Dedicated IP Custom SSL feature (see below).</p>
+<h3 id="Dedicated-IP-Custom-SSL"><a href="#Dedicated-IP-Custom-SSL" class="headerlink" title="Dedicated IP Custom SSL"></a>Dedicated IP Custom SSL</h3><p>If you need to deliver content to browsers that don’t support SNI, you can use the <strong>Dedicated IP Custom SSL feature</strong>. For this feature the Amazon content delivery network <strong>allocates dedicated IP addresses to serve your SSL content at each Edge location</strong>.</p>
+<h1 id="69"><a href="#69" class="headerlink" title="69"></a>69</h1><img alt="" src="Prepare-procedures.png" width="700px"/>
+
+<p>Check that required procedures are adequately captured in runbooks and playbooks is a best practice for <strong>Prepare</strong>.</p>
+<h1 id="70"><a href="#70" class="headerlink" title="70"></a>70</h1><img alt="" src="rto-rpo.png" width="700px"/>
+
+<p>Highest objective means shortest time.</p>
+<h1 id="71"><a href="#71" class="headerlink" title="71"></a>71</h1><img alt="" src="SOA.png" width="700px"/>
+
+<h1 id="72"><a href="#72" class="headerlink" title="72"></a>72</h1><img alt="" src="spot-instance.png" width="700px"/>
+
+<h1 id="73"><a href="#73" class="headerlink" title="73"></a>73</h1><img alt="" src="sqs.png" width="700px"/>
+
+<h1 id="74"><a href="#74" class="headerlink" title="74"></a>74</h1><img alt="" src="visibility-time-out-sqs.png" width="700px"/>
+
+<h2 id="Amazon-SQS-visibility-timeout"><a href="#Amazon-SQS-visibility-timeout" class="headerlink" title="Amazon SQS visibility timeout"></a>Amazon SQS visibility timeout</h2><img src="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-visibility-timeout-diagram.png" alt="" width="650px"/>
+
+<p>When a consumer receives and processes a message from a queue, the message remains in the queue. Amazon SQS doesn’t automatically delete the message. Because Amazon SQS is a distributed system, there’s no guarantee that the consumer actually receives the message (for example, due to a connectivity issue, or due to an issue in the consumer application). Thus, the consumer must <strong>delete the message from the queue after receiving and processing it</strong>.</p>
+<p>Immediately after a message is received, it remains in the queue. To prevent other consumers from processing the message again, Amazon SQS sets a <em><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html" target="_blank" rel="noopener">visibility timeout</a></em>, a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. The default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The maximum is 12 hours. </p>
+<h1 id="75"><a href="#75" class="headerlink" title="75"></a>75</h1><img alt="" src="vpc-endpoint.png" width="700px"/>
+
+<h2 id="VPC-Endpoint"><a href="#VPC-Endpoint" class="headerlink" title="VPC Endpoint"></a>VPC Endpoint</h2><p>A <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html" target="_blank" rel="noopener">VPC endpoint</a> enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. </p>
+<ul>
+<li>Virtual devices. </li>
+<li>Horizontally scaled, redundant, and highly available VPC components. </li>
+<li>Allow communication between instances in your VPC and services without imposing availability risks or bandwidth constraints on your network traffic.</li>
+</ul>
+<h1 id="76"><a href="#76" class="headerlink" title="76"></a>76</h1><img alt="" src="well-arch.png" width="700px"/>
+
+<ul>
+<li>AWS Well-Architected helps cloud architects build secure, high-performing, resilient, and efficient infrastructure for their applications and workloads. </li>
+<li>AWS Well-Architected provides a consistent approach for customers and partners to evaluate architectures, and implement designs that can scale over time.</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

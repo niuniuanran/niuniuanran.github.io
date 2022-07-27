@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        CompSci701 Week5-11 Review - Anran&#39;s Coding Elephant
+        
+    </title><meta name="robots" content="noindex">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾🐾🐾-Lecture-Review-Classes-🐾🐾🐾"><span class="toc-text">🐾🐾🐾 Lecture Review: Classes 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OOD"><span class="toc-text">OOD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finding-Good-Objects"><span class="toc-text">Finding Good Objects</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comprehensible-Classes"><span class="toc-text">Comprehensible Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Organisation-Ordering"><span class="toc-text">Organisation (Ordering)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encapsulation"><span class="toc-text">Encapsulation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP-gt-Small"><span class="toc-text">SRP -&gt; Small</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cohesion"><span class="toc-text">Cohesion</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾🐾🐾-Lecture-Review-Alterability-🐾🐾🐾"><span class="toc-text">🐾🐾🐾 Lecture Review: Alterability 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Defining-Alterability"><span class="toc-text">Defining Alterability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Assessing-Alterability"><span class="toc-text">Assessing Alterability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-Case-to-Describe-Changes"><span class="toc-text">Change Case to Describe Changes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-N-Change-Ratio-measurement"><span class="toc-text">C&#x2F;N (Change Ratio) measurement</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾🐾🐾-Lecture-Review-Design-Pattern-🐾🐾🐾"><span class="toc-text">🐾🐾🐾 Lecture Review: Design Pattern 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Defining-Design-Patterns"><span class="toc-text">Defining Design Patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-Patterns-and-Alterability"><span class="toc-text">Design Patterns and Alterability</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾🐾🐾-Lecture-Review-SOLID-principle-🐾🐾🐾"><span class="toc-text">🐾🐾🐾 Lecture Review: SOLID principle 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Responsibility-Principle"><span class="toc-text">Single Responsibility Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actionable"><span class="toc-text">Actionable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability"><span class="toc-text">Alterability</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Closed-Principle"><span class="toc-text">Open-Closed Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actionable-1"><span class="toc-text">Actionable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-1"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-Design-Principles"><span class="toc-text">Related Design Principles</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Liskov-Substitution-Principle"><span class="toc-text">Liskov Substitution Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actionable-2"><span class="toc-text">Actionable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-2"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Related-Design-Patterns"><span class="toc-text">Related Design Patterns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Segregation（隔离）-Principle"><span class="toc-text">Interface Segregation（隔离） Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Actionable-3"><span class="toc-text">Actionable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-3"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Design-Patterns"><span class="toc-text">Design Patterns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependency-Inversion-Principle"><span class="toc-text">Dependency Inversion Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Alterability-4"><span class="toc-text">Alterability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Actionable-4"><span class="toc-text">Actionable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Design-Patterns-1"><span class="toc-text">Design Patterns</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾🐾🐾-Lecture-Review-Cohesion-and-Coupling-🐾🐾🐾"><span class="toc-text">🐾🐾🐾 Lecture Review: Cohesion and Coupling 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cohesion-1"><span class="toc-text">Cohesion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Coupling"><span class="toc-text">Coupling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relationship-with-Design-Principles"><span class="toc-text">Relationship with Design Principles</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ISP"><span class="toc-text">ISP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DIP"><span class="toc-text">DIP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LSP"><span class="toc-text">LSP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRP"><span class="toc-text">SRP</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#🐾🐾🐾-Lecture-Review-Testability-🐾🐾🐾"><span class="toc-text">🐾🐾🐾 Lecture Review: Testability 🐾🐾🐾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trade-Off"><span class="toc-text">Trade-Off</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Good-Test-Cases"><span class="toc-text">Good Test Cases</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CompSci701 Week5-11 Review
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-10-15 20:31:08</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#CompSci701 Journal" title="CompSci701 Journal">CompSci701 Journal</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="🐾🐾🐾-Lecture-Review-Classes-🐾🐾🐾"><a href="#🐾🐾🐾-Lecture-Review-Classes-🐾🐾🐾" class="headerlink" title="🐾🐾🐾 Lecture Review: Classes 🐾🐾🐾"></a>🐾🐾🐾 Lecture Review: Classes 🐾🐾🐾</h1><h2 id="OOD"><a href="#OOD" class="headerlink" title="OOD"></a>OOD</h2><ul>
+<li>“An object-oriented program is one that when it <strong>executes</strong> creates <strong>objects</strong> that send <strong>messages</strong> to each other.”</li>
+<li>Objects + Polymorphism: Run-time concepts</li>
+<li>Static members are not part of an object-oriented design</li>
+<li>Classes are describing and creating objects</li>
+</ul>
+<h2 id="Finding-Good-Objects"><a href="#Finding-Good-Objects" class="headerlink" title="Finding Good Objects"></a>Finding Good Objects</h2><ul>
+<li>Good object helps you make a good guess as to what it does, without referring to external representation.</li>
+<li>Code should match our expectation (context schema)</li>
+<li>One aspect of “match”: number of objects created from the class &lt;-&gt; what we expect from the context schema.</li>
+</ul>
+<h2 id="Comprehensible-Classes"><a href="#Comprehensible-Classes" class="headerlink" title="Comprehensible Classes"></a>Comprehensible Classes</h2><p>Classes should represent concepts from the context schema or design schema.</p>
+<h3 id="Organisation-Ordering"><a href="#Organisation-Ordering" class="headerlink" title="Organisation (Ordering)"></a>Organisation (Ordering)</h3><ul>
+<li>Ordering should match what the user expect, so they will efficiently find what they need to access from the code base.</li>
+<li>Methods of higher abstraction level then methods of lower level/more specific implementation details. </li>
+</ul>
+<h3 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h3><ul>
+<li>Objects (and classes) represent concepts that appear in the context schema.</li>
+<li>Implementation details should not be exposed.</li>
+<li>The question to ask: <strong>what methods are needed to support the abstraction</strong></li>
+</ul>
+<h3 id="SRP-gt-Small"><a href="#SRP-gt-Small" class="headerlink" title="SRP -&gt; Small"></a>SRP -&gt; Small</h3><ul>
+<li>Have only one reason to change</li>
+<li>Small: Do not use “it’s too simple” as an excuse to not create a class!</li>
+</ul>
+<h3 id="Cohesion"><a href="#Cohesion" class="headerlink" title="Cohesion"></a>Cohesion</h3><ul>
+<li>The less tightly bound the internal elements, the more disparate the parts to the module, the harder it is to understand. </li>
+</ul>
+<h1 id="🐾🐾🐾-Lecture-Review-Alterability-🐾🐾🐾"><a href="#🐾🐾🐾-Lecture-Review-Alterability-🐾🐾🐾" class="headerlink" title="🐾🐾🐾 Lecture Review: Alterability 🐾🐾🐾"></a>🐾🐾🐾 Lecture Review: Alterability 🐾🐾🐾</h1><h2 id="Defining-Alterability"><a href="#Defining-Alterability" class="headerlink" title="Defining Alterability"></a>Defining Alterability</h2><p>Degree to which a product or system can be <em>effectively and efficiently</em> <strong>changed</strong> without introducing <em>defects</em> or degrading existing product <em>quality</em>.</p>
+<ul>
+<li>NOT counting costs associated with <em>comprehension</em>.</li>
+<li>Assume the mental model is “complete” when defining alterability</li>
+</ul>
+<h2 id="Assessing-Alterability"><a href="#Assessing-Alterability" class="headerlink" title="Assessing Alterability"></a>Assessing Alterability</h2><h3 id="Change-Case-to-Describe-Changes"><a href="#Change-Case-to-Describe-Changes" class="headerlink" title="Change Case to Describe Changes"></a>Change Case to Describe Changes</h3><ul>
+<li>Likelihood</li>
+<li>Impact<ol>
+<li>against the requirements/behaviour</li>
+<li>What proportion of the original “cost” of the product are you prepared to <strong>pay for this change case</strong>?</li>
+</ol>
+</li>
+</ul>
+<h3 id="C-N-Change-Ratio-measurement"><a href="#C-N-Change-Ratio-measurement" class="headerlink" title="C/N (Change Ratio) measurement"></a>C/N (Change Ratio) measurement</h3><p>We want to reduce C/N.</p>
+<h1 id="🐾🐾🐾-Lecture-Review-Design-Pattern-🐾🐾🐾"><a href="#🐾🐾🐾-Lecture-Review-Design-Pattern-🐾🐾🐾" class="headerlink" title="🐾🐾🐾 Lecture Review: Design Pattern 🐾🐾🐾"></a>🐾🐾🐾 Lecture Review: Design Pattern 🐾🐾🐾</h1><h2 id="Defining-Design-Patterns"><a href="#Defining-Design-Patterns" class="headerlink" title="Defining Design Patterns"></a>Defining Design Patterns</h2><ul>
+<li>Captures design experiences</li>
+<li>General solution</li>
+<li>Context-specific</li>
+</ul>
+<h2 id="Design-Patterns-and-Alterability"><a href="#Design-Patterns-and-Alterability" class="headerlink" title="Design Patterns and Alterability"></a>Design Patterns and Alterability</h2><p>Most design patterns support Alterability by <strong>allowing new functionality to be supplied in new classes</strong>, and by reducing the number of existing classes that need to change.</p>
+<p>More details in another journal (Design Patterns in One Image and One Sentence).</p>
+<h1 id="🐾🐾🐾-Lecture-Review-SOLID-principle-🐾🐾🐾"><a href="#🐾🐾🐾-Lecture-Review-SOLID-principle-🐾🐾🐾" class="headerlink" title="🐾🐾🐾 Lecture Review: SOLID principle 🐾🐾🐾"></a>🐾🐾🐾 Lecture Review: SOLID principle 🐾🐾🐾</h1><h2 id="Single-Responsibility-Principle"><a href="#Single-Responsibility-Principle" class="headerlink" title="Single Responsibility Principle"></a>Single Responsibility Principle</h2><blockquote>
+<p>A class should have one, and only one, reason to change.</p>
+</blockquote>
+<h3 id="Actionable"><a href="#Actionable" class="headerlink" title="Actionable"></a>Actionable</h3><ol>
+<li>One reason to change.</li>
+<li>Group things that change for the same reason together.</li>
+</ol>
+<h3 id="Alterability"><a href="#Alterability" class="headerlink" title="Alterability"></a>Alterability</h3><p>Detailed analysis <a href="https://niuniuanran.github.io/2020/10/05/SOLID-Principle/#Single-Responsibility-Principle-SRP/">here</a>, reasoning based on the actionable “one reason to change”.</p>
+<h2 id="Open-Closed-Principle"><a href="#Open-Closed-Principle" class="headerlink" title="Open-Closed Principle"></a>Open-Closed Principle</h2><blockquote>
+<ul>
+<li>You should be able to extend a class’ behaviour without modifying it. </li>
+</ul>
+</blockquote>
+<h3 id="Actionable-1"><a href="#Actionable-1" class="headerlink" title="Actionable"></a>Actionable</h3><ul>
+<li>Achieved through judicious use of polymorphism.</li>
+<li>Lead to design with abstract entities that are made concrete through:<ol>
+<li>Extending the abstract entity, or</li>
+<li>Supplying concrete implementations as parameters (Dependency Injection)</li>
+</ol>
+</li>
+<li>When designing something, think about what variations are needed for the <strong>Context Schema</strong></li>
+</ul>
+<h3 id="Alterability-1"><a href="#Alterability-1" class="headerlink" title="Alterability"></a>Alterability</h3><p>Reduce classes being changed - Reducing C. </p>
+<h3 id="Related-Design-Principles"><a href="#Related-Design-Principles" class="headerlink" title="Related Design Principles"></a>Related Design Principles</h3><ol>
+<li>Dependency Injection: change which implementation of an abstract service is used</li>
+<li>Strategy Pattern: change how a given behaviour in a context is conducted</li>
+<li>Template Pattern: change the sub-step of a procedure that belong to an abstract entity</li>
+<li>Factory Pattern: instantiate different implementations of an abstract entity</li>
+</ol>
+<h2 id="Liskov-Substitution-Principle"><a href="#Liskov-Substitution-Principle" class="headerlink" title="Liskov Substitution Principle"></a>Liskov Substitution Principle</h2><blockquote>
+<p>Where a parent class is used, we should be able to replace the parent class with any of its child classes, without breaking the programme.</p>
+</blockquote>
+<h3 id="Actionable-2"><a href="#Actionable-2" class="headerlink" title="Actionable"></a>Actionable</h3><p>LSP Provides actionable criteria to determine whether “inheritance” has been used “properly”</p>
+<h3 id="Alterability-2"><a href="#Alterability-2" class="headerlink" title="Alterability"></a>Alterability</h3><p>LSP is about designs that allow changes in behaviour through substitution without requiring <strong>the code using the parent (the context)</strong> to change -&gt; reducing C.</p>
+<h3 id="Related-Design-Patterns"><a href="#Related-Design-Patterns" class="headerlink" title="Related Design Patterns"></a>Related Design Patterns</h3><p>Any design pattern that relies on inheritance (pretty much all of them) is based on LSP</p>
+<h2 id="Interface-Segregation（隔离）-Principle"><a href="#Interface-Segregation（隔离）-Principle" class="headerlink" title="Interface Segregation（隔离） Principle"></a>Interface Segregation（隔离） Principle</h2><blockquote>
+<ul>
+<li>Make fine-grained interfaces that are client specific;</li>
+<li>Clients should not be forced to depend on methods that they do not use</li>
+<li>SRP should result in classes whose clients need (in principle) all methods provided (but sometimes that’s not possible)</li>
+</ul>
+</blockquote>
+<h3 id="Actionable-3"><a href="#Actionable-3" class="headerlink" title="Actionable"></a>Actionable</h3><ul>
+<li>In practice: Identify the set of methods actually used in a class and create an interface match exactly that set.</li>
+<li>Can lead to many tiny interfaces that are so abstract that they have lost any useful meaning. </li>
+</ul>
+<h3 id="Alterability-3"><a href="#Alterability-3" class="headerlink" title="Alterability"></a>Alterability</h3><p>Removing client’s unnecessary dependency on unused method provided by an interface =&gt; Reducing the likelihood the client needs to change because the method =&gt; Reduce C.</p>
+<h3 id="Design-Patterns"><a href="#Design-Patterns" class="headerlink" title="Design Patterns"></a>Design Patterns</h3><ul>
+<li>Command: <code>execute()</code></li>
+<li>Observer: <code>update()</code></li>
+</ul>
+<h2 id="Dependency-Inversion-Principle"><a href="#Dependency-Inversion-Principle" class="headerlink" title="Dependency Inversion Principle"></a>Dependency Inversion Principle</h2><blockquote>
+<p>Depend on abstractions, not on concretions:</p>
+<ul>
+<li>High-level modules should not depend on low-level modules. They should both depend on abstraction.</li>
+<li>Abstraction should not depend on details. Details should depend on abstraction.</li>
+</ul>
+</blockquote>
+<h3 id="Alterability-4"><a href="#Alterability-4" class="headerlink" title="Alterability"></a>Alterability</h3><p>Reduce dependency on concrete implementation<br>=&gt; Reduce the need to change existing context when the concrete types change<br>=&gt; Reduce C</p>
+<h3 id="Actionable-4"><a href="#Actionable-4" class="headerlink" title="Actionable"></a>Actionable</h3><p>Look for opportunities to use abstractions rather than concretations</p>
+<h3 id="Design-Patterns-1"><a href="#Design-Patterns-1" class="headerlink" title="Design Patterns"></a>Design Patterns</h3><ul>
+<li>Dependency Injection: the client depends on the abstract service</li>
+<li>Strategy Pattern: Context depends on abstract strategy</li>
+<li>Decorator Pattern: Context depends on abstract component, Decorator depends on abstract component too.</li>
+</ul>
+<h1 id="🐾🐾🐾-Lecture-Review-Cohesion-and-Coupling-🐾🐾🐾"><a href="#🐾🐾🐾-Lecture-Review-Cohesion-and-Coupling-🐾🐾🐾" class="headerlink" title="🐾🐾🐾 Lecture Review: Cohesion and Coupling 🐾🐾🐾"></a>🐾🐾🐾 Lecture Review: Cohesion and Coupling 🐾🐾🐾</h1><h2 id="Cohesion-1"><a href="#Cohesion-1" class="headerlink" title="Cohesion"></a>Cohesion</h2><ul>
+<li>The extent to which its individual components are needed to perform the same task</li>
+<li>How tightly bound or related a module’s internal elements are to one another.</li>
+</ul>
+<h2 id="Coupling"><a href="#Coupling" class="headerlink" title="Coupling"></a>Coupling</h2><ul>
+<li>The degree of interdependence between modules</li>
+<li>A measure of the strength of interconnection</li>
+</ul>
+<h2 id="Relationship-with-Design-Principles"><a href="#Relationship-with-Design-Principles" class="headerlink" title="Relationship with Design Principles"></a>Relationship with Design Principles</h2><h3 id="ISP"><a href="#ISP" class="headerlink" title="ISP"></a>ISP</h3><p>The more one class knows about another class, the stronger the coupling.</p>
+<h3 id="DIP"><a href="#DIP" class="headerlink" title="DIP"></a>DIP</h3><p>Depending on a concrete thing has higher coupling than depending on an abstract thing.</p>
+<h3 id="LSP"><a href="#LSP" class="headerlink" title="LSP"></a>LSP</h3><ul>
+<li>The context code expects objects from a particular class A</li>
+<li>Objects from B can be substituted if B is a descendant of A and LSP is followed</li>
+<li>Therefore the coupling between context and the other classes is not particularly strong: if a concrete A is not available, the context still works.</li>
+</ul>
+<h3 id="SRP"><a href="#SRP" class="headerlink" title="SRP"></a>SRP</h3><ul>
+<li>Classes that have more than one responsibility likely have more classes that they depend on (for each responsibility) than those that follow SRP (high FAN-OUT)</li>
+<li>Classes that have more than one responsibility likely have more classes that depend on them (for each responsibility) than those that follow SRP (high FAN-IN)</li>
+</ul>
+<h1 id="🐾🐾🐾-Lecture-Review-Testability-🐾🐾🐾"><a href="#🐾🐾🐾-Lecture-Review-Testability-🐾🐾🐾" class="headerlink" title="🐾🐾🐾 Lecture Review: Testability 🐾🐾🐾"></a>🐾🐾🐾 Lecture Review: Testability 🐾🐾🐾</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Testability — degree of effectiveness and efficiency with which <strong>test criteria can be established</strong> for a system, product or component and <strong>tests can be performed</strong> to determine whether those criteria have been met.</p>
+<h2 id="Trade-Off"><a href="#Trade-Off" class="headerlink" title="Trade-Off"></a>Trade-Off</h2><ul>
+<li>Encapsulation helps comprehensibility and alterability, but hinders testability.</li>
+<li>For testability you want:<ul>
+<li>Controllability</li>
+<li>Observability</li>
+<li>Avoid breaking encapsulation if possible (or reduce the effect as much as possible).</li>
+</ul>
+</li>
+<li>In particular, dependency injection gives us control as to what the state is.</li>
+</ul>
+<h2 id="Good-Test-Cases"><a href="#Good-Test-Cases" class="headerlink" title="Good Test Cases"></a>Good Test Cases</h2><ul>
+<li>Fast</li>
+<li>Independent</li>
+<li>Simple</li>
+<li>Repeatable</li>
+</ul>
+<!-- flag of hidden posts -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

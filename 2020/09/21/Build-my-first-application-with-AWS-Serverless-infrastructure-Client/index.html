@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Build my first application with AWS Serverless infrastructure - Client - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-Amplify"><span class="toc-text">AWS Amplify</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration"><span class="toc-text">Configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-Amplify"><span class="toc-text">Using Amplify</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-route-dom"><span class="toc-text">react-route-dom</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#useLocation"><span class="toc-text">useLocation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BrowserRouter"><span class="toc-text">BrowserRouter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Switch-and-Route"><span class="toc-text">Switch and Route</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redirect"><span class="toc-text">Redirect</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AuthenticatedRoute-and-UnauthenticatedRoute"><span class="toc-text">AuthenticatedRoute and UnauthenticatedRoute</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extract-query-string-with-given-name-by-Regex"><span class="toc-text">Extract query string with given name by Regex</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Build my first application with AWS Serverless infrastructure - Client
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-09-21 20:42:40</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Serverless" title="Serverless">Serverless</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>This is the client side notes for my first AWS Serverless infrastructure. API notes are <a href="https://niuniuanran.github.io/2020/09/20/Build-my-first-application-with-AWS-Serverless-infrastructure-api/">here</a></p>
+<h1 id="AWS-Amplify"><a href="#AWS-Amplify" class="headerlink" title="AWS Amplify"></a>AWS Amplify</h1><p>AWS Amplify is a set of tools and services that enables <strong>mobile and front-end web developers</strong> to build secure, scalable full stack applications, powered by AWS.</p>
+<p>I leveraged three modules of Amplify:</p>
+<ol>
+<li>Auth (Cognito User Pool and Cognito Identity Pool)</li>
+<li>Storage (S3)</li>
+<li>API (API Gateway)</li>
+</ol>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>At the start of the programme, I need to specify the configuration of Amplify. In this project, I did it in <a href="https://github.com/niuniuanran/NS3-client/blob/master/src/index.js" target="_blank" rel="noopener"><code>src/index.js</code></a> which runs upon loading the client side.</p>
+<p>The corresponding Serverless Stack chapter is <a href="https://serverless-stack.com/chapters/configure-aws-amplify.html" target="_blank" rel="noopener">Configure AWS Amplify</a>.<br>The corresponding Amplify Docs page for Javascript Amplify Libraries is <a href="https://docs.amplify.aws/lib/client-configuration/configuring-amplify-categories/q/platform/js" target="_blank" rel="noopener">Configure Amplify Categories</a>. There are top-level and scoped configurations.</p>
+<h2 id="Using-Amplify"><a href="#Using-Amplify" class="headerlink" title="Using Amplify"></a>Using Amplify</h2><p>Once Amplify is configured, it is able to make requests to AWS resources on the client’s behalf. Just like the API handlers, Amplify could use the Cognito Identity session to access the resources private to the current user. </p>
+<h1 id="react-route-dom"><a href="#react-route-dom" class="headerlink" title="react-route-dom"></a>react-route-dom</h1><h2 id="useLocation"><a href="#useLocation" class="headerlink" title="useLocation"></a>useLocation</h2><p>The useLocation hook returns a <code>Location</code> object that represents the <strong>current URL</strong>.</p>
+<p>The <code>Location</code> interface is explained very well in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Location" target="_blank" rel="noopener">MDN docs</a>. It has these parts:</p>
+<ol>
+<li><code>href</code> the whole URL</li>
+<li><code>protocol</code> http/https</li>
+<li><code>host</code> localhost:3000</li>
+<li><code>pathname</code> /foo/bar</li>
+<li><code>search</code> ?q=baz</li>
+<li><code>hash</code> #header1</li>
+</ol>
+<h2 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h2><p>A <Router> that uses the HTML5 history API (pushState, replaceState and the popstate event) to keep your UI in sync with the URL.</p>
+<p>You wrap the <code>&lt;App/&gt;</code> within the <code>&lt;BrowserRouter&gt;</code> to have access to the <code>&lt;Switch&gt;</code>/<code>&lt;Route&gt;</code>/<code>&lt;Link&gt;</code> etc.</p>
+<h2 id="Switch-and-Route"><a href="#Switch-and-Route" class="headerlink" title="Switch and Route"></a>Switch and Route</h2><ul>
+<li><code>&lt;Switch&gt;</code> is unique in that it renders a route exclusively. It will look through the <code>&lt;Route&gt;</code>s from top to bottom and render the first match. We could create a <code>&lt;NoMatch&gt;</code> and put it into the last <code>&lt;Route&gt;</code> as a 404 page.</li>
+<li>In contrast, if we don’t wrap the <code>&lt;Route&gt;</code>s into <code>&lt;Switch&gt;</code>, every <code>&lt;Route&gt;</code> that matches the location renders inclusively. This is a delicate design to enable us to compose our <code>&lt;Route&gt;</code>s.</li>
+</ul>
+<h2 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h2><p>Rendering a <Redirect> will navigate to a new location. The new location will <strong>override the current location in the history stack</strong>, like server-side redirects (HTTP 3xx) do. So it is a good way to elegantly route unauthenticated user away from locations that require authentication, and they will not get back to the authenticated locating by hitting the “Back” button.</p>
+<h1 id="AuthenticatedRoute-and-UnauthenticatedRoute"><a href="#AuthenticatedRoute-and-UnauthenticatedRoute" class="headerlink" title="AuthenticatedRoute and UnauthenticatedRoute"></a>AuthenticatedRoute and UnauthenticatedRoute</h1><p>There are some pages that we only want the user to see when they are not authenticated, for example, <code>/signup</code> and <code>/login</code>; There are also pages that we only want authenticated user to see, for example, <code>/notes/{id}</code>.</p>
+<p>To achieve this, we can wrap <code>Route</code> into <code>AuthenticatedRoute</code> and <code>UnauthenticatedRoute</code> components, and ensure the user is redirected elegantly if they wade to somewhere they don’t belong.</p>
+<p>The step-through guideline in Serverless Stack is <a href="https://serverless-stack.com/chapters/create-a-route-that-redirects.html" target="_blank" rel="noopener">Create a Route That Redirects</a>.</p>
+<h1 id="Extract-query-string-with-given-name-by-Regex"><a href="#Extract-query-string-with-given-name-by-Regex" class="headerlink" title="Extract query string with given name by Regex"></a>Extract query string with given name by Regex</h1><p>This is a pretty cool usage of <code>RegExp</code> and its <code>exec</code> method.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">querystring</span>(<span class="params">name, url = window.location.href</span>) </span>&#123;</span><br><span class="line">    name = name.replace(<span class="regexp">/[[]]/g</span>, <span class="string">"\\$&amp;"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"[?&amp;]"</span> + name + <span class="string">"(=([^&amp;#]*)|&amp;|#|$)"</span>, <span class="string">"i"</span>);</span><br><span class="line">    <span class="keyword">const</span> results = regex.exec(url);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!results) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!results[<span class="number">2</span>]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(results[<span class="number">2</span>].replace(<span class="regexp">/\+/g</span>, <span class="string">" "</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Given <code>name</code> of value <code>&quot;redirect&quot;</code> and <code>url</code> of value <code>&quot;http://localhost:3000/login?redirect=/notes&quot;</code>, the result of <code>regex.exec(url)</code> is:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">'?redirect=/notes/26e9b6b0-fb14-11ea-bcae-ef1bd0468689'</span>,</span><br><span class="line">  <span class="string">'=/notes/26e9b6b0-fb14-11ea-bcae-ef1bd0468689'</span>,</span><br><span class="line">  <span class="string">'/notes/26e9b6b0-fb14-11ea-bcae-ef1bd0468689'</span>,</span><br><span class="line">  index: <span class="number">27</span>,</span><br><span class="line">  input: <span class="string">'http://localhost:3000/login?redirect=/notes/26e9b6b0-fb14-11ea-bcae-ef1bd0468689'</span>,</span><br><span class="line">  groups: <span class="literal">undefined</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>The array of the first results are refined step by step with the <code>()</code>s specified in the <code>RegExp</code> construction: <code>&quot;[?&amp;]&quot; + name + &quot;(=([^&amp;#]*)|&amp;|#|$)&quot;</code>.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent" target="_blank" rel="noopener"><code>decodeURIComponent()</code></a> function decodes a Uniform Resource Identifier (URI) component previously created by encodeURIComponent or by a similar routine. <code>%20%28correct%29</code> decoded -&gt; <code>(correct)</code></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

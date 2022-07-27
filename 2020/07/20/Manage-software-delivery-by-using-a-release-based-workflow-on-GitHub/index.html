@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Manage software delivery by using a release based workflow on GitHub - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-a-release-based-workflow"><span class="toc-text">What is a release based workflow?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub-Project-Boards"><span class="toc-text">GitHub Project Boards</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tracking-specific-milestones"><span class="toc-text">Tracking specific milestones</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Selecting-a-branching-strategy"><span class="toc-text">Selecting a branching strategy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-with-long-lived-branches"><span class="toc-text">Working with long-lived branches</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servicing-long-lived-branches"><span class="toc-text">Servicing long-lived branches</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Protect-release-branches"><span class="toc-text">Protect release branches</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Releasing-to-consumers"><span class="toc-text">Releasing to consumers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-release-based-workflow-GitHub-Learning-Lab"><span class="toc-text">Create a release based workflow: GitHub Learning Lab</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub-Releases"><span class="toc-text">GitHub Releases</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Pull-Request-shipping-from-release-branch-to-master"><span class="toc-text">Pull Request shipping from release branch to master</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Release-Drafter"><span class="toc-text">Release Drafter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Release"><span class="toc-text">First Release</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Manage software delivery by using a release based workflow on GitHub
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-20 21:10:57</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#DevOps" title="DevOps">DevOps</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I was taking the <a href="https://docs.microsoft.com/en-gb/learn/modules/release-based-workflow-github/" target="_blank" rel="noopener">Microsoft Learn module</a>: Manage software delivery by using a release based workflow on GitHub. I will Learn to implement a <strong>release based workflow</strong> on GitHub using <strong>project boards, branches, and releases</strong>.</p>
+<h1 id="What-is-a-release-based-workflow"><a href="#What-is-a-release-based-workflow" class="headerlink" title="What is a release based workflow?"></a>What is a release based workflow?</h1><p>A release based workflow is a set of patterns and policies that focus on releasing software.<br>A release based workflow drives three different parts of the release cycle: </p>
+<ul>
+<li>managing the project, </li>
+<li>selecting a branching strategy, </li>
+<li>releasing to customers.</li>
+</ul>
+<h1 id="GitHub-Project-Boards"><a href="#GitHub-Project-Boards" class="headerlink" title="GitHub Project Boards"></a>GitHub Project Boards</h1><p>In GitHub, iterations are managed as <strong>projects</strong>.<br>The dominant feature of a project is its <strong>board</strong>. The board is the central plan of record for the iteration and contains all of the <strong>cards</strong> that are to be resolved.<br>A card can represent an issue, a pull request, or even just a generic note.<br>The card’s project status is integrated across the repository.</p>
+<p>By using a project board, all stakeholders have an easy way to understand the status and velocity of a project. You can also create boards that are scoped to individual users or a collection of repositories owned by an organization.</p>
+<h1 id="Tracking-specific-milestones"><a href="#Tracking-specific-milestones" class="headerlink" title="Tracking specific milestones"></a>Tracking specific milestones</h1><p>Milestones are similar to project tracking in that there is an emphasis on the prioritized completion of issues and pull requests. However, where a project may be focused on the team’s process, <strong>a milestone is focused on the product</strong>.</p>
+<h1 id="Selecting-a-branching-strategy"><a href="#Selecting-a-branching-strategy" class="headerlink" title="Selecting a branching strategy"></a>Selecting a branching strategy</h1><p>There are several strategies for managing releases. Some teams might use long-lived branches, like production, dev, and master. Some teams use simple feature branches, releasing from the master branch.<br>No one strategy is better than another. We always recommend <strong>being intentional about branches and reducing long-lived branches whenever possible</strong>.</p>
+<h2 id="Working-with-long-lived-branches"><a href="#Working-with-long-lived-branches" class="headerlink" title="Working with long-lived branches"></a>Working with long-lived branches</h2><p>A long-lived branch is a Git branch that is never deleted.<br>eg:</p>
+<ul>
+<li>master, release-v1.0, release-v2.0</li>
+<li>master, dev, production</li>
+</ul>
+<h2 id="Servicing-long-lived-branches"><a href="#Servicing-long-lived-branches" class="headerlink" title="Servicing long-lived branches"></a>Servicing long-lived branches</h2><p>Git does offer an automated solution to apply certain updates into long-lived branches, without shoving all updates onto them, in the form of its cherry-pick command.</p>
+<h2 id="Protect-release-branches"><a href="#Protect-release-branches" class="headerlink" title="Protect release branches"></a>Protect release branches</h2><p>You can protect release branches. This means you can protect branches from force pushes or accidental deletion. This is already configured in this repository.</p>
+<h1 id="Releasing-to-consumers"><a href="#Releasing-to-consumers" class="headerlink" title="Releasing to consumers"></a>Releasing to consumers</h1><p>When a product version is ready to be released, GitHub simplifies the process of packaging it up and notifying consumers.</p>
+<h1 id="Create-a-release-based-workflow-GitHub-Learning-Lab"><a href="#Create-a-release-based-workflow-GitHub-Learning-Lab" class="headerlink" title="Create a release based workflow: GitHub Learning Lab"></a>Create a release based workflow: GitHub Learning Lab</h1><p><a href="https://github.com/niuniuanran/release-based-workflow" target="_blank" rel="noopener">This repository</a> contains my learning with GitHub Learning Lab.</p>
+<h2 id="GitHub-Releases"><a href="#GitHub-Releases" class="headerlink" title="GitHub Releases"></a>GitHub Releases</h2><p>GitHub Releases point to a specific commit. Releases can include release notes in Markdown, and attached binaries.</p>
+<h1 id="Pull-Request-shipping-from-release-branch-to-master"><a href="#Pull-Request-shipping-from-release-branch-to-master" class="headerlink" title="Pull Request shipping from release branch to master"></a>Pull Request shipping from release branch to master</h1><p>You should open a pull request between your release branch and master as early as possible. It might be open for a long time, and that’s okay. The pull request corresponds to the work in the project board.</p>
+<p>The pull request description should:</p>
+<ul>
+<li>Include a brief description of the pull request</li>
+<li>Include a task list of expected features</li>
+<li>Propose a ship date</li>
+</ul>
+<p><a href="https://github.com/niuniuanran/release-based-workflow/pull/6" target="_blank" rel="noopener">This</a> is the long-lived pull request created.<br>Short-living feature pull requests that have been merged into the <code>release-v1.0</code> branch will be visible in the long-living, <code>release-v1.0 -&gt; master</code> pull request. </p>
+<p>Usually, you delete a branch after merging. The release branch is protected, so it cannot be deleted when you merge this pull request.</p>
+<h1 id="Release-Drafter"><a href="#Release-Drafter" class="headerlink" title="Release Drafter"></a>Release Drafter</h1><p><a href="https://github.com/apps/release-drafter" target="_blank" rel="noopener">Release Drafter</a> drafts your next release notes as pull requests are merged into master. It is configured with <a href="https://github.com/niuniuanran/release-based-workflow/blob/master/.github/release-drafter.yml" target="_blank" rel="noopener">.github/release-drafter.yml</a>.</p>
+<img src="drafted-release.png" alt="" width="700px"/>
+
+<h1 id="First-Release"><a href="#First-Release" class="headerlink" title="First Release"></a>First Release</h1><img src="first-release.png" alt="" width="800px"/>
+
+<p><a href="https://github.com/niuniuanran/release-based-workflow/releases/tag/v1.0.0" target="_blank" rel="noopener">This</a> is the first official release. As can been seen, the source code is provided as <code>.zip</code> and <code>tar.gz</code> packages. I can also choose to upload binary code to the release.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

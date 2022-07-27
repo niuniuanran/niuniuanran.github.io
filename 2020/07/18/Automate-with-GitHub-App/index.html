@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Automate with GitHub App - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure-webhook-and-GitHub-App"><span class="toc-text">Configure webhook and GitHub App</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub-APIs-and-Webhooks"><span class="toc-text">GitHub APIs and Webhooks</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ToDo"><span class="toc-text">ToDo</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Automate with GitHub App
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-07-18 14:16:15</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#DevOps" title="DevOps">DevOps</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I was taking the <a href="https://docs.microsoft.com/en-gb/learn/modules/automate-devops-github-apps/" target="_blank" rel="noopener">Microsoft Module: Automate DevOps processes by using GitHub Apps</a>, which comes with an interactive <a href="https://lab.github.com/githubtraining/getting-started-with-github-apps" target="_blank" rel="noopener">GitHub Learning Lab</a>. It is an interesting experience getting started with using GitHub Apps to enhance the team’s GitHub experiences.</p>
+<p><a href="https://probot.github.io/apps/" target="_blank" rel="noopener">Probot</a> is where a wide range of GitHub apps could be found and installed.<br>Once installed, GitHub Apps acts like a “user” that conduct jobs on their own behalf.</p>
+<p>GitHub Apps facilitate <a href="https://github.community/t/scalable-continuous-integration-ci-patterns/13501" target="_blank" rel="noopener">continuous integration</a>. It could use webhook or poll patterns, but webhook is prefered.<br><a href="https://smee.io/" target="_blank" rel="noopener">Smee.io</a> is a webhook payload delivery service.</p>
+<h1 id="Configure-webhook-and-GitHub-App"><a href="#Configure-webhook-and-GitHub-App" class="headerlink" title="Configure webhook and GitHub App"></a>Configure webhook and GitHub App</h1><p>This is the initial behaviour of the <a href="https://github.com/apps/request-info" target="_blank" rel="noopener">Request info</a> GitHub app:</p>
+<img src="start.png" alt="" width="800px"/>
+
+<p>The Request info requires the <a href="https://github.com/niuniuanran/getting-started-github-apps/blob/master/.github/config.yml" target="_blank" rel="noopener">/.github/config.yml</a> for configuration. </p>
+<p><a href="https://github.com/niuniuanran/getting-started-github-apps/issues/4" target="_blank" rel="noopener">This blank issue</a> is a demo of how the customised request info behaves.</p>
+<h1 id="GitHub-APIs-and-Webhooks"><a href="#GitHub-APIs-and-Webhooks" class="headerlink" title="GitHub APIs and Webhooks"></a>GitHub APIs and Webhooks</h1><p><a href="https://developer.github.com/v3/apps/available-endpoints/" target="_blank" rel="noopener">GitHub APIs</a> and Webhooks go hand in hand, but the distinction between them is important.</p>
+<ul>
+<li>Webhooks are specific “noise” interpreters. They listen for specific events to occur as their trigger.</li>
+<li>When an event is triggered, the vastly more detailed GitHub API gives the bot an excessive amount of information (as a payload). The bot takes this payload, alters it slightly, and hands it back to GitHub’s API, which delivers the change back to your repository.</li>
+<li>The GitHub API can send information that makes changes to the platform, but only when prompted via webhook.</li>
+<li>The GitHub API and GitHub’s webhooks are both key components of GitHub Apps.</li>
+</ul>
+<h1 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h1><p>Read this article: <a href="https://github.community/t/scalable-continuous-integration-ci-patterns/13501" target="_blank" rel="noopener">Scalable Continuous Integration (CI) Patterns</a>, it looks interesting!</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

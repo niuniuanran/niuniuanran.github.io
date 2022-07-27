@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        IAM Policies: Inline-Managed, Resource Based-Identity Based  - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Identity-based-and-resource-based-policy"><span class="toc-text">Identity-based and resource-based policy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Identity-based-policy"><span class="toc-text">Identity-based policy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resource-based-policy"><span class="toc-text">Resource-based policy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Managed-Policies-and-Inline-Policies"><span class="toc-text">Managed Policies and Inline Policies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Managed-Policies"><span class="toc-text">AWS Managed Policies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Customer-Managed-Policies"><span class="toc-text">Customer Managed Policies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Inline-Policies"><span class="toc-text">Inline Policies</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-a-policy-looks-like"><span class="toc-text">What a policy looks like</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        IAM Policies: Inline-Managed, Resource Based-Identity Based 
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-08-06 10:32:30</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#AWS" title="AWS">AWS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AWS Lab Session Preparation" title="AWS Lab Session Preparation">AWS Lab Session Preparation</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>A policy is an object in AWS that, when associated with an identity or resource, defines their permissions. </p>
+<h1 id="Identity-based-and-resource-based-policy"><a href="#Identity-based-and-resource-based-policy" class="headerlink" title="Identity-based and resource-based policy"></a>Identity-based and resource-based policy</h1><p>When you create a permissions policy to restrict access to a resource, you can choose <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html" target="_blank" rel="noopener">an identity-based policy or a resource-based policy</a>.</p>
+<h2 id="Identity-based-policy"><a href="#Identity-based-policy" class="headerlink" title="Identity-based policy"></a>Identity-based policy</h2><p>Identity-based policies are attached to an IAM user, group, or role.</p>
+<h2 id="Resource-based-policy"><a href="#Resource-based-policy" class="headerlink" title="Resource-based policy"></a>Resource-based policy</h2><p>Resource-based policies are attached to a resource.  </p>
+<p>The IAM service supports only one type of resource-based policy called a role trust policy, which is attached to an IAM role. <strong>[An IAM role is both an identity and a resource that supports resource-based policies]</strong>.<br>For that reason, you must attach <strong>both a trust policy and an identity-based policy to an IAM role</strong>. </p>
+<h1 id="Managed-Policies-and-Inline-Policies"><a href="#Managed-Policies-and-Inline-Policies" class="headerlink" title="Managed Policies and Inline Policies"></a>Managed Policies and Inline Policies</h1><p>When you need to set the permissions for an identity in IAM, you must decide whether to use <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html" target="_blank" rel="noopener">an AWS managed policy, a customer managed policy, or an inline policy.</a></p>
+<h2 id="AWS-Managed-Policies"><a href="#AWS-Managed-Policies" class="headerlink" title="AWS Managed Policies"></a>AWS Managed Policies</h2><p>An AWS managed policy is a standalone policy that is created and administered by AWS. Standalone policy means that the policy has its own Amazon Resource Name (ARN) that includes the policy name. </p>
+<p>AWS managed policies are designed to provide permissions for many common use cases. </p>
+<p>You cannot change the permissions defined in AWS managed policies. AWS occasionally updates the permissions defined in an AWS managed policy. When AWS does this, the update affects all principal entities (users, groups, and roles) that the policy is attached to. </p>
+<h2 id="Customer-Managed-Policies"><a href="#Customer-Managed-Policies" class="headerlink" title="Customer Managed Policies"></a>Customer Managed Policies</h2><p>You can create standalone policies that you administer in your own AWS account, which we refer to as customer managed policies. You can then attach the policies to multiple principal entities in your AWS account. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy. Each policy also have its own ARN.</p>
+<p>A great way to create a customer managed policy is to start by copying an existing AWS managed policy. That way you know that the policy is correct at the beginning and all you need to do is customize it to your environment.</p>
+<h2 id="Inline-Policies"><a href="#Inline-Policies" class="headerlink" title="Inline Policies"></a>Inline Policies</h2><ul>
+<li><p>For Identity-based policy:</p>
+<ul>
+<li>An inline policy is a policy that’s <strong>embedded in an IAM identity</strong> (a user, group, or role). </li>
+<li>The policy is an inherent part of the identity. You can create a policy and embed it in a identity, either when you create the identity or later.</li>
+</ul>
+</li>
+<li><p>For Resource-based policy:</p>
+<ul>
+<li>Resource-based policies are inline only, not managed.</li>
+</ul>
+</li>
+</ul>
+<h1 id="What-a-policy-looks-like"><a href="#What-a-policy-looks-like" class="headerlink" title="What a policy looks like"></a>What a policy looks like</h1><p>A policy defines what actions are allowed or denied for specific AWS resources. This policy is granting permission to List and Describe information about EC2, Elastic Load Balancing, CloudWatch and Auto Scaling. This ability to view resources, but not modify them, is ideal for assigning to a Support role.</p>
+<p>The basic structure of the statements in an IAM Policy is:</p>
+<ul>
+<li><strong>Effect</strong> says whether to Allow or Deny the permissions.</li>
+<li><strong>Action</strong> specifies the API calls that can be made against an AWS Service (eg cloudwatch:ListMetrics).</li>
+<li><strong>Resource</strong> defines the scope of entities covered by the policy rule (eg a specific Amazon S3 bucket or Amazon EC2 instance, or which means any resource*).</li>
+</ul>
+<p><a href="https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess$serviceLevelSummary" target="_blank" rel="noopener">AmazonEC2ReadOnlyAccess</a>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     &quot;Version&quot;: &quot;2012-10-17&quot;,</span><br><span class="line">     &quot;Statement&quot;: [</span><br><span class="line">       &#123;</span><br><span class="line">         &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">         &quot;Action&quot;: &quot;ec2:Describe*&quot;,</span><br><span class="line">         &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">         &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">         &quot;Action&quot;: &quot;elasticloadbalancing:Describe*&quot;,</span><br><span class="line">         &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">         &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">         &quot;Action&quot;: [</span><br><span class="line">           &quot;cloudwatch:ListMetrics&quot;,</span><br><span class="line">           &quot;cloudwatch:GetMetricStatistics&quot;,</span><br><span class="line">           &quot;cloudwatch:Describe*&quot;</span><br><span class="line">         ],</span><br><span class="line">         &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">         &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">         &quot;Action&quot;: &quot;autoscaling:Describe*&quot;,</span><br><span class="line">         &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">       &#125;</span><br><span class="line">     ]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
