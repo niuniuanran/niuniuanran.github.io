@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        A continuous improvement development journey with Nathan - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#My-development-goal"><span class="toc-text">My development goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-I-approached-it-in-the-first-iteration"><span class="toc-text">How I approached it in the first iteration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Plan"><span class="toc-text">Plan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Challenges"><span class="toc-text">Challenges</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-required-fields-array-lengths-🤔"><span class="toc-text">1- required fields&#x2F; array lengths 🤔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-cent-lt-gt-dollars"><span class="toc-text">2 - cent &lt;-&gt; dollars</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-flag-errors-for-individual-inputs-and-disable-enable-buttons-correspondingly"><span class="toc-text">3 - flag errors for individual inputs, and disable&#x2F;enable buttons correspondingly</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Organization-of-components"><span class="toc-text">4 - Organization of components</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#My-feelings-after-the-1st-iteration"><span class="toc-text">My feelings after the 1st iteration</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#My-attempts-to-mitigate-the-ugly-things"><span class="toc-text">My attempts to mitigate the ugly things</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-discussion-with-Nathan-to-go-through-the-1st-iteration"><span class="toc-text">My discussion with Nathan to go through the 1st iteration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Do-authentic-modularizing"><span class="toc-text">Do authentic modularizing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-concept-of-“Adapter”"><span class="toc-text">The concept of “Adapter”!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stop-and-track-where-the-smell-is-baked"><span class="toc-text">Stop and track where the smell is baked</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-2nd-iteration-after-discussion-with-Nathan"><span class="toc-text">My 2nd iteration after discussion with Nathan</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-challenge-1-required-fields-array-lengths"><span class="toc-text">Resolve challenge 1: required fields&#x2F; array lengths</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-challenge-2-cent-lt-gt-dollars"><span class="toc-text">Resolve challenge 2: cent &lt;-&gt; dollars</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-challenge-3-flag-errors-for-individual-inputs-and-disable-enable-buttons-correspondingly"><span class="toc-text">Resolve challenge 3: flag errors for individual inputs, and disable&#x2F;enable buttons correspondingly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-challenge-4-Organization-of-components"><span class="toc-text">Resolve challenge 4: Organization of components</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-general-reflections-at-this-stage"><span class="toc-text">Some general reflections at this stage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#To-be-continued"><span class="toc-text">To be continued</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        A continuous improvement development journey with Nathan
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-07-27 15:16:01</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Maintainable Software" title="Maintainable Software">Maintainable Software</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#WIP" title="WIP">WIP</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="My-development-goal"><a href="#My-development-goal" class="headerlink" title="My development goal"></a>My development goal</h2><p>I am creating a modal to allow people configure how they want to accept tips.<br>There are three types: fixed amounts, percentage, smart threshold <a href="https://stripe.com/docs/api/terminal/configuration/object#terminal_configuration_object-tipping" target="_blank" rel="noopener">Stripe documentation here</a>. The view is already nicely designed so my goal is to implement the designed view and create the correct model to map from the view to the object expected by Stripe (our backend service actually, but similar thing).</p>
+<h2 id="How-I-approached-it-in-the-first-iteration"><a href="#How-I-approached-it-in-the-first-iteration" class="headerlink" title="How I approached it in the first iteration"></a>How I approached it in the first iteration</h2><h3 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h3><p>I was easily addicted to the data structure provided by Stripe 😂:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  fixed_amounts: [&lt;integer in cents&gt;, &lt;integer in cents&gt;, &lt;integer in cents&gt;],</span><br><span class="line">  percentages: [&lt;integer&gt;, &lt;integer&gt;, &lt;integer&gt;],</span><br><span class="line">  smart_tip_threshold: &lt;integer&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>I wanted every component to use this data structure, and want the editing form component to do “surgical” operations on this object when user makes a change in the input.</p>
+<h3 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h3><h4 id="1-required-fields-array-lengths-🤔"><a href="#1-required-fields-array-lengths-🤔" class="headerlink" title="1- required fields/ array lengths 🤔"></a>1- required fields/ array lengths 🤔</h4><p>Because I want to map the array to three inputs, I immediately faced the issue of what happens if the array is undefined/has less than three values. So I made the first ugly thing (I thought it was cute back then 🐶)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  fixed_amounts: [<span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>],</span><br><span class="line">  percentages: [<span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>],</span><br><span class="line">  smart_tip_threshold: <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Then as I mentioned, I planned a “surgical” approach to change the object, I heavily used this helper method to do some surgeries on the object while user is updating the input:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Set array's element at given index to the given value</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> setValueAtIndex = <span class="xml"><span class="tag">&lt;<span class="name">T</span>&gt;</span>(</span></span><br><span class="line"><span class="xml">  array: T[],</span></span><br><span class="line"><span class="xml">  value: T,</span></span><br><span class="line"><span class="xml">  index: number</span></span><br><span class="line"><span class="xml">): T[] =&gt; [...array.slice(0, index), value, ...array.slice(index + 1)]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-cent-lt-gt-dollars"><a href="#2-cent-lt-gt-dollars" class="headerlink" title="2 - cent &lt;-&gt; dollars"></a>2 - cent &lt;-&gt; dollars</h4><p>We want to display dollars and let user edit in dollars, but the data structure I’m addicted to is in cents. The issue is in the conversion, rounding issues will happen. e.g. if user type 6.4444, input will become 6.444399999999999<br>So I created a second ugly thing to keep track of the object while user is editing.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> interface TippingConfigurationInEdit &#123;</span><br><span class="line">  fixed_amounts_in_dollar: <span class="built_in">Array</span>&lt;number | <span class="literal">undefined</span>&gt;</span><br><span class="line">  percentages: <span class="built_in">Array</span>&lt;number | <span class="literal">undefined</span>&gt;</span><br><span class="line">  smart_tip_threshold_in_dollar?: number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This also leads to some complicated logic to convert <code>TippingConfigurationInEdit</code> to the object of the original structure in cents + clear the unexpected fields (e.g. clear percentages if user chose to use fixed amounts).</p>
+<h4 id="3-flag-errors-for-individual-inputs-and-disable-enable-buttons-correspondingly"><a href="#3-flag-errors-for-individual-inputs-and-disable-enable-buttons-correspondingly" class="headerlink" title="3 - flag errors for individual inputs, and disable/enable buttons correspondingly"></a>3 - flag errors for individual inputs, and disable/enable buttons correspondingly</h4><p>Well, once I have something like <code>TippingConfigurationInEdit</code>, there’s nothing too wired for me to feel comfortable to make. So I made this to keep track of each fields’ errors:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> interface TippingConfigurationErrors &#123;</span><br><span class="line">  fixed_amounts_in_dollar_errors: <span class="built_in">Array</span>&lt;boolean | <span class="literal">undefined</span>&gt;</span><br><span class="line">  percentages_errors: <span class="built_in">Array</span>&lt;boolean | <span class="literal">undefined</span>&gt;</span><br><span class="line">  smart_tip_threshold_error: boolean | <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This is where I could have noticed some violation of DRY principle - the logic to check that no errors are present for the current configuration is almost exactly the same as the logic to check all required fields are filled (and equally cumbersome given that not all fields are useful for fixed amount/percentage configuration), yet there’s no easy way to extract this logic.</p>
+<h4 id="4-Organization-of-components"><a href="#4-Organization-of-components" class="headerlink" title="4 - Organization of components"></a>4 - Organization of components</h4><p>There are two steps when user are adding a tipping configuration: select outlet -&gt; tipping configuration.</p>
+<p>Then there are some fine edge cases for design:</p>
+<ol>
+<li>if there is only one outlet, go directly to tipping configuration</li>
+<li>if user clicks “edit” button instead of “add new”, go directly to tipping configuration too, but with different button text and headings for the modal</li>
+<li>allow user to go back to outlet selection if there are multiple outlets and user is creating a new one</li>
+</ol>
+<p>Because my components are very affective with each other, the parent component controlling which model to open become very “stateful”. I wound up having a state structure like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">type TippingModalStep =</span><br><span class="line">  | &#123; <span class="attr">step</span>: <span class="string">'off'</span> &#125;</span><br><span class="line">  | &#123;</span><br><span class="line">      step: <span class="string">'selectOutlet'</span></span><br><span class="line">      outlets: Outlet[]</span><br><span class="line">    &#125;</span><br><span class="line">  | &#123;</span><br><span class="line">      step: <span class="string">'editConfig'</span></span><br><span class="line">      outlet: Outlet</span><br><span class="line">      isNewConfig: boolean</span><br><span class="line">      allowBack: boolean</span><br><span class="line">      <span class="comment">// TODO pass original tipping config information to edit modal</span></span><br><span class="line">    &#125;</span><br><span class="line">  | &#123;</span><br><span class="line">      step: <span class="string">'deleteConfig'</span></span><br><span class="line">      outlet: Outlet</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>See the <code>TODO</code>, this is not even all of it yet:)</p>
+<h3 id="My-feelings-after-the-1st-iteration"><a href="#My-feelings-after-the-1st-iteration" class="headerlink" title="My feelings after the 1st iteration"></a>My feelings after the 1st iteration</h3><p>I was super relieved when everything was working and the UI behaviours met the requirement 😌 I actually feel quite happy that I “hacked🥷” the way through it , like, <code>I knew it was not pretty here and there, but what can I do when Stripe gives me this cumbersome data structure?</code> and I even told hubby proudly, <code>I did so well surviving the mess 😂</code></p>
+<h4 id="My-attempts-to-mitigate-the-ugly-things"><a href="#My-attempts-to-mitigate-the-ugly-things" class="headerlink" title="My attempts to mitigate the ugly things"></a>My attempts to mitigate the ugly things</h4><p>I did some efforts to mitigate ugly parts. I’m quite happy I did as it was very helpful for the continuous improvement:</p>
+<ol>
+<li>I added comments on the data structure like <code>TippingConfigurationInEdit</code> to explain what was happening and to help people understanding. (I read recently that too much non-doc comment itself is a good indicator of unmaintainable code, but I wasn’t relating this with what I was doing back then)</li>
+<li>I added lots of unit tests to the big fat util functions I created. These tests will not end up going into prod as the fat utils are not needed in the end, but having the tests in place helped a lot while I was refactoring and checking that only the “expected” tests are failing.</li>
+</ol>
+<h2 id="My-discussion-with-Nathan-to-go-through-the-1st-iteration"><a href="#My-discussion-with-Nathan-to-go-through-the-1st-iteration" class="headerlink" title="My discussion with Nathan to go through the 1st iteration"></a>My discussion with Nathan to go through the 1st iteration</h2><p>I was expecting to receive some great feedbacks from Nathan to further mitigate the ugly things, but I was not expecting that Nathan helped me discover a whole new path of approaching this.</p>
+<p>To start with summarizing some important thoughts I got from Nathan’s feedback and questions:</p>
+<h3 id="Do-authentic-modularizing"><a href="#Do-authentic-modularizing" class="headerlink" title="Do authentic modularizing"></a>Do authentic modularizing</h3><p>The whole point of modularizing things is to decouple and to isolate things. So I should not base child/grandchild component design decisions on their parents. More specifically for my approach, I shouldn’t have been so obsessed with the Stripe tipping config data structure that only the parent responsible for submitting it should know.</p>
+<p>Nathan demoed how he would look at the design and discover the “boundaries” between components. By contrast I keep starting from a parent and take things out when parents become too big. Both approaches are necessary from time to time, but the “boundary” way of thinking is what I lack when doing frontend dev.</p>
+<blockquote>
+<p>Don’t think about the child component in relationship to its parent, think about how you would write it itself! Then think about the data structure you need, and then put it to the parent.</p>
+</blockquote>
+<h3 id="The-concept-of-“Adapter”"><a href="#The-concept-of-“Adapter”" class="headerlink" title="The concept of “Adapter”!"></a>The concept of “Adapter”!</h3><p>Heard the word adapter from blogs but thought it was for larger systems converting big fat data into another set of big fat data. But actually it could be for converting the very “knowledgeable” stripe data structure into something nice and simple for a child component that only cares about basic tipping configuration instead of the dynamic one.</p>
+<p>Some nice <code>onChange</code> function will adapt the child component’s private, simplified data structure to the fat one.</p>
+<h3 id="Stop-and-track-where-the-smell-is-baked"><a href="#Stop-and-track-where-the-smell-is-baked" class="headerlink" title="Stop and track where the smell is baked"></a>Stop and track where the smell is baked</h3><p>I shouldn’t have stopped at mitigating smells.</p>
+<p>I should track up where the smells come from.</p>
+<p>For example, if I keep needing many <code>if</code> blocks to decide which field to operate, should these fields be put together from the very beginning? They are apparently not cohesive, why do they have to stay together?</p>
+<h2 id="My-2nd-iteration-after-discussion-with-Nathan"><a href="#My-2nd-iteration-after-discussion-with-Nathan" class="headerlink" title="My 2nd iteration after discussion with Nathan"></a>My 2nd iteration after discussion with Nathan</h2><h3 id="Resolve-challenge-1-required-fields-array-lengths"><a href="#Resolve-challenge-1-required-fields-array-lengths" class="headerlink" title="Resolve challenge 1: required fields/ array lengths"></a>Resolve challenge 1: required fields/ array lengths</h3><p>If I know I always need three fields, if I start from the child component, I will immediately know I don’t want an array. I want three fields, <code>option1</code> <code>option2</code> <code>option3</code>. Crystal clear all of a sudden 🔮</p>
+<h3 id="Resolve-challenge-2-cent-lt-gt-dollars"><a href="#Resolve-challenge-2-cent-lt-gt-dollars" class="headerlink" title="Resolve challenge 2: cent &lt;-&gt; dollars"></a>Resolve challenge 2: cent &lt;-&gt; dollars</h3><p>Following 1, if I create child’s own component, I can create as I need it - the child DOES NOT EVEN NEED TO KNOW THE CONCEPT OF CENTS, except in the ADAPTER!</p>
+<h3 id="Resolve-challenge-3-flag-errors-for-individual-inputs-and-disable-enable-buttons-correspondingly"><a href="#Resolve-challenge-3-flag-errors-for-individual-inputs-and-disable-enable-buttons-correspondingly" class="headerlink" title="Resolve challenge 3: flag errors for individual inputs, and disable/enable buttons correspondingly"></a>Resolve challenge 3: flag errors for individual inputs, and disable/enable buttons correspondingly</h3><p>Similarly, I could have another child’s private component, also with three fields instead of a boolean array, for <code>error1</code> <code>error2</code> <code>error3</code>. Again the child does not need to know anything else, so bye bye big data structure and many many <code>if</code> conditions for validation.</p>
+<h3 id="Resolve-challenge-4-Organization-of-components"><a href="#Resolve-challenge-4-Organization-of-components" class="headerlink" title="Resolve challenge 4: Organization of components"></a>Resolve challenge 4: Organization of components</h3><p>This relates back to the concept of modularization and decoupling. With well defined boundaries between components, a configuration modal will keep the knowledge about steps and going back and forward to itself.</p>
+<h2 id="Some-general-reflections-at-this-stage"><a href="#Some-general-reflections-at-this-stage" class="headerlink" title="Some general reflections at this stage"></a>Some general reflections at this stage</h2><p>It is good to have a first iteration that works in an ugly way, as this will 1) prove things can work 2) set some base grounds to collect feedback and make step-by-step improvements. So I shouldn’t feel bad that the first iteration is not pretty. It’s just that I shouldn’t stop there. Looking back at this journey with Sam he gave the same advice too and highlighted that this is a typical engineering journey 🐾 🐾</p>
+<p>I can be more proactive in looking for advice when things are not as nice as I want but I cannot think of a way to improve it. Instead of submitting a not-as-nice version for review and waiting for people to RE-discover the things I already smelled, I could have more proactive and ask for a discussion before I put the PR for review. This will make the conversation easier and save lots more RE-discover time.</p>
+<h3 id="To-be-continued"><a href="#To-be-continued" class="headerlink" title="To be continued"></a>To be continued</h3>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
