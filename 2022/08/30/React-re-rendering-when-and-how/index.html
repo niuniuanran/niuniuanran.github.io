@@ -151,6 +151,14 @@
         <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I want an interesting number input functionality:</p>
 <image src="./input.gif" width="600px"/>
 
+<p>I have multiple goals:</p>
+<ol>
+<li>The $ and % mode have different validation rules on the number value (e.g. maximum 999999.99 vs 100) and should be re-validated when either input or input type updated.</li>
+<li>For same invalid scenarios, $ and % have different error messages (e.g. <code>Please enter an amount</code> vs <code>Please enter a percentage</code>) and the error message should update accordingly when switching between $ and %.</li>
+<li>The <code>Save changes</code> button is enabled/disabled based on whether the value is valid</li>
+<li>The $ mode rounds number to 2 fixed decimal places, and % mode rounds to integer</li>
+</ol>
+
         
         <br />
         <div id="comment-container">
