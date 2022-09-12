@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Migrate a payment flow modal from Angular to React - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar1.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-the-existing-Angular-code-works"><span class="toc-text">How the existing Angular code works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make-a-“bridge”-between-the-React-component-and-the-Angular-site"><span class="toc-text">Make a “bridge” between the React component and the Angular site</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Move-the-flow’s-state-management-from-Angular-controller-to-a-useEffectReducer-hook"><span class="toc-text">Move the flow’s state management from Angular controller to a useEffectReducer hook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Angular-services"><span class="toc-text">Angular services</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Migrate a payment flow modal from Angular to React
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-09-08 22:39:25</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Angular" title="Angular">Angular</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I’ve been quite excited to do some Angular to React migration and finally! Possibly the hardest frontend ticket I’ve done, mostly because Angularjs was wired. Luckily Nathan had done some great examples to get ideas from.</p>
+<h2 id="How-the-existing-Angular-code-works"><a href="#How-the-existing-Angular-code-works" class="headerlink" title="How the existing Angular code works"></a>How the existing Angular code works</h2><p>So there’s a controller, there’s an html template, and there’s a modal service that renders the modal via:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> $q(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.Modal &lt;</span><br><span class="line">    ApiTransaction &gt;</span><br><span class="line">    &#123;</span><br><span class="line">      controller: &#123;the imported controller&#125;,</span><br><span class="line">       controllerAs: <span class="string">'$ctrl'</span>,</span><br><span class="line">      template: &#123;the imported html template&#125;,</span><br><span class="line">      amount,</span><br><span class="line">      <span class="comment">// some more arguments</span></span><br><span class="line">    &#125;</span><br><span class="line">      .then(<span class="function">(<span class="params">modal</span>) =&gt;</span> modal.closed)</span><br><span class="line">      .then(<span class="function">(<span class="params">transaction</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (transaction) &#123;</span><br><span class="line">          resolve(transaction)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          reject()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>It took me some time to understand what the <code>Modal</code> is doing here. So it is a factory:</p>
+<blockquote>
+<p>Factory is an angular function which is used to return the values. A value on demand is created by the factory, whenever a service or controller needs it. Once the value is created, it is reused for all services and controllers.</p>
+</blockquote>
+<p>It is a reusable factory that creates a generic Modal that resolves to a value (typed <code>ApiTransaction</code>) which is the resolved value of <code>modal.closed</code>.</p>
+<h2 id="Make-a-“bridge”-between-the-React-component-and-the-Angular-site"><a href="#Make-a-“bridge”-between-the-React-component-and-the-Angular-site" class="headerlink" title="Make a “bridge” between the React component and the Angular site"></a>Make a “bridge” between the React component and the Angular site</h2><ul>
+<li><a href="https://github.com/vend/reactular" target="_blank" rel="noopener">reactular</a> is a package made by Vend to allow you to use React component in Angular. This solves the meat of the problem.</li>
+<li>Then I need a new controller that instead of taking care of the full flow, just proxies the properties from the service to the Angularified React component (which is now a template too)</li>
+</ul>
+<h2 id="Move-the-flow’s-state-management-from-Angular-controller-to-a-useEffectReducer-hook"><a href="#Move-the-flow’s-state-management-from-Angular-controller-to-a-useEffectReducer-hook" class="headerlink" title="Move the flow’s state management from Angular controller to a useEffectReducer hook"></a>Move the flow’s state management from Angular controller to a useEffectReducer hook</h2><p>There are three main steps:</p>
+<ul>
+<li>Create a transaction via an API call</li>
+<li>Poll for the transaction until the transaction has reached a “finished” state e.g. Cancelled, declined, accepted, signature required</li>
+<li>Reflect the transaction state to user and get follow-up actions if required e.g. validate signature</li>
+</ul>
+<p>Before, it is done by a promise chain inside the controller, and the view change is done by a state owned by the controller, <code>this.workflow</code>.<br>Now to achieve similar “event-driven” state management, I use a <a href="https://www.npmjs.com/package/use-effect-reducer" target="_blank" rel="noopener">useEffectReducer</a> hook:</p>
+<ul>
+<li>The whole flow starts with an initial state and an initial effect</li>
+<li>When the effect finishes (promise resolves), it dispatches an event</li>
+<li>The reducer handles the event and 1) exec the next effect and 2) update the state -&gt; update the UI</li>
+</ul>
+<h2 id="Angular-services"><a href="#Angular-services" class="headerlink" title="Angular services"></a>Angular services</h2><ul>
+<li><code>$q</code>: I’ll understand it as similar to ES6 Promise for now, so that <code>$q((resolve, reject) =&gt; { // do things then resolve() // something go run then reject})</code>will map to<code>new Promise&lt;ApiTransaction&gt;((resolve, reject) =&gt; {// do things then resolve() // something go run then reject})</code>. This looks like a reasonable mapping for now, will come back if it turns out not to work.</li>
+<li><code>$timeout</code>: a wrapper for <code>window.setTimeout</code>, will replace <code>$timeout</code> with <code>setTimeout</code> and replace <code>$timeout.cancel</code> with <code>clearTimeout</code></li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

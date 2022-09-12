@@ -96,7 +96,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-text">Background</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Background"><span class="toc-text">Background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-1-stale-error-message"><span class="toc-text">Challenge 1: stale error message</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-quick-solution"><span class="toc-text">The quick solution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#But-why-Why-did-I-get-a-“Partial”-re-render"><span class="toc-text">But why? Why did I get a “Partial” re-render?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No-effect-that-is-triggered-by-errorMessages-and-updates-errorMessage-state"><span class="toc-text">No effect that is triggered by errorMessages and updates errorMessage state??</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-2-the-need-for-boiler-plate-code-to-convert-between-lt-gt"><span class="toc-text">Challenge 2: the need for boiler plate code to convert between % &lt;-&gt; $</span></a></li></ol>
 </div>
     
 </div>
@@ -155,9 +155,55 @@
 <ol>
 <li>The $ and % mode have different validation rules on the number value (e.g. maximum 999999.99 vs 100) and should be re-validated when either input or input type updated.</li>
 <li>For same invalid scenarios, $ and % have different error messages (e.g. <code>Please enter an amount</code> vs <code>Please enter a percentage</code>) and the error message should update accordingly when switching between $ and %.</li>
-<li>The <code>Save changes</code> button is enabled/disabled based on whether the value is valid</li>
-<li>The $ mode rounds number to 2 fixed decimal places, and % mode rounds to integer</li>
+<li>The <code>Save changes</code> button should be enabled/disabled based on whether the value is valid.</li>
+<li>The value updates should trigger state update in the parent.</li>
+<li>The $ mode rounds number to 2 fixed decimal places, and % mode rounds to integer, when switching between $ and % the rounding should be updated.</li>
 </ol>
+<h2 id="Challenge-1-stale-error-message"><a href="#Challenge-1-stale-error-message" class="headerlink" title="Challenge 1: stale error message"></a>Challenge 1: stale error message</h2><p>If I implement the input of two modes in one go:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;NumberInput</span><br><span class="line">errorMessages=&#123;inputType === InputType.Amount? AMOUNT_ERROR_MESSAGES : PERCENTAGE_ERROR_MESSAGES&#125;</span><br><span class="line">iconPosition=&#123;inputType === InputType.Amount? <span class="string">'left'</span> : <span class="string">'right'</span>&#125;</span><br><span class="line">&#123;...other props&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<p>The error message will be stale like this when I switch between:</p>
+<image src="./error.gif" width="300px"/>
+
+<p>This is interesting, from the position of the icon the <code>NumberInput</code> has been notified to re-render, but it did not re-render the error message 🤔</p>
+<h3 id="The-quick-solution"><a href="#The-quick-solution" class="headerlink" title="The quick solution"></a>The quick solution</h3><p>If I change to a switch case statement, the whole thing will be forced to re-render, and the problem is solved:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (inputType) &#123;</span><br><span class="line">    <span class="keyword">case</span> TippingOptionType.Amount: &#123;</span><br><span class="line">      <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">NumberInput</span></span></span></span><br><span class="line"><span class="xml">          errorMessages=&#123; AMOUNT_ERROR_MESSAGES&#125;</span></span><br><span class="line"><span class="xml">          iconPosition=&#123;'left'&#125;</span></span><br><span class="line"><span class="xml">          &#123;...other props&#125;</span></span><br><span class="line"><span class="xml">          &gt;)</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml">    case TippingOptionType.Amount: &#123;</span></span><br><span class="line">      return (&lt;NumberInput</span><br><span class="line">          errorMessages=&#123;PERCENTAGE_ERROR_MESSAGES&#125;</span><br><span class="line">          iconPosition=&#123;'right'&#125;</span><br><span class="line">          &#123;...other props&#125;</span><br><span class="line">          &gt;)</span><br><span class="line">    &#125;</span><br><span class="line">    default: &#123;</span><br><span class="line">      const _exhaustiveCheck: never = inputType</span><br><span class="line">      return _exhaustiveCheck</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="But-why-Why-did-I-get-a-“Partial”-re-render"><a href="#But-why-Why-did-I-get-a-“Partial”-re-render" class="headerlink" title="But why? Why did I get a “Partial” re-render?"></a>But why? Why did I get a “Partial” re-render?</h3><p>Looking into the implementation of <code>NumberInput</code>, the <code>errorMessage</code> state’s setter is invoked when:</p>
+<ul>
+<li>The <code>value</code> props passed to <code>NumberInput</code> has changed</li>
+<li>The user has changed the input box’s value or blurred the input</li>
+<li>If <code>showInitialError</code> is true, when the element first renders</li>
+</ul>
+<p>None of the three were triggered, this tells us:</p>
+<blockquote>
+<p>A props update does not cause React to re-render the element.<br>It just triggers the <code>useEffect</code> hook that subscribes to this props change,<br>and causes React to update the DOM that is reflected in the returned element.</p>
+</blockquote>
+<p>Because:</p>
+<ul>
+<li>there is no effect that is triggered by <code>errorMessages</code> and updates <code>errorMessage</code> state</li>
+<li><code>&lt;ErrorMessage&gt;</code> part of the returned DOM is not changed because <code>errorMessage</code> state did not change</li>
+</ul>
+<p>React does not think it needs to re-render the error message part, so it stays stale.</p>
+<h3 id="No-effect-that-is-triggered-by-errorMessages-and-updates-errorMessage-state"><a href="#No-effect-that-is-triggered-by-errorMessages-and-updates-errorMessage-state" class="headerlink" title="No effect that is triggered by errorMessages and updates errorMessage state??"></a>No effect that is triggered by <code>errorMessages</code> and updates <code>errorMessage</code> state??</h3><p>Now the part that seems off is that <code>errorMessages</code> props update does not trigger <code>errorMessage</code> state update</p>
+<p>The dependency chain looks like this:</p>
+<ul>
+<li><code>useCallback</code> <code>validateInput</code> depends on <code>errorMessages</code></li>
+<li><code>useCallback</code> <code>setValue</code> depends on the memorized callback <code>validateInput</code></li>
+<li>There is a <code>useEffect</code> that calls <code>validateInput</code> if <code>showInitialError</code> is true and <code>errorMessages</code> update, but when the value is <code>undefined</code> we want <code>showInitialError</code> to be <code>false</code> because we have an empty form.</li>
+</ul>
+<h2 id="Challenge-2-the-need-for-boiler-plate-code-to-convert-between-lt-gt"><a href="#Challenge-2-the-need-for-boiler-plate-code-to-convert-between-lt-gt" class="headerlink" title="Challenge 2: the need for boiler plate code to convert between % &lt;-&gt; $"></a>Challenge 2: the need for boiler plate code to convert between % &lt;-&gt; $</h2><p>This is the major reason I am very keen to replace the library component with a custom one. Any time user switches between %/$, there has to be a conversion like this * 3 on errors:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> convertPercentageErrorToAmountError = (</span><br><span class="line">  error: boolean | <span class="literal">undefined</span>,</span><br><span class="line">  value: number | string | <span class="literal">undefined</span></span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// if the number value now falls in between amount valid range, clear the error</span></span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      vn(value).toNumber() &lt;= AMOUNT_MAX &amp;&amp;</span><br><span class="line">      vn(value).toNumber() &gt; PERCENTAGE_MAX</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> error</span><br><span class="line">  &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>And a conversion like this * 3 on values:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if the value is a number, round to 0 decimals for percentage</span></span><br><span class="line"><span class="keyword">const</span> convertAmountToPercentage = <span class="function">(<span class="params">value: number | string | <span class="literal">undefined</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value &amp;&amp; vn(value).toFixed(<span class="number">0</span>)</span><br><span class="line">  &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>My initial plan:</p>
+<blockquote>
+<p>If when the tipping option changes, the number input gets re-rendered, then with <code>showInitialError={true}</code> (it will be true because the value will not be <code>undefined</code>), the values will be automatically validated, so the error will be automatically updated.</p>
+</blockquote>
+<p>However after digging into this plan, it looks that a custom component cannot really simplify the code to achieve our UI/UX need. Here’s why:</p>
+<p>As discussed in challenge 1, I need a useEffect that is explicitly triggered by the change. This will lead to an infinite loop because when the values are re-rounded and re-validated, the values are changed, then triggers the use effect again.</p>
 
         
         <br />
