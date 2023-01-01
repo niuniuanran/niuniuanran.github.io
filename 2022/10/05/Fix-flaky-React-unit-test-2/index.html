@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Fix flaky React unit test - 2 - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar1.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mock-implementation-of-a-hook-that-takes-a-callback-and-resolves-the-callback-asynchronously"><span class="toc-text">Mock implementation of a hook that takes a callback, and resolves the callback asynchronously</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#My-original-implementation"><span class="toc-text">My original implementation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Updated-implementation"><span class="toc-text">Updated implementation</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Fix flaky React unit test - 2
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-10-05 13:54:29</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Test" title="Test">Test</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Async" title="Async">Async</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>I wrote about fixing flaky test in June, here’s more discoveries over the last few months.<br>This time it’s mostly async-related.</p>
+<h2 id="Mock-implementation-of-a-hook-that-takes-a-callback-and-resolves-the-callback-asynchronously"><a href="#Mock-implementation-of-a-hook-that-takes-a-callback-and-resolves-the-callback-asynchronously" class="headerlink" title="Mock implementation of a hook that takes a callback, and resolves the callback asynchronously"></a>Mock implementation of a hook that takes a callback, and resolves the callback asynchronously</h2><h3 id="My-original-implementation"><a href="#My-original-implementation" class="headerlink" title="My original implementation"></a>My original implementation</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mockUseTransaction = jest.fn()</span><br><span class="line"></span><br><span class="line">jest.mock(<span class="string">'./hooks/use-transaction/useTransaction'</span>, () =&gt; (&#123;</span><br><span class="line">  useTransaction: <span class="function">(<span class="params">_: any, onComplete: (transaction: any</span>) =&gt;</span> <span class="keyword">void</span>) =&gt;</span><br><span class="line">    mockUseTransaction(onComplete),</span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">test(<span class="string">'reverses payment if user declines the signature'</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">     mockUseTransaction.mockImplementationOnce(</span><br><span class="line">       <span class="keyword">async</span> (onComplete: <span class="function">(<span class="params">transaction: any</span>) =&gt;</span> <span class="keyword">void</span>) =&gt; &#123;</span><br><span class="line">       <span class="comment">// mock the behavior of query loading</span></span><br><span class="line">       <span class="keyword">await</span> wait(<span class="number">10</span>)</span><br><span class="line">       onComplete(APPROVED_WITH_SIGNATURE_TRANSACTION)</span><br><span class="line">       &#125;</span><br><span class="line">     )</span><br></pre></td></tr></table></figure>
+
+<p>If I do not <code>await wait(10)</code>, I will get a warning:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: Cannot update a component (&#96;SwiperPaymentModal&#96;) while rendering a different component (&#96;ProcessingTransaction&#96;). To locate the bad setState() call inside &#96;ProcessingTransaction&#96;, follow the stack trace as described in https:&#x2F;&#x2F;reactjs.org&#x2F;link&#x2F;setstate-in-render</span><br></pre></td></tr></table></figure>
+
+<p>This is because when component is first rendered, <code>SwiperPaymentModal</code> starts from processing status, and tries to render <code>ProcessingTransaction</code>; When <code>onComplete</code> callback is invoked synchronously, the parent (<code>SwiperPaymentModal</code>) will change state via <code>useReducer</code>.</p>
+<p>Adding a <code>wait(10)</code> is not exactly “flaky” as it should always pass, but the waiting time is not elegant.</p>
+<h3 id="Updated-implementation"><a href="#Updated-implementation" class="headerlink" title="Updated implementation"></a>Updated implementation</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mockUseTransaction.mockImplementationOnce(</span><br><span class="line">  <span class="keyword">async</span> (onComplete: <span class="function">(<span class="params">transaction: any</span>) =&gt;</span> <span class="keyword">void</span>) =&gt; &#123;</span><br><span class="line">    onComplete(<span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(APPROVED_TRANSACTION))</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>I don’t really need 10ms, all I need is that <code>onComplete</code> is not invoked synchronously. Here we go.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
