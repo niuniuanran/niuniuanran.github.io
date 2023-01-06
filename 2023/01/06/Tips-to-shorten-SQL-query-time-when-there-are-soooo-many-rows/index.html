@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>
+        
+        Tips to shorten SQL query time when there are soooo many rows - Anran&#39;s Coding Elephant
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Sometimes rewarding, always fun </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar1.png" />
+        </div>
+        <div class="name">
+            <i>Anran Niu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            
+                <li>
+                    <a id="search">
+                        <i class="iconfont icon-sousuo1"></i>
+                        <span>SEARCH</span>
+                    </a>
+                </li>
+            
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Describe-what-I-want-to-query-accurately"><span class="toc-text">Describe what I want to query accurately</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-with-a-“native”-approach"><span class="toc-text">Start with a “native” approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#explain-see-how-the-query-will-be-executed"><span class="toc-text">explain: see how the query will be executed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Is-the-query-following-any-index"><span class="toc-text">Is the query following any index?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Can-looped-query-be-replaced-with-a-smart-join"><span class="toc-text">Can looped query be replaced with a smart join?</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Sometimes rewarding, always fun </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Tips to shorten SQL query time when there are soooo many rows
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2023-01-06 11:48:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Database" title="Database">Database</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>There are soooo many transactions and if I create a query that scans the whole table, it almost never finishes. Here are the steps I took to solve this with help from Ema.</p>
+<h2 id="Describe-what-I-want-to-query-accurately"><a href="#Describe-what-I-want-to-query-accurately" class="headerlink" title="Describe what I want to query accurately"></a>Describe what I want to query accurately</h2><p>If we know exactly what we want, we will notice the unnecessary scanning/joining/N+1 problem.</p>
+<p>To put today’s goal clear:</p>
+<blockquote>
+<p>I want to find out all the outlets that have been transacting using a specific payment type.</p>
+</blockquote>
+<h2 id="Start-with-a-“native”-approach"><a href="#Start-with-a-“native”-approach" class="headerlink" title="Start with a “native” approach"></a>Start with a “native” approach</h2><p>Here is the “native” implementation I did:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> outlet.id <span class="keyword">as</span> outlet_id, outlet.retailer_id, </span><br><span class="line"><span class="keyword">EXISTS</span>(<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> payment.transaction <span class="keyword">transaction</span> <span class="keyword">where</span> transaction.id &gt;= <span class="string">'1587232952939446272'</span> <span class="keyword">AND</span> transaction.retailer_id=outlet.retailer_id <span class="keyword">AND</span> transaction.payment_type_id = <span class="number">167</span> <span class="keyword">and</span> transaction.register_id <span class="keyword">in</span> (<span class="keyword">select</span> register.id <span class="keyword">from</span> vend.vend_register <span class="keyword">register</span> <span class="keyword">where</span> register.outlet_id=outlet.id))</span><br><span class="line"><span class="keyword">from</span> vend.vend_outlet outlet</span><br><span class="line"><span class="keyword">where</span> outlet.deleted_at <span class="keyword">is</span> <span class="literal">NULL</span> <span class="keyword">and</span> outlet.source_deleted_at <span class="keyword">is</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+
+<p>For the <code>transaction.id &gt;= &#39;1587232952939446272&#39;</code> see another note on using flake ID to retrieve creation time of the ID.</p>
+<p>Takes forever.</p>
+<h2 id="explain-see-how-the-query-will-be-executed"><a href="#explain-see-how-the-query-will-be-executed" class="headerlink" title="explain: see how the query will be executed"></a><code>explain</code>: see how the query will be executed</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> outlet.id <span class="keyword">as</span> outlet_id, outlet.retailer_id, </span><br><span class="line"><span class="keyword">EXISTS</span>(<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> payment.transaction <span class="keyword">transaction</span> <span class="keyword">where</span> transaction.id &gt;= <span class="string">'1587232952939446272'</span> <span class="keyword">AND</span> transaction.payment_type_id = <span class="number">167</span> <span class="keyword">and</span> transaction.register_id <span class="keyword">in</span> (<span class="keyword">select</span> register.id <span class="keyword">from</span> vend.vend_register <span class="keyword">register</span> <span class="keyword">where</span> register.outlet_id=outlet.id))</span><br><span class="line"><span class="keyword">from</span> vend.vend_outlet outlet</span><br><span class="line"><span class="keyword">where</span> outlet.deleted_at <span class="keyword">is</span> <span class="literal">NULL</span> <span class="keyword">and</span> outlet.source_deleted_at <span class="keyword">is</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+
+<p>Explain output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Seq Scan on vend_outlet outlet (cost&#x3D;0.00..23108866749.20 rows&#x3D;179496 width&#x3D;75)</span><br><span class="line">Filter: ((deleted_at IS NULL) AND (source_deleted_at IS NULL))</span><br><span class="line">SubPlan 1</span><br><span class="line">-&gt; Nested Loop Semi Join (cost&#x3D;423.08..128742.99 rows&#x3D;1 width&#x3D;0)</span><br><span class="line">-&gt; Bitmap Heap Scan on transaction (cost&#x3D;422.53..127818.52 rows&#x3D;107 width&#x3D;37)</span><br><span class="line">Recheck Cond: (retailer_id &#x3D; outlet.retailer_id)</span><br><span class="line">Filter: ((id &gt;&#x3D; &#39;1587232952939446272&#39;::text) AND (payment_type_id &#x3D; 167))</span><br><span class="line">-&gt; Bitmap Index Scan on idx_16548_retailer_id_idx (cost&#x3D;0.00..422.50 rows&#x3D;33858 width&#x3D;0)</span><br><span class="line">Index Cond: (retailer_id &#x3D; outlet.retailer_id)</span><br><span class="line">-&gt; Index Scan using vend_register_pkey on vend_register register (cost&#x3D;0.55..8.56 rows&#x3D;1 width&#x3D;37)</span><br><span class="line">Index Cond: (id &#x3D; transaction.register_id)</span><br><span class="line">Filter: (outlet_id &#x3D; outlet.id)</span><br></pre></td></tr></table></figure>
+
+<p>This query goes through outlets and find out if a transaction exists in the table. This is the classic N+1 problem:</p>
+<blockquote>
+<p>The N + 1 problem occurs when an application gets data from the database, and then loops through the result of that data. That means we call to the database again and again and again. In total, the application will call the database once for every row returned by the first query (N) plus the original query ( + 1).</p>
+</blockquote>
+<h2 id="Is-the-query-following-any-index"><a href="#Is-the-query-following-any-index" class="headerlink" title="Is the query following any index?"></a>Is the query following any index?</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    tablename,</span><br><span class="line">    indexname,</span><br><span class="line">    indexdef</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    pg_indexes</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    schemaname = <span class="string">'payment'</span></span><br><span class="line">    <span class="keyword">and</span> tablename = <span class="string">'transaction'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">    tablename,</span><br><span class="line">    indexname;</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<p>transaction<br>idx_16548_primary<br>CREATE UNIQUE INDEX idx_16548_primary ON payment.transaction USING btree (id)</p>
+<p>transaction<br>idx_16548_register_sale_payment_id<br>CREATE UNIQUE INDEX idx_16548_register_sale_payment_id ON payment.transaction USING btree (register_sale_payment_id)</p>
+<p>transaction<br>idx_16548_retailer_id_idx<br>CREATE INDEX idx_16548_retailer_id_idx ON payment.transaction USING btree (retailer_id)</p>
+<p>To speed up the query, find opportunities to retrieve data by index.</p>
+<p>For this query, at least we can add an additional <code>transaction.retailer_id=outlet.retailer_id</code> to speed up the querying of transaction.</p>
+<h2 id="Can-looped-query-be-replaced-with-a-smart-join"><a href="#Can-looped-query-be-replaced-with-a-smart-join" class="headerlink" title="Can looped query be replaced with a smart join?"></a>Can looped query be replaced with a smart join?</h2><p>All I need is a list of outlet ids, a <code>distinct</code> will help here</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">distinct</span> register.outlet_id</span><br><span class="line"><span class="keyword">FROM</span> payment.transaction <span class="keyword">transaction</span></span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> vend.vend_register <span class="keyword">register</span> <span class="keyword">on</span> register.id=transaction.register_id</span><br><span class="line"><span class="keyword">WHERE</span> transaction.id &gt;= <span class="string">'1575998929105846272'</span> <span class="keyword">AND</span> transaction.payment_type_id = <span class="number">167</span> </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> register.outlet_id, register.retailer_id</span><br></pre></td></tr></table></figure>
+
+<p>Explain result:<br>Unique (cost=5506058.17..5535235.22 rows=111317 width=74)<br>-&gt; Group (cost=5506058.17..5534956.93 rows=111317 width=74)<br>Group Key: register.outlet_id, register.retailer_id<br>-&gt; Gather Merge (cost=5506058.17..5533843.76 rows=222634 width=74)<br>Workers Planned: 2<br>-&gt; Group (cost=5505058.14..5507146.25 rows=111317 width=74)<br>Group Key: register.outlet_id, register.retailer_id<br>-&gt; Sort (cost=5505058.14..5505754.18 rows=278414 width=74)<br>Sort Key: register.outlet_id, register.retailer_id<br>-&gt; Parallel Hash Left Join (cost=89840.96..5467507.45 rows=278414 width=74)<br>Hash Cond: (transaction.register_id = register.id)<br>-&gt; Parallel Index Scan using idx_16548_primary on transaction (cost=0.57..5369620.99 rows=275737 width=37)<br>Index Cond: (id &gt;= ‘1575998929105846272’::text)<br>Filter: (payment_type_id = 167)<br>-&gt; Parallel Hash (cost=87137.62..87137.62 rows=92862 width=111)<br>-&gt; Parallel Seq Scan on vend_register register (cost=0.00..87137.62 rows=92862 width=111)</p>
+<p>No more nesting.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        <span style="font-size:1rem;font-weight:lighter">Link with Anran at:</span>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/niuniuanran">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/anran-niu-897b4b197">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        Created With <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
