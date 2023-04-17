@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-5032777697872834" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <title>
         
-        Anran&#39;s Coding Elephant
+        With Clause in SQL - Anran&#39;s Coding Elephant
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -95,6 +95,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recursive-CTE-Common-Table-Expression"><span class="toc-text">Recursive CTE(Common Table Expression)</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -119,49 +123,55 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-06</div>
-        <div class="post-info">
-            <a href="/2020/04/06/My-Next-js-Auth0-implementation/">
-                <h3>
-                    My Next.js Auth0 implementation
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Web Development" title="Web Development">Web Development</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Next.js" title="Next.js">Next.js</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#auth0" title="auth0">auth0</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        With Clause in SQL
     </div>
-    
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-01-06 14:25:38</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Database" title="Database">Database</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Define three average values based on different where conditions:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WITH</span> since_lspay(difference_in_days) <span class="keyword">as</span> (<span class="keyword">select</span> difference_in_days <span class="keyword">from</span> query_6437 <span class="keyword">where</span>  account_create_time &gt; <span class="string">'2021-07-01'</span>), </span><br><span class="line">     since_solpay(difference_in_days) <span class="keyword">as</span> (<span class="keyword">select</span> difference_in_days <span class="keyword">from</span> query_6437 <span class="keyword">where</span> account_create_time &gt; <span class="string">'2022-05-01'</span>), </span><br><span class="line">     since_sauron(difference_in_days) <span class="keyword">as</span> (<span class="keyword">select</span> difference_in_days <span class="keyword">from</span> query_6437 <span class="keyword">where</span> account_create_time &gt; <span class="string">'2022-12-23'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(since_lspay.difference_in_days) <span class="keyword">as</span> setup_days_since_lspay, <span class="keyword">avg</span>(since_solpay.difference_in_days) <span class="keyword">as</span> setup_days_since_lspay_self_serve, <span class="keyword">avg</span>(since_sauron.difference_in_days) <span class="keyword">as</span> setup_days_since_lspay_visibility </span><br><span class="line"><span class="keyword">from</span> since_lspay, since_solpay, since_sauron</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>a WITH clause defines a temporary data set whose output is available to be referenced in subsequent queries.</p>
+</blockquote>
+<h2 id="Recursive-CTE-Common-Table-Expression"><a href="#Recursive-CTE-Common-Table-Expression" class="headerlink" title="Recursive CTE(Common Table Expression)"></a>Recursive CTE(Common Table Expression)</h2><blockquote>
+<p>Recursive CTEs are one of the more advanced functionalities of the WITH clause, which allows referencing itself within that CTE.</p>
+</blockquote>
+<blockquote>
+<p>The recursive function of the WITH clause similarly incorporates a base case and the recursive step.</p>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/17/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -212,7 +222,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
