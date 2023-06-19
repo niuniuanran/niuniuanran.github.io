@@ -141,10 +141,10 @@
         <a class="tag" href="/tags/#React" title="React">React</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#Javascript" title="Javascript">Javascript</a>
+        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#TripTime" title="TripTime">TripTime</a>
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
         <span>/</span>
         
         
@@ -173,7 +173,7 @@
 <h1 id="Finding-out-the-methods-available-to-the-component"><a href="#Finding-out-the-methods-available-to-the-component" class="headerlink" title="Finding out the methods available to the component"></a>Finding out the methods available to the component</h1><p>I did not find the method <code>fireLeafletEvent</code> very easily. I tried <code>click()</code> but was told that <code>this.toMarker.current.click</code> is not a function. I then thought if it was because React component did not have <code>click()</code>, and tried this provided in a <a href="https://stackoverflow.com/questions/40091000/simulate-click-event-on-react-element" target="_blank" rel="noopener">stackoverflow post</a>:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mouseClickEvents = [<span class="string">'mousedown'</span>, <span class="string">'mouseup'</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simulateMouseClick</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  mouseClickEvents.forEach(<span class="function"><span class="params">mouseEventType</span> =&gt;</span></span><br><span class="line">    element.dispatchEvent(</span><br><span class="line">      <span class="keyword">new</span> MouseEvent(mouseEventType, &#123;</span><br><span class="line">          view: <span class="built_in">window</span>,</span><br><span class="line">          bubbles: <span class="literal">true</span>,</span><br><span class="line">          cancelable: <span class="literal">true</span>,</span><br><span class="line">          buttons: <span class="number">1</span></span><br><span class="line">      &#125;)</span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>I was told that <code>this.toMarker.current.dispatchEvent</code> was not a function either.</p>
-<p>Yihao helped me with logging all the properties available of a Javascript object.</p>
+<p>Yihao helped me with logging all the properties available of a JavaScript object.</p>
 <p>This will print ALL the properties, including inherited ones and own ones:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> p <span class="keyword">in</span> component) &#123;</span><br><span class="line"><span class="built_in">console</span>.log(p)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
